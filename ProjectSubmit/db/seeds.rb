@@ -7,10 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Project.destroy_all
+School.destroy_all
 10.times do |x|
   Project.create({
   	title: "Title #{x + 1}",
   	resumo: "Resumo #{x + 1}",
   	file: "File #{x + 1}"
   	})
+
+  School.create({
+  	description: "Description #{x + 1}"
+  	})
+
 end
