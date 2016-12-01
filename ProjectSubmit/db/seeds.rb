@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Project.destroy_all
+10.times do |x|
+  Project.create({
+  	title: "Title #{x + 1}",
+  	resumo: "Resumo #{x + 1}",
+  	file: "File #{x + 1}"
+  	})
+end
