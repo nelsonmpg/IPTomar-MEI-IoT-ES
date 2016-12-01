@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  resumo: MyText
+  data: 2016-12-01
+  file: MyString
+  tag_id: 1
+  ClaSchool_id: 1
+  School_id: 1
+  User_id: 1
+
+two:
+  title: MyString
+  resumo: MyText
+  data: 2016-12-01
+  file: MyString
+  tag_id: 1
+  ClaSchool_id: 1
+  School_id: 1
+  User_id: 1

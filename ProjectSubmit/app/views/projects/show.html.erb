@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Resumo:</strong>
+  <%= @project.resumo %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @project.data %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @project.file %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @project.tag_id %>
+</p>
+
+<p>
+  <strong>Claschool:</strong>
+  <%= @project.ClaSchool_id %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @project.School_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @project.User_id %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
