@@ -1,0 +1,40 @@
+<h1>Editar Documento</h1>
+ 
+<%= form_for :document, url: document_path(@document), method: :patch do |f| %>
+ 
+   <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2>Existe erros no formulário
+        <%#  <%= pluralize(@school.errors.count, "error") %>
+      </h2>
+      
+      <ul>
+        <% @document.errors.each do |attr,msg| %>
+    <li><%= msg %></li>
+<% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :"Descrição do Documento" %><br>
+    <%= f.text_field :description %>
+  </p>
+ 
+ <p>
+    <%= f.label :"Data do Documento" %><br>
+    <%= f.text_field :date %>
+  </p>
+
+  <p>
+    <%= f.label :"Local do Documento" %><br>
+    <%= f.text_field :local %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Voltar', documents_path %>

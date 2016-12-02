@@ -19,4 +19,10 @@ School.destroy_all
   	description: "Description #{x + 1}"
   	})
 
+  Document.create({
+  	description: "Description #{x + 1}"
+	date: "Date #{x + 1}"
+	local: "Local #{x + 1}"
+  	})
+
 end

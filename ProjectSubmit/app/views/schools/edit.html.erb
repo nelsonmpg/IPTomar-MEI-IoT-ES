@@ -4,14 +4,14 @@
  
   <% if @school.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@school.errors.count, "error") %> prohibited
-        this article from being saved:
+      <h2>Existe erros no formulário
+        <%#  <%= pluralize(@school.errors.count, "error") %>
       </h2>
+      
       <ul>
-        <% @school.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+        <% @school.errors.each do |attr,msg| %>
+    <li><%= msg %></li>
+<% end %>
       </ul>
     </div>
   <% end %>
