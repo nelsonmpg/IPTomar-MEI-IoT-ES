@@ -13,23 +13,28 @@ Course.destroy_all
 
 10.times do |x|
   Project.create({
-  	title: "Title #{x + 1}",
+  	title: "Project Title #{x + 1}",
   	resumo: "Resumo #{x + 1}",
-  	file: "File #{x + 1}"
+  	file: "File #{x + 1}",
+    data: Time.now.to_s,
+    tag_id: "#{x + 1}",
+    ClaSchool_id: "#{x + 1}",
+    School_id: "#{x + 1}",
+    User_id: "#{x + 1}"
   	})
 
   School.create({
-  	description: "Description #{x + 1}"
+  	description: "School #{x + 1}"
   	})
 
   Document.create({
-  	description: "Description #{x + 1}",
+  	description: "Document #{x + 1}",
   	date: Time.now.to_s,
   	local: "Local #{x + 1}"
   	})
 
   Course.create({
-    description: "Description #{x + 1}"
+    description: "Course #{x + 1}"
     })
 
 end
