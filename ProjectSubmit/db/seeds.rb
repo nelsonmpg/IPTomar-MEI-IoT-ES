@@ -8,6 +8,8 @@
 
 Project.destroy_all
 School.destroy_all
+Document.destroy_all
+
 10.times do |x|
   Project.create({
   	title: "Title #{x + 1}",
@@ -20,9 +22,9 @@ School.destroy_all
   	})
 
   Document.create({
-  	description: "Description #{x + 1}"
-	date: "Date #{x + 1}"
-	local: "Local #{x + 1}"
+  	description: "Description #{x + 1}",
+  	date: Time.now.to_s,
+  	local: "Local #{x + 1}"
   	})
 
 end
