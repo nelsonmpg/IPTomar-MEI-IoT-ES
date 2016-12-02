@@ -9,6 +9,7 @@
 Project.destroy_all
 School.destroy_all
 Document.destroy_all
+Course.destroy_all
 
 10.times do |x|
   Project.create({
@@ -26,5 +27,9 @@ Document.destroy_all
   	date: Time.now.to_s,
   	local: "Local #{x + 1}"
   	})
+
+  Course.create({
+    description: "Description #{x + 1}"
+    })
 
 end
