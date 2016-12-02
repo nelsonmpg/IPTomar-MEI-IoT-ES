@@ -8,6 +8,7 @@
 
 Project.destroy_all
 School.destroy_all
+Course.destroy_all
 10.times do |x|
   Project.create({
   	title: "Title #{x + 1}",
@@ -18,5 +19,9 @@ School.destroy_all
   School.create({
   	description: "Description #{x + 1}"
   	})
+
+  Course.create({
+    description: "Description #{x + 1}"
+    })
 
 end
