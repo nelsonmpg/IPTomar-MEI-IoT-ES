@@ -1,0 +1,11 @@
+<p>
+  <strong>Descrição:</strong>
+  <%= @document.description %>
+  <%= @document.date %>
+  <%= @document.local %>
+</p>
+
+ 
+ <td><%= link_to 'Editar', edit_document_path(@document) %>
+ <%= link_to 'Voltar', documents_path %>  
+ </td>
