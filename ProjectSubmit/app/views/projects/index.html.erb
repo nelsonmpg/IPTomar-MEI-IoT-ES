@@ -6,13 +6,14 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Resumo</th>
-      <th>Data</th>
-      <th>File</th>
-      <th>Tag</th>
-      <th>Claschool</th>
-      <th>School</th>
-      <th>User</th>
+      <th>Resume</th>
+      <th>Date</th>
+      <th>github</th>
+      <th>grade</th>
+      <th>projectlink</th>
+      <th>presentation</th>
+      <th>feature</th>
+      <th>finished</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,13 +22,14 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.title %></td>
-        <td><%= project.resumo %></td>
-        <td><%= project.data %></td>
-        <td><%= project.file %></td>
-        <td><%= project.tag_id %></td>
-        <td><%= project.ClaSchool_id %></td>
-        <td><%= project.School_id %></td>
-        <td><%= project.User_id %></td>
+        <td><%= project.resume %></td>
+        <td><%= project.date %></td>
+        <td><%= project.github %></td>
+        <td><%= project.grade %></td>
+        <td><%= project.projectlink %></td>
+        <td><%= project.presentation %></td>
+        <td><%= project.feature %></td>
+        <td><%= project.finished %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

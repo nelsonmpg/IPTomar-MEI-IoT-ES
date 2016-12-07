@@ -17,38 +17,43 @@
   </div>
 
   <div class="field">
-    <%= f.label :resumo %>
-    <%= f.text_area :resumo %>
+    <%= f.label :resume %>
+    <%= f.text_area :resume %>
   </div>
 
   <div class="field">
-    <%= f.label :data %>
-    <%= f.date_select :data %>
+    <%= f.label :date %>
+    <%= f.date_select :date %>
   </div>
 
   <div class="field">
-    <%= f.label :file %>
-    <%= f.text_field :file %>
+    <%= f.label :grade %>
+    <%= f.text_area :grade %>
   </div>
 
   <div class="field">
-    <%= f.label :tag_id %>
-    <%= f.number_field :tag_id %>
+    <%= f.label :projectlink %>
+    <%= f.text_area :projectlink %>
   </div>
 
   <div class="field">
-    <%= f.label :ClaSchool_id %>
-    <%= f.number_field :ClaSchool_id %>
+    <%= f.label :presentation %>
+    <%= f.date_select :presentation %>
   </div>
 
   <div class="field">
-    <%= f.label :School_id %>
-    <%= f.number_field :School_id %>
+    <%= f.label :feature %>
+    <%= f.check_box  :feature %>
   </div>
 
   <div class="field">
-    <%= f.label :User_id %>
-    <%= f.number_field :User_id %>
+    <%= f.label :github %>
+    <%= f.text_area :github %>
+  </div>
+
+  <div class="field">
+    <%= f.label :finished %>
+    <%= f.check_box  :finished %>
   </div>
 
   <div class="actions">
