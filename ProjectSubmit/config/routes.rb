@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :schools
   resources :documents
   resources :courses
-  
+  #users
+  #root to: 'home#index'
+  #devise_for :users, controllers: { sessions: 'users/sessions' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
