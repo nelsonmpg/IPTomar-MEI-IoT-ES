@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207142531) do
+ActiveRecord::Schema.define(version: 20161208095605) do
 
   create_table "courses", force: :cascade do |t|
     t.text     "description"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20161207142531) do
     t.text     "resume"
     t.text     "github"
     t.text     "grade"
-    t.text     "projectlink"
+    t.text     "project_url"
     t.date     "date"
-    t.date     "presentation"
-    t.boolean  "feature"
     t.boolean  "finished"
+    t.boolean  "featured"
+    t.datetime "presentation"
   end
 
   create_table "schools", force: :cascade do |t|
