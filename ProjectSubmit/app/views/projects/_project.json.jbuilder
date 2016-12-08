@@ -1,2 +1,2 @@
-json.extract! project, :id, :title, :resumo, :data, :file, :tag_id, :ClaSchool_id, :School_id, :User_id, :created_at, :updated_at
+json.extract! project, :id, :title, :created_at, :updated_at, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished
 json.url project_url(project, format: :json)

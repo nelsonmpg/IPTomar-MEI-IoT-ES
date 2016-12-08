@@ -14,13 +14,14 @@ Course.destroy_all
 10.times do |x|
   Project.create({
   	title: "Project Title #{x + 1}",
-  	resumo: "Resumo #{x + 1}",
-  	file: "File #{x + 1}",
-    data: Time.now.to_s,
-    tag_id: "#{x + 1}",
-    ClaSchool_id: "#{x + 1}",
-    School_id: "#{x + 1}",
-    User_id: "#{x + 1}"
+  	resume: "Resumo #{x + 1}",
+  	github: "GitHub Link #{x + 1}",
+    grade: "Grade #{x + 1}",
+    project_url: "Project Url #{x + 1}",
+    date: Time.now.to_s,
+    presentation: Time.now.to_s,
+    featured: true,
+    finished: true
   	})
 
   School.create({
