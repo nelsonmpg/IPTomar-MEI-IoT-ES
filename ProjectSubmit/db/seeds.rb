@@ -15,13 +15,13 @@ Course.destroy_all
   Project.create({
   	title: "Project Title #{x + 1}",
   	resume: "Resumo #{x + 1}",
-  	github: "#{x + 1}",
+  	github: "GitHub Link #{x + 1}",
+    grade: "Grade #{x + 1}",
+    project_url: "Project Url #{x + 1}",
     date: Time.now.to_s,
-    grade: "#{x + 1}",
-    projectlink: "#{x + 1}",
-    presentation: "#{x + 1}",
-    feature: "#{x + 1}",
-    finished: "#{x + 1}"
+    presentation: Time.now.to_s,
+    featured: true,
+    finished: true
   	})
 
   School.create({
