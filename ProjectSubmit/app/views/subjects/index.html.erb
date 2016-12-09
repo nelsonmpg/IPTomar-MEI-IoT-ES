@@ -1,0 +1,20 @@
+<h1>Lista de subjects</h1>
+ 
+ <%= link_to 'Adicionar subject', new_subject_path %>
+<table>
+  <tr>
+    <th>subject:</th>
+
+  </tr>
+ 
+  <% @subjects.each do |subject| %>
+    <tr>
+      <td><%= subject.description %></td>
+
+      <td><%= link_to 'Mostrar', subject_path(subject) %></td>
+      <td><%= link_to 'Editar', edit_subject_path(subject) %></td>
+     <td><%= link_to 'Remover', subject_path(subject), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este subject?' } %></td>
+    
+    </tr>
+  <% end %>
+</table>
