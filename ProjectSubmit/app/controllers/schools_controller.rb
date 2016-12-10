@@ -1,5 +1,6 @@
 class SchoolsController < ApplicationController
-
+  #autenticação do user antes de entrar.....
+  before_action :authenticate_user!
 def index
     @schools = School.all
 end
@@ -18,7 +19,7 @@ end
 
 def update
     @school = School.find(params[:id])
- 
+
   if @school.update(school_params)
     redirect_to schools_path
   else
