@@ -1,4 +1,4 @@
-<h1>Adicionar subjects</h1>
+<h1>Adicionar Cadeira</h1>
 
 <%= form_for :subject, url: subjects_path do |f| %>
  
@@ -6,7 +6,7 @@
     <div id="error_explanation">
       <h2>
         <%= pluralize(@subject.errors.count, "error") %> prohibited
-        this article from being saved:
+        this subject from being saved:
       </h2>
       <ul>
         <% @subject.errors.full_messages.each do |msg| %>
@@ -17,22 +17,22 @@
   <% end %>
  
   <p>
-    <%= f.label :"Descrição de subjects" %><br>
+    <%= f.label :"Descrição da Cadeira" %><br>
     <%= f.text_field :description %>
   </p>
  
  <p>
-    <%= f.label :"Nome do subject" %><br>
+    <%= f.label :"Nome da Cadeira" %><br>
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.label :"Iniciais do subject" %><br>
+    <%= f.label :"Iniciais da Cadeira" %><br>
     <%= f.text_field :inicials %>
   </p>
 
   <p>
-    <%= f.label :"Código do subject" %><br>
+    <%= f.label :"Código da Cadeira" %><br>
     <%= f.text_field :code %>
   </p>
  

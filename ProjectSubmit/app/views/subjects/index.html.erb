@@ -1,19 +1,23 @@
-<h1>Lista de subjects</h1>
+<h1>Lista de Cadeiras</h1>
  
- <%= link_to 'Adicionar subject', new_subject_path %>
+ <%= link_to 'Adicionar Cadeira', new_subject_path %>
 <table>
   <tr>
-    <th>subject:</th>
+    <th>Cadeira:</th>
 
   </tr>
  
   <% @subjects.each do |subject| %>
     <tr>
+      <td><%= subject.name %></td>
       <td><%= subject.description %></td>
+      <td><%= subject.code %></td>
+      <td><%= subject.initials %></td>
+
 
       <td><%= link_to 'Mostrar', subject_path(subject) %></td>
       <td><%= link_to 'Editar', edit_subject_path(subject) %></td>
-     <td><%= link_to 'Remover', subject_path(subject), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este subject?' } %></td>
+      <td><%= link_to 'Remover', subject_path(subject), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta Cadeira?' } %></td>
     
     </tr>
   <% end %>

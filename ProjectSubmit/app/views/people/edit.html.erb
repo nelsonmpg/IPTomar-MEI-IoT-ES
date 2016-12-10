@@ -1,6 +1,6 @@
 <h1>Editar Pessoas</h1>
  
-<%= form_for :person, url: person_path(@person), method: :patch do |f| %>
+<%= form_for :person, url: people_path(@person), method: :patch do |f| %>
  
   <% if @person.errors.any? %>
     <div id="error_explanation">
@@ -37,4 +37,4 @@
  
 <% end %>
  
-<%= link_to 'Voltar', persons_path %>
+<%= link_to 'Voltar', people_path %>
