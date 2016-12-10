@@ -5,8 +5,7 @@
   <% if @course.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@course.errors.count, "error") %> prohibited
-        this course from being saved:
+        <%= pluralize(@course.errors.count, "error") %> não foi guardado
       </h2>
       <ul>
         <% @course.errors.full_messages.each do |msg| %>
