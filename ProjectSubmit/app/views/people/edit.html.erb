@@ -1,0 +1,40 @@
+<h1>Editar peoples</h1>
+ 
+<%= form_for :people, url: people_path(@people), method: :patch do |f| %>
+ 
+  <% if @people.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@people.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @people.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+   <p>
+    <%= f.label :"Nome" %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+ <p>
+    <%= f.label :"email" %><br>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :"Foto" %><br>
+    <%= f.text_field :photo %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Voltar', peoples_path %>

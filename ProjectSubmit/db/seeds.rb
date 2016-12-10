@@ -10,6 +10,7 @@ Project.destroy_all
 School.destroy_all
 Document.destroy_all
 Course.destroy_all
+Person.destroy_all
 
 10.times do |x|
   Project.create({
@@ -35,7 +36,16 @@ Course.destroy_all
   	})
 
   Course.create({
-    description: "Course #{x + 1}"
+  	name: "Name #{x + 1}",
+    description: "Description #{x + 1}",
+    initials: "Initials #{x + 1}",
+    code: "Code #{x + 1}"
     })
+
+  Person.create({
+  	name: "Name #{x + 1}",
+  	email: "Email #{x + 1}",
+  	photo: "Photo #{x + 1}"
+  	})
 
 end

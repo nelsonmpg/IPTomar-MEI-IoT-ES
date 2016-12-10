@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
-
+  #autenticação do user antes de entrar.....
+  before_action :authenticate_user!
 
 def index
     @documents = Document.all
@@ -19,7 +20,7 @@ end
 
 def update
     @document = Document.find(params[:id])
- 
+
   if @document.update(document_params)
     redirect_to documents_path
   else
