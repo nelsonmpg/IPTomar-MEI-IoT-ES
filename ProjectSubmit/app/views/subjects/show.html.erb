@@ -1,0 +1,24 @@
+<p>
+  <strong>Nome:</strong>
+  <%= @subject.name %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @subject.description %>
+</p>
+
+<p>
+  <strong>Código:</strong>
+  <%= @subject.code %>
+</p>
+
+<p>
+  <strong>Iniciais:</strong>
+  <%= @subject.initials %>
+</p>
+
+ 
+ <td><%= link_to 'Editar', edit_subject_path(@subject) %>
+ <%= link_to 'Voltar', subjects_path %>  
+ </td>

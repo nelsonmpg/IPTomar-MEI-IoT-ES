@@ -1,12 +1,11 @@
-<h1>Adicionar Courses</h1>
+<h1>Adicionar Curso</h1>
 
 <%= form_for :course, url: courses_path do |f| %>
  
   <% if @course.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@course.errors.count, "error") %> prohibited
-        this article from being saved:
+        <%= pluralize(@course.errors.count, "error") %> não foi guardado
       </h2>
       <ul>
         <% @course.errors.full_messages.each do |msg| %>
@@ -17,10 +16,23 @@
   <% end %>
  
   <p>
-    <%= f.label :"Descrição de Courses" %><br>
+    <%= f.label :"Descrição de Curso" %><br>
     <%= f.text_field :description %>
   </p>
- 
+ <p>
+    <%= f.label :"Nome do Curso" %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :"Iniciais do Curso" %><br>
+    <%= f.text_field :inicials %>
+  </p>
+
+  <p>
+    <%= f.label :"Código do Curso" %><br>
+    <%= f.text_field :code %>
+  </p>
  
   <p>
     <%= f.submit %>

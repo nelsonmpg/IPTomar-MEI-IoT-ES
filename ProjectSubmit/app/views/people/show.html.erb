@@ -1,0 +1,18 @@
+<p>
+  <strong>Nome:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @person.email %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= @person.photo %>
+</p>
+ 
+ <td><%= link_to 'Editar', edit_person_path(@person) %>
+ <%= link_to 'Voltar', people_path %>  
+ </td>
