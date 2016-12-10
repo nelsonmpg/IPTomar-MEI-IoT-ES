@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
-
+	#autenticação do user antes de entrar.....
+  before_action :authenticate_user!
+	
 	def index
     	@courses = Course.all
 	end
@@ -18,7 +20,7 @@ class CoursesController < ApplicationController
 
 	def update
     	@course = Course.find(params[:id])
- 
+
   		if @course.update(course_params)
     		redirect_to courses_path
   		else
