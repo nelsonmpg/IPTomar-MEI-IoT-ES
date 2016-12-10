@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161209215714) do
-=======
-ActiveRecord::Schema.define(version: 20161208115054) do
->>>>>>> refs/remotes/origin/master
 
   create_table "courses", force: :cascade do |t|
     t.text     "description"
@@ -33,7 +29,6 @@ ActiveRecord::Schema.define(version: 20161208115054) do
     t.datetime "updated_at",  null: false
   end
 
-<<<<<<< HEAD
   create_table "people", force: :cascade do |t|
     t.text     "name"
     t.text     "email"
@@ -48,8 +43,6 @@ ActiveRecord::Schema.define(version: 20161208115054) do
     t.datetime "updated_at",  null: false
   end
 
-=======
->>>>>>> refs/remotes/origin/master
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at",   null: false
@@ -70,7 +63,6 @@ ActiveRecord::Schema.define(version: 20161208115054) do
     t.datetime "updated_at",  null: false
   end
 
-<<<<<<< HEAD
   create_table "subjects", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
@@ -78,7 +70,8 @@ ActiveRecord::Schema.define(version: 20161208115054) do
     t.text     "initials"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-=======
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -94,7 +87,6 @@ ActiveRecord::Schema.define(version: 20161208115054) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
->>>>>>> refs/remotes/origin/master
   end
 
 end
