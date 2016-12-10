@@ -1,9 +1,9 @@
-<h1>Lista de Courses</h1>
+<h1>Lista de Cursos</h1>
  
- <%= link_to 'Adicionar Course', new_course_path %>
+ <%= link_to 'Adicionar Curso', new_course_path %>
 <table>
   <tr>
-    <th>Course:</th>
+    <th>Curso:</th>
 
   </tr>
  
@@ -13,7 +13,7 @@
 
       <td><%= link_to 'Mostrar', course_path(course) %></td>
       <td><%= link_to 'Editar', edit_course_path(course) %></td>
-     <td><%= link_to 'Remover', course_path(course), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este course?' } %></td>
+     <td><%= link_to 'Remover', course_path(course), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este Curso?' } %></td>
     
     </tr>
   <% end %>

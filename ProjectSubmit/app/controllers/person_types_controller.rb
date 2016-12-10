@@ -1,22 +1,22 @@
 class PersonTypesController < ApplicationController
 	def index
-    	@persontypes = Persontype.all
+    	@persontypes = PersonType.all
 	end
 
 	def show
-    	@persontype = Persontype.find(params[:id])
+    	@persontype = PersonType.find(params[:id])
 	end
 
 	def edit
-    	@persontype = Persontype.find(params[:id])
+    	@persontype = PersonType.find(params[:id])
 	end
 
 	def new
-   		@persontype = Persontype.new
+   		@persontype = PersonType.new
 	end
 
 	def update
-    	@persontype = Persontype.find(params[:id])
+    	@persontype = PersonType.find(params[:id])
  
   		if @persontype.update(persontype_params)
     		redirect_to persontypes_path
@@ -26,7 +26,7 @@ class PersonTypesController < ApplicationController
 	end
 
 	def create
-    	@persontype = Persontype.new(persontype_params)
+    	@persontype = PersonType.new(persontype_params)
 
  		if @persontype.save
   			redirect_to persontypes_path
@@ -36,7 +36,7 @@ class PersonTypesController < ApplicationController
 	end
 
 	def destroy
-    	@persontype = Persontype.find(params[:id])
+    	@persontype = PersonType.find(params[:id])
     	@persontype.destroy
 
     	redirect_to persontypes_path
@@ -44,6 +44,6 @@ class PersonTypesController < ApplicationController
 
 	private
 	def persontype_params
-    	params.require(:persontype).permit(:designation)
+    	params.require(:person_type).permit(:designation)
 	end
 end

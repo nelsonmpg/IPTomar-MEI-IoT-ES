@@ -1,15 +1,15 @@
-<h1>Editar peoples</h1>
+<h1>Editar Pessoas</h1>
  
-<%= form_for :people, url: people_path(@people), method: :patch do |f| %>
+<%= form_for :person, url: person_path(@person), method: :patch do |f| %>
  
-  <% if @people.errors.any? %>
+  <% if @person.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@people.errors.count, "error") %> prohibited
-        this article from being saved:
+        <%= pluralize(@person.errors.count, "error") %> prohibited
+        this person from being saved:
       </h2>
       <ul>
-        <% @people.errors.full_messages.each do |msg| %>
+        <% @person.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -37,4 +37,4 @@
  
 <% end %>
  
-<%= link_to 'Voltar', peoples_path %>
+<%= link_to 'Voltar', persons_path %>

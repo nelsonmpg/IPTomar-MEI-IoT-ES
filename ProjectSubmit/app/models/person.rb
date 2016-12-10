@@ -3,5 +3,5 @@ class Person < ApplicationRecord
     validates :email, presence: true
     validates :photo, presence: true
     has_and_belongs_to_many :projects
-    has_one :persontype
+    has_one :person_type
 end

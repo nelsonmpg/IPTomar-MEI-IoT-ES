@@ -1,19 +1,19 @@
-<h1>Lista de peoples</h1>
+<h1>Lista de Pessoas</h1>
  
- <%= link_to 'Adicionar people', new_people_path %>
+ <%= link_to 'Adicionar Pessoas', new_people_path %>
 <table>
   <tr>
-    <th>people:</th>
+    <th>Pessoas:</th>
 
   </tr>
  
-  <% @peoples.each do |people| %>
+  <% @person.each do |people| %>
     <tr>
       <td><%= people.description %></td>
 
       <td><%= link_to 'Mostrar', people_path(people) %></td>
       <td><%= link_to 'Editar', edit_people_path(people) %></td>
-     <td><%= link_to 'Remover', people_path(people), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este people?' } %></td>
+     <td><%= link_to 'Remover', people_path(people), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta pessoa?' } %></td>
     
     </tr>
   <% end %>

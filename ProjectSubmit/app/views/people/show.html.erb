@@ -1,9 +1,18 @@
 <p>
-  <strong>Descrição:</strong>
-  <%= @people.description %>
+  <strong>Nome:</strong>
+  <%= @person.name %>
 </p>
 
+<p>
+  <strong>Email:</strong>
+  <%= @person.email %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= @person.photo %>
+</p>
  
- <td><%= link_to 'Editar', edit_people_path(@people) %>
+ <td><%= link_to 'Editar', edit_people_path(@person) %>
  <%= link_to 'Voltar', peoples_path %>  
  </td>

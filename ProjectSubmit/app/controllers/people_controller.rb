@@ -1,49 +1,49 @@
 class PeopleController < ApplicationController
 	def index
-    	@peoples = People.all
+    	@people = People.all
 	end
 
 	def show
-    	@people = People.find(params[:id])
+    	@person = People.find(params[:id])
 	end
 
 	def edit
-    	@people = People.find(params[:id])
+    	@person = People.find(params[:id])
 	end
 
 	def new
-   		@people = People.new
+   		@person = People.new
 	end
 
 	def update
-    	@people = People.find(params[:id])
+    	@person = People.find(params[:id])
  
-  		if @people.update(people_params)
-    		redirect_to peoples_path
+  		if @person.update(person_params)
+    		redirect_to people_path
   		else
     		render 'edit'
   		end
 	end
 
 	def create
-    	@people = People.new(people_params)
+    	@person = People.new(person_params)
 
- 		if @people.save
-  			redirect_to peoples_path
+ 		if @person.save
+  			redirect_to people_path
   		else
       	render 'new'
 		end
 	end
 
 	def destroy
-    	@people = People.find(params[:id])
-    	@people.destroy
+    	@person = People.find(params[:id])
+    	@person.destroy
 
-    	redirect_to peoples_path
+    	redirect_to people_path
 	end
 
 	private
-	def people_params
-    	params.require(:people).permit(:name,:email,:photo)
+	def person_params
+    	params.require(:person).permit(:name,:email,:photo)
 	end
 end
