@@ -8,7 +8,9 @@
   </tr>
  
   <% @documents.each do |document| %>
+
     <tr>
+      <td><%= document.name %></td>
       <td><%= document.description %></td>
       <td><%= document.date %></td>
       <td><%= document.local %></td>
