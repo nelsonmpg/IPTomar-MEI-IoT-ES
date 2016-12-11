@@ -45,7 +45,7 @@ end
 
 private
 def document_params
-    params.require(:document).permit(:description, :date, :local)
+    params.require(:document).permit(:name, :description, :date, :local)
 end
 
 end
