@@ -20,10 +20,11 @@ $(document).ready(function() {
     });
 
     // Responsive Menu
-    $(".toggle_link").click(function () {
-
-console.log("menu1234");
-        $("#menu").toggleClass("active");
+    $(".toggle_link").click(function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement;
+        event.preventDefault();
+        //$("#menu").toggleClass("active");
     });
 
     $(".parent a").attr("aria-haspopup", "true");
@@ -46,11 +47,17 @@ console.log("menu1234");
     });
 
     // Style Switch
-    $(".switch span").click(function(){
-        var id = $(this).attr("id");
+    $(".switch span").click(function(event){
+        event.preventDefault();
+        //event = event || window.event;
+        //var target = event.target || event.srcElement;
+        //var id = $("#" + event.id).attr("id");
 
         // adjust link here
-        $("#switch_style").attr("href", "/css/" + id + ".css");
+        $("#switch_style").attr("href", "/css/" + this.id + ".css");
+        console.log("/css/" + this.id + ".css");
+
+
     });
 
     if($('.articles').find('div.wrapper').length != 0){
@@ -170,9 +177,25 @@ $( function(){
     //	ALL COMBINED
     var selectorF = 'a[data-imagelightbox="f"]';
     var instanceF = $( selectorF ).imageLightbox( {
-        onStart:		function() { overlayOn(); closeButtonOn( instanceF ); arrowsOn( instanceF, selectorF ); },
-        onEnd:			function() { overlayOff(); captionOff(); closeButtonOff(); arrowsOff(); activityIndicatorOff(); },
-        onLoadStart: 	function() { captionOff(); activityIndicatorOn(); },
-        onLoadEnd:	 	function() { captionOn(); activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+        onStart:		function() { 
+            overlayOn(); 
+            closeButtonOn( instanceF ); 
+            arrowsOn( instanceF, selectorF ); 
+        },
+        onEnd:			function() { 
+            overlayOff(); 
+            captionOff(); 
+            closeButtonOff(); 
+            arrowsOff(); 
+            activityIndicatorOff(); 
+        },
+        onLoadStart: 	function() { 
+            captionOff(); 
+            activityIndicatorOn(); 
+        },
+        onLoadEnd:	 	function() { 
+            captionOn(); 
+            activityIndicatorOff(); 
+            $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
     });
 });

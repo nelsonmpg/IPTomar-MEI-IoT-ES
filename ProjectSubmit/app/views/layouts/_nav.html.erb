@@ -2,17 +2,7 @@
 	<div class="content">
 		<nav id="menu">
 		    <a class="toggle_link noline"><i class="fa fa-close fa-lg"></i></a>
-		    <ul>
-			    <li>
-			    	<dir id="user_nav">
-				      <% if user_signed_in? %>
-				        Signed in as <%= current_user.email %>. Not you?
-				        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-				      <% else %>
-				        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-				      <% end %>
-			      </dir>
-			    </li>
+		    <ul>			    
 		        <li>
 		            <a href="#">Page</a>
 		        </li>
@@ -27,11 +17,21 @@
 		        </li>
 		        <li class="parent"><a href="#">Drop Example</a>
 		            <ul>
-		                <li><a href="/child1">child</a></li>
-		                <li><a href="/child2">child</a></li>
-		                <li><a href="/child3">child</a></li>
+		                <li><a href="#">child</a></li>
+		                <li><a href="#">child</a></li>
+		                <li><a href="#">child</a></li>
 		            </ul>
 		        </li>
+	            <li>
+			    	<dir id="user_nav">
+				      <% if user_signed_in? %>
+				        <%= current_user.email.split('@')[0] %>
+				        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+				      <% else %>
+				        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+				      <% end %>
+			      </dir>
+			    </li>
 		    </ul>
 		</nav>
 		<nav class="iconnav">
@@ -65,7 +65,7 @@
 	            </li>
 		    </ul>
 		</nav>
-		<a href='#menu' class="toggle_link noline">
+		<a href='' class="toggle_link noline">
 		    <i class="fa fa-navicon"></i>
 		</a>
 	</div>
