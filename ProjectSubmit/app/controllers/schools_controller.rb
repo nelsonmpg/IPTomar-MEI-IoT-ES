@@ -3,12 +3,10 @@ class SchoolsController < ApplicationController
   #before_action :authenticate_user!
 def index
     @schools = School.all
-    @courses = Course.all
 end
 
 def show
     @school = School.find(params[:id])
-    @courses = Course.all
 end
 
 def edit

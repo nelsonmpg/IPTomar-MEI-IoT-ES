@@ -4,12 +4,10 @@ class CoursesController < ApplicationController
 	
 	def index
     	@courses = Course.all
-		@schools = School.all
 	end
 
 	def show
     	@course = Course.find(params[:id])
-		@schools = School.all
 			
 	end
 
