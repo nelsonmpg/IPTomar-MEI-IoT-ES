@@ -5,8 +5,24 @@
   <tr>
     <th>Curso:</th>
 
+
   </tr>
- 
+<% @schools.each do |school| %>
+<tr>
+ <select>
+
+
+ <option><%= school.id %></option>
+
+</select>
+
+
+
+
+
+
+    </tr>
+   <% end %>  
   <% @courses.each do |course| %>
     <tr>
       <td><%= course.name %></td>
@@ -16,7 +32,8 @@
       <td><%= link_to 'Mostrar', course_path(course) %></td>
       <td><%= link_to 'Editar', edit_course_path(course) %></td>
      <td><%= link_to 'Remover', course_path(course), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este Curso?' } %></td>
-    
     </tr>
+    
+
   <% end %>
 </table>
