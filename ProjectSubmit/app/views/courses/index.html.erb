@@ -2,24 +2,26 @@
  
  <%= link_to 'Adicionar Curso', new_course_path %>
 <table>
-  <tr>
-    <th>Curso:</th>
-
-
-
-    </tr>
-
+ 
   <% @courses.each do |course| %>
     <tr>
+      <th>Nome:</th>
       <td><%= course.name %></td>
+      <th>Descrição:</th>
       <td><%= course.description %></td>
+      <th>Código:</th>
       <td><%= course.code %></td>
+      <th>Iniciais:</th>
       <td><%= course.initials %></td>
+      <th>Escola a que pertence: </th>
+      <td><%= course.school.name%></td>
+
+
       <td><%= link_to 'Mostrar', course_path(course) %></td>
       <td><%= link_to 'Editar', edit_course_path(course) %></td>
-     <td><%= link_to 'Remover', course_path(course), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este Curso?' } %></td>
+      <td><%= button_to 'Remover', course_path(course), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este Curso?' } %></td>
+   
     </tr>
-    
 
   <% end %>
 </table>

@@ -4,12 +4,13 @@ class CoursesController < ApplicationController
 	
 	def index
     	@courses = Course.all
-
+		@schools = School.all
 	end
 
 	def show
     	@course = Course.find(params[:id])
-		
+		@schools = School.all
+			
 	end
 
 	def edit
@@ -31,8 +32,6 @@ class CoursesController < ApplicationController
 	end
 
 	def create
- #@school = School.find(params[:school_id])
-  #@course = @school.courses.new(course_params)
 
     	@course = Course.new(course_params)
 
