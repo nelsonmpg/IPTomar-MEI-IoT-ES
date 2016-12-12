@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :people
   resources :persontypes
 
+  
+
 # devise_for :users
 # <<<<<<< HEAD  
 # =======

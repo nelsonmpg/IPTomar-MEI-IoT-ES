@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
 	
 	def index
     	@courses = Course.all
-		@schools = School.all
+
 	end
 
 	def show
@@ -31,6 +31,9 @@ class CoursesController < ApplicationController
 	end
 
 	def create
+ #@school = School.find(params[:school_id])
+  #@course = @school.courses.new(course_params)
+
     	@course = Course.new(course_params)
 
  		if @course.save
@@ -49,6 +52,6 @@ class CoursesController < ApplicationController
 
 	private
 	def course_params
-    	params.require(:course).permit(:name,:code,:initials,:description)
+    	params.require(:course).permit(:name,:code,:initials,:description,:school_id)
 	end
 end
