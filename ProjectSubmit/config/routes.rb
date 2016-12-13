@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  devise_for :users
   resources :projects
   resources :schools
   resources :documents
@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   resources :people
   resources :persontypes
 
-# devise_for :users
-# <<<<<<< HEAD  
-# =======
   #users
   #root to: 'home#index'
   #devise_for :users, controllers: { sessions: 'users/sessions' }
