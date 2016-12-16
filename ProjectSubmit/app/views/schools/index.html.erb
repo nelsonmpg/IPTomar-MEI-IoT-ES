@@ -3,6 +3,10 @@
  <%= link_to 'Adicionar Escola', new_school_path %>
 <table>
 
+<%= form_tag(schools_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Pesquisar Escolas" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
 
   <% @schools.each do |school| %>
     <tr>

@@ -1,4 +1,4 @@
-<p>
+ <p>
   <strong>Nome:</strong>
   <%= @subject.name %>
 </p>
@@ -17,6 +17,12 @@
   <strong>Iniciais:</strong>
   <%= @subject.initials %>
 </p>
+
+<p>
+  <strong>Escola a que pertence:</strong>
+  <%= @subject.course.name %>
+</p>
+
 
  
  <td><%= link_to 'Editar', edit_subject_path(@subject) %>

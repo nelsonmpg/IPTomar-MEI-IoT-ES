@@ -3,6 +3,12 @@ class SchoolsController < ApplicationController
   before_action :authenticate_user!
 def index
     @schools = School.all
+
+    if params[:search]
+    @schools = School.search(params[:search]).order("created_at DESC")
+  else
+    @schools = School.all.order('created_at DESC')
+  end
 end
 
 def show

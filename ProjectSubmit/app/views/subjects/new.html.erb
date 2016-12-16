@@ -27,7 +27,7 @@
 
   <p>
     <%= f.label :"Iniciais da Cadeira" %><br>
-    <%= f.text_field :inicials %>
+    <%= f.text_field :initials %>
   </p>
 
   <p>
@@ -35,6 +35,11 @@
     <%= f.text_field :code %>
   </p>
  
+<p>
+ <%= f.label :"Curso a que pertence a cadeira" %><br>
+ <%= f.select :course_id, Course.all.collect { |s| [s.name, s.id] }, include_blank: true %>
+ </p>
+
   <p>
     <%= f.submit %>
   </p>
