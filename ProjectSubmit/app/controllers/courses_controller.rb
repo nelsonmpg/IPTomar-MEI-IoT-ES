@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 	#autenticação do user antes de entrar.....
- # before_action :authenticate_user!
+  before_action :authenticate_user!
 	
 	def index
     	@courses = Course.all
