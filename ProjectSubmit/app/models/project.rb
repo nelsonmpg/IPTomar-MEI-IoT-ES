@@ -11,5 +11,8 @@ class Project < ApplicationRecord
     # ainda falta as tag nos models...!
     #
     #has_and_belongs_to_many :tags
+    #tabela project vai ser atulizada com rails db:setup
+    #com o ficheiro db/migrate/20161216162310_adduser_association_to_project
     #By: PedroMatos
+    
 end
