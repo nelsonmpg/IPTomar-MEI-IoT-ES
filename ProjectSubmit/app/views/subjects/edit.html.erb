@@ -4,11 +4,11 @@
  
   <% if @subject.errors.any? %>
     <div id="error_explanation">
-      <h2>
+      <h2><h2>Existe erros no formulário
        <%# <%= pluralize(@subject.errors.count, "error") %>
       </h2>
       <ul>
-        <% @subject.errors.each do |msg| %>
+        <% @subject.errors.each do |attr,msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -21,17 +21,16 @@
     <%= f.text_field :name %>
   </p>
 
+<p>
+    <%= f.label :"Código da Cadeira" %><br>
+    <%= f.text_field :code %>
+  </p>
 
  <p>
     <%= f.label :"Iniciais da Cadeira" %><br>
     <%= f.text_field :initials %>
   </p>
-
-  <p>
-    <%= f.label :"Código da Cadeira" %><br>
-    <%= f.text_field :code %>
-  </p>
-
+  
   <p>
     <%= f.label :"Descrição da Cadeira" %><br>
     <%= f.text_field :description %>
@@ -39,12 +38,12 @@
  
   <p>
  <%= f.label :"Curso a que pertence a cadeira" %><br>
- <%= f.select :course_id, Course.all.collect { |s| [s.name, s.id] }, include_blank: true %>
+ <%= f.select :course_id, Course.all.collect { |s| [s.name, s.id] } %>
  </p>
  
  
   <p>
-    <%= f.submit %>
+    <%= f.submit  "Salvar Cadeira"%>
   </p>
  
 <% end %>
