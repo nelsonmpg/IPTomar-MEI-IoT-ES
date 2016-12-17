@@ -17,8 +17,10 @@
       <th>Escola a que pertence: </th>
       <td><%= course.school.name%></td>
 
-       <% if user_signed_in?%>
+
       <td><%= link_to 'Mostrar', course_path(course) %></td>
+       <% if user_signed_in?%>
+      
       <td><%= link_to 'Editar', edit_course_path(course) %></td>
       <td><%= button_to 'Remover', course_path(course), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este Curso?' } %></td>
       <%end%>
