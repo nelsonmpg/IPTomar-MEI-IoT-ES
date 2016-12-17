@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216162310) do
+ActiveRecord::Schema.define(version: 20161217164718) do
 
   create_table "courses", force: :cascade do |t|
     t.text     "description"
@@ -56,8 +56,6 @@ ActiveRecord::Schema.define(version: 20161216162310) do
     t.boolean  "finished"
     t.boolean  "featured"
     t.datetime "presentation"
-    t.integer  "user_id_id"
-    t.index ["user_id_id"], name: "index_projects_on_user_id_id"
   end
 
   create_table "schools", force: :cascade do |t|
