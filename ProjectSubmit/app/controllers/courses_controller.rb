@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 	#autenticação do user antes de entrar.....
-  before_action :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index,:show]
 	
 	def index
     	@courses = Course.all

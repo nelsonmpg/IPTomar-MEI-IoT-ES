@@ -23,9 +23,13 @@
  
 <% end %>
 
-
+<% if user_signed_in?%>
  <td><%= link_to 'Editar', edit_school_path(@school) %>
- <%= link_to 'Voltar', schools_path %>  
+ </td>
+<%end%>
+
+ <td>
+<%= link_to 'Voltar', schools_path %> 
  </td>
 
 

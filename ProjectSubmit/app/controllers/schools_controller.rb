@@ -1,11 +1,10 @@
 class SchoolsController < ApplicationController
   #autenticação do user antes de entrar.....
-  before_action :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index,:show]
 def index
-    @schools = School.all
 
-    if params[:search]
-    @schools = School.search(params[:search]).order("created_at DESC")
+    if params[:pesquisar]
+    @schools = School.search(params[:pesquisar]).order("created_at DESC")
   else
     @schools = School.all.order('created_at DESC')
   end

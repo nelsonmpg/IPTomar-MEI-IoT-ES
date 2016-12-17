@@ -1,10 +1,11 @@
 <h1>Lista de Escolas</h1>
- 
+ <% if user_signed_in?%>
  <%= link_to 'Adicionar Escola', new_school_path %>
+ <%end%>
 <table>
 
 <%= form_tag(schools_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Pesquisar Escolas" %>
+  <%= text_field_tag :search, params[:pesquisar], placeholder: "Pesquisar Escolas" %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
@@ -22,11 +23,12 @@
       <td><%= school.courses.size %></td>
  
 
+      <% if user_signed_in?%>
 
       <td><%= link_to 'Mostrar', school_path(school) %></td>
       <td><%= link_to 'Editar', edit_school_path(school) %></td>
       <td><%= button_to 'Remover', school_path(school), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta escola?' } %></td>
-
+      <%end%>
     </tr>
   <% end %>
 
