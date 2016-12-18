@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  get 'home/index'
-=======
+
 root to: 'projects#index'
->>>>>>> Miguel
 
   devise_for :users
   resources :projects
@@ -21,11 +18,8 @@ root to: 'projects#index'
 
   #users
   #devise_for :users, controllers: { sessions: 'users/sessions' }
-<<<<<<< HEAD
 
-  root 'home#index'
-=======
 # >>>>>>> refs/remotes/origin/master
->>>>>>> Miguel
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
