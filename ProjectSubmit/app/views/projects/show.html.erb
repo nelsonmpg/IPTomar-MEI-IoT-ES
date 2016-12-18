@@ -1,49 +1,69 @@
-<p id="notice"><%= notice %></p>
+<section class="margin">
+  <div class="content">
+    <div class="content_container">
+      <article>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+        <h1 class="post_title">
+          <%= @project.title %>
+        </h1>
 
-<p>
-  <strong>Resume:</strong>
-  <%= @project.resume %>
-</p>
+        <div class="meta">
+                Publicado por "unknown" &bull; <%= @project.date %>
+        </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @project.date %>
-</p>
+        <img src="/img/1.jpg" alt="1.jpg">
 
-<p>
-  <strong>github:</strong>
-  <%= @project.github %>
-</p>
+        <div class="post_content">
+            <%= @project.resume %>
+        </div>
 
-<p>
-  <strong>grade:</strong>
-  <%= @project.grade %>
-</p>
 
-<p>
-  <strong>project_url:</strong>
-  <%= @project.project_url %>
-</p>
+        <div class="catsandtags">
+            <p class="category">
+                <span class="name">GitHub:</span> 
+                <%= @project.github %> &bull;
 
-<p>
-  <strong>presentation:</strong>
-  <%= @project.presentation %>
-</p>
+                <span class="name">Grade:</span> 
+                <%= @project.grade %> &bull;
 
-<p>
-  <strong>featured:</strong>
-  <%= @project.featured %>
-</p>
+                <span class="name">Project URL:</span> 
+                <%= @project.project_url %> &bull;
 
-<p>
-  <strong>finished:</strong>
-  <%= @project.finished %>
-</p>
+                <span class="name">Presentation:</span> 
+                <%= @project.presentation %>
+            </p>
+            <p class="category">
+              <span class="name">Featured:</span> 
+              <% if @project.featured == TRUE %>
+                yes
+              <% else %>
+                no
+              <% end %>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+              &bull;
+
+               <span class="name">Finished:</span> 
+              <% if @project.finished == TRUE %>
+                yes
+              <% else %>
+                no
+              <% end %>
+            </p>
+
+            <p class="tags">
+                <span class="name">Tags:</span>
+                    <a href="{{ site.tag_dir | prepend: site.baseurl | replace: '//', '/' }}/{{ tag }}">{{ tag }}</a>
+            </p>
+        </div>
+      </article>
+
+      <div class="post_nav">
+        <%= link_to '< Voltar atrás', projects_path %>
+        <%= link_to 'Editar', edit_project_path(@project) %>
+      </div>
+      
+    </div>
+  </div>
+</section>
+

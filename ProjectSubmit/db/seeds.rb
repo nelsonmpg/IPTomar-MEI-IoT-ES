@@ -13,7 +13,7 @@ Course.destroy_all
 Person.destroy_all
 Subject.destroy_all
 
-10.times do |x|
+100.times do |x|
   Project.create({
   	title: "Project Title #{x + 1}",
   	resume: "Resumo #{x + 1}",

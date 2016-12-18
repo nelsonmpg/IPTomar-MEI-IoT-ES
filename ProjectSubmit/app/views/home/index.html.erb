@@ -7,15 +7,14 @@
 		<div class="articles">
 			<% @projects.each do |proj|%>
 				<article>
-
 					<a href="/standard/" class="noline">
 						<img src="/img/1.jpg" alt="1.jpg">
 					</a>
 
 					<span class="category"><%=proj.title%></span>
 
-					<a href="/standard/">
-						<h1>Standard Post</h1>
+					<a href="/projects/<%=proj.id%>">
+						<h1><%=proj.title%></h1>
 					</a>
 
 					<p class="post_content"><%=proj.resume%></p>
@@ -24,10 +23,40 @@
 				</article>
 			<%end%>
 		</div>
-		
 
-		<% render partial: "layouts/sidebar" %>
+
+		<div class="sidebar">
+
+			<div class="widget">
+				<h3 class="title">Escolas</h3>
+				<ul class="category_list">
+					<!-- <a href="/schools">Escolas</a> -->
+					<% @schools.each do |school|%>
+						<li><%=school.name%></li>
+					<%end%>
+				</ul>
+			</div>
+
+			<div class="widget">
+				<h3 class="title">Cursos</h3>
+				<ul class="category_list">
+					<% @courses.each do |course|%>
+						<li><%=course.name%></li>
+					<%end%>
+				</ul>
+			</div>
+
+			<div class="widget">
+				<h3 class="title">TAG's</h3>
+				<ul class="category_list">
+					
+				</ul>
+			</div>
+		</div>
+
+		<!-- <% render partial: "layouts/sidebar" %> -->
 	</div>
+	
 </section>
 
 

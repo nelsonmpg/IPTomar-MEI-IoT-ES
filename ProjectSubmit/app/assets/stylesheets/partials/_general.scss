@@ -62,7 +62,7 @@ a{
     border-bottom: $a_line;
 
     &:hover{
-        transiton: .3s all;
+        transition: .3s all;
         color: $a_hover_color;
         border-bottom: transparent 1px solid;
     }
