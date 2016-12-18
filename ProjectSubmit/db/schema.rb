@@ -10,18 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208115054) do
+ActiveRecord::Schema.define(version: 20161217144646) do
 
   create_table "courses", force: :cascade do |t|
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "name"
+    t.integer  "code"
+    t.text     "initials"
+    t.integer  "school_id"
+    t.index ["school_id"], name: "index_courses_on_school_id"
   end
 
   create_table "documents", force: :cascade do |t|
     t.text     "description"
     t.date     "date"
     t.text     "local"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "name"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.text     "name"
+    t.text     "email"
+    t.text     "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "person_types", force: :cascade do |t|
+    t.text     "designation"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -44,6 +64,20 @@ ActiveRecord::Schema.define(version: 20161208115054) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "name"
+    t.integer  "code"
+    t.text     "initials"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.integer  "code"
+    t.text     "initials"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "course_id"
+    t.index ["course_id"], name: "index_subjects_on_course_id"
   end
 
   create_table "users", force: :cascade do |t|

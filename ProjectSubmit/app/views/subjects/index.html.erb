@@ -1,0 +1,28 @@
+<h1>Lista de Cadeiras</h1>
+ <% if user_signed_in?%>
+ <%= link_to 'Adicionar Cadeira', new_subject_path %>
+<%end%>  
+<table>
+  <% @subjects.each do |subject| %>
+    <tr>
+      <th>Nome:</th>
+      <td><%= subject.name %></td>
+      <th>Código:</th>
+      <td><%= subject.code %></td>
+      <th>Iniciais:</th>
+      <td><%= subject.initials %></td>
+      <th>Descrição:</th>
+      <td><%= subject.description %></td>
+      <th>Curso a que pertence: </th>
+      <td><%= subject.course.name%></td>
+
+      <td><%= link_to 'Mostrar', subject_path(subject) %></td>
+
+      <% if user_signed_in?%>
+      <td><%= link_to 'Editar', edit_subject_path(subject) %></td>
+      <td><%= button_to 'Remover', subject_path(subject), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta Cadeira?' } %></td>
+    <%end%>  
+    </tr>
+
+  <% end %>
+</table>

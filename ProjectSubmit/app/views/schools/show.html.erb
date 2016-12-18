@@ -1,9 +1,35 @@
 <p>
-  <strong>Descrição:</strong>
-  <%= @school.description %>
+  <strong>Nome da Escola:</strong>
+  <%= @school.name %>
+  </p>
+<p>
+  <strong>Código da Escola:</strong>
+  <%= @school.code %>
+</p>
+<p>
+  <strong>Iniciais da Escola:</strong>
+  <%= @school.initials %>
+</p>
+<p>
+  <strong>Descrição da Escola:</strong>
+  <%= @school.description %><br>
 </p>
 
+<strong>Cursos pertencentes a esta escola:</strong>
+<% @school.courses.each do |course| %>
+<br>
+<%= course.name %>
  
+<% end %>
+
+<% if user_signed_in?%>
  <td><%= link_to 'Editar', edit_school_path(@school) %>
- <%= link_to 'Voltar', schools_path %>  
  </td>
+<%end%>
+
+ <td>
+<%= link_to 'Voltar', schools_path %> 
+ </td>
+
+
+ 

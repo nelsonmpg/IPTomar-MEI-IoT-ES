@@ -1,9 +1,39 @@
 <p>
+  <strong>Nome:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Código:</strong>
+  <%= @course.code %>
+</p>
+
+<p>
+  <strong>Iniciais:</strong>
+  <%= @course.initials %>
+</p>
+
+<p>
   <strong>Descrição:</strong>
   <%= @course.description %>
 </p>
 
- 
- <td><%= link_to 'Editar', edit_course_path(@course) %>
- <%= link_to 'Voltar', courses_path %>  
- </td>
+<p>
+  <strong>Escola a que pertence:</strong>
+  <%= @course.school.name %>
+</p>
+
+
+<strong>Cadeiras pertencentes a este curso:</strong>
+<% @course.subjects.each do |subject| %>
+<br>
+<%= subject.name %>
+<% end %>
+
+
+
+ <% if user_signed_in?%>
+ <td><%= link_to 'Editar', edit_course_path(@course) %></td>
+<%end%>
+
+<td><%= link_to 'Voltar', courses_path %> </td>
