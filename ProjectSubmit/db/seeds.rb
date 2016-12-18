@@ -33,11 +33,11 @@ Subject.destroy_all
   	description: "School description #{x + 1}"
   	})
 
-  Document.create({
-  	description: "Document #{x + 1}",
-  	date: Time.now.to_s,
-  	local: "Local #{x + 1}"
-  	})
+  #Document.create({
+  #	description: "Document #{x + 1}",
+  #	date: Time.now.to_s,
+  #	local: "Local #{x + 1}"
+  #	})
 
   Course.create({
   	name: "Course name #{x + 1}",
@@ -46,11 +46,11 @@ Subject.destroy_all
   	description: "Course description #{x + 1}"
     })
 
-  Person.create({
-  	name: "Name #{x + 1}",
-  	email: "Email #{x + 1}",
-  	photo: "Photo #{x + 1}"
-  	})
+  #Person.create({
+  #	name: "Name #{x + 1}",
+  #	email: "Email #{x + 1}",
+  #	photo: "Photo #{x + 1}"
+  #	})
 
     Subject.create({
   	name: "Subject name #{x + 1}",
