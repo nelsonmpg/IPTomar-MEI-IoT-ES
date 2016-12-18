@@ -5,21 +5,24 @@
 
 		<!-- {% if page.title %}<h1 class="title">{{ page.title }}</h1>{% endif %} -->
 		<div class="articles">
-			<article>
-				<a href="/standard/" class="noline">
-					<img src="/img/1.jpg" alt="1.jpg">
-				</a>
+			<% @projects.each do |proj|%>
+				<article>
 
-				<span class="category">standard</span>
+					<a href="/standard/" class="noline">
+						<img src="/img/1.jpg" alt="1.jpg">
+					</a>
 
-				<a href="/standard/">
-					<h1>Standard Post</h1>
-				</a>
+					<span class="category"><%=proj.title%></span>
 
-				<p class="post_content">Here you can see the basic post. No fancy type, no setting and the featured...</p>
+					<a href="/standard/">
+						<h1>Standard Post</h1>
+					</a>
 
-				<span class="date"><i class="fa fa-calendar"></i> February 10, 2015</span>
-			</article>
+					<p class="post_content"><%=proj.resume%></p>
+
+					<span class="date"><i class="fa fa-calendar"></i><%=proj.date%></span>
+				</article>
+			<%end%>
 		</div>
 		
 
