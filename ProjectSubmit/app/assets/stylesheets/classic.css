@@ -52,7 +52,7 @@
 	position:relative;
 	}
 .articles article img,.articles article>iframe{
-	width:30%;
+	width:100%; /* Esta assim: width:30%;  ---> Por alguma razão estava lixar o tamnho da imagem*/
 	}
 @media screen and (max-width: 775px){
 	.articles article img,.articles article>iframe{
