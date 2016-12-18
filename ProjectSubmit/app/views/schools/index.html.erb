@@ -1,20 +1,38 @@
 <h1>Lista de Escolas</h1>
- 
+ <% if user_signed_in?%>
  <%= link_to 'Adicionar Escola', new_school_path %>
+ <%end%>
 <table>
-  <tr>
-    <th>Escola:</th>
 
-  </tr>
- 
+<%= form_tag(schools_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:pesquisar], placeholder: "Pesquisar Escolas" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
   <% @schools.each do |school| %>
     <tr>
+    <th>Escola:</th>
+      <td><%= school.name %></td>
+      <th>Código:</th>
+      <td><%= school.code %></td>
+      <th>Iniciais:</th>
+      <td><%= school.initials %></td>
+      <th>Descrição:</th>
       <td><%= school.description %></td>
+      <th>Número de cursos existentes:</th>
+      <td><%= school.courses.size %></td>
+ 
+
 
       <td><%= link_to 'Mostrar', school_path(school) %></td>
+     
+      <% if user_signed_in?%>      
       <td><%= link_to 'Editar', edit_school_path(school) %></td>
-     <td><%= link_to 'Remover', school_path(school), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta escola?' } %></td>
-    
+      <td><%= button_to 'Remover', school_path(school), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta escola?' } %></td>
+      <%end%>
     </tr>
   <% end %>
+
 </table>
+
+ 
