@@ -1874,7 +1874,7 @@ em {
 }
 html,
 body {
-    font-family: "Lucida Sans", sans-serif;
+    font-family: "Roboto", "Calibri", "Arial", sans-serif;
     font-size: 20px;
     font-weight: 300;
     color: 900;
@@ -1886,7 +1886,7 @@ body {
     background-size: 100% auto;
     background-attachment: fixed;
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     -webkit-transition: 0.3s all ease-in-out;
     transition: 0.3s all ease-in-out;
     display: -webkit-flex;
@@ -2079,7 +2079,7 @@ footer .iconnav ul li .backtotop {
     font-weight: 300;
     line-height: 125%;
     fill: #7AC13F;
-    font-family: "Lucida Sans", sans-serif;
+    font-family: "Roboto", "Calibri", "Arial", sans-serif;
     text-transform: uppercase;
     -webkit-transition: 0.3s all ease;
     transition: 0.3s all ease;
@@ -2089,7 +2089,7 @@ footer .iconnav ul li .backtotop {
     font-weight: 200;
     line-height: 125%;
     fill: #7AC13F;
-    font-family: "Lucida Sans", sans-serif;
+    font-family: "Roboto", "Calibri", "Arial", sans-serif;
     -webkit-transition: 0.3s all ease;
     transition: 0.3s all ease;
 }
@@ -2206,7 +2206,7 @@ footer #menu .backtotop:hover {
 }
 #menu li {
     display: inline-block;
-    padding: 20px 7px;
+    /*padding: 20px 7px;*/
     -webkit-transition: 0.3s all linear;
     transition: 0.3s all linear;
 }
@@ -2366,7 +2366,8 @@ footer #menu .parent>.backtotop:before {
     top: 0px;
     left: 0px;
     width: 100%;
-    background: #FDFDFD;
+    /*background: #FDFDFD; */
+    background-color: rgba(255, 255, 255, 0.6);
     z-index: 20;
 }
 @media screen and (min-width: 935px) {
@@ -2394,7 +2395,7 @@ footer #menu .parent>.backtotop:before {
     left: 0;
     -webkit-transition: 0.3s all ease-in-out;
     transition: 0.3s all ease-in-out;
-    padding: 110px 10px;
+    padding: 80px 10px;
     box-sizing: border-box;
     overflow: hidden;
 }
