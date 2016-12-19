@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161216162310) do
+=======
+ActiveRecord::Schema.define(version: 20161217144646) do
+>>>>>>> origin/master
 
   create_table "courses", force: :cascade do |t|
     t.text     "description"
@@ -19,6 +23,8 @@ ActiveRecord::Schema.define(version: 20161216162310) do
     t.text     "name"
     t.integer  "code"
     t.text     "initials"
+    t.integer  "school_id"
+    t.index ["school_id"], name: "index_courses_on_school_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -76,6 +82,8 @@ ActiveRecord::Schema.define(version: 20161216162310) do
     t.text     "initials"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "course_id"
+    t.index ["course_id"], name: "index_subjects_on_course_id"
   end
 
   create_table "users", force: :cascade do |t|

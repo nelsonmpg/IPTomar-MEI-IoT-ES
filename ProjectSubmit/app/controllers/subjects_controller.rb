@@ -1,4 +1,5 @@
 class SubjectsController < ApplicationController
+	before_filter :authenticate_user!, :except => [:index,:show]
 	def index
     	@subjects = Subject.all
 	end
@@ -44,6 +45,6 @@ class SubjectsController < ApplicationController
 
 	private
 	def subject_params
-    	params.require(:subject).permit(:name,:description,:code,:initials)
+    	params.require(:subject).permit(:name,:description,:code,:initials,:course_id)
 	end
 end
