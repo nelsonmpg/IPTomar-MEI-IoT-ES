@@ -10,6 +10,8 @@ one:
   presentation: 2016-12-01:00:00
   featured: yes
   finished: yes
+  user_id: MyString
+  subject_id: MyString
 
 two:
   title: MyString
@@ -21,3 +23,5 @@ two:
   presentation: 2016-12-01:00:00
   featured: yes
   finished: yes
+user_id: MyString
+subject_id: MyString

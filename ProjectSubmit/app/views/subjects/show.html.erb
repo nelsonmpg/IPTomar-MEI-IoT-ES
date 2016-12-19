@@ -1,12 +1,8 @@
-<p>
+ <p>
   <strong>Nome:</strong>
   <%= @subject.name %>
 </p>
 
-<p>
-  <strong>Descrição:</strong>
-  <%= @subject.description %>
-</p>
 
 <p>
   <strong>Código:</strong>
@@ -17,8 +13,18 @@
   <strong>Iniciais:</strong>
   <%= @subject.initials %>
 </p>
+<p>
+  <strong>Descrição:</strong>
+  <%= @subject.description %>
+</p>
 
- 
- <td><%= link_to 'Editar', edit_subject_path(@subject) %>
- <%= link_to 'Voltar', subjects_path %>  
- </td>
+<p>
+  <strong>Curso a que pertence:</strong>
+  <%= @subject.course.name %>
+</p>
+
+
+  <% if user_signed_in?%>
+ <td><%= link_to 'Editar', edit_subject_path(@subject) %></td>
+ <%end%>
+ <td><%= link_to 'Voltar', subjects_path %></td>

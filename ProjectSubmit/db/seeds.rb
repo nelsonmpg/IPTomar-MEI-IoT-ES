@@ -11,6 +11,7 @@ School.destroy_all
 Document.destroy_all
 Course.destroy_all
 Person.destroy_all
+Subject.destroy_all
 
 10.times do |x|
   Project.create({
@@ -26,26 +27,36 @@ Person.destroy_all
   	})
 
   School.create({
-  	description: "School #{x + 1}"
+    name: "School name #{x + 1}",
+    code: "School code #{x + 1}",
+    initials: "School initials #{x + 1}",
+  	description: "School description #{x + 1}"
   	})
 
-  Document.create({
-  	description: "Document #{x + 1}",
-  	date: Time.now.to_s,
-  	local: "Local #{x + 1}"
-  	})
+  #Document.create({
+  #	description: "Document #{x + 1}",
+  #	date: Time.now.to_s,
+  #	local: "Local #{x + 1}"
+  #	})
 
   Course.create({
-  	name: "Name #{x + 1}",
-    description: "Description #{x + 1}",
-    initials: "Initials #{x + 1}",
-    code: "Code #{x + 1}"
+  	name: "Course name #{x + 1}",
+    code: "Course code #{x + 1}",
+    initials: "Course initials #{x + 1}",
+  	description: "Course description #{x + 1}"
     })
 
-  Person.create({
-  	name: "Name #{x + 1}",
-  	email: "Email #{x + 1}",
-  	photo: "Photo #{x + 1}"
-  	})
+  #Person.create({
+  #	name: "Name #{x + 1}",
+  #	email: "Email #{x + 1}",
+  #	photo: "Photo #{x + 1}"
+  #	})
+
+    Subject.create({
+  	name: "Subject name #{x + 1}",
+    code: "Subject code #{x + 1}",
+    initials: "Subject initials #{x + 1}",
+  	description: "Subjec description #{x + 1}"
+    })
 
 end
