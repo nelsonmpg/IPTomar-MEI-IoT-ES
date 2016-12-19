@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   #autenticação do user antes de entrar.....
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -73,6 +73,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished)
+      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :user_id, :subject_id)
     end
 end

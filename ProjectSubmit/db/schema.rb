@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161216162310) do
-=======
-ActiveRecord::Schema.define(version: 20161217144646) do
->>>>>>> origin/master
+ActiveRecord::Schema.define(version: 20161218215055) do
 
   create_table "courses", force: :cascade do |t|
     t.text     "description"
@@ -34,6 +30,8 @@ ActiveRecord::Schema.define(version: 20161217144646) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.text     "name"
+    t.integer  "project_id"
+    t.index ["project_id"], name: "index_documents_on_project_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -62,8 +60,10 @@ ActiveRecord::Schema.define(version: 20161217144646) do
     t.boolean  "finished"
     t.boolean  "featured"
     t.datetime "presentation"
-    t.integer  "user_id_id"
-    t.index ["user_id_id"], name: "index_projects_on_user_id_id"
+    t.integer  "user_id"
+    t.integer  "subject_id"
+    t.index ["subject_id"], name: "index_Projects_on_subject_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "schools", force: :cascade do |t|
