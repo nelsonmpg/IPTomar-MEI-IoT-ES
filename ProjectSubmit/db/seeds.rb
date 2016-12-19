@@ -18,18 +18,18 @@ Subject.destroy_all
 
 
 
-#10.times do |x|
- # Project.create({
-  #	title: "Project Title #{x + 1}",
-  #	resume: "Resumo #{x + 1}",
-  #	github: "GitHub Link #{x + 1}",
-   # grade: "Grade #{x + 1}",
-    #project_url: "Project Url #{x + 1}",
-    #date: Time.now.to_s,
-    #presentation: Time.now.to_s,
-    #featured: true,
-    #finished: true
-  	#})
+10.times do |x|
+  Project.create({
+  	title: "Project Title #{x + 1}",
+  	resume: "Resumo #{x + 1}",
+  	github: "GitHub Link #{x + 1}",
+    grade: "Grade #{x + 1}",
+    project_url: "Project Url #{x + 1}",
+    date: Time.now.to_s,
+    presentation: Time.now.to_s,
+    featured: true,
+    finished: true
+  	})
 
   #@s1=School.create({
    # name: "School name #{x + 1}",
@@ -64,9 +64,10 @@ Subject.destroy_all
   	#description: "Subjec description #{x + 1}"
     #})
 
-#end
+end
 
 
+User.create(email:'teste@teste.pt',password:'123456')
 
 @s1 = School.create(name:'Escola Superior de Tecnologia de Tomar',code:'1234',initials:'ESTT',description:'Tecnologia Tomar')
 @s2 = School.create(name:'Escola Superior de Gestão de Tomar',code:'4321',initials:'ESGT',description:'Gestao Tomar')
