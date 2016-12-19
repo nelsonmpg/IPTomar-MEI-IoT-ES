@@ -56,6 +56,11 @@
     <%= f.check_box  :finished %>
   </div>
 
+  <div class="field">
+    <%= f.label :tag_list, 'Tags (separar por vírgulas)' %>
+    <%= f.text_field :tag_list, class: 'form-control' %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-root to: 'projects#index'
+  root to: 'projects#index'
 
   devise_for :users
   resources :projects
@@ -11,6 +11,11 @@ root to: 'projects#index'
   resources :persontypes
 
 
+
+
+  resources :tags, except: :show
+  get 'tags/:tag', to: 'projects#index'
+  #root 'projects#index'
   
 
   
