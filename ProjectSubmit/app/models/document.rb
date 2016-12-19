@@ -12,6 +12,8 @@ class Document < ApplicationRecord
      validates :local, presence: { message: "O campo não pode ser vazio." },
                             length: { minimum: 4 , :message => "Tem de ter no minimo 4 caracteres." }
 
+    validates :project_id, presence: { message: "O campo não pode ser vazio." },
+                    length: { minimum: 1 , :message => "Tem de ter no minimo 1 caracteres." }
     belongs_to :user
     #já estava
     belongs_to :project
