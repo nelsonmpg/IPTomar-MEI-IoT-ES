@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+root to: 'projects#index'
+
   devise_for :users
  
   resources :projects
@@ -8,6 +10,11 @@ Rails.application.routes.draw do
   resources :subjects
   resources :people
   resources :persontypes
+
+
+  
+
+  
 
   #users
   #devise_for :users, controllers: { sessions: 'users/sessions' }
