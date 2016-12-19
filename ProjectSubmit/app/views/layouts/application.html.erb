@@ -4,6 +4,9 @@
     <title>ProjectSubmit</title>
     <%= csrf_meta_tags %>
 
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
    <%#  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
    <%# <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -18,8 +21,30 @@
    <%#      <%= link_to "Sign up", new_user_registration_path %><%#  or <%= link_to "sign in", new_user_session_path %>
    <%#    <% end %>
    <%#  </div> %>
+<!--Inicio Foto Upload PaperClip-->
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'Project Submit', root_path, class: 'navbar-brand' %>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Projetos', root_path %></li>
+          <li><%= link_to 'Fotos', root_path + "photos" %></li>
+          <li><%= link_to 'Carregar Ficheiros', new_photo_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-
+  <div class="container">
+    <!--Envia mensagens de uma janela para outra-->
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+    <% end %>
+<!--Fim Foto Upload PaperClip-->
 
     <%= yield %>
 

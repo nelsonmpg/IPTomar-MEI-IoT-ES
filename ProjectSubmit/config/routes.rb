@@ -9,8 +9,8 @@ root to: 'projects#index'
   resources :subjects
   resources :people
   resources :persontypes
-
-
+  # Upload de Fotos com PaperClip
+  resources :photos, only: [:new, :create, :index, :destroy]
   
 
   
