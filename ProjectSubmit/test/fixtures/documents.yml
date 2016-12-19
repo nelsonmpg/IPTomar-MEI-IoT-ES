@@ -4,10 +4,10 @@ one:
   description: MyText
   date: 2016-12-02
   local: MyText
-  project_id: intiger
+  project_id: number
 
 two:
   description: MyText
   date: 2016-12-02
   local: MyText
-  project_id: intiger
+  project_id: number
