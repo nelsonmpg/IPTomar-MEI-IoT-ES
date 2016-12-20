@@ -9,7 +9,7 @@ root to: 'projects#index'
   resources :courses
   resources :subjects
   resources :people
-  resources :persontypes
+  resources :person_types
 
 
   
