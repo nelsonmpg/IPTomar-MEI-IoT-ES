@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219222232) do
+ActiveRecord::Schema.define(version: 20161220154640) do
 
   create_table "courses", force: :cascade do |t|
     t.text     "description"
@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 20161219222232) do
     t.text     "name"
     t.integer  "code"
     t.text     "initials"
-    t.integer  "school_id"
-    t.index ["school_id"], name: "index_courses_on_school_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -31,21 +29,26 @@ ActiveRecord::Schema.define(version: 20161219222232) do
     t.datetime "updated_at",  null: false
     t.text     "name"
     t.integer  "project_id"
+    t.integer  "user_id"
     t.index ["project_id"], name: "index_documents_on_project_id"
-
+    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "people", force: :cascade do |t|
     t.text     "name"
     t.text     "email"
     t.text     "photo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "persontype_id"
+    t.index ["persontype_id"], name: "index_people_on_persontype_id"
   end
 
   create_table "people_projects", id: false, force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "person_id",  null: false
+    t.index ["person_id", "project_id"], name: "index_people_projects_on_person_id_and_project_id"
+    t.index ["project_id", "person_id"], name: "index_people_projects_on_project_id_and_person_id"
   end
 
   create_table "person_types", force: :cascade do |t|
@@ -66,10 +69,6 @@ ActiveRecord::Schema.define(version: 20161219222232) do
     t.boolean  "finished"
     t.boolean  "featured"
     t.datetime "presentation"
-    t.integer  "user_id"
-    t.integer  "subject_id"
-    t.index ["subject_id"], name: "index_Projects_on_subject_id"
-    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -88,8 +87,6 @@ ActiveRecord::Schema.define(version: 20161219222232) do
     t.text     "initials"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "course_id"
-    t.index ["course_id"], name: "index_subjects_on_course_id"
   end
 
   create_table "users", force: :cascade do |t|
