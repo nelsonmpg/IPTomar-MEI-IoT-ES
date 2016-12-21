@@ -9,7 +9,6 @@ class CourseUnit < ApplicationRecord
                             length: { minimum: 4 , :message => "O campo descrição da cadeira tem de ter no minimo 4 caracteres." }                                                
     
    
-
     belongs_to :course
     has_many :projects 
 end

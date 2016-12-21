@@ -10,7 +10,8 @@ root to: 'projects#index'
   resources :course_units
   resources :people
   resources :persontypes
-
+  resources :institutions
+  resources :presentations
 
   
 
