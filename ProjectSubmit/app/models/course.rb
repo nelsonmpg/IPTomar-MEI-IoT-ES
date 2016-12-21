@@ -11,6 +11,6 @@ class Course < ApplicationRecord
     
 
     belongs_to :school
-    has_many :subjects
+    has_many :course_units
    
 end

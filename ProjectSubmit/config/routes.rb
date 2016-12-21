@@ -7,7 +7,7 @@ root to: 'projects#index'
   resources :schools
   resources :documents
   resources :courses
-  resources :subjects
+  resources :course_units
   resources :people
   resources :persontypes
 

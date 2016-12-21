@@ -11,7 +11,7 @@ School.destroy_all
 Document.destroy_all
 Course.destroy_all
 Person.destroy_all
-Subject.destroy_all
+CourseUnit.destroy_all
 
 
 
@@ -84,35 +84,19 @@ puts 'licenciatura criado'
 @r6 = Course.create(name:'Arqueologia Pré-Histórica a Arte Rupestre',code:'13234',initials:'Pós',description:'Pós-Graduação',school:@s3)
 
 
-@discipline1 = Subject.create(name:'Álgebra',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline2 = Subject.create(name:'Introdução à Programação',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
-@discipline3 = Subject.create(name:'Introdução à Tecnologia',code:'1243',initials:'Mest',description:'Mestrado',course:@r3)
-@discipline4 = Subject.create(name:'Sistemas Digitais',code:'1243',initials:'Mest',description:'Mestrado',course:@r4)
-@discipline5 = Subject.create(name:'Análise Matemática II',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline6 = Subject.create(name:'Introdução à Electrónica Digital',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline7 = Subject.create(name:'Lógica e Computação',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline8 = Subject.create(name:'Programação Orientada a Objectos',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline9 = Subject.create(name:'Tecnologias da Internet I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline10 = Subject.create(name:'Análise Matemática I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline11 = Subject.create(name:'Arquitectura de Computadores I',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
-@discipline12 = Subject.create(name:'Bases de Dados I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline13 = Subject.create(name:'Estruturas de Dados e Algoritmos',code:'1243',initials:'Mest',description:'Mestrado',course:@r3)
-@discipline14 = Subject.create(name:'Introdução às Telecomunicações',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
-@discipline15 = Subject.create(name:'Probabilidades e Estatística',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline16 = Subject.create(name:'Bases de Dados II',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline17 = Subject.create(name:'Microprocessadores',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
-@discipline18 = Subject.create(name:'Redes de Dados I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline19 = Subject.create(name:'Sistemas Operativos',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
-@discipline20 = Subject.create(name:'Tecnologias da Internet II',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline21 = Subject.create(name:'Análise de Sistemas',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline22 = Subject.create(name:'Arquitectura de Computadores II',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
-@discipline23 = Subject.create(name:'Gestão e Segurança de Redes Informáticas',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline24 = Subject.create(name:'Redes de Dados II',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline25 = Subject.create(name:'Sistemas Distribuídos',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
-@discipline26 = Subject.create(name:'Empreendedorismo',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline27 = Subject.create(name:'Projecto de Redes',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
-@discipline28 = Subject.create(name:'Projecto de Sistemas de Informação',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline29 = Subject.create(name:'Projecto Final',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
-@discipline30 = Subject.create(name:'Sistemas de Informação nas Organizações',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
+@discipline1 = CourseUnit.create(name:'Álgebra',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
+@discipline2 = CourseUnit.create(name:'Introdução à Programação',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
+@discipline3 = CourseUnit.create(name:'Introdução à Tecnologia',code:'1243',initials:'Mest',description:'Mestrado',course:@r3)
+@discipline4 = CourseUnit.create(name:'Sistemas Digitais',code:'1243',initials:'Mest',description:'Mestrado',course:@r4)
+@discipline5 = CourseUnit.create(name:'Análise Matemática II',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
+@discipline6 = CourseUnit.create(name:'Introdução à Electrónica Digital',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
+@discipline7 = CourseUnit.create(name:'Lógica e Computação',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
+@discipline8 = CourseUnit.create(name:'Programação Orientada a Objectos',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
+@discipline9 = CourseUnit.create(name:'Tecnologias da Internet I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
+@discipline10 = CourseUnit.create(name:'Análise Matemática I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
+@discipline11 = CourseUnit.create(name:'Arquitectura de Computadores I',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
+@discipline12 = CourseUnit.create(name:'Bases de Dados I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
+@discipline13 = CourseUnit.create(name:'Estruturas de Dados e Algoritmos',code:'1243',initials:'Mest',description:'Mestrado',course:@r3)
+@discipline14 = CourseUnit.create(name:'Introdução às Telecomunicações',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
 
 
