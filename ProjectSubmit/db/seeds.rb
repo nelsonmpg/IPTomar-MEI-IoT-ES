@@ -19,17 +19,17 @@ CourseUnit.destroy_all
 
 
 10.times do |x|
-  Project.create({
-  	title: "Project Title #{x + 1}",
-  	resume: "Resumo #{x + 1}",
-  	github: "GitHub Link #{x + 1}",
-    grade: "Grade #{x + 1}",
-    project_url: "Project Url #{x + 1}",
-    date: Time.now.to_s,
-    presentation: Time.now.to_s,
-    featured: true,
-    finished: true
-  	})
+  # Project.create({
+  # 	title: "Project Title #{x + 1}",
+  # 	resume: "Resumo #{x + 1}",
+  # 	github: "GitHub Link #{x + 1}",
+  #   grade: "Grade #{x + 1}",
+  #   project_url: "Project Url #{x + 1}",
+  #   date: Time.now.to_s,
+  #   presentation: Time.now.to_s,
+  #   featured: true,
+  #   finished: true
+  # 	})
 
   #@s1=School.create({
    # name: "School name #{x + 1}",
@@ -67,21 +67,26 @@ CourseUnit.destroy_all
 end
 
 
-User.create(email:'teste@teste.pt',password:'123456')
+@u1 = User.create(email:'teste@teste.pt',password:'123456')
 
-@s1 = School.create(name:'Escola Superior de Tecnologia de Tomar',code:'1234',initials:'ESTT',description:'Tecnologia Tomar')
-@s2 = School.create(name:'Escola Superior de Gestão de Tomar',code:'4321',initials:'ESGT',description:'Gestao Tomar')
-@s3 = School.create(name:'Escola Superior de Tecnologia de Abrantes',code:'1111',initials:'ESGT',description:'Tecnologia Abrantes')
+@i = Institution.create(name: 'Instituto Politécnico de Tomar', code: '1234', initials: 'IPT')
 
+@s1 = School.create(name:'Escola Superior de Tecnologia de Tomar',code:'1234',initials:'ESTT',description:'Tecnologia Tomar', institution:@i)
+@s2 = School.create(name:'Escola Superior de Gestão de Tomar',code:'4321',initials:'ESGT',description:'Gestao Tomar', institution:@i)
+@s3 = School.create(name:'Escola Superior de Tecnologia de Abrantes',code:'1111',initials:'ESGT',description:'Tecnologia Abrantes', institution:@i)
 
-@r1 = Course.create(name:'Auditoria e Fiscalidade',code:'1234',initials:'TeSP',description:'TeSP',school:@s1)
+@ct1 = CourseType.create(name: 'Licenciatura', cycle: 1)
+@ct2 = CourseType.create(name: 'Mestrado', cycle: 2)
+@ct3 = CourseType.create(name: 'Doutoramento', cycle: 3)
+
+@r1 = Course.create(name:'Auditoria e Fiscalidade',code:'1234',initials:'TeSP',description:'TeSP',school:@s1, course_type: @ct1)
 puts 'tesp criado'
-@r2 = Course.create(name:'Engenheria Informatica',code:'12345',initials:'Licen',description:'Licenciatura',school:@s2)
+@r2 = Course.create(name:'Engenheria Informatica',code:'12345',initials:'Licen',description:'Licenciatura',school:@s2, course_type: @ct1)
 puts 'licenciatura criado'
-@r3 = Course.create(name:'Engenheria Civil',code:'1243',initials:'Mest',description:'Mestrado',school:@s1)
-@r4 = Course.create(name:'Design e Tecnologia das Artes Gráficas',code:'14434',initials:'Dout',description:'Doutoramento',school:@s3)
-@r5 = Course.create(name:'Gestão e Administração de Serviços de Saúde',code:'13234',initials:'Pós',description:'Pós-Graduação',school:@s2)
-@r6 = Course.create(name:'Arqueologia Pré-Histórica a Arte Rupestre',code:'13234',initials:'Pós',description:'Pós-Graduação',school:@s3)
+@r3 = Course.create(name:'Engenheria Civil',code:'1243',initials:'Mest',description:'Mestrado',school:@s1, course_type: @ct2)
+@r4 = Course.create(name:'Design e Tecnologia das Artes Gráficas',code:'14434',initials:'Dout',description:'Doutoramento',school:@s3, course_type: @ct2)
+@r5 = Course.create(name:'Gestão e Administração de Serviços de Saúde',code:'13234',initials:'Pós',description:'Pós-Graduação',school:@s2, course_type: @ct3)
+@r6 = Course.create(name:'Arqueologia Pré-Histórica a Arte Rupestre',code:'13234',initials:'Pós',description:'Pós-Graduação',school:@s3, course_type: @ct3)
 
 
 @discipline1 = CourseUnit.create(name:'Álgebra',code:'1243',initials:'Mest',description:'Mestrado',course:@r2)
@@ -100,3 +105,18 @@ puts 'licenciatura criado'
 @discipline14 = CourseUnit.create(name:'Introdução às Telecomunicações',code:'1243',initials:'Mest',description:'Mestrado',course:@r1)
 
 
+@person1 = Person.create(name: 'Renato Panda', email: 'renato.panda@ipt.pt')
+@person2 = Person.create(name: 'Miguel Coelho', email: 'aluno18284@ipt.pt')
+@person3 = Person.create(name: 'Nelson Gomes', email: 'eideoersda@ipt.pt')
+@person4 = Person.create(name: 'Luís Oliveira', email: 'loliveira@ipt.pt')
+@person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt')
+
+10.times do |x|
+  @project1 = Project.create(title: 'ProjectSubmit {#x+1}', resume: 'Repositório de projectos desenvolvidos no IPT.', github: 'https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES', grade: 7, project_url: 'http://projects.ipt.pt', date: '30/01/2016', finished: false, featured: true, user: @u1, course_unit: @discipline1)
+
+  @project1.people << [@person2, @person3]
+  @project1.supervisors << @person1
+  @project1.create_presentation(date: rand(1..31).to_s + '/01/2017 ' + rand(10..19).to_s + ':00:00', room: ['A','B','I','O'].sample + rand(100..299).to_s)
+
+  @project1.presentation.juries << [@person4, @person5]
+end
