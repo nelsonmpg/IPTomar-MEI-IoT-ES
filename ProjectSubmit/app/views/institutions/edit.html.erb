@@ -1,0 +1,39 @@
+<h1>Editar Instituição</h1>
+ 
+<%= form_for :institution, url: institution_path(@institution), method: :patch do |f| %>
+ 
+  <% if @institution.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+     <%#   <%= pluralize(@course.errors.count, "error") %> 
+      </h2>
+      <ul>
+        <% @institution.errors.each do |attr,msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+ <p>
+    <%= f.label :"Nome da Instituição" %><br>
+    <%= f.text_field :name %>
+  </p>
+   <p>
+    <%= f.label :"Código da Instituição" %><br>
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :"Iniciais da Instituição" %><br>
+    <%= f.text_field :initials %>
+  </p>
+
+ 
+  <p>
+    <%= f.submit  "Salvar Instituição"%>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Voltar', institutions_path %>

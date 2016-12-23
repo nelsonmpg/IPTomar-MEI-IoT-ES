@@ -20,7 +20,7 @@
 
       <% if user_signed_in?%>
       <td><%= link_to 'Editar', edit_course_unit_path(courseunit) %></td>
-      <td><%= button_to 'Remover', course_unit_path(courseunit), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta Cadeira?' } %></td>
+      <td><%= button_to 'Remover', course_unit_path(courseunit), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
     <%end%>
     </tr>
 
