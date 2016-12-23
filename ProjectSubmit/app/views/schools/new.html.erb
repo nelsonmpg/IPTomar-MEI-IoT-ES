@@ -33,6 +33,10 @@
     <%= f.label :"Descrição da Escola" %><br>
     <%= f.text_field :description %>
   </p>
+  <p>
+ <%= f.label :"Instituição a que pertence a escola" %><br>
+ <%= f.select :institution_id, Institution.all.collect { |s| [s.name, s.id] } %>
+ </p>
  
  
   <p>

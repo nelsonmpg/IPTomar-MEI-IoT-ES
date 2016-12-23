@@ -17,17 +17,29 @@
 
 <strong>Cursos pertencentes a esta escola:</strong>
 <% @school.courses.each do |course| %>
-<br>
-<%= course.name %>
- 
-<% end %>
 
-<strong>Instituição pertencentes que pertence:</strong>
-<% @school.institutions.each do |institution| %>
 <br>
-<%= institution.name %>
- 
+<%= course.course_type.name %> -
+<%= course.name %> 
+
+
 <% end %>
+<br>
+
+<br>
+<strong>Instituição a que pertence:</strong>
+<br>
+<%= @school.institution.name %>
+ <br>
+<br>
+
+<strong>Projetos Associados:</strong>
+<% @school.projects.each do |project| %>
+<br>
+<%= project.title %>
+<% end %>
+<br>
+
 
 <% if user_signed_in?%>
  <td><%= link_to 'Editar', edit_school_path(@school) %>

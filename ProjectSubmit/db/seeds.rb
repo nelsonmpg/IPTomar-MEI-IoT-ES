@@ -80,9 +80,7 @@ end
 @ct3 = CourseType.create(name: 'Doutoramento', cycle: 3)
 
 @r1 = Course.create(name:'Auditoria e Fiscalidade',code:'1234',initials:'TeSP',description:'TeSP',school:@s1, course_type: @ct1)
-puts 'tesp criado'
 @r2 = Course.create(name:'Engenheria Informatica',code:'12345',initials:'Licen',description:'Licenciatura',school:@s2, course_type: @ct1)
-puts 'licenciatura criado'
 @r3 = Course.create(name:'Engenheria Civil',code:'1243',initials:'Mest',description:'Mestrado',school:@s1, course_type: @ct2)
 @r4 = Course.create(name:'Design e Tecnologia das Artes Gráficas',code:'14434',initials:'Dout',description:'Doutoramento',school:@s3, course_type: @ct2)
 @r5 = Course.create(name:'Gestão e Administração de Serviços de Saúde',code:'13234',initials:'Pós',description:'Pós-Graduação',school:@s2, course_type: @ct3)
@@ -112,7 +110,7 @@ puts 'licenciatura criado'
 @person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt')
 
 10.times do |x|
-  @project1 = Project.create(title: 'ProjectSubmit {#x+1}', resume: 'Repositório de projectos desenvolvidos no IPT.', github: 'https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES', grade: 7, project_url: 'http://projects.ipt.pt', date: '30/01/2016', finished: false, featured: true, user: @u1, course_unit: @discipline1)
+  @project1 = Project.create(title: "ProjectSubmit #{x+1}", resume: "Repositório de projectos desenvolvidos no IPT.", github: "https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES", grade: 7, project_url: "http://projects.ipt.pt", date: "30/01/2016", finished: false, featured: true, user: @u1, course_unit: @discipline1)
 
   @project1.people << [@person2, @person3]
   @project1.supervisors << @person1

@@ -13,6 +13,7 @@ class School < ApplicationRecord
 end
     
     has_many :courses
+    has_many :projects, through:  :courses
     belongs_to :institution
   
     
