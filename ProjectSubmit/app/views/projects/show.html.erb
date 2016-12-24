@@ -44,11 +44,22 @@
   <strong>finished:</strong>
   <%= @project.finished %>
 </p>
+<<<<<<< HEAD
 
 <p>
   <strong>Tag:</strong>
   <%= @project.tag_list %>
 </p>
 
+=======
+<p>
+  <strong>User:</strong>
+  <%= @project.user_id %>
+</p>
+<p>
+  <strong>Discipline:</strong>
+  <%= @project.subject_id %>
+</p>
+>>>>>>> refs/remotes/origin/master
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

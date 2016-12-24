@@ -1,12 +1,12 @@
 <h1>Lista de Documentos</h1>
- 
+
  <%= link_to 'Adicionar Documento', new_document_path %>
 <table>
   <tr>
     <th>Documento:</th>
 
   </tr>
- 
+
   <% @documents.each do |document| %>
 
     <tr>
@@ -14,11 +14,12 @@
       <td><%= document.description %></td>
       <td><%= document.date %></td>
       <td><%= document.local %></td>
+      <td><%= document.project_id %></td>
 
       <td><%= link_to 'Mostrar', document_path(document) %></td>
       <td><%= link_to 'Editar', edit_document_path(document) %></td>
      <td><%= link_to 'Remover', document_path(document), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este documento?' } %></td>
-    
+
     </tr>
   <% end %>
 </table>

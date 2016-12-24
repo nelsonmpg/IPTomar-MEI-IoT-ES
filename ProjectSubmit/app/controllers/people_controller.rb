@@ -1,22 +1,24 @@
 class PeopleController < ApplicationController
+	#autenticação do user antes de entrar.....
+  before_action :authenticate_user!
 	def index
-    	@people = People.all
+    	@people = Person.all
 	end
 
 	def show
-    	@person = People.find(params[:id])
+    	@person = Person.find(params[:id])
 	end
 
 	def edit
-    	@person = People.find(params[:id])
+    	@person = Person.find(params[:id])
 	end
 
 	def new
-   		@person = People.new
+   		@person = Person.new
 	end
 
 	def update
-    	@person = People.find(params[:id])
+    	@person = Person.find(params[:id])
  
   		if @person.update(person_params)
     		redirect_to people_path
@@ -26,7 +28,7 @@ class PeopleController < ApplicationController
 	end
 
 	def create
-    	@person = People.new(person_params)
+    	@person = Person.new(person_params)
 
  		if @person.save
   			redirect_to people_path
@@ -36,7 +38,7 @@ class PeopleController < ApplicationController
 	end
 
 	def destroy
-    	@person = People.find(params[:id])
+    	@person = Person.find(params[:id])
     	@person.destroy
 
     	redirect_to people_path

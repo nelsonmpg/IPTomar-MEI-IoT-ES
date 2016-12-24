@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1>Tags</h1>
 
 <table>
   <thead>
@@ -14,12 +14,9 @@
       <th>presentation</th>
       <th>featured</th>
       <th>finished</th>
-<<<<<<< HEAD
-      <th>tag</th>
-=======
+
       <th>User</th>
       <th>Discipline</th>
->>>>>>> refs/remotes/origin/master
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -36,15 +33,9 @@
         <td><%= project.presentation %></td>
         <td><%= project.featured %></td>
         <td><%= project.finished %></td>
-<<<<<<< HEAD
-        <td><%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
-=======
+        
         <td><%= project.user_id %></td>
-        <td><%= project.subject_id %></td>        
->>>>>>> refs/remotes/origin/master
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= project.subject_id %></td>
       </tr>
     <% end %>
   </tbody>
@@ -52,7 +43,7 @@
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<%= link_to 'Back', projects_path %>
 <P> ---- User ---- </p>
 <div id="user_nav">
   <% if user_signed_in? %>

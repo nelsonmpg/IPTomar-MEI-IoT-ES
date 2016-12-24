@@ -21,7 +21,7 @@
       <% if user_signed_in?%>
       <td><%= link_to 'Editar', edit_subject_path(subject) %></td>
       <td><%= button_to 'Remover', subject_path(subject), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta Cadeira?' } %></td>
-    <%end%>  
+    <%end%>
     </tr>
 
   <% end %>
