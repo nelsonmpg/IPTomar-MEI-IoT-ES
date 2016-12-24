@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   #autenticação do user antes de entrar.....
-  before_action :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 

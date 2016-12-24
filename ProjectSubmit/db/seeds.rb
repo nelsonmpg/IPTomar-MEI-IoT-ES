@@ -13,50 +13,66 @@ Course.destroy_all
 Person.destroy_all
 Subject.destroy_all
 
-100.times do |x|
-  Project.create({
-  	title: "Project Title #{x + 1}",
-  	resume: "Resumo #{x + 1}",
-  	github: "GitHub Link #{x + 1}",
-    grade: "Grade #{x + 1}",
-    project_url: "Project Url #{x + 1}",
-    date: Time.now.to_s,
-    presentation: Time.now.to_s,
-    featured: true,
-    finished: true
-  	})
+3.times do |x|
 
-  School.create({
+  @s = School.create({
     name: "School name #{x + 1}",
-    code: "School code #{x + 1}",
-    initials: "School initials #{x + 1}",
-  	description: "School description #{x + 1}"
-  	})
-
-  #Document.create({
-  #	description: "Document #{x + 1}",
-  #	date: Time.now.to_s,
-  #	local: "Local #{x + 1}"
-  #	})
-
-  Course.create({
-  	name: "Course name #{x + 1}",
-    code: "Course code #{x + 1}",
-    initials: "Course initials #{x + 1}",
-  	description: "Course description #{x + 1}"
+    code: rand(100..200),
+    initials: (0...4).map { ('A'..'Z').to_a[rand(26)] }.join,
+    description: "School description #{x + 1}"
     })
 
-  #Person.create({
-  #	name: "Name #{x + 1}",
-  #	email: "Email #{x + 1}",
-  #	photo: "Photo #{x + 1}"
-  #	})
+  6.times do |y|
+    @c = Course.create({
+      name: "Course name #{x + 1}.#{y + 1}",
+      code: rand(1000..1500),
+      initials: (0...3).map { ('A'..'Z').to_a[rand(26)] }.join,
+      description: "Course description #{x + 1}.#{y + 1}",
+      school: @s
+      })
 
-    Subject.create({
-  	name: "Subject name #{x + 1}",
-    code: "Subject code #{x + 1}",
-    initials: "Subject initials #{x + 1}",
-  	description: "Subjec description #{x + 1}"
-    })
+    2.times do |w|
+      @subj = Subject.create({
+        name: "Subject name #{x + 1}.#{y + 1}.#{w + 1}",
+        code: rand(1000..1500),
+        initials: (0...4).map { ('A'..'Z').to_a[rand(26)] }.join,
+        description: "Subject description #{x + 1}.#{y + 1}.#{w + 1}",
+        course: @c
+        })
+
+
+      2.times do |z|
+        Project.create({
+          title: "Project Title #{x + 1}.#{y + 1}.#{w + 1}.#{z + 1}",
+          resume: "Resumo #{x + 1}.#{y + 1}.#{w + 1}.#{z + 1}",
+          github: "https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES",
+          grade: rand(1..9),
+          project_url: "http://projects.ipt.pt",
+          date: rand(1..28).to_s + '/' + rand(1..12).to_s + '/ ' + rand(2016..2017).to_s + ' ' + rand(10..19).to_s + ':00:00',
+          presentation: rand(1..28).to_s + '/' + rand(1..12).to_s + '/ ' + rand(2016..2017).to_s + ' ' + rand(10..19).to_s + ':00:00',
+          featured: [true, false].sample,
+          finished: [true, false].sample,
+          })
+      end
+    end
+
+  end
+
+
+#Document.create({
+#	description: "Document #{x + 1}",
+#	date: Time.now.to_s,
+#	local: "Local #{x + 1}"
+#	})
+
+
+
+#Person.create({
+#	name: "Name #{x + 1}",
+#	email: "Email #{x + 1}",
+#	photo: "Photo #{x + 1}"
+#	})
+
+
 
 end

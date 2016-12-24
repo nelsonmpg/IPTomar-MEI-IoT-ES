@@ -3,7 +3,7 @@
         <h3 class="title">Escolas</h3>
         <ul class="category_list">
             <!-- <a href="/schools">Escolas</a> -->
-            <% @schools.each do |school|%>
+            <% schools.each do |school|%>
                 <li><%=school.name%></li>
             <%end%>
         </ul>
@@ -12,7 +12,7 @@
     <div class="widget">
         <h3 class="title">Cursos</h3>
         <ul class="category_list">
-            <% @courses.each do |course|%>
+            <% courses.each do |course|%>
                 <li><%=course.name%></li>
             <%end%>
         </ul>
@@ -21,7 +21,7 @@
     <div class="widget">
         <h3 class="title">TAG's</h3>
         <ul class="category_list">
-            
+            <li><%=tags%></li>
         </ul>
     </div>
 </div>

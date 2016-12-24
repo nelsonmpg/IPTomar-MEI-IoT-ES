@@ -21,6 +21,6 @@
 				</article>
 			<%end%>
 		</div>
-		<%= render partial: "layouts/sidebar" %>
+		<%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags: "benfica"} %>
 	</div>	
 </section>
