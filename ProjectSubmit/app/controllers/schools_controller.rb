@@ -50,6 +50,6 @@ end
 
 private
 def school_params
-    params.require(:school).permit(:description,:name,:code,:initials)
+    params.require(:school).permit(:description,:name,:code,:initials,:institution_id)
 end
 end

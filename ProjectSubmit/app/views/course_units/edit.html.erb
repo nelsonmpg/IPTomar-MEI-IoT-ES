@@ -38,7 +38,7 @@
  
   <p>
  <%= f.label :"Curso a que pertence a cadeira" %><br>
- <%#<%= f.select :course_id, Course_unit.all.collect { |s| [s.name, s.id] } %>
+ <%= f.select :course_id, Course.all.collect { |s| [s.name, s.id] } %>
  </p>
  
  

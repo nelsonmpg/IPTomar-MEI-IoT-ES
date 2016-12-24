@@ -23,6 +23,12 @@
   <%= @courseunit.course.name %>
 </p>
 
+<strong>Projetos Associados:</strong>
+<% @courseunit.projects.each do |project| %>
+<br>
+<%= project.title %>
+<% end %>
+<br>
 
   <% if user_signed_in?%>
  <td><%= link_to 'Editar', edit_course_unit_path(@courseunit) %></td>

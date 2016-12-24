@@ -8,6 +8,6 @@ class Institution < ApplicationRecord
                             length: { in: 2..6 , :message => "O campo iniciais da instituição tem de ter entre 2 a 6 caracteres." }
    
 
-    has_many :schools
+    has_many :schools, dependent: :destroy
 
 end

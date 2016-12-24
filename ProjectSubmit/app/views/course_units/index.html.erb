@@ -7,12 +7,10 @@
     <tr>
       <th>Nome:</th>
       <td><%= courseunit.name %></td>
-      <th>Código:</th>
-      <td><%= courseunit.code %></td>
-      <th>Iniciais:</th>
-      <td><%= courseunit.initials %></td>
-      <th>Descrição:</th>
-      <td><%= courseunit.description %></td>
+      <th>Ano:</th>
+      <td><%= courseunit.year %></td>
+      <th>Semestre:</th>
+      <td><%= courseunit.semester %></td>
       <th>Curso a que pertence: </th>
       <td><%= courseunit.course.name%></td>
 
@@ -22,7 +20,6 @@
       <td><%= link_to 'Editar', edit_course_unit_path(courseunit) %></td>
       <td><%= button_to 'Remover', course_unit_path(courseunit), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
     <%end%>
+    <%end%>
     </tr>
-
-  <% end %>
 </table>

@@ -23,7 +23,7 @@ class InstitutionsController < ApplicationController
     	@institution = Institution.find(params[:id])
 
   		if @institution.update(institution_params)
-    		redirect_to institutions_path
+    		redirect_to @institution
   		else
     		render 'edit'
   		end
@@ -44,6 +44,7 @@ class InstitutionsController < ApplicationController
     	@institution = Institution.find(params[:id])
     	@institution.destroy
 
+		
     	redirect_to institutions_path
 	end
 

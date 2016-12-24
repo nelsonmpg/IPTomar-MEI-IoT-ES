@@ -11,7 +11,7 @@ class Course < ApplicationRecord
     
 
     belongs_to :school
-    has_many :course_units
+    has_many :course_units, dependent: :destroy
     has_many :projects, through: :course_units
     belongs_to :course_type
 
