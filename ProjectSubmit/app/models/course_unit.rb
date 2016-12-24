@@ -10,5 +10,5 @@ class CourseUnit < ApplicationRecord
     
    
     belongs_to :course
-    has_many :projects 
+    has_many :projects, dependent: :destroy
 end
