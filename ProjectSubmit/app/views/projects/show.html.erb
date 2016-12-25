@@ -44,6 +44,12 @@
   <strong>finished:</strong>
   <%= @project.finished %>
 </p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @project.tag_list %>
+</p>
+
 <p>
   <strong>User:</strong>
   <%= @project.user_id %>
@@ -52,5 +58,6 @@
   <strong>Discipline:</strong>
   <%= @project.subject_id %>
 </p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

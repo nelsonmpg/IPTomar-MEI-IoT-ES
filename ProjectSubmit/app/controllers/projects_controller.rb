@@ -8,7 +8,12 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    #@projects = Project.all
+    if params[:tag]
+        @projects = Project.tagged_with(params[:tag])
+    else
+        @projects = Project.all
+    end
   end
 
   # GET /projects/1
@@ -73,6 +78,8 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :user_id, :subject_id)
+
+      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :user_id, :subject_id, :tag_list)
+
     end
 end
