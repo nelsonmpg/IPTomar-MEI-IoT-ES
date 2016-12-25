@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161219220947) do
-=======
 ActiveRecord::Schema.define(version: 20161219222232) do
->>>>>>> refs/remotes/origin/master
 
   create_table "courses", force: :cascade do |t|
     t.text     "description"
@@ -36,7 +32,6 @@ ActiveRecord::Schema.define(version: 20161219222232) do
     t.text     "name"
     t.integer  "project_id"
     t.index ["project_id"], name: "index_documents_on_project_id"
-
   end
 
   create_table "people", force: :cascade do |t|
