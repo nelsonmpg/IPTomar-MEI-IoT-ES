@@ -13,61 +13,8 @@ Course.destroy_all
 Person.destroy_all
 CourseUnit.destroy_all
 
-
-
-
-
-
-10.times do |x|
-  # Project.create({
-  # 	title: "Project Title #{x + 1}",
-  # 	resume: "Resumo #{x + 1}",
-  # 	github: "GitHub Link #{x + 1}",
-  #   grade: "Grade #{x + 1}",
-  #   project_url: "Project Url #{x + 1}",
-  #   date: Time.now.to_s,
-  #   presentation: Time.now.to_s,
-  #   featured: true,
-  #   finished: true
-  # 	})
-
-  #@s1=School.create({
-   # name: "School name #{x + 1}",
-    #code: "12345 #{x + 1}",
-    #initials: "ESTT #{x + 1}",
-  	#description: "School description #{x + 1}"
-  	#})
-
-  #Document.create({
-  #	description: "Document #{x + 1}",
-  #	date: Time.now.to_s,
-  #	local: "Local #{x + 1}"
-  #	})
-
-  #Course.create({
-  #	name: "Course name #{x + 1}",
-   # code: "Course code #{x + 1}",
-    #initials: "Course initials #{x + 1}",
-  	#description: "Course description #{x + 1}"
-    #})
-
-  #Person.create({
-  #	name: "Name #{x + 1}",
-  #	email: "Email #{x + 1}",
-  #	photo: "Photo #{x + 1}"
-  #	})
-
-   # Subject.create({
-  	#name: "Subject name #{x + 1}",
-    #code: "Subject code #{x + 1}",
-    #initials: "Subject initials #{x + 1}",
-  	#description: "Subjec description #{x + 1}"
-    #})
-
-end
-
-
 @u1 = User.create(email:'teste@teste.pt',password:'123456')
+@u2 = User.create(email:'admin@projectsubmit.pt',password:'123qwe')
 
 @i = Institution.create(name: 'Instituto Politécnico de Tomar', code: '1234', initials: 'IPT')
 
@@ -109,12 +56,30 @@ end
 @person4 = Person.create(name: 'Luís Oliveira', email: 'loliveira@ipt.pt')
 @person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt')
 
+@tag1 = Tag.create(name: 'Ruby')
+@tag2 = Tag.create(name: 'Rails')
+@tag3 = Tag.create(name: 'Informática')
+@tag4 = Tag.create(name: 'Bootstrap')
+
 10.times do |x|
-  @project1 = Project.create(title: "ProjectSubmit #{x+1}", resume: "Repositório de projectos desenvolvidos no IPT.", github: "https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES", grade: 7, project_url: "http://projects.ipt.pt", date: "30/01/2016", finished: false, featured: true, user: @u1, course_unit: @discipline1)
+  @project1 = Project.create(
+    title: "ProjectSubmit #{x+1}", 
+    resume: "Repositório de projectos desenvolvidos no IPT.", 
+    github: "https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES", 
+    grade: 7, 
+    project_url: "http://projects.ipt.pt", 
+    date: "30/01/2016", 
+    finished: false, 
+    featured: true, 
+    user: @u1, 
+    course_unit: @discipline1)
 
   @project1.people << [@person2, @person3]
   @project1.supervisors << @person1
-  @project1.create_presentation(date: rand(1..31).to_s + '/01/2017 ' + rand(10..19).to_s + ':00:00', room: ['A','B','I','O'].sample + rand(100..299).to_s)
+  @project1.create_presentation(
+    date: rand(1..31).to_s + '/01/2017 ' + rand(10..19).to_s + ':00:00', 
+    room: ['A','B','I','O'].sample + rand(100..299).to_s)
 
   @project1.presentation.juries << [@person4, @person5]
+
 end
