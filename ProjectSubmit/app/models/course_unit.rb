@@ -1,4 +1,4 @@
-class Subject < ApplicationRecord
+class CourseUnit < ApplicationRecord
 	validates :name, presence: { message: "O campo nome da cadeira não pode ser vazio." }, 
                             length: { minimum: 4 , :message => "O campo nome da cadeira tem de ter no minimo 4 caracteres." }
     validates :code, presence: { message: "O campo código da cadeira não pode ser vazio." }, 
@@ -9,7 +9,6 @@ class Subject < ApplicationRecord
                             length: { minimum: 4 , :message => "O campo descrição da cadeira tem de ter no minimo 4 caracteres." }                                                
     
    
-
     belongs_to :course
-    has_many :projects 
+    has_many :projects, dependent: :destroy
 end

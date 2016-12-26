@@ -1,0 +1,23 @@
+<h1>Lista de Tipos de Curso</h1>
+ <% if user_signed_in?%>
+ <%= link_to 'Adicionar Cadeira', new_course_type_path %>
+<%end%>  
+<table>
+  <% @coursetypes.each do |coursetype| %>
+    <tr>
+      <th>Nome:</th>
+      <td><%= coursetype.name %></td>
+      <th>Ciclo:</th>
+      <td><%= coursetype.cycle %></td>
+      
+
+      <td><%= link_to 'Mostrar', course_type_path(coursetype) %></td>
+
+      <% if user_signed_in?%>
+      <td><%= link_to 'Editar', edit_course_type_path(coursetype) %></td>
+      <td><%= button_to 'Remover', course_type_path(coursetype), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
+    <%end%>
+    </tr>
+
+  <% end %>
+</table>

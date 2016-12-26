@@ -1,45 +1,51 @@
-<h1>Adicionar Cadeira</h1>
-
-<%= form_for :subject, url: subjects_path do |f| %>
+<h1>Editar Cadeira</h1>
  
-  <% if @subject.errors.any? %>
+<%= form_for :course_unit, url: course_unit_path(@courseunit), method: :patch do |f| %>
+ 
+  <% if @courseunit.errors.any? %>
     <div id="error_explanation">
-      <h2>Existe erros no formulário</h2>
+      <h2><h2>Existe erros no formulário
+       <%# <%= pluralize(@subject.errors.count, "error") %>
+      </h2>
       <ul>
-        <% @subject.errors.each do |attr,msg| %>
+        <% @courseunit.errors.each do |attr,msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
-       </div>
+    </div>
   <% end %>
  
-  <p>
+
+ <p>
     <%= f.label :"Nome da Cadeira" %><br>
     <%= f.text_field :name %>
   </p>
-  <p>
+
+<p>
     <%= f.label :"Código da Cadeira" %><br>
     <%= f.text_field :code %>
   </p>
-  <p>
+
+ <p>
     <%= f.label :"Iniciais da Cadeira" %><br>
     <%= f.text_field :initials %>
   </p>
+  
   <p>
     <%= f.label :"Descrição da Cadeira" %><br>
     <%= f.text_field :description %>
   </p>
  
- 
   <p>
  <%= f.label :"Curso a que pertence a cadeira" %><br>
  <%= f.select :course_id, Course.all.collect { |s| [s.name, s.id] } %>
  </p>
-
+ 
+ 
   <p>
     <%= f.submit  "Salvar Cadeira"%>
   </p>
  
 <% end %>
  
-<%= link_to 'Voltar', subjects_path %>
+<%= link_to 'Voltar', course_units_path %>

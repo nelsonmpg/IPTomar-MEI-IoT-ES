@@ -1,47 +1,52 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Titulo:</strong>
   <%= @project.title %>
 </p>
 
 <p>
-  <strong>Resume:</strong>
+  <strong>Resumo:</strong>
   <%= @project.resume %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>Data:</strong>
   <%= @project.date %>
 </p>
 
 <p>
-  <strong>github:</strong>
+  <strong>Link Github:</strong>
   <%= @project.github %>
 </p>
 
 <p>
-  <strong>grade:</strong>
+  <strong>Grau:</strong>
   <%= @project.grade %>
 </p>
 
 <p>
-  <strong>project_url:</strong>
+  <strong>Url do projeto:</strong>
   <%= @project.project_url %>
 </p>
 
 <p>
-  <strong>presentation:</strong>
-  <%= @project.presentation %>
+  <strong>Data de Apresentação:</strong>
+  <%= @project.presentation.date %>
 </p>
 
 <p>
-  <strong>featured:</strong>
+  <strong>Sala de Apresentação:</strong>
+  <%= @project.presentation.room %>
+</p>
+
+<p>
+  <strong>Destaque:</strong>
   <%= @project.featured %>
 </p>
 
 <p>
-  <strong>finished:</strong>
+  <strong>Acabado:</strong>
   <%= @project.finished %>
 </p>
 
@@ -51,13 +56,26 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
-<p>
-  <strong>Discipline:</strong>
-  <%= @project.subject_id %>
+  <strong>Utilizador:</strong>
+  <%= @project.user.email %>
 </p>
 
+<p>
+  <strong>Escola a que pertence:</strong>
+  <%= @project.course_unit.course.school.name %>
+</p>
+
+<p>
+  <strong>Curso a que Pertence:</strong>
+  <%= @project.course_unit.course.name %>
+</p>
+
+<p>
+  <strong>Cadeira a que pertence:</strong>
+  <%= @project.course_unit.name %>
+</p>
+
+<% if user_signed_in?%>
 <%= link_to 'Edit', edit_project_path(@project) %> |
+<% end %>
 <%= link_to 'Back', projects_path %>
