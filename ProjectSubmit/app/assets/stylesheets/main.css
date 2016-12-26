@@ -1973,7 +1973,7 @@ iframe {
     max-width: 1500px;
 }
 .margin {
-    padding-top: 50px;
+    padding-top: 10px;
     width: 100%;
 }
 .margin .content {
@@ -2461,7 +2461,7 @@ footer #menu .parent>.backtotop:before {
     }
 }
 .switch span {
-    color: #7AC13F;
+    /*color: #7AC13F;*/
 }
 .switch span:hover {
     color: #AEB9A0;

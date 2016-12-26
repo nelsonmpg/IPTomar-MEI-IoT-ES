@@ -4,7 +4,7 @@
     <title>ProjectSubmit</title>
     <%= csrf_meta_tags %>
 
- <!--   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
+ <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' %>
 
@@ -18,21 +18,21 @@
 
   <body class="index">
 
-	<header class="head">
+  	<header class="head">
+  		<%= render partial: "layouts/header" %>
+  		<%= render partial: "layouts/nav" %>
+  	</header>
+   
+    <!-- Container-->
 
-		<%= render partial: "layouts/header" %>
-		<%= render partial: "layouts/nav" %>
+  <div class="content">
+     <%= yield %>
+  </div>
 
-	</header>
- 
-  <!-- Container-->
-   <%= yield %>
-	
-
-	<%= render partial: "layouts/footer" %>
-    <%= javascript_include_tag 'application', '1-jquery-2.1.1.min' %>
-    <%= javascript_include_tag 'application', '2-imagelightbox' %>
-    <%= javascript_include_tag 'application', 'global.min' %>
-    <%= javascript_include_tag 'application', 'scripts' %>
+  	<%= render partial: "layouts/footer" %>
+      <%= javascript_include_tag 'application', '1-jquery-2.1.1.min' %>
+      <%= javascript_include_tag 'application', '2-imagelightbox' %>
+      <%= javascript_include_tag 'application', 'global.min' %>
+      <%= javascript_include_tag 'application', 'scripts' %>
   </body>
 </html>

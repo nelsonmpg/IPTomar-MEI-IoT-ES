@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-
-
   get 'home/index'
-
-#root to: 'projects#index'
-
-
-
 
   devise_for :users
   resources :projects
@@ -17,19 +10,10 @@ Rails.application.routes.draw do
   resources :people
   resources :persontypes
 
-
-  
-
-  
-
   #users
   #devise_for :users, controllers: { sessions: 'users/sessions' }
 
-
   root 'home#index'
-
-
-  # >>>>>>> refs/remotes/origin/master
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

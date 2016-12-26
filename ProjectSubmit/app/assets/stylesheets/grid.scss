@@ -5,7 +5,7 @@ $fourtothree: 1460px;
 $threetotwo: 775px;
 $twotoone: 530px;
 
-.articles{
+.articlesGrid{
     @include flexbox(row, wrap, flex-start, stretch);
     width: 75%;
 

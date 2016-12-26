@@ -35,32 +35,32 @@
 	font-weight:900;
 	font-style:normal;
 	}
-.articles article:after{
+.articlesClassic article:after{
 	content:"";
 	display:table;
 	clear:both;
 	}
-.articles{
+.articlesClassic{
 	width:75%;
 	}
 @media screen and (max-width: 1330px){
-	.articles{
+	.articlesClassic{
 		width:100%;
 		}
 	}
-.articles article{
+.articlesClassic article{
 	position:relative;
 	}
-.articles article img,.articles article>iframe{
-	width:100%; /* Esta assim: width:30%;  ---> Por alguma razão estava lixar o tamnho da imagem*/
+.articlesClassic article img,.articlesClassic article>iframe{
+	width:30%; /* Esta assim: width:30%;  ---> Por alguma razão estava lixar o tamnho da imagem*/
 	}
 @media screen and (max-width: 775px){
-	.articles article img,.articles article>iframe{
+	.articlesClassic article img,.articlesClassic article>iframe{
 		width:100%;
 		}
 	}
 @media screen and (min-width: 776px){
-	.articles article .video_container{
+	.articlesClassic article .video_container{
 		position:relative;
 		width:30%;
 		height:0;
@@ -68,11 +68,11 @@
 		}
 	}
 @media screen and (min-width: 776px){
-	.articles article:nth-of-type(even) img,.articles article:nth-of-type(even)>iframe,.articles article:nth-of-type(even) .video_container{
+	.articlesClassic article:nth-of-type(even) img,.articlesClassic article:nth-of-type(even)>iframe,.articlesClassic article:nth-of-type(even) .video_container{
 		float:left;
 		margin-right:15px;
 		}
-	.articles article:nth-of-type(even) .date{left:calc(30% + 5px);}.articles article:nth-of-type(odd) img,.articles article:nth-of-type(odd)>iframe,.articles article:nth-of-type(odd) .video_container{
+	.articlesClassic article:nth-of-type(even) .date{left:calc(30% + 5px);}.articlesClassic article:nth-of-type(odd) img,.articlesClassic article:nth-of-type(odd)>iframe,.articlesClassic article:nth-of-type(odd) .video_container{
 		float:right;
 		margin-left:15px;
 		}

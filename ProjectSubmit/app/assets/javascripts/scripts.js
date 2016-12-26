@@ -48,19 +48,15 @@ $(document).ready(function() {
 
     // Style Switch
     $(".switch span").click(function(event){
-        event.preventDefault();
-        //event = event || window.event;
-        //var target = event.target || event.srcElement;
-        //var id = $("#" + event.id).attr("id");
 
         // adjust link here
-        $("#switch_style").attr("href", "/css/" + this.id + ".css");
-        console.log("/css/" + this.id + ".css");
-
-
+        if ($(".projects").hasClass("articles" + $("#" + this.id).attr("data-remoClas"))) {
+            $(".projects").removeClass("articles" + $("#" + this.id).attr("data-remoClas")).addClass("articles" + $("#" + this.id).attr("data-addClas"));
+        }
+        event.preventDefault();
     });
 
-    if($('.articles').find('div.wrapper').length != 0){
+    if($('.articlesGrid').find('div.wrapper').length != 0){
         $('.switch').hide();
     }else{
         $('.switch').show();
