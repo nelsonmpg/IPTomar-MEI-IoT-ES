@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   #autenticação do user antes de entrar.....
-  before_action :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index,:show]
 
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -13,12 +13,13 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   # GET /projects/1.json
-  def show
+  def show     
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+    @project.build_presentation
   end
 
   # GET /projects/1/edit
@@ -27,9 +28,11 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   # POST /projects.json
+
+
   def create
     @project = Project.new(project_params)
-
+    
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -44,11 +47,13 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+      
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
-      else
+      
+    else
         format.html { render :edit }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
@@ -73,6 +78,9 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :featured, :finished, :user_id, :course_unit_id)
+      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :featured, :finished, :user_id, :course_unit_id, presentation_attributes: [:id, :date , :room ])
     end
+
+   
+ 
 end

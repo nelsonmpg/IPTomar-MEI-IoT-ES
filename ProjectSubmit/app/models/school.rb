@@ -15,6 +15,7 @@ end
     has_many :courses, dependent: :destroy
     has_many :projects, through:  :courses
     belongs_to :institution
+    
   
     
 
