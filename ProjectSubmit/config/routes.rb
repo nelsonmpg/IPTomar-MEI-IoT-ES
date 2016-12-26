@@ -10,7 +10,7 @@ root to: 'projects#index'
   resources :people
   resources :persontypes
   # Upload de Fotos com PaperClip
-  resources :photos, only: [:new, :create, :index, :destroy]
+  resources :photos, only: [:new, :create, :index, :destroy, :edit]
   
 
   

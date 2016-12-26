@@ -12,4 +12,31 @@
  *
  *= require_tree .
  *= require_self
+ *= require dropzone/dropzone
  */
+body {
+    background: #f7f7f7;
+    font-family: 'Montserrat', sans-serif;
+ }
+ #content {
+    width: 600px;
+    margin: 100px auto;
+ }
+
+ .dropzone {
+      background: #fff;
+     border: 2px dashed #ddd;
+     border-radius: 5px;
+ }
+
+ .dz-message {
+    color: #999;
+ }
+
+ .dz-message:hover {
+    color: #464646;
+ }
+ .dz-message h3 {
+    font-size: 200%;
+    margin-bottom: 15px;
+ }

@@ -63,7 +63,18 @@
     <%= f.label :subject_id %>
     <%= f.text_field  :subject_id %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :titledoc %>
+    <%= f.text_field :titledoc, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control'%>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Adicionar Registo', class: 'btn btn-primary'%>
   </div>
 <% end %>

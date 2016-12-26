@@ -1,0 +1,31 @@
+$(function () {
+	Dropzone.autoDiscover = false;
+
+	$("#my-dropzone").dropzone({
+		maxFilesize: 2,
+		addRemoveLinks: true,
+		paramName: 'photo[image]',
+		success: function(file, response) {
+			$(file.previewElement).find('.dz-remove').attr('id', response.photoId);
+			$(file.previewElement).addClass('dz-success');
+		},
+		removedfile: function(file) {
+			var id = $(file.previewTemplate).find('.dz-remove').attr('id');
+
+			$.ajax({
+				type: 'DELETE',
+				url: "/photos/" + id,
+				success: function(data) {
+					console.log(data.message);
+				}
+			});
+
+			var previewElement;
+			return (previewElement = file.previewElement) != null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
+		},
+		init: function() {
+			var me = this;
+
+		}
+	});
+});
