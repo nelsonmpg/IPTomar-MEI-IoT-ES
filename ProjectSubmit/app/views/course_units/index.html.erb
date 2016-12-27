@@ -1,0 +1,26 @@
+<h1>Lista de Cadeiras</h1>
+ <% if user_signed_in?%>
+ <%= link_to 'Adicionar Cadeira', new_course_unit_path %>
+<%end%>  
+<table>
+  <% @courseunits.each do |courseunit| %>
+    <tr>
+      <th>Nome:</th>
+      <td><%= courseunit.name %></td>
+      <th>Ano:</th>
+      <td><%= courseunit.year %></td>
+      <th>Semestre:</th>
+      <td><%= courseunit.semester %></td>
+      <th>Curso a que pertence: </th>
+      <td><%= courseunit.course.name%></td>
+      
+
+      <td><%= link_to 'Mostrar', course_unit_path(courseunit) %></td>
+
+      <% if user_signed_in?%>
+      <td><%= link_to 'Editar', edit_course_unit_path(courseunit) %></td>
+      <td><%= button_to 'Remover', course_unit_path(courseunit), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
+    <%end%>
+    <%end%>
+    </tr>
+</table>

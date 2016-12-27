@@ -1,0 +1,30 @@
+<p>
+  <strong>Nome:</strong>
+  <%= @institution.name %>
+</p>
+
+<p>
+  <strong>Código:</strong>
+  <%= @institution.code %>
+</p>
+
+<p>
+  <strong>Iniciais:</strong>
+  <%= @institution.initials %>
+</p>
+
+
+
+<strong>Escolas pertencentes a esta Instituição:</strong>
+<% @institution.schools.each do |school| %>
+<br>
+<%= school.name %>
+<% end %>
+
+
+
+ <% if user_signed_in?%>
+ <td><%= link_to 'Editar', edit_institution_path(@institution) %></td>
+<%end%>
+
+<td><%= link_to 'Voltar', institutions_path %> </td>

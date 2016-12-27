@@ -18,20 +18,23 @@
             <%= @project.resume %>
         </div>
 
-
         <div class="catsandtags">
             <p class="category">
-                <span class="name">GitHub:</span> 
+                <span class="name">Link Github:</span> 
                 <%= @project.github %> &bull;
 
-                <span class="name">Grade:</span> 
+                <span class="name">Grau:</span> 
                 <%= @project.grade %> &bull;
 
-                <span class="name">Project URL:</span> 
+                <span class="name">Url do projeto:</span> 
                 <%= @project.project_url %> &bull;
 
-                <span class="name">Presentation:</span> 
-                <%= @project.presentation %>
+                <span class="name">Data de Apresentação:</span> 
+                <%= @project.presentation.date %>
+
+                <span class="name">Sala de Apresentação:</span>
+                <%= @project.presentation.room %>
+
             </p>
             <p class="category">
               <span class="name">Featured:</span> 
@@ -40,8 +43,32 @@
               <% else %>
                 no
               <% end %>
-
               &bull;
+
+              <p>
+                <strong>Destaque:</strong>
+                <%= @project.featured %>
+              </p>
+
+              <p>
+                <strong>Utilizador:</strong>
+                <%= @project.user.email %>
+              </p>
+
+              <p>
+                <strong>Escola a que pertence:</strong>
+                <%= @project.course_unit.course.school.name %>
+              </p>
+
+              <p>
+                <strong>Curso a que Pertence:</strong>
+                <%= @project.course_unit.course.name %>
+              </p>
+
+              <p>
+                <strong>Cadeira a que pertence:</strong>
+                <%= @project.course_unit.name %>
+              </p>
 
                <span class="name">Finished:</span> 
               <% if @project.finished == TRUE %>
@@ -53,18 +80,19 @@
 
             <p class="tags">
                 <span class="name">Tags:</span>
-                    <a href="{{ site.tag_dir | prepend: site.baseurl | replace: '//', '/' }}/{{ tag }}">{{ tag }}</a>
+                    <a href="#"><%= @project.tag_list %></a>
             </p>
         </div>
       </article>
 
       <div class="post_nav">
+        <% if user_signed_in?%>
+          <%= link_to 'Editar', edit_project_path(@project), class: 'btn btn-default' %>
+        <% end %>
         <%= link_to '< Voltar atrás', projects_path, class: 'btn btn-default' %>
-        <%= link_to 'Editar', edit_project_path(@project), class: 'btn btn-default' %>
       </div>
       
     </div>
 <%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags: "benfica"} %>
   </div>  
 </section>
-

@@ -25,9 +25,9 @@
 
 
 <strong>Cadeiras pertencentes a este curso:</strong>
-<% @course.subjects.each do |subject| %>
+<% @course.course_units.each do |course_unit| %>
 <br>
-<%= subject.name %>
+<%= course_unit.name %>
 <% end %>
 
 
