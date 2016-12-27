@@ -1,91 +1,95 @@
-<section class="margin">
-  <div class="content">
-    <div class="content_container">
-      <article>
-        <h1>Editing Project</h1>
-        <%= form_for @project do |f| %>
-          <% if project.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-              <ul>
-              <% project.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
+<%= form_for @project do |f| %>
+  <% if project.errors.any? %>
+     <div id="error_explanation">
+          <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+        <ul>
+         <% project.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
           <% end %>
+        </ul>
+      </div>
+  <% end %>
+  <div class=" col-xs-12">
+    <div class="row">
+      <fieldset class="form-group">
+        <%= f.label :"Titulo do Projeto", for: "first_name" %>   
+        <%= f.text_field :title, class: "form-control" %>
+      </fieldset>
+    </div>
+    <div class="row">
+        <fieldset class="form-group col-xs-7">
+          <%= f.label :"Resumo do Projeto" %>
+          <%= f.text_area :resume, class: "form-control", rows: 15 %>
+        </fieldset>
 
-          <div class="field">
-            <%= f.label :"Titulo do Projeto" %>
-            <%= f.text_field :title %>
-          </div>
+        <fieldset class="form-group col-xs-5">
+          <%= f.label :"Grau" %>
+          <%= f.text_field :grade, class: "form-control" %>
+        </fieldset> 
+        <fieldset class="form-group col-xs-5">
+              <%= f.label :"Data do Projeto" %>
+              <%= f.date_select :date, class: "form-control custom-select" %>
+         </fieldset>
+         <fieldset class="form-group col-xs-5">
+              <%= f.label :"Link GitHub" %>
+              <%=  f.text_field :github, class: "form-control" %>
+         </fieldset>
+         <fieldset class="form-group col-xs-5">
+              <%= f.label :"Url do Projeto" %>
+              <%= f.text_field :project_url, class: "form-control" %>
+         </fieldset>
+         <fieldset class="form-group col-xs-5">
+              <%= f.label :tag_list, 'Tags (separar por vírgulas)' %>
+              <%= f.text_field :tag_list, class: 'form-control' %>
+         </fieldset>
 
-          <div class="field">
-            <%= f.label :"Resumo do Projeto" %>
-            <%= f.text_area :resume %>
-          </div>
+  </div>
+  <div class="row">
+      <label class="custom-control custom-checkbox col-xs-2">
+        <%=  f.check_box  :featured, class: "custom-control-input" %>
+        <%= f.label :"Destacar", class: "custom-control-description" %>
+        <span class="custom-control-indicator"></span>
+      </label>
 
-          <div class="field">
-            <%= f.label :"Data do Projeto" %>
-            <%= f.date_select :date %>
-          </div>
+       <label class="custom-control custom-checkbox col-xs-2">
+            <%= f.check_box  :finished, class: "custom-control-input" %>
+            <%= f.label :"Projecto acabado", class: "custom-control-description" %>
+        <span class="custom-control-indicator"></span>
+       </label>
 
-          <div class="field">
-            <%= f.label :"Link GitHub" %>
-            <%=  f.text_area :github %>
-          </div>
+      <label class="custom-control custom-checkbox col-xs-3">
+          <%= f.check_box  :user_id, class: "custom-control-input" %>
+          <%= f.label :user_id, class: "custom-control-description" %>
+          <span class="custom-control-indicator"></span>
+      </label>
 
-          <div class="field">
-            <%= f.label :"Grau" %>
-            <%= f.text_area :grade %>
-          </div>
+      <fieldset class="form-group">
+        <%= f.label :course_unit_id %>
+        <%= f.select :course_unit_id, CourseUnit.all.collect { |s| [s.name, s.id] }, class: "form-control" %>
+      </fieldset>
+    </div>
+    <div class="row">
+      <div class=" col-xs-12">
+          <%= f.fields_for :presentation do |ff| %>
 
-          <div class="field">
-            <%= f.label :"Url do Projeto" %>
-            <%= f.text_area :project_url %>
-          </div>
-
-          <div class="field">
-            <%= f.label :"Destacar" %>
-            <%=  f.check_box  :featured %>
-          </div>
-
-
-          <div class="field">
-            <%= f.label :"Projecto acabado" %>
-            <%= f.check_box  :finished %>
-          </div>
-
-          <div class="field">
-            <%= f.label :tag_list, 'Tags (separar por vírgulas)' %>
-            <%= f.text_field :tag_list, class: 'form-control' %>
-          </div>
-
-            <%= f.label :user_id %>
-            <%= f.check_box  :user_id %>
-          </div>
-          <div class="field">
-            <%= f.label :course_unit_id %>
-            <%= f.select :course_unit_id, CourseUnit.all.collect { |s| [s.name, s.id] } %>
-          </div>
-        <div class="field">
-            <%= f.fields_for :presentation do |ff| %>
+          <fieldset class="form-group col-xs-6">
             <%= ff.label :"Data de Apresentação" %>
-            <%= ff.date_field :date %>
-
+            <%= ff.date_field :date, class: 'form-control' %>
+          </fieldset>
+          <fieldset class="form-group col-xs-6">
             <%= ff.label :"Sala de Apresentação" %>
-            <%= ff.text_area :room %>
-            
-        </div>
+            <%= ff.text_field :room, class: 'form-control' %>
+          </fieldset>
+        
         <% end %>
+      </div>
+    </div>
+
+    <div class="row">
           <div class="actions">
-            <%= f.submit %>
-           
+            <%= f.submit class: "btn btn-success" %>         
           </div>
-         
-        <% end %>
-      </article>
     </div>
   </div>
-</section>
+       
+<% end %>

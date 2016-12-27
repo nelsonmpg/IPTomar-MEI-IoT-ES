@@ -4,7 +4,7 @@
         <ul class="category_list">
             <!-- <a href="/schools">Escolas</a> -->
             <% schools.each do |school|%>
-                <li><%=school.name%></li>
+                <li><a href=""><%= school.name %></a></li>
             <%end%>
         </ul>
     </div>
@@ -13,7 +13,7 @@
         <h3 class="title">Cursos</h3>
         <ul class="category_list">
             <% courses.each do |course|%>
-                <li><%=course.name%></li>
+                <li><a href=""><%= course.name %></a></li>
             <%end%>
         </ul>
     </div>
@@ -21,7 +21,9 @@
     <div class="widget">
         <h3 class="title">TAG's</h3>
         <ul class="category_list">
-            <li><%=tags%></li>
+            <% tags.each do |tag|%>
+                <li><a href="/tags/<%= tag.name %>"><%= tag.name %></a></li>
+            <%end%>
         </ul>
     </div>
 </div>

@@ -1,10 +1,11 @@
-<!-- <h1>Editing Project</h1><h1>Editing Project</h1> -->
+<div class="container-fluid">
+	<div class="jumbotron">
+		<h2>Editar <b><%= @project.title %></b></h2>
+		<%= render 'form', project: @project %>
 
-<%= render 'form', project: @project %>
-
-
-<div class="post_nav">
-    <%= link_to 'Show', @project %> |
-    <%= link_to 'Back', projects_path %>
-</div>
-
+		<div class="post_nav">
+		    <%= link_to 'Show', @project, class: "btn btn-success" %> |
+		    <%= link_to '< Voltar', projects_path, class: "btn btn-info" %>
+		</div>
+    </div>
+  </div>

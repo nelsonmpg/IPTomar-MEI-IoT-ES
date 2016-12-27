@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action only: [:index, :show, :new, :edit] do  
   	@sb_schools = School.all
   	@sb_courses = Course.all
-  	#@sb_tags = Tags.all
+  	@sb_tags = Tag.all
   end
 
 end

@@ -3238,3 +3238,11 @@ footer .masonry a .backtotop {
 footer .masonry a:hover .backtotop:hover {
     opacity: 1;
 }
+
+.input-group input.search-query {
+    font-family: Arial, FontAwesome;
+}
+
+.nav-item {
+    padding-right: 2em;
+}
