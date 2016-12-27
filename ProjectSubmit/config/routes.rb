@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :course_types
   resources :people
   resources :persontypes
+<<<<<<< HEAD
   resources :institutions
   resources :presentations
 
@@ -19,6 +20,10 @@ Rails.application.routes.draw do
   resources :tags, except: :show
   get 'tags/:tag', to: 'projects#index'
   #root 'projects#index'
+=======
+  # Upload de Fotos com PaperClip
+  resources :photos, only: [:new, :create, :index, :destroy, :edit]
+>>>>>>> origin/caria
   
 
   

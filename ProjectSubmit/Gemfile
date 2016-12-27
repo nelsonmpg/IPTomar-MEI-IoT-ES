@@ -41,6 +41,19 @@ group :development do
   gem 'web-console'
 end
 
+<<<<<<< HEAD
 
 # Use Acts as Taggable On. Rather than tying functionality to a specific keyword (namely tags)
 gem 'acts-as-taggable-on', '~> 4.0'
+=======
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'bootstrap-sass'
+gem 'imagemagick-identify', '~> 0.0.1'
+gem "paperclip", "~> 4.2"
+gem 'dropzonejs-rails'
+gem 'aws-sdk', '~> 2.6', '>= 2.6.32'
+# Fazer no Vagrant
+#sudo apt-get install imagemagick
+>>>>>>> origin/caria

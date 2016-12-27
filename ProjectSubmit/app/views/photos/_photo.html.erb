@@ -1,0 +1,18 @@
+<div class="media">
+  <div class="container">
+<hr>
+
+
+  <div class="media-left">
+<div class="col-md-2 img-hover">
+    <%= link_to image_tag(photo.image.url(:thumb), class: 'media-object'), photo.image.url, target: '_blank' %>
+    </div>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= photo.title %></h4>
+    <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Tem a Certeza?'} %>
+
+     <td>
+     <%= link_to 'Edit', edit_photo_path(photo), class: 'btn btn-danger', method: :edit   %></td>
+  </div>
+</div>

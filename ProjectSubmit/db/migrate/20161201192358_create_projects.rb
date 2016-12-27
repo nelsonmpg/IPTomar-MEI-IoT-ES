@@ -9,7 +9,6 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.integer :ClaSchool_id
       t.integer :School_id
       t.integer :User_id
-
       t.timestamps
     end
   end

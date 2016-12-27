@@ -64,6 +64,7 @@
   <strong>Escola a que pertence:</strong>
   <%= @project.course_unit.course.school.name %>
 </p>
+<<<<<<< HEAD
 
 <p>
   <strong>Curso a que Pertence:</strong>
@@ -76,6 +77,12 @@
 </p>
 
 <% if user_signed_in?%>
+=======
+<p>
+  <strong>Documento:</strong>
+  <%= @project.titledoc %>
+</p>
+>>>>>>> origin/caria
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <% end %>
 <%= link_to 'Back', projects_path %>
