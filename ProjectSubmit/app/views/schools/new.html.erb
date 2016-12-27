@@ -4,9 +4,7 @@
  
   <% if @school.errors.any? %>
     <div id="error_explanation">
-      <h2>Existe erros no formulário
-        <%#  <%= pluralize(@school.errors.count, "error") %>
-      </h2>
+      <h2>Existe erros no formulário</h2>
       
       <ul>
         <% @school.errors.each do |attr,msg| %>
@@ -35,10 +33,14 @@
     <%= f.label :"Descrição da Escola" %><br>
     <%= f.text_field :description %>
   </p>
+  <p>
+ <%= f.label :"Instituição a que pertence a escola" %><br>
+ <%= f.select :institution_id, Institution.all.collect { |s| [s.name, s.id] } %>
+ </p>
  
  
   <p>
-    <%= f.submit %>
+    <%= f.submit "Salvar Escola" %>
   </p>
  
 <% end %>

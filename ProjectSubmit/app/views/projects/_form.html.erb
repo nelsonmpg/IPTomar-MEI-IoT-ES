@@ -1,4 +1,4 @@
-<%= form_for(project) do |f| %>
+<%= form_for @project do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -12,51 +12,71 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
+    <%= f.label :"Titulo do Projeto" %>
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :resume %>
+    <%= f.label :"Resumo do Projeto" %>
     <%= f.text_area :resume %>
   </div>
 
   <div class="field">
-    <%= f.label :date %>
+    <%= f.label :"Data do Projeto" %>
     <%= f.date_select :date %>
   </div>
 
   <div class="field">
-    <%= f.label :grade %>
+    <%= f.label :"Link GitHub" %>
+    <%=  f.text_area :github %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"Grau" %>
     <%= f.text_area :grade %>
   </div>
 
   <div class="field">
-    <%= f.label :project_url %>
+    <%= f.label :"Url do Projeto" %>
     <%= f.text_area :project_url %>
   </div>
 
   <div class="field">
-    <%= f.label :presentation %>
-    <%= f.datetime_select :presentation %>
+    <%= f.label :"Destacar" %>
+    <%=  f.check_box  :featured %>
   </div>
 
-  <div class="field">
-    <%= f.label :featured %>
-    <%= f.check_box  :featured %>
-  </div>
 
   <div class="field">
-    <%= f.label :github %>
-    <%= f.text_area :github %>
-  </div>
-
-  <div class="field">
-    <%= f.label :finished %>
+    <%= f.label :"Projecto acabado" %>
     <%= f.check_box  :finished %>
   </div>
 
+  <div class="field">
+    <%= f.label :tag_list, 'Tags (separar por vírgulas)' %>
+    <%= f.text_field :tag_list, class: 'form-control' %>
+  </div>
+
+    <%= f.label :user_id %>
+    <%= f.check_box  :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :course_unit_id %>
+    <%= f.select :course_unit_id, CourseUnit.all.collect { |s| [s.name, s.id] } %>
+  </div>
+<div class="field">
+    <%= f.fields_for :presentation do |ff| %>
+    <%= ff.label :"Data de Apresentação" %>
+    <%= ff.date_field :date %>
+
+    <%= ff.label :"Sala de Apresentação" %>
+    <%= ff.text_area :room %>
+    
+</div>
+<% end %>
   <div class="actions">
     <%= f.submit %>
+   
   </div>
+ 
 <% end %>

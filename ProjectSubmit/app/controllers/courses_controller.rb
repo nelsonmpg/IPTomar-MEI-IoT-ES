@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 	#autenticação do user antes de entrar.....
-  before_action :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index,:show]
 	
 	def index
     	@courses = Course.all
@@ -8,6 +8,7 @@ class CoursesController < ApplicationController
 
 	def show
     	@course = Course.find(params[:id])
+			
 	end
 
 	def edit
@@ -29,6 +30,7 @@ class CoursesController < ApplicationController
 	end
 
 	def create
+
     	@course = Course.new(course_params)
 
  		if @course.save
@@ -47,6 +49,6 @@ class CoursesController < ApplicationController
 
 	private
 	def course_params
-    	params.require(:course).permit(:name,:code,:initials,:description)
+    	params.require(:course).permit(:name,:code,:initials,:description,:school_id,:course_type_id)
 	end
 end

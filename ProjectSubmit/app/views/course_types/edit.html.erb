@@ -1,0 +1,36 @@
+<h1>Editar Tipo de Curso</h1>
+ 
+<%= form_for :course_type, url: course_type_path(@coursetype), method: :patch do |f| %>
+ 
+  <% if @coursetype.errors.any? %>
+    <div id="error_explanation">
+      <h2><h2>Existe erros no formulário
+       <%# <%= pluralize(@subject.errors.count, "error") %>
+      </h2>
+      <ul>
+        <% @coursetype.errors.each do |attr,msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+ <p>
+    <%= f.label :"Tipo de curso" %><br>
+    <%= f.text_field :name %>
+  </p>
+
+<p>
+    <%= f.label :"Ciclo de curso" %><br>
+    <%= f.text_field :cycle %>
+  </p>
+ 
+ 
+  <p>
+    <%= f.submit  "Salvar Tipo de Curso"%>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Voltar', course_types_path %>

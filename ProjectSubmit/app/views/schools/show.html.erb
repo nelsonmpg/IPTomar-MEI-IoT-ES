@@ -1,12 +1,54 @@
 <p>
-  <strong>Escola:</strong>
+  <strong>Nome da Escola:</strong>
   <%= @school.name %>
+  </p>
+<p>
+  <strong>Código da Escola:</strong>
   <%= @school.code %>
+</p>
+<p>
+  <strong>Iniciais da Escola:</strong>
   <%= @school.initials %>
-  <%= @school.description %>
+</p>
+<p>
+  <strong>Descrição da Escola:</strong>
+  <%= @school.description %><br>
 </p>
 
- 
+<strong>Cursos pertencentes a esta escola:</strong>
+<% @school.courses.each do |course| %>
+
+<br>
+<%= course.course_type.name %> -
+<%= course.name %> 
+
+
+<% end %>
+<br>
+
+<br>
+<strong>Instituição a que pertence:</strong>
+<br>
+<%= @school.institution.name %>
+ <br>
+<br>
+
+<strong>Projetos Associados:</strong>
+<% @school.projects.each do |project| %>
+<br>
+<%= project.title %>
+<% end %>
+<br>
+
+
+<% if user_signed_in?%>
  <td><%= link_to 'Editar', edit_school_path(@school) %>
- <%= link_to 'Voltar', schools_path %>  
  </td>
+<%end%>
+
+ <td>
+<%= link_to 'Voltar', schools_path %> 
+ </td>
+
+
+ 
