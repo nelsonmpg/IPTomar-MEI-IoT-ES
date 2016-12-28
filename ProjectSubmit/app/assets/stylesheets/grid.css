@@ -67,12 +67,9 @@
 		}
 	}
 .articlesGrid article{
-<<<<<<< HEAD
 	width:24.25%; /*  width:24.25%; */
-=======
-	width:24.25%; /* width:24.25%; */
->>>>>>> 5caf2fb6592d5876cc535b753711bb18d12bd191
-	}
+}
+
 .articlesGrid article:nth-of-type(n){
 	margin-bottom:25px;
 	margin-right:1%;
