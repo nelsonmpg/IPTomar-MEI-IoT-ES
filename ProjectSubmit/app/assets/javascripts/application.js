@@ -14,5 +14,8 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require bootstrap-select
+//= require 1-jquery-2.1.1.min
+//= require 2-imagelightbox
+//= require global.min
 //= require jquery_ujs
 //= require turbolinks

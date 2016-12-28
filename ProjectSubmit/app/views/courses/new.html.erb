@@ -1,69 +1,11 @@
 <div class="container-fluid">
   <div class="jumbotron">
-    <h1>Adicionar Curso</h1>
+    <div class="alert alert-success" role="alert">
+      <h1 class="text-xs-center">Novo Curso</h1>
+    </div>
 
-    <%= form_for :course, url: courses_path do |f| %>
-   
-    <% if @course.errors.any? %>
-      <div id="error_explanation" class="alert alert-warning" role="alert">
-        <h2>
-       <%#   <%= pluralize(@course.errors.count, "error") %> 
-        </h2>
-        <ul>
-          <% @course.errors.each do |attr,msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-   
-    <div class=" col-xs-12">
-      <div class="row">
-        <fieldset class="form-group">
-          <%= f.label :"Nome do Curso" %>
-          <%= f.text_field :name, class: 'form-control' %>
-        </fieldset>
-      </div>
-      <div class="row">
-        <fieldset class="form-group col-xs-2">
-          <%= f.label :"Código do Curso" %>
-          <%= f.text_field :code, class: 'form-control' %>
-        </fieldset>
+    <%= render 'form', course: @course, disableEdit: false %>
 
-        <fieldset class="form-group col-xs-2">
-          <%= f.label :"Iniciais do Curso" %>
-          <%= f.text_field :initials, class: 'form-control' %>
-        </fieldset>
-
-        <fieldset class="form-group col-xs-4">
-           <%= f.label :"Grau a que pertence o curso" %><br>
-           <%= f.select( :course_type_id, CourseType.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control'}) %>
-        </fieldset>
-
-        <fieldset class="form-group col-xs-4">
-         <%= f.label :"Escola a que pertence o curso" %><br>
-         <%= f.select( :school_id, School.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control'}) %>
-        </fieldset>
-
-      </div>
-
-      <div class="row">
-        <fieldset class="form-group col-xs-12">
-          <%= f.label :"Descrição do Curso" %>
-          <%= f.text_field :description, class: 'form-control' %>
-        </fieldset>
-      </div>
-     
-      <div class="row">
-        <div class="col-xs-12">
-          <%= f.submit 'Salvar Curso', class: "btn btn-outline-success btn-block"%>
-        </div>
-      </div>
-      <div class="row">
-        &nbsp;
-      </div>
-  </div>
-<% end %> 
      <div class="row">
       <div class="col-xs-2">
         <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, courses_path, class: "btn btn-outline-info btn-block" %>
