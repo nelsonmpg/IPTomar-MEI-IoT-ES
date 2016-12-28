@@ -8,10 +8,8 @@
   <%= @person.email %>
 </p>
 
-<p>
-  <strong>Foto:</strong>
-  <%= @person.photo %>
-</p>
+<%= image_tag @person.photo.url(:medium) %>
+<br>
  
  <td><%= link_to 'Editar', edit_person_path(@person) %>
  <%= link_to 'Voltar', people_path %>  
