@@ -3,16 +3,6 @@
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 
-
-/** Inicio das minhas alterações especificias**/
-.changed {
-    padding: 0.4em 0.4em;
-    font-weight: normal;
-    font-size: 80%;
-}
-
-/** Fim das minhas alterações especificias **/
-
 @font-face {
     font-family: 'FontAwesome';
     src: url('../fonts/fontawesome-webfont.eot?v=4.2.0');
@@ -3260,3 +3250,13 @@ footer .masonry a:hover .backtotop:hover {
 .jumbotron {
     padding: 1rem 2rem;
 }
+
+
+/** Inicio das minhas alterações especificias**/
+.switch span {
+    padding: 0.4em 0.4em;
+    font-weight: normal;
+    font-size: 80%;
+}
+
+/** Fim das minhas alterações especificias **/
