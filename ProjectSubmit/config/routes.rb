@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'projects#index'
+
+  get 'home/index'
 
   devise_for :users
  
@@ -13,18 +14,12 @@ Rails.application.routes.draw do
   resources :persontypes
   resources :institutions
   resources :presentations
-
-
-
   resources :tags, except: :show
   get 'tags/:tag', to: 'projects#index'
-  #root 'projects#index'
   
-
-  
-
-  #users
   #devise_for :users, controllers: { sessions: 'users/sessions' }
-# >>>>>>> refs/remotes/origin/master
+
+  root 'home#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
