@@ -67,7 +67,7 @@
 		}
 	}
 .articlesGrid article{
-	width:32.335%; /* width:24.25%; */
+	width:24.25%; /*  width:24.25%; */
 	}
 .articlesGrid article:nth-of-type(n){
 	margin-bottom:25px;

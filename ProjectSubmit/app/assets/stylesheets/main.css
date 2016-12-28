@@ -3,6 +3,16 @@
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 
+
+/** Inicio das minhas alterações especificias**/
+.changed {
+    padding: 0.4em 0.4em;
+    font-weight: normal;
+    font-size: 80%;
+}
+
+/** Fim das minhas alterações especificias **/
+
 @font-face {
     font-family: 'FontAwesome';
     src: url('../fonts/fontawesome-webfont.eot?v=4.2.0');
@@ -2242,7 +2252,7 @@ footer #menu .parent>.backtotop:before {
     #menu .parent>ul {
         background: #FDFDFD;
         position: absolute;
-        top: 100%;
+        top: 90%; /**Antes estava a 100% mas fazia com que a dropdown desaparecesse logo assim que o rato saia do nome, portanto foi puchada para cima **/
         left: 50%;
         -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
