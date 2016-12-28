@@ -27,6 +27,10 @@ $(document).ready(function() {
         //$("#menu").toggleClass("active");
     });
 
+    $(".nav-link").click(function(e){
+        $("#menu").removeClass("active");
+    });
+
     $(".parent a").attr("aria-haspopup", "true");
     $(".parent a").click(function () {
         $(this).parent().toggleClass("open");
