@@ -31,6 +31,8 @@ gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'bootstrap', '~> 4.0.0.alpha5'
 
+gem 'bootstrap-select-rails'
+
 gem 'will_paginate-bootstrap'
 
 # Use Capistrano for deployment

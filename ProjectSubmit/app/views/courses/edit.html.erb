@@ -1,51 +1,75 @@
-<h1>Editar Cursos</h1>
- 
-<%= form_for :course, url: course_path(@course), method: :patch do |f| %>
- 
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-     <%#   <%= pluralize(@course.errors.count, "error") %> 
-      </h2>
-      <ul>
-        <% @course.errors.each do |attr,msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>Editar Cursos</h1>
+       <%= form_for :course, url: course_path(@course), method: :patch do |f| %>
+     
+      <% if @course.errors.any? %>
+        <div id="error_explanation" class="alert alert-warning" role="alert">
+          <h2>
+         <%#   <%= pluralize(@course.errors.count, "error") %> 
+          </h2>
+          <ul>
+            <% @course.errors.each do |attr,msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+     
+      <div class=" col-xs-12">
+        <div class="row">
+          <fieldset class="form-group">
+            <%= f.label :"Nome do Curso" %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </fieldset>
+        </div>
+        <div class="row">
+          <fieldset class="form-group col-xs-2">
+            <%= f.label :"Código do Curso" %>
+            <%= f.text_field :code, class: 'form-control' %>
+          </fieldset>
+
+          <fieldset class="form-group col-xs-2">
+            <%= f.label :"Iniciais do Curso" %>
+            <%= f.text_field :initials, class: 'form-control' %>
+          </fieldset>
+
+          <fieldset class="form-group col-xs-4">
+             <%= f.label :"Grau a que pertence o curso" %><br>
+             <%= f.select( :course_type_id, CourseType.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control'}) %>
+          </fieldset>
+
+          <fieldset class="form-group col-xs-4">
+           <%= f.label :"Escola a que pertence o curso" %><br>
+           <%= f.select( :school_id, School.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control'}) %>
+          </fieldset>
+
+        </div>
+
+        <div class="row">
+          <fieldset class="form-group col-xs-12">
+            <%= f.label :"Descrição do Curso" %>
+            <%= f.text_field :description, class: 'form-control' %>
+          </fieldset>
+        </div>
+       
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.submit 'Salvar Curso', class: "btn btn-outline-success btn-block"%>
+          </div>
+        </div>
+        <div class="row">
+          &nbsp;
+        </div>
     </div>
-  <% end %>
- 
-
- <p>
-    <%= f.label :"Nome do Curso" %><br>
-    <%= f.text_field :name %>
-  </p>
-   <p>
-    <%= f.label :"Código do Curso" %><br>
-    <%= f.text_field :code %>
-  </p>
-  <p>
-    <%= f.label :"Iniciais do Curso" %><br>
-    <%= f.text_field :initials %>
-  </p>
-  <p>
-    <%= f.label :"Descrição do Curso" %><br>
-    <%= f.text_field :description %>
-  </p>
-<p>
- <%= f.label :"Grau a que pertence o curso" %><br>
- <%= f.select :course_type_id, CourseType.all.collect { |s| [s.name, s.id] } %>
- </p>
-
-   <p>
- <%= f.label :"Escola a que pertence o curso" %><br>
- <%= f.select :school_id, School.all.collect { |s| [s.name, s.id] } %>
- </p>
- 
-  <p>
-    <%= f.submit  "Salvar Curso"%>
-  </p>
- 
-<% end %>
- 
-<%= link_to 'Voltar', courses_path %>
+  <% end %>    
+    <div class="row">
+      <div class="col-xs-2">
+        <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, courses_path, class: "btn btn-outline-info btn-block" %>
+      </div>      
+      <div class="  col-xs-2">
+          <%= link_to 'Visualizar', @course, class: "btn btn-outline-success btn-block" %>
+      </div>
+    </div>
+  </div>
+</div>

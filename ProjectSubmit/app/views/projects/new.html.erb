@@ -3,7 +3,8 @@
 		<h1>Adicionar Novo Projeto</h1>
 		<%= render 'form', project: @project %>
 		<div class="row">
-			<%= link_to '< Voltar', projects_path, class: "btn btn-info" %>			
+			<div class="  col-xs-2">
+				<%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, projects_path, class: "btn btn-outline-info btn-block" %>	</div>		
 		</div>
 	</div>
 </div>

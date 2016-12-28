@@ -3,9 +3,13 @@
 		<h2>Editar <b><%= @project.title %></b></h2>
 		<%= render 'form', project: @project %>
 
-		<div class="post_nav">
-		    <%= link_to 'Show', @project, class: "btn btn-success" %> |
-		    <%= link_to '< Voltar', projects_path, class: "btn btn-info" %>
+		<div class="post_nav row">
+			<div class="  col-xs-2">
+		    	<%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, projects_path, class: "btn btn-outline-info btn-block" %>
+			</div>
+			<div class="  col-xs-2">
+		    	<%= link_to 'Visualizar', @project, class: "btn btn-outline-success btn-block" %>
+			</div>
 		</div>
     </div>
-  </div>
+</div>

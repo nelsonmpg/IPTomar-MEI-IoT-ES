@@ -1,39 +1,59 @@
-<p>
-  <strong>Nome:</strong>
-  <%= @course.name %>
-</p>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <%= form_for :course, url: course_path(@course), method: :patch do |f| %>
+     <div class=" col-xs-12">
+        <div class="row">
+          <fieldset class="form-group">
+            <%= f.label :"Nome do Curso" %>
+            <%= f.text_field :name, class: 'form-control', disabled: true %>
+          </fieldset>
+        </div>
+        <div class="row">
+          <fieldset class="form-group col-xs-2">
+            <%= f.label :"Código do Curso" %>
+            <%= f.text_field :code, class: 'form-control', disabled: true %>
+          </fieldset>
 
-<p>
-  <strong>Código:</strong>
-  <%= @course.code %>
-</p>
+          <fieldset class="form-group col-xs-2">
+            <%= f.label :"Iniciais do Curso" %>
+            <%= f.text_field :initials, class: 'form-control', disabled: true %>
+          </fieldset>
 
-<p>
-  <strong>Iniciais:</strong>
-  <%= @course.initials %>
-</p>
+          <fieldset class="form-group col-xs-4">
+             <%= f.label :"Grau a que pertence o curso" %><br>
+             <%= f.select( :course_type_id, CourseType.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control', disabled: true}) %>
+          </fieldset>
 
-<p>
-  <strong>Descrição:</strong>
-  <%= @course.description %>
-</p>
+          <fieldset class="form-group col-xs-4">
+           <%= f.label :"Escola a que pertence o curso" %><br>
+           <%= f.select( :school_id, School.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control', disabled: true}) %>
+          </fieldset>
 
-<p>
-  <strong>Escola a que pertence:</strong>
-  <%= @course.school.name %>
-</p>
+        </div>
 
+        <div class="row">
+          <fieldset class="form-group col-xs-12">
+            <%= f.label :"Descrição do Curso" %>
+            <%= f.text_field :description, class: 'form-control', disabled: true %>
+          </fieldset>
+        </div>
+       
+    </div>
+  <% end %> 
+     <% if user_signed_in?%>     
+      <div class="row">&nbsp;</div>
+      <div class="row">
+            <div class="  col-xs-12">
+              <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar'.html_safe, edit_course_path(@course) , class: "btn btn-outline-info btn-block" %>  
+            </div>    
+      </div>
 
-<strong>Cadeiras pertencentes a este curso:</strong>
-<% @course.course_units.each do |course_unit| %>
-<br>
-<%= course_unit.name %>
-<% end %>
-
-
-
- <% if user_signed_in?%>
- <td><%= link_to 'Editar', edit_course_path(@course) %></td>
-<%end%>
-
-<td><%= link_to 'Voltar', courses_path %> </td>
+    <%end%>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+          <div class="  col-xs-2">
+            <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, courses_path, class: "btn btn-outline-info btn-block" %>  
+          </div>    
+    </div>
+  </div>
+</div>

@@ -13,5 +13,6 @@
 //= require jquery
 //= require tether
 //= require bootstrap-sprockets
+//= require bootstrap-select
 //= require jquery_ujs
 //= require turbolinks
