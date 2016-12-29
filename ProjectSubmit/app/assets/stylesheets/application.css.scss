@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+/*estilo do bootstrap*/
+@import "bootstrap-responsive";
+@import "bootstrap";
+@import "bootstrap-sprockets";
+@import 'bootstrap/theme';

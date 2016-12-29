@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1>- Projects -</h1>
 
 <table>
   <thead>
@@ -23,7 +23,7 @@
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
+    <% @projects.order("date desc").each do |project| %>
       <tr>
         <td><%= project.title %></td>
         <td><%= project.resume %></td>
@@ -37,7 +37,7 @@
         <td><%= project.finished %></td>
         <td><%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
         <td><%= project.user.email %></td>
-        <td><%= project.course_unit.name %></td>   
+        <td><%= project.course_unit.name %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= button_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
