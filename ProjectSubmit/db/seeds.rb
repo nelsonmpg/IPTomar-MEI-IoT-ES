@@ -63,7 +63,7 @@ CourseUnit.destroy_all
 
 10.times do |x|
   @project1 = Project.create(
-    title: "ProjectSubmit #{x+1}", 
+    title: "Project Submit #{x+1}", 
     resume: "Repositório de projectos desenvolvidos no IPT.", 
     github: "https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES", 
     grade: 7, 
@@ -81,5 +81,4 @@ CourseUnit.destroy_all
     room: ['A','B','I','O'].sample + rand(100..299).to_s)
 
   @project1.presentation.juries << [@person4, @person5]
-
 end
