@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1>Projetos</h1>
 
 <table>
   <thead>
@@ -13,6 +13,8 @@
       <th>Url do Projeto</th>
       <th>Data de Apresentação</th>
       <th>Sala de Apresentação</th>
+      <th>Slides de Apresentação</th>
+      <th>Download da Apresentação</th>
       <th>Destaque</th>
       <th>Projeto Finalizado</th>
       <th>tag</th>
@@ -33,6 +35,8 @@
         <td><%= project.project_url %></td>
         <td><%= project.presentation.date %></td>
         <td><%= project.presentation.room %></td>
+        <td><%= project.presentation.slides_file_name %></td>
+        <td> <%= link_to 'Download', project.presentation.slides.url(:original, false) %> </td>
         <td><%= project.featured %></td>
         <td><%= project.finished %></td>
         <td><%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
