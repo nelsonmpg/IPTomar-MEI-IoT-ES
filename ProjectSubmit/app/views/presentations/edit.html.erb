@@ -1,0 +1,39 @@
+<h1>Editar Apresentação</h1>
+ 
+<%= form_for :presentation, url: presentation_path(@presentation), method: :patch do |f| %>
+ 
+  <% if @presentation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+     <%#   <%= pluralize(@course.errors.count, "error") %> 
+      </h2>
+      <ul>
+        <% @presentation.errors.each do |attr,msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+ <p>
+    <%= f.label :"Data da apresentação" %><br>
+    <%= f.text_field :date %>
+  </p>
+   <p>
+    <%= f.label :"Sala da apresentação" %><br>
+    <%= f.text_field :room %>
+  </p>
+  <p>
+    <%= f.label :"Slides da Apresentação" %><br>
+    <%= f.file_field :slides %>
+  </p>
+  
+ 
+  <p>
+    <%= f.submit  "Salvar Apresentação"%>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Voltar', courses_path %>

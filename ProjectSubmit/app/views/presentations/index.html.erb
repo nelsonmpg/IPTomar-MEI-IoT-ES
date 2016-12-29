@@ -1,0 +1,28 @@
+<h1>Lista de Apresentações</h1>
+ <% if user_signed_in?%>
+ <%= link_to 'Adicionar Apresentação', new_presentation_path %>
+  <%end%>
+<table>
+ 
+  <% @presentations.each do |presentation| %>
+    <tr>
+      <th>Data de apresentação:</th>
+      <td><%= presentation.date %></td>
+      <th>Sala de Apresentação:</th>
+      <td><%= presentation.room %></td>
+      <th>Slides da Apreentação:</th>
+      <td><%=  presentation.slides_file_name %></td>
+      <td> <%= link_to 'Download', presentation.slides.url(:original, false) %> </td>
+      <th>Projecto a que pertence a apresentação </th>
+      <td><%= presentation.project.title%></td>
+
+      <td><%= link_to 'Mostrar', presentation_path(presentation) %></td>
+       <% if user_signed_in?%>
+      
+      <td><%= link_to 'Editar', edit_presentation_path(presentation) %></td>
+      <td><%= button_to 'Remover', presentation_path(presentation), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
+      <%end%>
+    </tr>
+
+  <% end %>
+</table>
