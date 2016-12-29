@@ -6,23 +6,36 @@
 		</p>
 		<div class="projects articlesGrid">
 			<% @projects.each do |proj|%>
-				<article>
-					<a href="/projects/<%= proj.id %>" class="noline">
-						<img src="/img/1.jpg" alt="1.jpg">
-					</a>
-					<span class="category"><%=proj.title%></span>
-					<a href="/projects/<%=proj.id%>">
-						<h1><%=proj.title%></h1>
-					</a>
-					<p class="post_content"><%=proj.resume%></p>
-					<span class="date">
-						<i class="fa fa-calendar"></i><%=proj.date%>
-					</span>
+				<article class="rounded">
+					<div class="card  card-outline-secundary">
+	  					<div class="card-block">
+							<a href="/projects/<%= proj.id %>" class="noline">
+								<img src="/img/1.jpg" alt="1.jpg">
+							</a>
+							<a href="/projects/<%=proj.id%>">
+								<h2><%=proj.title%></h2>
+							</a>
+							<span class="category">
+								<%=proj.course_unit.name%>								
+							</span>
+							<p class="post_content">
+								<%= proj.resume.first(80) %>
+							</p>
+							<div class="card-footer">
+								<span class="date">
+									<i class="fa fa-calendar"></i>
+									<%=proj.date%>
+								</span>
+							</div>
+						</div>
+					</div>
 				</article>
 			<%end%>
-			<div class="pagination">
-				<%= will_paginate @projects %>
-			</div>			
+			<div class="row card card-outline-secundary col-xs-12"">
+				<div class="card-block">
+					<%= will_paginate @projects, class: "pagination" %>	
+				</div>			
+			</div>
 		</div>
 		<%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags: @sb_tags} %>
 	</div>	
