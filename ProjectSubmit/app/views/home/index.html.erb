@@ -8,12 +8,12 @@
 		</p>
 		<div class="projects articlesGrid">
 			<% @projects.each do |proj|%>
-				<article class="rounded">
-					<div class="card  card-outline-secundary">
-	  					<div class="card-block">
-							<a href="/projects/<%= proj.id %>" class="noline">
-								<img src="/img/1.jpg" alt="1.jpg">
-							</a>
+				<article>
+					<div class="card">
+						<a href="/projects/<%= proj.id %>" class="noline card-img-top">
+							<img src="/img/1.jpg" alt="1.jpg">
+						</a>
+						<div class="card-block">
 							<a href="/projects/<%=proj.id%>">
 								<h2><%=proj.title%></h2>
 							</a>
@@ -23,21 +23,15 @@
 							<p class="post_content">
 								<%= proj.resume.first(80) %>
 							</p>
-							<div class="card-footer">
-								<span class="date">
-									<i class="fa fa-calendar"></i>
-									<%=proj.date%>
-								</span>
-							</div>
+							<span class="date">
+								<i class="fa fa-calendar"></i>
+								<%=proj.date%>
+							</span>
 						</div>
 					</div>
 				</article>
 			<%end%>
-			<div class="row card card-outline-secundary col-xs-12"">
-				<div class="card-block">
-					<%= will_paginate @projects, class: "pagination" %>	
-				</div>			
-			</div>
+			<%= will_paginate @projects, class: "pagination" %>	
 		</div>
 		<%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags: @sb_tags} %>
 	</div>	
