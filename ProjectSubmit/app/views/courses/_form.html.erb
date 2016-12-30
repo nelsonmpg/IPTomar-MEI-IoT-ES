@@ -1,74 +1,70 @@
-<div class="card  card-outline-secundary">
-  <div class="card-block">
-      <%= form_for :course do |f| %>
-      
-        <% if @course.errors.any? %>
-            <div id="error_explanation" class="alert alert-warning" role="alert">
-              <h2>Existe erros no formulário
-                <%#  <%= pluralize(@course.errors.count, "error") %>
-              </h2>
-              
-              <ul>
-                <% @course.errors.each do |attr,msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
+  <%= form_for :course do |f| %>
+  
+    <% if @course.errors.any? %>
+        <div id="error_explanation" class="alert alert-warning" role="alert">
+          <h2>Existe erros no formulário
+            <%#  <%= pluralize(@course.errors.count, "error") %>
+          </h2>
+          
+          <ul>
+            <% @course.errors.each do |attr,msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-       <div class=" col-xs-12">
-          <div class="row">
-            <fieldset class="form-group has-success col-xs-12">
-              <%= f.label :"Nome do Curso" %>
-              <%= f.text_field :name, class: 'form-control', disabled: disableEdit %>
-            </fieldset>
-          </div>
-          <div class="row">
-            <fieldset class="form-group has-success col-xs-2">
-              <%= f.label :"Código do Curso" %>
-              <%= f.text_field :code, class: 'form-control', disabled: disableEdit %>
-            </fieldset>
-
-            <fieldset class="form-group has-success col-xs-2">
-              <%= f.label :"Iniciais do Curso" %>
-              <%= f.text_field :initials, class: 'form-control', disabled: disableEdit %>
-            </fieldset>
-
-            <fieldset class="form-group has-success col-xs-4">
-               <%= f.label :"Grau a que pertence o curso" %><br>
-               <%= f.select( :course_type_id, CourseType.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control', disabled: disableEdit}) %>
-            </fieldset>
-
-            <fieldset class="form-group has-success col-xs-4">
-             <%= f.label :"Escola a que pertence o curso" %><br>
-             <%= f.select( :school_id, School.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control', disabled: disableEdit}) %>
-            </fieldset>
-
-          </div>
-
-          <div class="row">
-            <fieldset class="form-group has-success col-xs-12">
-              <%= f.label :"Descrição do Curso" %>
-              <%= f.text_field :description, class: 'form-control', disabled: disableEdit %>
-            </fieldset>
-          </div>
-         
+   <div class=" col-xs-12">
+      <div class="row">
+        <fieldset class="form-group">
+          <%= f.label :"Nome do Curso" %>
+          <%= f.text_field :name, class: 'form-control', disabled: disableEdit %>
+        </fieldset>
       </div>
-       <% if user_signed_in?%>   
-          <div class="row">&nbsp;</div>
-          <div class="row">
-                <div class="col-xs-12">  
-                  <% if disableEdit %>
-                    <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar'.html_safe, edit_course_path(@course) , class: "btn btn-outline-info btn-block" %>  
-                  <% else %>
-                    <%= button_tag type: 'submit', class: "btn btn-outline-success btn-block" do %>
-                    <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar Curso
-                <% end %>
-                  <% end %> 
-                </div>    
-          </div>
-          <div class="row">&nbsp;</div>
-      <% end %> 
-    <%end%>
+      <div class="row">
+        <fieldset class="form-group col-xs-2">
+          <%= f.label :"Código do Curso" %>
+          <%= f.text_field :code, class: 'form-control', disabled: disableEdit %>
+        </fieldset>
+
+        <fieldset class="form-group col-xs-2">
+          <%= f.label :"Iniciais do Curso" %>
+          <%= f.text_field :initials, class: 'form-control', disabled: disableEdit %>
+        </fieldset>
+
+        <fieldset class="form-group col-xs-4">
+           <%= f.label :"Grau a que pertence o curso" %><br>
+           <%= f.select( :course_type_id, CourseType.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control', disabled: disableEdit}) %>
+        </fieldset>
+
+        <fieldset class="form-group col-xs-4">
+         <%= f.label :"Escola a que pertence o curso" %><br>
+         <%= f.select( :school_id, School.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control', disabled: disableEdit}) %>
+        </fieldset>
+
+      </div>
+
+      <div class="row">
+        <fieldset class="form-group col-xs-12">
+          <%= f.label :"Descrição do Curso" %>
+          <%= f.text_field :description, class: 'form-control', disabled: disableEdit %>
+        </fieldset>
+      </div>
+     
   </div>
-</div>
+   <% if user_signed_in?%>   
+      <div class="row">&nbsp;</div>
+      <div class="row">
+            <div class="  col-xs-12">  
+              <% if disableEdit %>
+                <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar'.html_safe, edit_course_path(@course) , class: "btn btn-outline-info btn-block" %>  
+              <% else %>
+                <%= button_tag type: 'submit', class: "btn btn-outline-success btn-block" do %>
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar Curso
+            <% end %>
+              <% end %> 
+            </div>    
+      </div>
+      <div class="row">&nbsp;</div>
+  <% end %> 
+<%end%>

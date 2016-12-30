@@ -21,14 +21,14 @@ $(document).ready(function() {
 
     // Responsive Menu
     $(".toggle_link").click(function (event) {
-        /*event = event || window.event;
-        var target = event.target || event.srcElement;*/
-        $("#menu").toggleClass("active");
+        event = event || window.event;
+        var target = event.target || event.srcElement;
         event.preventDefault();
+        //$("#menu").toggleClass("active");
     });
 
     $(".nav-link").click(function(e){
-         $("#menu").removeClass("active");
+        $("#menu").removeClass("active");
     });
 
     $(".parent a").attr("aria-haspopup", "true");

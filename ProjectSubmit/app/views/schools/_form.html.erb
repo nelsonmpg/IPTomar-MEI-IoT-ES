@@ -1,70 +1,66 @@
-<div class="card  card-outline-secundary">
-  <div class="card-block">
-    <%= form_for :school do |f| %>
-       <% if @school.errors.any? %>
-          <div id="error_explanation" class="alert alert-warning" role="alert">
-            <h2>Existe erros no formulário
-              <%#  pluralize(@school.errors.count, "error") %>
-            </h2>
-            
-            <ul>
-              <% @school.errors.each do |attr,msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-      <div class=" col-xs-12">
-        <div class="row">
-          <fieldset class="form-group has-success col-xs-12">
-            <%= f.label :"Nome da Escola" %><br>
-            <%= f.text_field :name, class: 'form-control', disabled: disableEdit %>
-          </fieldset>
-        </div>
-
-        <div class="row">
-          <fieldset class="form-group has-success col-xs-2">
-          <%= f.label :"Código da Escola" %><br>
-          <%= f.text_field :code, class: 'form-control', disabled: disableEdit %>
-          </fieldset>
-
-          <fieldset class="form-group has-success col-xs-2">
-            <%= f.label :"Iniciais da Escola" %><br>
-            <%= f.text_field :initials, class: 'form-control', disabled: disableEdit %>
-          </fieldset>
-
-          <fieldset class="form-group has-success col-xs-8">
-            <%= f.label :"Descrição da Escola" %><br>
-            <%= f.text_field :description, class: 'form-control', disabled: disableEdit %>
-          </fieldset>
-        </div>
-
-        <div class="row">
-          <fieldset class="form-group has-success col-xs-12">
-           <%= f.label :"Instituição a que pertence a escola" %><br>
-           <%= f.select( :institution_id, Institution.all.collect { |s| [s.name, s.id] }, {}, {class: 'form-control', disabled: disableEdit}) %>
-          </fieldset>       
-        </div>
-        <div class="row">
-          &nbsp;
-        </div>
-     </div>
-    <% if user_signed_in?%>     
-      <div class="row">&nbsp;</div>
-      <div class="row">
-            <div class="col-xs-12">
-              <% if disableEdit %>
-                <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar'.html_safe, edit_school_path(@school) , class: "btn btn-outline-info btn-block" %>  
-              <% else %>
-                <%= button_tag type: 'submit', class: "btn btn-outline-success btn-block" do %>
-                    <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar Escola
-                <% end %>
-              <%end%>
-            </div>    
+<%= form_for :school do |f| %>
+   <% if @school.errors.any? %>
+      <div id="error_explanation" class="alert alert-warning" role="alert">
+        <h2>Existe erros no formulário
+          <%#  pluralize(@school.errors.count, "error") %>
+        </h2>
+        
+        <ul>
+          <% @school.errors.each do |attr,msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
       </div>
-      <div class="row">&nbsp;</div>
-      <%end%>
     <% end %>
+
+  <div class=" col-xs-12">
+    <div class="row">
+      <fieldset class="form-group">
+        <%= f.label :"Nome da Escola" %><br>
+        <%= f.text_field :name, class: 'form-control', disabled: disableEdit %>
+      </fieldset>
+    </div>
+
+    <div class="row">
+      <fieldset class="form-group col-xs-2">
+      <%= f.label :"Código da Escola" %><br>
+      <%= f.text_field :code, class: 'form-control', disabled: disableEdit %>
+      </fieldset>
+
+      <fieldset class="form-group col-xs-2">
+        <%= f.label :"Iniciais da Escola" %><br>
+        <%= f.text_field :initials, class: 'form-control', disabled: disableEdit %>
+      </fieldset>
+
+      <fieldset class="form-group col-xs-8">
+        <%= f.label :"Descrição da Escola" %><br>
+        <%= f.text_field :description, class: 'form-control', disabled: disableEdit %>
+      </fieldset>
+    </div>
+
+    <div class="row">
+      <fieldset class="form-group">
+       <%= f.label :"Instituição a que pertence a escola" %><br>
+       <%= f.select( :institution_id, Institution.all.collect { |s| [s.name, s.id] }, {}, {class: 'form-control', disabled: disableEdit}) %>
+      </fieldset>       
+    </div>
+    <div class="row">
+      &nbsp;
+    </div>
+ </div>
+<% if user_signed_in?%>     
+  <div class="row">&nbsp;</div>
+  <div class="row">
+        <div class="  col-xs-12">
+          <% if disableEdit %>
+            <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar'.html_safe, edit_school_path(@school) , class: "btn btn-outline-info btn-block" %>  
+          <% else %>
+            <%= button_tag type: 'submit', class: "btn btn-outline-success btn-block" do %>
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar Escola
+            <% end %>
+          <%end%>
+        </div>    
   </div>
-</div>
+  <div class="row">&nbsp;</div>
+  <%end%>
+<% end %>

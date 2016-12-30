@@ -3251,43 +3251,12 @@ footer .masonry a:hover .backtotop:hover {
     padding: 1rem 2rem;
 }
 
+
 /** Inicio das minhas alterações especificias**/
-.classicGrid{
+.switch span {
     padding: 0.4em 0.4em;
     font-weight: normal;
     font-size: 80%;
-    border-width: 0px;
-    border-style: initial;
-    border-color: initial;
-    border-image: initial;
 }
 
-.search-query{
-    opacity:0.7;
-    width: 130px;
-    box-sizing: border-box;
-    border: none;
-    border-bottom:2px solid rgba(122, 193, 63, 0.7);
-     -webkit-appearance: none;
-    padding-left: 4px;
-    -webkit-transition: width 0.5s ease-in-out;
-    transition: width 0.5s ease-in-out;
-    outline: none;
-}
-
-.search-query:focus{
-    width: 500px;
-    outline: none;
-    opacity:1;
-}
-
-
-.myContainer{
-    background-color: rgba(255, 255, 255, 0.8);
-    margin-top:50px;
-}
-
-.myRow{
-    padding:5px;
-}
 /** Fim das minhas alterações especificias **/
