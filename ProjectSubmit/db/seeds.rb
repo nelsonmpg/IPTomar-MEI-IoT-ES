@@ -15,6 +15,7 @@ CourseUnit.destroy_all
 
 @u1 = User.create(email:'teste@teste.pt',password:'123456')
 @u2 = User.create(email:'admin@projectsubmit.pt',password:'123qwe')
+@u3 = User.create(email:'admin@admin.pt',password:'123456', admin:'t' )
 
 @i = Institution.create(name: 'Instituto Politécnico de Tomar', code: '1234', initials: 'IPT')
 
