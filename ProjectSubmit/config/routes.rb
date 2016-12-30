@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'projects#index'
+
+  get 'home/index'
 
   devise_for :users
   resources :projects
@@ -12,8 +13,8 @@ Rails.application.routes.draw do
   resources :persontypes
   resources :institutions
   resources :presentations
-
   resources :tags, except: :show
   get 'tags/:tag', to: 'projects#index'
-  #root 'projects#index'
+  #devise_for :users, controllers: { sessions: 'users/sessions' }
+  root 'home#index'
 end
