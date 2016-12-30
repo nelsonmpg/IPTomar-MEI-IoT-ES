@@ -55,6 +55,7 @@ CourseUnit.destroy_all
 @person3 = Person.create(name: 'Nelson Gomes', email: 'eideoersda@ipt.pt')
 @person4 = Person.create(name: 'Luís Oliveira', email: 'loliveira@ipt.pt')
 @person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt')
+@person6 = Person.create(name: 'Pedro Matos', email: 'pedromatos@outlook.pt')
 
 @tag1 = Tag.create(name: 'Ruby')
 @tag2 = Tag.create(name: 'Rails')
