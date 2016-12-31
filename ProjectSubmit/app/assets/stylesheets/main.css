@@ -3239,6 +3239,7 @@ footer .masonry a:hover .backtotop:hover {
     opacity: 1;
 }
 
+/** Inicio das minhas alterações especificias**/
 .input-group input.search-query {
     font-family: Arial, FontAwesome;
 }
@@ -3251,9 +3252,8 @@ footer .masonry a:hover .backtotop:hover {
     padding: 1rem 2rem;
 }
 
-/** Inicio das minhas alterações especificias**/
-.classicGrid{
-    padding: 0.4em 0.4em;
+.classicGrid {
+    padding: 0.4em;
     font-weight: normal;
     font-size: 80%;
     border-width: 0px;
