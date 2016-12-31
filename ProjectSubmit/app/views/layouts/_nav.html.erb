@@ -12,7 +12,7 @@
             	<li class="parent nav-item dropdown">
       				<% if user_signed_in? %>
 						<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							<%= current_user.email.split('@')[0] %>	
+							<i class="fa fa-user-circle-o" aria-hidden="true"></i> <%= current_user.email.split('@')[0] %>	
 						</a>
 					      <ul class="dropdown-menu" aria-labelledby="supportedContentDropdown">
 						        <li class="nav-item dropdown-item">	
@@ -45,7 +45,7 @@
 					        </ul>
       				<% else %>
 	      				<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-	      					Login
+	      					<i class="fa fa-sign-in" aria-hidden="true"></i> Login
 	      				</a>
 					      	<ul class="dropdown-menu" aria-labelledby="supportedContentDropdown">
 						        <li class="nav-item dropdown-item" href="#">
@@ -53,14 +53,7 @@
 						        </li>
 				      		</ul>
 			      	<% end %>
-		    	</li>		    	
-		     	<li class="nav-item">
-		  			<form id="custom-search-form" class="navbar-form form-search form-horizontal pull-left">
-		                <div class="input-group">
-		                    <input type="text" class="search-query" placeholder="&#xF002; Pesquisar">
-		                </div>
-		            </form>
-		    	</li> 
+		    	</li>	
 		    </ul>
 		    
 		</nav>
@@ -71,7 +64,14 @@
 		        </li> -->
 	            <li class="social">
 	                <a href="https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES" class="tumblr"><i class="fa fa-github"></i></a>
-	            </li>
+	            </li>	    	
+		     	<li class="social">
+		  			<form id="custom-search-form" class="navbar-form form-search form-horizontal pull-left">
+		                <div class="input-group">
+		                    <input type="text" class="search-query" placeholder="&#xF002; Pesquisar">
+		                </div>
+		            </form>
+		    	</li> 
 		    </ul>
 		</nav>
 		<a href='' class="toggle_link noline">

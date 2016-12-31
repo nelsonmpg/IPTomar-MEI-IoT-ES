@@ -3281,5 +3281,11 @@ footer .masonry a:hover .backtotop:hover {
     opacity:1;
 }
 
+.pos-popup-info {
+    position: fixed;
+    left: 1%;
+    top: 1%;
+    z-index:1000;
+}
 
 /** Fim das minhas alterações especificias **/

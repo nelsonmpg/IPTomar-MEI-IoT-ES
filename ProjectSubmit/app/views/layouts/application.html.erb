@@ -17,15 +17,24 @@
   </head>
 
   <body class="index">
+    <% flash.each do |key,  value| %>    
+        <div class="card col-xs-4 alert alert-success alert-dismissible fade in pos-popup-info" role="alert">
+          <div class="card-block">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <%= content_tag(:h4, value, class: "flash #{key}") %>
+          </div>
+        </div>
+    <% end %>
 
   	<header class="head">
   		<%= render partial: "layouts/header" %>
   		<%= render partial: "layouts/nav" %>
   	</header>
   
-    <!-- Container-->
+    <!-- Container-->  
 
-  <div class="content mt-1">
+  <div class="content mt-1">  
+
      <%= yield %>
   </div>
 
