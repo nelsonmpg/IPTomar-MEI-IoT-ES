@@ -29,6 +29,10 @@
     <%= f.file_field :slides %>
   </p>
   
+  <p>
+ <%= f.label :"Projeto a que pertence a Apresentação" %><br>
+ <%= f.select :project_id, Project.all.collect { |s| [s.title, s.id] } %>
+ </p>
  
   <p>
     <%= f.submit  "Salvar Apresentação"%>
@@ -36,4 +40,4 @@
  
 <% end %>
  
-<%= link_to 'Voltar', courses_path %>
+<%= link_to 'Voltar', presentations_path %>

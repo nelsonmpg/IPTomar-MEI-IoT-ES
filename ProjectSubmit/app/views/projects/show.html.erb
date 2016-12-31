@@ -35,6 +35,15 @@
                 <span class="name">Sala de Apresentação:</span>
                 <%= @project.presentation.room %>
 
+                
+                <span>Slides da Apresentação:</span>
+                <%=  @project.presentation.slides_file_name %>
+               <td> <%= link_to 'Download', @project.presentation.slides.url(:original, false) %> </td>
+
+
+               <span>Nome do Projeto:</span>
+               <%= @project.documents.description %>
+
             </p>
             <p class="category">
               <span class="name">Featured:</span> 
@@ -82,6 +91,19 @@
                 <span class="name">Tags:</span>
                     <a href="#"><%= @project.tag_list %></a>
             </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
       </article>
 

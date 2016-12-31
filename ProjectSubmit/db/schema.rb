@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229002748) do
+ActiveRecord::Schema.define(version: 20161230210352) do
 
   create_table "course_types", force: :cascade do |t|
     t.text     "name"
@@ -49,10 +49,14 @@ ActiveRecord::Schema.define(version: 20161229002748) do
     t.text     "description"
     t.date     "date"
     t.text     "local"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.text     "name"
     t.integer  "project_id"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
     t.index ["project_id"], name: "index_documents_on_project_id"
   end
 

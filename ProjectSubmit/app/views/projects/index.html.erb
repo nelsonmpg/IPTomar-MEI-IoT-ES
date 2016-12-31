@@ -20,6 +20,12 @@
       <th>tag</th>
       <th>Utilizador</th>
       <th>Cadeira</th>
+      <th>Nome do Projeto</th>
+      <th>Descrição do Projeto</th>
+      <th>Data do Projeto</th>
+      <th>Local do Projeto</th>
+      <th>Nome do Ficheiro</th>
+      <th>Download do Ficheiro</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -41,7 +47,18 @@
         <td><%= project.finished %></td>
         <td><%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
         <td><%= project.user.email %></td>
-        <td><%= project.course_unit.name %></td>   
+        <td><%= project.course_unit.name %></td> 
+        <%#<td><%= image_tag project.project_images.image.url(:medium) %></td>
+
+        
+        <td><%= project.documents.name %></td>
+        <td><%= project.documents.description %></td>
+        <td><%= project.documents.date %></td>
+        <td><%= project.documents.local %></td>
+        <td><%= project.documents.document_file_name %></td>
+        <td><%= link_to 'Download', project.documents.document.url(:original, false) %> </td>
+
+
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= button_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

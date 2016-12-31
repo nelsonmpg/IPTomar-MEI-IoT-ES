@@ -5,7 +5,7 @@
           <ul>
               <% project.errors.full_messages.each do |message| %>
                   <li>
-                      <%=m essage %>
+                      <%= message %>
                   </li>
                   <% end %>
           </ul>
@@ -89,10 +89,48 @@
                   <%= ff.label :"Sala de Apresentação" %>
                   <%= ff.text_field :room, class: 'form-control' %>
               </fieldset>
+              <fieldset class="form-group col-xs-6">
+                <%= ff.label :"Slides da Apresentação" %><br>
+                <%= ff.file_field :slides %>
+              </fieldset>
             <% end %>
         </div>
     </div>
-    <div class="row">
+    
+
+<div class="field">
+<%= f.fields_for :documents, @project.documents do |ffff| %>
+<p>
+ 
+    <%= ffff.label :"Nome do Documento" %><br>
+    <%= ffff.text_field :name %>
+  </p>
+
+  <p>
+    <%= ffff.label :"Descrição do Documento" %><br>
+    <%= ffff.text_field :description %>
+  </p>
+
+ <p>
+    <%= ffff.label :"Data do Documento" %> AAAAMMDD ex: 20161202<br>
+    <%= ffff.text_field :date %>
+  </p>
+
+  <p>
+    <%= ffff.label :"Local do Documento" %><br>
+    <%= ffff.text_field :local %>
+  </p>
+  <p>
+    <%= ffff.label :"Documento/Relatório" %><br>
+    <%= ffff.file_field :document %>
+  </p>
+<% end %>
+</div>
+
+<% end %>
+
+
+<div class="row">
         <div class="actions">
           <%= button_tag type: 'submit', class: "btn btn-outline-success btn-block" do %>
                 <i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar Projeto
@@ -102,25 +140,4 @@
     <div class="row">
     &nbsp;
     </div>
-  </div>
-
-    <%= f.label :user_id %>
-    <%= f.check_box  :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :course_unit_id %>
-    <%= f.select :course_unit_id, CourseUnit.all.collect { |s| [s.name, s.id] } %>
-  </div>
-<div class="field">
-    <%= f.fields_for :presentation do |ff| %>
-    <%= ff.label :"Data de Apresentação" %>
-    <%= ff.date_field :date %>
-
-    <%= ff.label :"Sala de Apresentação" %>
-    <%= ff.text_area :room %>
-
-    <%= ff.label :"Slides da Apresentação" %><br>
-    <%= ff.file_field :slides %>
-    
 </div>
-<% end %>

@@ -29,7 +29,7 @@ class PeopleController < ApplicationController
 
 	def create
     	@person = Person.new(person_params)
-		@person.photo = nil
+		@person.photo
 		@person.save
  		if @person.save
   			redirect_to people_path
