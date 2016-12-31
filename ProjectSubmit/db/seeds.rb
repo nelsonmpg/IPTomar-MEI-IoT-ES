@@ -15,6 +15,7 @@ CourseUnit.destroy_all
 
 @u1 = User.create(email:'teste@teste.pt',password:'123456')
 @u2 = User.create(email:'admin@projectsubmit.pt',password:'123qwe')
+@u3 = User.create(email:'admin@admin.pt',password:'123456', admin:'t' )
 
 @i = Institution.create(name: 'Instituto Politécnico de Tomar', code: '1234', initials: 'IPT')
 
@@ -55,6 +56,7 @@ CourseUnit.destroy_all
 @person3 = Person.create(name: 'Nelson Gomes', email: 'eideoersda@ipt.pt')
 @person4 = Person.create(name: 'Luís Oliveira', email: 'loliveira@ipt.pt')
 @person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt')
+@person6 = Person.create(name: 'Pedro Matos', email: 'pedromatos@outlook.pt')
 
 @tag1 = Tag.create(name: 'Ruby')
 @tag2 = Tag.create(name: 'Rails')
