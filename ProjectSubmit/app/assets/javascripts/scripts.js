@@ -20,15 +20,13 @@ $(document).ready(function() {
     });
 
     // Responsive Menu
-    $(".toggle_link").click(function (event) {
-        /*event = event || window.event;
-        var target = event.target || event.srcElement;*/
-        $("#menu").toggleClass("active");
+    $(document).on('click', ".toggle_link", function (event) {
+        $("nav#menu").toggleClass("active");
         event.preventDefault();
     });
 
     $(".nav-link").click(function(e){
-         $("#menu").removeClass("active");
+        $("nav#menu").removeClass("active");
     });
 
     $(".parent a").attr("aria-haspopup", "true");
@@ -52,12 +50,12 @@ $(document).ready(function() {
 
     // Style Switch
     $(".switch span").click(function(event){
+        event.preventDefault();
 
         // adjust link here
         if ($(".projects").hasClass("articles" + $("#" + this.id).attr("data-remoClas"))) {
             $(".projects").removeClass("articles" + $("#" + this.id).attr("data-remoClas")).addClass("articles" + $("#" + this.id).attr("data-addClas"));
         }
-        event.preventDefault();
     });
 
     if($('.articlesGrid').find('div.wrapper').length != 0){
@@ -66,7 +64,6 @@ $(document).ready(function() {
         $('.switch').show();
     }
 });
-
 
 $(window).scroll(function() {
     var $shrunkheight = $('.head').innerHeight();
