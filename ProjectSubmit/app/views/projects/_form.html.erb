@@ -79,22 +79,20 @@
         </fieldset>
     </div>
     <div class="row">
-        <div class=" col-xs-12">
             <%= f.fields_for :presentation do |presentation| %>
-              <fieldset class="form-group col-xs-6">
+              <fieldset class="form-group col-xs-4">
                   <%= presentation.label :"Data de Apresentação" %>
                   <%=presentation.date_field :date, class: 'form-control custom-select' %>
               </fieldset>
-              <fieldset class="form-group col-xs-6">
+              <fieldset class="form-group col-xs-4">
                   <%= presentation.label :"Sala de Apresentação" %>
                   <%= presentation.text_field :room, class: 'form-control' %>
               </fieldset>
-              <fieldset class="form-group col-xs-6">
+              <fieldset class="form-group col-xs-4">
                 <%= presentation.label :"Slides da Apresentação" %><br>
                 <%= presentation.file_field :slides %>
               </fieldset>
             <% end %>
-        </div>
     </div>
     
 

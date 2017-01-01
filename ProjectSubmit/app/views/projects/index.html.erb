@@ -2,40 +2,41 @@
 
 <h1>Projetos</h1>
 
-<table>
+<table style="background-color: white;">
   
+      <th>Titulo do Projeto</th>
+        <th>Resumo do Projeto</th>
+        <th>Data do Projeto</th>
+        <th>Link GitHub</th>
+         <th>Grau</th>
+        <th>Url do Projeto</th>
+         <th>Data de Apresentação</th>
+         <th>Sala de Apresentação</th>
+        <th>Slides de Apresentação</th>
+        <th>Download da Apresentação</th>
+        <th>Destaque</th>
+        <th>Projeto Finalizado</th>
+        <th>tag</th>
+        <th>Utilizador</th>
+        <th>Cadeira</th>
+        <th>Imagem:</th>
 
     <% @projects.each do |project| %>
       <tr>
-      <th>Titulo do Projeto</th>
         <td><%= project.title %></td>
-        <th>Resumo do Projeto</th>
         <td><%= project.resume %></td>
-        <th>Data do Projeto</th>
         <td><%= project.date %></td>
-        <th>Link GitHub</th>
         <td><%= project.github %></td>
-         <th>Grau</th>
         <td><%= project.grade %></td>
-        <th>Url do Projeto</th>
         <td><%= project.project_url %></td>
-         <th>Data de Apresentação</th>
         <td><%= project.presentation.date %></td>
-         <th>Sala de Apresentação</th>
         <td><%= project.presentation.room %></td>
-        <th>Slides de Apresentação</th>
         <td><%= project.presentation.slides_file_name %></td>
-        <th>Download da Apresentação</th>
         <td><%= link_to 'Download', project.presentation.slides.url(:original, false) %> </td>
-        <th>Destaque</th>
         <td><%= project.featured %></td>
-        <th>Projeto Finalizado</th>
         <td><%= project.finished %></td>
-        <th>tag</th>
         <td><%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
-        <th>Utilizador</th>
         <td><%= project.user.email %></td>
-        <th>Cadeira</th>
         <td><%= project.course_unit.name %></td> 
        
         <% project.documents do |document| %>
@@ -56,7 +57,6 @@
         
 
         <% project.project_images do |projectimage| %>
-        <th>Imagem:</th>
         <td><%= image_tag projectimage.image.url %></td>
         <% end %>
 
@@ -73,13 +73,4 @@
 <% if user_signed_in?%>
 <%= link_to 'New Project', new_project_path %>
 <% end %>
-<P> ---- User ---- </p>
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as : <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path  or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-</div>
 
