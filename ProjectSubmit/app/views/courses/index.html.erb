@@ -1,31 +1,52 @@
-<h1>Lista de Cursos</h1>
- <% if user_signed_in?%>
- <%= link_to 'Adicionar Curso', new_course_path %>
-  <%end%>
-<table>
- 
-  <% @courses.each do |course| %>
-    <tr>
-      <th>Nome:</th>
-      <td><%= course.name %></td>
-      <th>Código:</th>
-      <td><%= course.code %></td>
-      <th>Iniciais:</th>
-      <td><%= course.initials %></td>
-      <th>Descrição:</th>
-      <td><%= course.description %></td>
-      <th>Escola a que pertence: </th>
-      <td><%= course.school.name%></td>
-      <th>Grau do curso: </th>
-      <td><%= course.course_type.name%></td> 
+<div class="content mt-1">
+  <div class="jumbotron px-1 py-1 rounded">
+    <div class="alert alert-success" role="alert">
+      <h1 class="text-xs-center">Cursos</h1>
+    </div>
 
-      <td><%= link_to 'Mostrar', course_path(course) %></td>
-       <% if user_signed_in?%>
-      
-      <td><%= link_to 'Editar', edit_course_path(course) %></td>
-      <td><%= button_to 'Remover', course_path(course), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
-      <%end%>
-    </tr>
+    <% if user_signed_in?%>
+     <%= link_to '<i class="fa fa-plus-circle" aria-hidden="true"></i> Curso'.html_safe, new_course_path, class: "btn btn-outline-success" %>
+    <%end%>               
+    
+    <div class="table-responsive card card-outline-secundary mt-1">
+      <div class="card-block">
+        <table class="table table-hover table-sm">
+          <thead class="thead-inverse">
+              <tr>
+                <th>Nome</th>
+                <th>Código</th>
+                <th>Iniciais</th>
+                <th>Descrição</th>
+                <th>Escola a que pertence</th>
+                <th>Grau do curso</th>
+                <th></th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @courses.each do |course| %>
+              <tr>
+                <td class="align-middle"><%= course.name %></td>
+                <td class="align-middle text-xs-center"><%= course.code %></td>
+                <td class="align-middle text-xs-center"><%= course.initials %></td>
+                <td class="align-middle"><%= course.description %></td>
+                <td class="align-middle"><%= course.school.name%></td>
+                <td class="align-middle"><%= course.course_type.name%></td> 
 
-  <% end %>
-</table>
+                <td class="align-middle">
+                  <%= link_to 'Visualizar', course_path(course), class: "btn btn-outline-info btn-sm btn-block d-inline-block" %>
+
+                  <% if user_signed_in?%>                
+                    <%= link_to 'Editar', edit_course_path(course), class: "btn btn-outline-success btn-sm btn-block" %>
+                    <%= button_to 'Remover', course_path(course), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' }, class: "btn btn-outline-danger btn-sm btn-block" %>
+                
+                <%end%>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <%= will_paginate @courses, class: "pagination" %> 
+    </div>
+  </div>
+</div>
