@@ -12,28 +12,29 @@
 		</div>
 		<div class="projects articlesGrid">
 			<% @projects.each do |proj|%>
-				<article>
-					<div class="card">
-						<a href="/projects/<%= proj.id %>" class="noline card-img-top">
+	        	<article>
+					<div>
+						<a href="/projects/<%= proj.id %>" class="noline">
 							<img src="/img/1.jpg" alt="1.jpg">
 						</a>
-						<div class="card-block">
-							<a href="/projects/<%=proj.id%>">
-								<h2><%=proj.title%></h2>
-							</a>
-							<span class="category">
-								<%=proj.course_unit.name%>								
-							</span>
-							<p class="post_content">
-								<%= proj.resume.first(80) %>
-							</p>
-							<span class="date">
-								<i class="fa fa-calendar"></i>
-								<%=proj.date%>
-							</span>
-						</div>
+
+						<span class="category">
+							<%=proj.course_unit.name%>								
+						</span>
+
+						<a href="/projects/<%=proj.id%>" >
+							<h1><%=proj.title%></h1>
+						</a>
+						
+						<p class="post_content">
+							<%= proj.resume.first(80) %>
+						</p>
+						<span class="date">
+							<i class="fa fa-calendar"></i>
+							<%=proj.date.to_formatted_s(:long)%>
+						</span>
 					</div>
-				</article>
+				</article> 
 			<%end%>
 			<%= will_paginate @projects, class: "pagination" %>	
 		</div>
