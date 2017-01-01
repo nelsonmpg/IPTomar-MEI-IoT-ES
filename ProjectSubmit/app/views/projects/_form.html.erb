@@ -73,26 +73,69 @@
             </div>
         </div>
         <div class="row">
-
-            <fieldset class="form-group has-success col-xs-12">
-                <%=f.label :tag_list, 'Tags (separar por vírgulas)' %>
-                <%=f.text_field :tag_list, class: 'form-control' %>
-            </fieldset>
+          <fieldset class="form-group has-success col-xs-12">
+              <%=f.label :tag_list, 'Tags (separar por vírgulas)' %>
+              <%=f.text_field :tag_list, class: 'form-control' %>
+          </fieldset>
         </div>
         <div class="row">
-            <div class=" col-xs-12">
-                <%= f.fields_for :presentation do |ff| %>
-                  <fieldset class="form-group has-success col-xs-6">
-                      <%= ff.label :"Data de Apresentação" %>
-                      <%=ff.date_field :date, class: 'form-control custom-select' %>
-                  </fieldset>
-                  <fieldset class="form-group has-success col-xs-6">
-                      <%= ff.label :"Sala de Apresentação" %>
-                      <%= ff.text_field :room, class: 'form-control' %>
-                  </fieldset>
-                <% end %>
-            </div>
+          <%= f.fields_for :presentation do |ff| %>
+            <fieldset class="form-group has-success col-xs-4">
+                <%= ff.label :"Data de Apresentação" %>
+                <%=ff.date_field :date, class: 'form-control',  value: "2017-01-01T00:00:00", type: "datetime-local" %>
+            </fieldset>
+            <fieldset class="form-group has-success col-xs-2">
+                <%= ff.label :"Sala de Apresentação" %>
+                <%= ff.text_field :room, class: 'form-control' %>
+            </fieldset>
+          <fieldset class="form-group has-success col-xs-6">
+            <%= ff.label :"Slides da Apresentação" %><br>
+            <%= ff.file_field :slides, class: "form-control form-control-file" %>
+          </fieldset>
+          <% end %>
         </div>
+
+<div class="field">
+<%= f.fields_for :documents, @project.documents do |document| %>
+<p>
+ 
+    <%= document.label :"Nome do Documento" %><br>
+    <%= document.text_field :name %>
+  </p>
+
+  <p>
+    <%= document.label :"Descrição do Documento" %><br>
+    <%= document.text_field :description %>
+  </p>
+
+ <p>
+    <%= document.label :"Data do Documento" %> AAAAMMDD ex: 20161202<br>
+    <%= document.text_field :date %>
+  </p>
+
+  <p>
+    <%= document.label :"Local do Documento" %><br>
+    <%= document.text_field :local %>
+  </p>
+  <p>
+    <%= document.label :"Documento/Relatório" %><br>
+    <%= document.file_field :document %>
+  </p>
+<% end %>
+</div>
+
+
+<div class="field">
+<%= f.fields_for :project_images, @project.project_images do |projectimage| %>
+
+<p>
+  <%= projectimage.label :"Imagem" %><br>
+  <%= projectimage.file_field :image%>
+   </p>
+<% end %>
+</div>
+
+
         <div class="row">
             <div class="actions">
               <%= button_tag type: 'submit', class: "btn btn-outline-success btn-block" do %>

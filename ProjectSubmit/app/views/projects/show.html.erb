@@ -85,6 +85,34 @@
                 <span class="name">Sala de Apresentação:</span>
                 <%= @project.presentation.room %>
 
+                
+                <span class="name">Slides da Apresentação:</span>
+                <%=  @project.presentation.slides_file_name %>
+               <td> <%= link_to 'Download', @project.presentation.slides.url(:original, false) %> </td>
+
+
+    
+
+                 <% @project.documents.each do |document| %>
+                 <span class="name">Nome do Projeto:</span>
+                 <td><%= document.name %></td>
+                 <span class="name">Descrição do Projeto:</span>
+                 <td><%= document.description %></td>
+                 <span class="name">Data do Projeto:</span>
+                 <td><%= document.date %></td>
+                 <span class="name">Local do Projeto:</span>
+                 <td><%= document.local %></td>
+                 <span class="name">Nome do Ficheiro:</span>
+                 <td><%= document.document_file_name %></td>
+                 <td><%= link_to 'Download', document.document.url(:original, false)%></td>
+                 <% end %>
+                 
+                <% @project.project_images.each do |projectimage| %>
+                <span class="name">Imagem:</span>
+                <td><%= image_tag projectimage.image.url %></td>
+                <% end %>
+
+
             </p>
             <p class="category">
               <span class="name">Featured:</span> 
@@ -132,6 +160,19 @@
                 <span class="name">Tags:</span>
                     <a href="#"><%= @project.tag_list %></a>
             </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
       </article>
 

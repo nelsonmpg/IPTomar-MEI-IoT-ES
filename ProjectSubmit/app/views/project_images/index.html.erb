@@ -1,0 +1,24 @@
+<h1>Lista de Imagens de Projetos</h1>
+ <% if user_signed_in?%>
+ <%= link_to 'Adicionar Imagem', new_project_image_path %>
+<%end%>  
+<table>
+  <% @projectimages.each do |projectimage| %>
+    <tr>
+      
+      <th>Imagem:</th>
+      <td><%= image_tag projectimage.image.url(:thumb) %></td>
+      
+      <th>Projecto a que pertence a imagem </th>
+      <td><%= projectimage.project.title%></td>
+
+      <td><%= link_to 'Mostrar', project_image_path(projectimage) %></td>
+
+      <% if user_signed_in?%>
+      <td><%= link_to 'Editar', edit_project_image_path(projectimage) %></td>
+      <td><%= button_to 'Remover', project_image_path(projectimage), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
+    <%end%>
+    </tr>
+
+  <% end %>
+</table>

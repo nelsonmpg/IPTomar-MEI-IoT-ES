@@ -23,11 +23,14 @@
               <th>Url do Projeto</th> -->
               <th>Data de Apresentação</th>
               <th>Sala de Apresentação</th>
-            <!--  <th>Destaque</th> -->
+            <!--   <th>Slides de Apresentação</th>
+              <th>Download da Apresentação</th>
+             <th>Destaque</th> -->
               <th>Projeto Finalizado</th>
             <!--   <th>Tag(s)</th>
              <th>Utilizador</th> -->
               <th>Cadeira</th>
+            <!--  <th>Imagem:</th> -->
               <th></th>
             </tr>
           </thead>
@@ -43,6 +46,8 @@
                 <td><%#= project.project_url %></td> -->
                 <td class="text-xs-center align-middle"><%= project.presentation.date %></td>
                 <td class="text-xs-center align-middle"><%= project.presentation.room %></td>
+               <!-- <td><%#= project.presentation.slides_file_name %></td>
+                <td><%#= link_to 'Download', project.presentation.slides.url(:original, false) %> </td> -->
                <!-- <td><%#= project.featured %></td> -->           
                 <td class="text-xs-center align-middle">
                   <label class="custom-control custom-checkbox align-middle">
@@ -55,6 +60,30 @@
 
                 <td class="align-middle"><%= project.course_unit.name %></td>   
                 
+<!--
+        <%# project.documents do |document| %>
+        <th>Nome do Projeto</th>
+        <td><%#= document.name %></td>
+        <th>Descrição do Projeto</th>
+        <td><%= document.description %></td>
+        <th>Data do Projeto</th>
+        <td><%= document.date %></td>
+        <th>Local do Projeto</th>
+        <td><%= document.local %></td>
+        <th>Nome do Ficheiro</th>
+        <td><%= document.document_file_name %></td>
+        <th>Download do Ficheiro</th>
+        <td><%#= link_to 'Download', document.document.url(:original, false) %> </td>
+        <% end %>
+
+        
+
+        <%# project.project_images do |projectimage| %>
+        <td><%= image_tag projectimage.image.url %></td>
+        <% end %>
+-->
+
+
                 <td class="align-middle">
                   <%= link_to 'Visualizar', project, class: "btn btn-outline-info btn-sm btn-block d-inline-block" %>
                   <% if user_signed_in? %>
