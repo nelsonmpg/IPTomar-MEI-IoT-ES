@@ -3,7 +3,7 @@
       <div id="error_explanation" class="alert alert-warning" role="alert">
           <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
           <ul>
-              <% project.errors.full_messages.each do |message| %>
+              <% project.errors.full_messages.each do |attr,message| %>
                   <li>
                       <%= message %>
                   </li>
@@ -80,18 +80,18 @@
     </div>
     <div class="row">
         <div class=" col-xs-12">
-            <%= f.fields_for :presentation do |ff| %>
+            <%= f.fields_for :presentation do |presentation| %>
               <fieldset class="form-group col-xs-6">
-                  <%= ff.label :"Data de Apresentação" %>
-                  <%=ff.date_field :date, class: 'form-control custom-select' %>
+                  <%= presentation.label :"Data de Apresentação" %>
+                  <%=presentation.date_field :date, class: 'form-control custom-select' %>
               </fieldset>
               <fieldset class="form-group col-xs-6">
-                  <%= ff.label :"Sala de Apresentação" %>
-                  <%= ff.text_field :room, class: 'form-control' %>
+                  <%= presentation.label :"Sala de Apresentação" %>
+                  <%= presentation.text_field :room, class: 'form-control' %>
               </fieldset>
               <fieldset class="form-group col-xs-6">
-                <%= ff.label :"Slides da Apresentação" %><br>
-                <%= ff.file_field :slides %>
+                <%= presentation.label :"Slides da Apresentação" %><br>
+                <%= presentation.file_field :slides %>
               </fieldset>
             <% end %>
         </div>
@@ -99,35 +99,47 @@
     
 
 <div class="field">
-<%= f.fields_for :documents, @project.documents do |ffff| %>
+<%= f.fields_for :documents, @project.documents do |document| %>
 <p>
  
-    <%= ffff.label :"Nome do Documento" %><br>
-    <%= ffff.text_field :name %>
+    <%= document.label :"Nome do Documento" %><br>
+    <%= document.text_field :name %>
   </p>
 
   <p>
-    <%= ffff.label :"Descrição do Documento" %><br>
-    <%= ffff.text_field :description %>
+    <%= document.label :"Descrição do Documento" %><br>
+    <%= document.text_field :description %>
   </p>
 
  <p>
-    <%= ffff.label :"Data do Documento" %> AAAAMMDD ex: 20161202<br>
-    <%= ffff.text_field :date %>
+    <%= document.label :"Data do Documento" %> AAAAMMDD ex: 20161202<br>
+    <%= document.text_field :date %>
   </p>
 
   <p>
-    <%= ffff.label :"Local do Documento" %><br>
-    <%= ffff.text_field :local %>
+    <%= document.label :"Local do Documento" %><br>
+    <%= document.text_field :local %>
   </p>
   <p>
-    <%= ffff.label :"Documento/Relatório" %><br>
-    <%= ffff.file_field :document %>
+    <%= document.label :"Documento/Relatório" %><br>
+    <%= document.file_field :document %>
   </p>
 <% end %>
 </div>
 
+
+<div class="field">
+<%= f.fields_for :project_images, @project.project_images do |projectimage| %>
+
+<p>
+  <%= projectimage.label :"Imagem" %><br>
+  <%= projectimage.file_field :image%>
+   </p>
 <% end %>
+</div>
+
+
+
 
 
 <div class="row">
@@ -141,3 +153,4 @@
     &nbsp;
     </div>
 </div>
+<% end %>

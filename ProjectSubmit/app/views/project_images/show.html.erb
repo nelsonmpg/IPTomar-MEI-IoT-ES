@@ -1,0 +1,9 @@
+
+<%= image_tag @projectimage.image.url(:medium) %>
+
+
+
+  <% if user_signed_in?%>
+ <td><%= link_to 'Editar', edit_project_image_path(@projectimage) %></td>
+ <%end%>
+ <td><%= link_to 'Voltar', project_images_path %></td>

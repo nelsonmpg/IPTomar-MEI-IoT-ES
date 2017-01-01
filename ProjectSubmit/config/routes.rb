@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :courses 
   resources :course_units
   resources :course_types
+  resources :project_images
   resources :people
   resources :persontypes
   resources :institutions

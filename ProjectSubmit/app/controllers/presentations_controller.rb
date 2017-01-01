@@ -3,6 +3,7 @@ class PresentationsController < ApplicationController
 	
 	def index
     	@presentations = Presentation.all
+		
 	end
 
 	def show
