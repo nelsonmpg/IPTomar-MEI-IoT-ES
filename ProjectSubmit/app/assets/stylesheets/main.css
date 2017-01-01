@@ -3263,12 +3263,12 @@ footer .masonry a:hover .backtotop:hover {
 }
 
 .search-query{
+    float:left;
+    width: 10%;
     opacity:0.7;
-    width: 130px;
     box-sizing: border-box;
     border: none;
-    border-bottom:2px solid rgba(122, 193, 63, 0.7);
-     -webkit-appearance: none;
+    -webkit-appearance: none;
     padding-left: 4px;
     -webkit-transition: width 0.5s ease-in-out;
     transition: width 0.5s ease-in-out;
@@ -3276,9 +3276,10 @@ footer .masonry a:hover .backtotop:hover {
 }
 
 .search-query:focus{
-    width: 500px;
+    width: 100%;
     outline: none;
     opacity:1;
+    border-bottom:2px solid rgba(122, 193, 63, 0.7);
 }
 
 .pos-popup-info {

@@ -9,69 +9,90 @@
 		        <li class="nav-item">
 		            <a  href="#">About</a>
 		        </li>
-            	<li class="parent nav-item dropdown">
-      				<% if user_signed_in? %>
+				<% if user_signed_in? %>
+					<li class="parent nav-item dropdown">
 						<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							<i class="fa fa-user-circle-o" aria-hidden="true"></i> <%= current_user.email.split('@')[0] %>	
+								Adicionar
 						</a>
-					      <ul class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-						        <li class="nav-item dropdown-item">	
-						        	<%= link_to "Sair", destroy_user_session_path, :method => :get %>
-					        	</li>				        	
-					        	<% if current_user.admin? %>	
-							        <!--menu de administração -->
-							         <li class="nav-item dropdown-item">
-							        	<a href="/admin">
-							        		Administração 
-							        	</a>
-						        	</li>
-					        	<%end%>	
-						        <li class="parent dropdown dropdown-item nav-item">
-                            		<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            			Adiciona
-                            		</a>	
-						        	<ul class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-						        		<li class="nav-item dropdown-item">
-						        			<a href="/courses/new">Novo Curso</a>
-						        		</li>
-						        		<li class="nav-item dropdown-item">
-						        			<a href="/schools/new">Nova Escola</a>
-						        		</li>
-						        		<li class="nav-item dropdown-item">
-						        			<a href="/projects/new">Novo Projeto</a>
-						        		</li>
-						        	</ul>
-						        </li>
-					        </ul>
-      				<% else %>
-	      				<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						<ul class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+							<li class="dropdown-item">
+								<a href="/courses/new">Novo Curso</a>
+							</li>
+							<li class="dropdown-item">
+								<a href="/schools/new">Nova Escola</a>
+							</li>
+							<li class="dropdown-item">
+								<a href="/projects/new">Novo Projeto</a>
+							</li>
+						</ul>      	
+					</li>	
+
+					<!--administração -->	
+					<% if current_user.admin? %> 
+						<li class="nav-item">
+							<a href="/admin">
+								Administração 
+							</a>
+						</li>
+					<%end%>	
+				<% end %>
+
+					<!-- barra de pesquisa -->
+					<li class="social">
+						<form id="custom-search-form" class="navbar-form form-search form-horizontal pull-left">
+							<div class="input-group">
+								<input type="text" class="search-query mr-3" placeholder="&#xF002;">
+							</div>
+						</form>
+					</li>
+				</li> 	
+		    </ul>  
+		</nav>
+
+		<nav class="iconnav">
+		    <ul>
+					   	
+		       <!--  <li class="sicon">
+			   
+		            <a href='#'><i class='fa fa-search'></i></a>
+					
+					<i class="fa fa-user-circle" aria-hidden="true"></i>
+
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	      					<i class="fa fa-sign-in" aria-hidden="true"></i> Login
 	      				</a>
-					      	<ul class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-						        <li class="nav-item dropdown-item" href="#">
-						        	<%= link_to "Entrar", new_user_session_path %>
-						        </li>
-				      		</ul>
-			      	<% end %>
-		    	</li>	
-		    </ul>
-		    
-		</nav>
-		<nav class="iconnav">
-		    <ul>		   	
-		       <!--  <li class="sicon">
-		            <a href='#'><i class='fa fa-search'></i></a>
 		        </li> -->
+				
+				<% if user_signed_in? %>
+					<li class="parent nav-item dropdown">
+						<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							<%= current_user.email.split('@')[0] %>	
+						</a> 
+						<ul class="dropdown-menu" aria-labelledby="supportedContentDropdown">				        			
+							<% if current_user.admin? %>	
+								<!--menu de administração -->
+									<li class="nav-item dropdown-item">
+										<a href="/admin">Administração</a>
+									</li>
+							<%end%>		
+						</ul>		
+					</li>
+					|
+
+
+					<li class="social mr-1">	
+						<%= link_to "Sair", destroy_user_session_path, :method => :get %>
+					</li>	
+				<% else %>
+					<li class="social mr-1" href="#">
+						<%= link_to "Entrar", new_user_session_path %>			
+					</li>
+				<% end %>
+				
+
 	            <li class="social">
 	                <a href="https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES" class="tumblr"><i class="fa fa-github"></i></a>
 	            </li>	    	
-		     	<li class="social">
-		  			<form id="custom-search-form" class="navbar-form form-search form-horizontal pull-left">
-		                <div class="input-group">
-		                    <input type="text" class="search-query" placeholder="&#xF002; Pesquisar">
-		                </div>
-		            </form>
-		    	</li> 
 		    </ul>
 		</nav>
 		<a href='' class="toggle_link noline">
