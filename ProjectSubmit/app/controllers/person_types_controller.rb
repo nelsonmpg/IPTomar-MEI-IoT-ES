@@ -44,6 +44,6 @@ class PersonTypesController < ApplicationController
 
 	private
 	def persontype_params
-    	params.require(:person_type).permit(:designation)
+    	params.require(:persontype).permit(:designation)
 	end
 end
