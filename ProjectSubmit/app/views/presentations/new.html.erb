@@ -1,0 +1,44 @@
+<h1>Adicionar Apresentação</h1>
+ 
+<%= form_for :presentation, url: presentations_path do |f| %>
+ 
+  <% if @presentation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+     <%#   <%= pluralize(@course.errors.count, "error") %> 
+      </h2>
+      <ul>
+        <% @presentation.errors.each do |attr,msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+ <p>
+    <%= f.label :"Data da apresentação" %><br>
+    <%= f.text_field :date %>
+  </p>
+   <p>
+    <%= f.label :"Sala da apresentação" %><br>
+    <%= f.text_field :room %>
+  </p>
+  <p>
+    <%= f.label :"Slides da Apresentação" %><br>
+    <%= f.file_field :slides %>
+  </p>
+
+  <p>
+ <%= f.label :"Projeto a que pertence a Apresentação" %><br>
+ <%= f.select :project_id, Project.all.collect { |s| [s.title, s.id] } %>
+ </p>
+  
+ 
+  <p>
+    <%= f.submit  "Salvar Apresentação"%>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Voltar', presentations_path %>

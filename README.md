@@ -77,3 +77,12 @@ rails server -b0.0.0.0
 Para entrar na VM por ssh, ir para a pasta /vagrant, instalar as gems necessárias, iniciar a BD e iniciar o servidor. A app deve estar acessível em http://localhost:3000/
 
 Toda a edição (commits, etc.) é feita na vossa máquina, tal como antes.
+
+----------------------------------------------
+A gem paperclip está integrada no nosso projecto.
+
+Antes de correrem o projecto, no vagrant, depois de fazerem cd /vagrant escrevam:
+
+```
+sudo apt-get install imagemagick -y
+```

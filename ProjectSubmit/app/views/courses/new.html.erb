@@ -1,45 +1,15 @@
-<h1>Adicionar Curso</h1>
-
-<%= form_for :course, url: courses_path do |f| %>
- 
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><h2>Existe erros no formulário</h2>
-      <ul>
-        <% @course.errors.each do |attr,msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <div class="alert alert-success" role="alert">
+      <h1 class="text-xs-center">Novo Curso</h1>
     </div>
-  <% end %>
- 
 
- <p>
-    <%= f.label :"Nome do Curso" %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :"Código do Curso" %><br>
-    <%= f.text_field :code %>
-  </p>
-  <p>
-    <%= f.label :"Iniciais do Curso" %><br>
-    <%= f.text_field :initials %>
-  </p>
-  <p>
-    <%= f.label :"Descrição de Curso" %><br>
-    <%= f.text_field :description %>
-  </p>
- <p>
- <%= f.label :"Escola a que pertence o curso" %><br>
- <%= f.select :school_id, School.all.collect { |s| [s.name, s.id] } %>
- </p>
+    <%= render 'form', course: @course, disableEdit: false %>
 
-
-  <p>
-    <%= f.submit "Salvar Curso"%>
-  </p>
- 
-<% end %>
- 
-<%= link_to 'Voltar', courses_path %>
+     <div class="row">
+      <div class="col-xs-2">
+        <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, courses_path, class: "btn btn-outline-info btn-block" %>
+      </div>      
+    </div>
+  </div>
+</div>

@@ -1,56 +1,139 @@
-<p id="notice"><%= notice %></p>
+<section class="margin">
+  <div class="content">
+    <div class="content_container">
+      <article>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+        <h1 class="post_title">
+          <%= @project.title %>
+        </h1>
 
-<p>
-  <strong>Resume:</strong>
-  <%= @project.resume %>
-</p>
+        <div class="meta">
+                Publicado por "unknown" &bull; <%= @project.date %>
+        </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @project.date %>
-</p>
+        <img src="/img/1.jpg" alt="1.jpg">
 
-<p>
-  <strong>github:</strong>
-  <%= @project.github %>
-</p>
+        <div class="post_content">
+            <%= @project.resume %>
+        </div>
 
-<p>
-  <strong>grade:</strong>
-  <%= @project.grade %>
-</p>
+        <div class="catsandtags">
+            <p class="category">
+                <span class="name">Link Github:</span> 
+                <%= @project.github %> &bull;
 
-<p>
-  <strong>project_url:</strong>
-  <%= @project.project_url %>
-</p>
+                <span class="name">Grau:</span> 
+                <%= @project.grade %> &bull;
 
-<p>
-  <strong>presentation:</strong>
-  <%= @project.presentation %>
-</p>
+                <span class="name">Url do projeto:</span> 
+                <%= @project.project_url %> &bull;
 
-<p>
-  <strong>featured:</strong>
-  <%= @project.featured %>
-</p>
+                <span class="name">Data de Apresentação:</span> 
+                <%= @project.presentation.date %>
 
-<p>
-  <strong>finished:</strong>
-  <%= @project.finished %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
-<p>
-  <strong>Discipline:</strong>
-  <%= @project.subject_id %>
-</p>
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+                <span class="name">Sala de Apresentação:</span>
+                <%= @project.presentation.room %>
+
+                
+                <span class="name">Slides da Apresentação:</span>
+                <%=  @project.presentation.slides_file_name %>
+               <td> <%= link_to 'Download', @project.presentation.slides.url(:original, false) %> </td>
+
+
+    
+
+                 <% @project.documents.each do |document| %>
+                 <span class="name">Nome do Projeto:</span>
+                 <td><%= document.name %></td>
+                 <span class="name">Descrição do Projeto:</span>
+                 <td><%= document.description %></td>
+                 <span class="name">Data do Projeto:</span>
+                 <td><%= document.date %></td>
+                 <span class="name">Local do Projeto:</span>
+                 <td><%= document.local %></td>
+                 <span class="name">Nome do Ficheiro:</span>
+                 <td><%= document.document_file_name %></td>
+                 <td><%= link_to 'Download', document.document.url(:original, false)%></td>
+                 <% end %>
+                 
+                <% @project.project_images.each do |projectimage| %>
+                <span class="name">Imagem:</span>
+                <td><%= image_tag projectimage.image.url %></td>
+                <% end %>
+
+
+            </p>
+            <p class="category">
+              <span class="name">Featured:</span> 
+              <% if @project.featured == TRUE %>
+                yes
+              <% else %>
+                no
+              <% end %>
+              &bull;
+
+              <p>
+                <strong>Destaque:</strong>
+                <%= @project.featured %>
+              </p>
+
+              <p>
+                <strong>Utilizador:</strong>
+                <%= @project.user.email %>
+              </p>
+
+              <p>
+                <strong>Escola a que pertence:</strong>
+                <%= @project.course_unit.course.school.name %>
+              </p>
+
+              <p>
+                <strong>Curso a que Pertence:</strong>
+                <%= @project.course_unit.course.name %>
+              </p>
+
+              <p>
+                <strong>Cadeira a que pertence:</strong>
+                <%= @project.course_unit.name %>
+              </p>
+
+               <span class="name">Finished:</span> 
+              <% if @project.finished == TRUE %>
+                yes
+              <% else %>
+                no
+              <% end %>
+            </p>
+
+            <p class="tags">
+                <span class="name">Tags:</span>
+                    <a href="#"><%= @project.tag_list %></a>
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </article>
+
+      <div class="post_nav">
+        <% if user_signed_in?%>
+          <%= link_to 'Editar', edit_project_path(@project), class: 'btn btn-default' %>
+        <% end %>
+        <%= link_to '< Voltar atrás', projects_path, class: 'btn btn-default' %>
+      </div>
+      
+    </div>
+    <%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags:  @sb_tags} %>
+  </div>  
+</section>

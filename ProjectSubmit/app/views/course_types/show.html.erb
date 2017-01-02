@@ -1,0 +1,15 @@
+ <p>
+  <strong>Nome:</strong>
+  <%= @coursetype.name %>
+</p>
+
+
+<p>
+  <strong>Ciclo:</strong>
+  <%= @coursetype.cycle %>
+</p>
+
+  <% if user_signed_in?%>
+ <td><%= link_to 'Editar', edit_course_type_path(@coursetype) %></td>
+ <%end%>
+ <td><%= link_to 'Voltar', course_units_path %></td>

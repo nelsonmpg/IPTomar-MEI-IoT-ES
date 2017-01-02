@@ -11,11 +11,12 @@
     <tr>
       <td><%= person.name %></td>
       <td><%= person.email %></td>
-      <td><%= person.photo %></td>
+      <td><%= image_tag person.photo.url(:thumb) %></td>
+      
 
       <td><%= link_to 'Mostrar', person_path(person) %></td>
       <td><%= link_to 'Editar', edit_person_path(person) %></td>
-      <td><%= link_to 'Remover', person_path(person), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta pessoa?' } %></td>
+      <td><%= link_to 'Remover', person_path(person), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
     
     </tr>
   <% end %>

@@ -1,35 +1,14 @@
-<p>
-  <strong>Nome da Escola:</strong>
-  <%= @school.name %>
-  </p>
-<p>
-  <strong>Código da Escola:</strong>
-  <%= @school.code %>
-</p>
-<p>
-  <strong>Iniciais da Escola:</strong>
-  <%= @school.initials %>
-</p>
-<p>
-  <strong>Descrição da Escola:</strong>
-  <%= @school.description %><br>
-</p>
+<div class="container-fluid">
+  <div class="jumbotron">	
 
-<strong>Cursos pertencentes a esta escola:</strong>
-<% @school.courses.each do |course| %>
-<br>
-<%= course.name %>
- 
-<% end %>
+	<%= render 'form', school: @school, disableEdit: true %>
 
-<% if user_signed_in?%>
- <td><%= link_to 'Editar', edit_school_path(@school) %>
- </td>
-<%end%>
-
- <td>
-<%= link_to 'Voltar', schools_path %> 
- </td>
-
-
+    <div class="row">&nbsp;</div>
+    <div class="row">
+      <div class="  col-xs-2">
+        <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, schools_path, class: "btn btn-outline-info btn-block" %>  
+      </div>    
+    </div>
+ </div>
+</div>
  

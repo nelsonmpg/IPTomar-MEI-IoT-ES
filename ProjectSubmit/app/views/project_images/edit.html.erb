@@ -1,0 +1,33 @@
+<h1>Editar Imagem de Projeto</h1>
+ 
+<%= form_for :project_image, url: project_image_path(@projectimage), method: :patch do |f| %>
+ 
+  <% if @projectimage.errors.any? %>
+    <div id="error_explanation">
+      <h2><h2>Existe erros no formulário
+       <%# <%= pluralize(@subject.errors.count, "error") %>
+      </h2>
+      <ul>
+        <% @coursetype.errors.each do |attr,msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+ <%= f.label :"Imagem" %><br>
+  <%= f.file_field :image %>
+ 
+<p>
+ <%= f.label :"Projeto a que pertence a Imagem" %><br>
+ <%= f.select :project_id, Project.all.collect { |s| [s.title, s.id] } %>
+ </p>
+ 
+  <p>
+    <%= f.submit  "Salvar Imagem do Projeto"%>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Voltar', course_types_path %>

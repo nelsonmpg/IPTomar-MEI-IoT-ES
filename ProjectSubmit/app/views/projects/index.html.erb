@@ -1,26 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1>Projetos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Resume</th>
-      <th>Date</th>
-      <th>github</th>
-      <th>grade</th>
-      <th>project_url</th>
-      <th>presentation</th>
-      <th>featured</th>
-      <th>finished</th>
-      <th>User</th>
-      <th>Discipline</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table style="background-color: white;">
+  
+      <th>Titulo do Projeto</th>
+        <th>Resumo do Projeto</th>
+        <th>Data do Projeto</th>
+        <th>Link GitHub</th>
+         <th>Grau</th>
+        <th>Url do Projeto</th>
+         <th>Data de Apresentação</th>
+         <th>Sala de Apresentação</th>
+        <th>Slides de Apresentação</th>
+        <th>Download da Apresentação</th>
+        <th>Destaque</th>
+        <th>Projeto Finalizado</th>
+        <th>tag</th>
+        <th>Utilizador</th>
+        <th>Cadeira</th>
+        <th>Imagem:</th>
 
-  <tbody>
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.title %></td>
@@ -29,28 +29,48 @@
         <td><%= project.github %></td>
         <td><%= project.grade %></td>
         <td><%= project.project_url %></td>
-        <td><%= project.presentation %></td>
+        <td><%= project.presentation.date %></td>
+        <td><%= project.presentation.room %></td>
+        <td><%= project.presentation.slides_file_name %></td>
+        <td><%= link_to 'Download', project.presentation.slides.url(:original, false) %> </td>
         <td><%= project.featured %></td>
         <td><%= project.finished %></td>
-        <td><%= project.user_id %></td>
-        <td><%= project.subject_id %></td>        
+        <td><%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+        <td><%= project.user.email %></td>
+        <td><%= project.course_unit.name %></td> 
+       
+        <% project.documents do |document| %>
+        <th>Nome do Projeto</th>
+        <td><%= document.name %></td>
+        <th>Descrição do Projeto</th>
+        <td><%= document.description %></td>
+        <th>Data do Projeto</th>
+        <td><%= document.date %></td>
+        <th>Local do Projeto</th>
+        <td><%= document.local %></td>
+        <th>Nome do Ficheiro</th>
+        <td><%= document.document_file_name %></td>
+        <th>Download do Ficheiro</th>
+        <td><%= link_to 'Download', document.document.url(:original, false) %> </td>
+        <% end %>
+
+        
+
+        <% project.project_images do |projectimage| %>
+        <td><%= image_tag projectimage.image.url %></td>
+        <% end %>
+
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      
     <% end %>
-  </tbody>
+  
 </table>
 
 <br>
-
+<% if user_signed_in?%>
 <%= link_to 'New Project', new_project_path %>
-<P> ---- User ---- </p>
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as : <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-</div>
+<% end %>
+

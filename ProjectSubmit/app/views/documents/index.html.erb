@@ -10,15 +10,24 @@
   <% @documents.each do |document| %>
 
     <tr>
+      <th>Nome do Documento </th>
       <td><%= document.name %></td>
+      <th>Descrição do Documento </th>
       <td><%= document.description %></td>
+      <th>Data do Documento </th>
       <td><%= document.date %></td>
+      <th>Local do Documento </th>
       <td><%= document.local %></td>
-      <td><%= document.project_id %></td>
+      <th>Documento/Relatório</th>
+      <td><%=  document.document_file_name %></td>
+      <td> <%= link_to 'Download', document.document.url(:original, false) %> </td>
+      <th>Projecto a que pertence a apresentação </th>
+      <td><%= document.project.title%></td>
+      
 
       <td><%= link_to 'Mostrar', document_path(document) %></td>
       <td><%= link_to 'Editar', edit_document_path(document) %></td>
-     <td><%= link_to 'Remover', document_path(document), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar este documento?' } %></td>
+     <td><%= link_to 'Remover', document_path(document), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
 
     </tr>
   <% end %>

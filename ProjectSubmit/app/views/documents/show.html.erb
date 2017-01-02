@@ -1,10 +1,26 @@
 <p>
-  <strong>Documento:</strong>
+  <strong>Nome do Documento:</strong>
   <%= @document.name %>
-  <%= @document.description %>
+</p>
+
+
+<p>
+  <strong>Descrição:</strong>
+ <%= @document.description %>
+</p>
+ <p>
+  <strong>Data:</strong>
   <%= @document.date %>
+</p>
+  <p>
+  <strong>Local:</strong>
   <%= @document.local %>
-  <%= @document.project_id %>
+</p>
+  <p>
+  <strong>Documento/Relatório:</strong>
+  <%=  @document.document_file_name %>
+  <td> <%= link_to 'Download', @document.document.url(:original, false) %> </td>
+<br>
 </p>
 
 
