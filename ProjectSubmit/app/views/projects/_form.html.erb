@@ -28,7 +28,7 @@
 
             <fieldset class="form-group has-success col-xs-1">
                 <%=f.label :"Grau" %>
-                <%=f.select( :grade, options_for_select([[ "1"],[ "2"],[ "3"],[ "4"],[ "5"],[ "6"],[ "7"],[ "8"],[ "9"]]), {}, {class: 'form-control'}) %>
+                <%=f.select( :grade, 20.times.map {|x| [x + 1]}, {include_blank: true}, {class: 'form-control'}) %>
             </fieldset>
 
             <fieldset class="form-group has-success col-xs-4">
@@ -78,7 +78,7 @@
               <%=f.text_field :tag_list, class: 'form-control' %>
           </fieldset>
         </div>
-        <div class="row">
+        <div class="row card card-outline-success">
           <%= f.fields_for :presentation do |ff| %>
             <fieldset class="form-group has-success col-xs-4">
                 <%= ff.label :"Data de Apresentação" %>
