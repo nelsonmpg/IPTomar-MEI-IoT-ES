@@ -8,12 +8,10 @@
 
 	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' %>
 
-    <%= stylesheet_link_tag "main" %>
-    <%= stylesheet_link_tag "classic" %>
-    <%= stylesheet_link_tag "grid" %>
+    <%= stylesheet_link_tag "main", 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "classic", 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "grid", 'data-turbolinks-track': 'reload' %>
 
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="index">
@@ -50,6 +48,7 @@
 
   	<%= render partial: "layouts/footer" %>
 
-    <%= javascript_include_tag 'application', 'scripts' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'relpad' %>
+    <%= javascript_include_tag 'scripts', 'data-turbolinks-track': 'relpad' %>
   </body>
 </html>
