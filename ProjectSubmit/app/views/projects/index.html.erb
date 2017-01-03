@@ -65,22 +65,22 @@
         <th>Nome do Projeto</th>
         <td><%#= document.name %></td>
         <th>Descrição do Projeto</th>
-        <td><%= document.description %></td>
+        <td><%#= document.description %></td>
         <th>Data do Projeto</th>
-        <td><%= document.date %></td>
+        <td><%#= document.date %></td>
         <th>Local do Projeto</th>
-        <td><%= document.local %></td>
+        <td><%#= document.local %></td>
         <th>Nome do Ficheiro</th>
-        <td><%= document.document_file_name %></td>
+        <td><%#= document.document_file_name %></td>
         <th>Download do Ficheiro</th>
         <td><%#= link_to 'Download', document.document.url(:original, false) %> </td>
-        <% end %>
+        <%# end %>
 
         
 
         <%# project.project_images do |projectimage| %>
-        <td><%= image_tag projectimage.image.url %></td>
-        <% end %>
+        <td><%#= image_tag projectimage.image.url %></td>
+        <%# end %>
 -->
 
 
