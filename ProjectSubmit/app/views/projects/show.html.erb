@@ -68,37 +68,34 @@
  
         <!-- Categorias/Apresentacao/Tags -->
         <div class="catsandtags">
-            <div class="row mb-1">
-                <div class="col-xs-2">
-                  <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="outline: none;">
-                    Apresentação
-                  </button>
-                </div>
-            
-                <div class="collapse col-xs-10" id="collapseExample">
-                  <div class="card card-outline-success">
-                        <span class="pr-0 name corVerde">Data:</span>
-                        <%= @project.presentation.date.to_formatted_s(:long) %>
 
-                        <span class="pr-0 pl-2 name corVerde">Sala:</span>
-                        <%= @project.presentation.room%>
+            <button class="btn btn-success mb-1" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="outline: none;">
+              Detalhes da apresentação
+            </button>
 
-                        <span class="pr-0 pl-2 name corVerde">Nota:</span>
-                        <%= @project.grade %>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-outline-success">
+                    <span class="pr-0 name corVerde">Data:</span>
+                    <%= @project.presentation.date.to_formatted_s(:long) %>
 
-                        <span class="pr-0 pl-2 name corVerde">Slides:</span>
-                        <%= link_to 'Download', @project.presentation.slides.url(:original, false), class:'mr-1'%>
-                  </div>
-                </div>
+                    <span class="pr-0 pl-2 name corVerde">Sala:</span>
+                    <%= @project.presentation.room%>
+
+                    <span class="pr-0 pl-2 name corVerde">Nota:</span>
+                    <%= @project.grade %>
+
+                    <span class="pr-0 pl-2 name corVerde">Slides:</span>
+                    <%= link_to 'Download', @project.presentation.slides.url(:original, false)%>
+              </div>
             </div>
 
-            <p class="category" style="font-size:20px; color:black;"> 
+            <p class="category pl-0" style="font-size:20px; color:black;"> 
                 <span class="name">Links:</span>
                 <a href='<%= @project.github %>'>Github</a>  
                 <a href='<%= @project.project_url%>'>Projeto</a>
             </p>
 
-            <p class="tags" style="font-size:20px; color:black;">
+            <p class="tags pl-0" style="font-size:20px; color:black;">
               <span class="name">Tags:</span>
               <a href="#"><%= @project.tag_list %></a>
             </p>
