@@ -4,9 +4,9 @@ class SchoolsController < ApplicationController
 def index
 
     if params[:pesquisar]
-    @schools = School.search(params[:pesquisar]).order("created_at DESC")
+    @schools = School.search(params[:pesquisar]).order("name asc")
   else
-    @schools = School.all.order('created_at DESC')
+    @schools = School.all.order('name asc').paginate(:page => params[:page], :per_page => 10)
   end
 end
 

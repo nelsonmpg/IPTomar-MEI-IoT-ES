@@ -10,10 +10,9 @@ class ProjectsController < ApplicationController
   def index
     #projects = Project.all
     if params[:tag]
-        @projects = Project.tagged_with(params[:tag])
+        @projects = Project.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
     else
-        @projects = Project.all
-        
+        @projects = Project.all.paginate(:page => params[:page], :per_page => 10)
     end
   end
 

@@ -1,10 +1,10 @@
-<div class="container-fluid">
-	<div class="jumbotron">		
+<div class="content mt-1">
+	<div class="jumbotron px-1 py-1 rounded">		
 	    <div class="alert alert-success" role="alert">
 	      <h1 class="text-xs-center">Adicionar Novo Projeto</h1>
 	    </div>
 		<%= render 'form', project: @project %>
-		<div class="row">
+		<div class="row mt-1">
 			<div class="  col-xs-2">
 				<%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, projects_path, class: "btn btn-outline-info btn-block" %>	
 			</div>		
