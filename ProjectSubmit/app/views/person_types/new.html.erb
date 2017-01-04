@@ -1,0 +1,30 @@
+<h1>Adicionar Tipo de Pessoa</h1>
+
+<%= form_for :persontype, url: person_types_path do |f| %>
+ 
+  <% if @persontype.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@persontype.errors.count, "error") %> não foi guardado
+      </h2>
+      <ul>
+        <% @persontype.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :"Designação" %><br>
+    <%= f.text_field :designation %>
+  </p>
+
+   
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Voltar', person_types_path %>

@@ -1,0 +1,21 @@
+<h1>Lista de Tipo de Pessoas</h1>
+  <% if user_signed_in?%>
+ <%= link_to 'Adicionar Tipo de Pessoas', new_person_type_path %>
+   <%end%>
+<table>
+  <tr>
+    <th>Tipo de Pessoas:</th>
+
+  </tr>
+ 
+  <% @persontypes.each do |persontype| %>
+    <tr>
+      <td><%= persontype.designation %></td>
+
+      <td><%= link_to 'Mostrar', person_type_path(persontype) %></td>
+      <td><%= link_to 'Editar', edit_person_type_path(persontype) %></td>
+      <td><%= link_to 'Remover', person_type_path(persontype), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar esta tipo de pessoas?' } %></td>
+    
+    </tr>
+  <% end %>
+</table>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :course_types
   resources :project_images
   resources :people
-  resources :persontypes
+  resources :person_types
   resources :institutions
   resources :presentations
   resources :tags, except: :show
