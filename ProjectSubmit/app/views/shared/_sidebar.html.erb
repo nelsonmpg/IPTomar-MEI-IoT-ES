@@ -1,0 +1,29 @@
+<div class="sidebar">
+    <div class="widget rounded">
+        <h3 class="title">Escolas</h3>
+        <ul class="category_list">
+            <!-- <a href="/schools">Escolas</a> -->
+            <% schools.each do |school|%>
+                <li><a href=""><%= school.name %></a></li>
+            <%end%>
+        </ul>
+    </div>
+
+    <div class="widget rounded">
+        <h3 class="title">Cursos</h3>
+        <ul class="category_list">
+            <% courses.each do |course|%>
+                <li><a href=""><%= course.name %></a></li>
+            <%end%>
+        </ul>
+    </div>
+
+    <div class="widget rounded">
+        <h3 class="title">TAG's</h3>
+        <ul class="category_list">
+            <% tags.each do |tag|%>
+                <li><a href="/tags/<%= tag.name %>"><%= tag.name %></a></li>
+            <%end%>
+        </ul>
+    </div>
+</div>

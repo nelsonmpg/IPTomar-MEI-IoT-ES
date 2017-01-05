@@ -1,0 +1,34 @@
+<h1>Adicionar Imagem</h1>
+
+<%= form_for :projectimage, url: project_images_path do |f| %>
+ 
+  <% if @projectimage.errors.any? %>
+    <div id="error_explanation">
+      <h2>Existe erros no formulário</h2>
+      <ul>
+        <% @projectimage.errors.each do |attr,msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+       </div>
+  <% end %>
+ 
+  <p>
+  <%= f.label :"Imagem" %><br>
+  <%= f.file_field :image%>
+   </p>
+ 
+  
+  <p>
+ <%= f.label :"Projeto a que pertence a Imagem" %><br>
+ <%= f.select :project_id, Project.all.collect { |s| [s.title, s.id] } %>
+ </p>
+ 
+
+  <p>
+    <%= f.submit  "Salvar Imagem"%>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Voltar', project_images_path %>

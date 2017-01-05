@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223123943) do
+ActiveRecord::Schema.define(version: 20170102161923) do
 
   create_table "course_types", force: :cascade do |t|
     t.text     "name"
@@ -49,10 +49,14 @@ ActiveRecord::Schema.define(version: 20161223123943) do
     t.text     "description"
     t.date     "date"
     t.text     "local"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.text     "name"
     t.integer  "project_id"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
     t.index ["project_id"], name: "index_documents_on_project_id"
   end
 
@@ -75,9 +79,14 @@ ActiveRecord::Schema.define(version: 20161223123943) do
   create_table "people", force: :cascade do |t|
     t.text     "name"
     t.text     "email"
-    t.text     "photo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "person_type_id"
+    t.index ["person_type_id"], name: "index_people_on_person_type_id"
   end
 
   create_table "people_projects", id: false, force: :cascade do |t|
@@ -93,11 +102,26 @@ ActiveRecord::Schema.define(version: 20161223123943) do
 
   create_table "presentations", force: :cascade do |t|
     t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.text     "room"
     t.integer  "project_id"
+    t.string   "slides_file_name"
+    t.string   "slides_content_type"
+    t.integer  "slides_file_size"
+    t.datetime "slides_updated_at"
     t.index ["project_id"], name: "index_presentations_on_project_id"
+  end
+
+  create_table "project_images", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "project_id"
+    t.index ["project_id"], name: "index_project_images_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -162,18 +186,19 @@ ActiveRecord::Schema.define(version: 20161223123943) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "admin",                  default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

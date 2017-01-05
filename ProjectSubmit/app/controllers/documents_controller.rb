@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   #autenticação do user antes de entrar.....
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:index,:show]
 
 def index
     @documents = Document.all
@@ -30,6 +30,10 @@ end
 
 def create
     @document = Document.new(document_params)
+
+    @document.document = params[:document][:document]
+    @document.save 
+    
  if @document.save
   redirect_to documents_path
   else
@@ -45,7 +49,7 @@ end
 
 private
 def document_params
-    params.require(:document).permit(:name, :description, :date, :local, :project_id)
+    params.require(:document).permit(:name,:description,:date,:local,:project_id,:document)
 end
 
 end

@@ -1,0 +1,27 @@
+<p>
+  <strong>Data de Apresentação:</strong>
+  <%= @presentation.date %>
+</p>
+
+<p>
+  <strong>Sala de Apresentação:</strong>
+  <%= @presentation.room %>
+</p>
+
+<p>
+  <strong>Slides da Apresentação:</strong>
+  <%=  @presentation.slides_file_name %>
+  <td> <%= link_to 'Download', @presentation.slides.url(:original, false) %> </td>
+<br>
+</p>
+
+
+
+<br>
+
+
+ <% if user_signed_in?%>
+ <td><%= link_to 'Editar', edit_presentation_path(@presentation) %></td>
+<%end%>
+
+<td><%= link_to 'Voltar', presentations_path %> </td>

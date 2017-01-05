@@ -1,38 +1,51 @@
-<h1>Lista de Escolas</h1>
- <% if user_signed_in?%>
- <%= link_to 'Adicionar Escola', new_school_path %>
- <%end%>
-<table>
+<div class="content mt-1">
+  <div class="jumbotron px-1 py-1 rounded">
+    <div class="alert alert-success" role="alert">
+      <h1 class="text-xs-center">Escolas</h1>
+    </div>
 
-<%= form_tag(schools_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:pesquisar], placeholder: "Pesquisar Escolas" %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
+    <% if user_signed_in?%>
+      <%= link_to '<i class="fa fa-plus-circle" aria-hidden="true"></i> Escola'.html_safe, new_school_path, class: "btn btn-outline-success" %> 
+    <%end%>
 
-  <% @schools.each do |school| %>
-    <tr>
-    <th>Escola:</th>
-      <td><%= school.name %></td>
-      <th>Código:</th>
-      <td><%= school.code %></td>
-      <th>Iniciais:</th>
-      <td><%= school.initials %></td>
-      <th>Descrição:</th>
-      <td><%= school.description %></td>
-      <th>Número de cursos existentes:</th>
-      <td><%= school.courses.size %></td>
- 
+    <%= form_tag(schools_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:pesquisar], placeholder: "Pesquisar Escolas" %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
 
+    <div class="table-responsive card card-outline-secundary mt-1">
+      <div class="card-block">
+        <table class="table table-hover table-sm">
+          <thead class="thead-inverse">
+            <th>Escola</th>
+            <th>Código:</th>
+            <th>Iniciais:</th>
+            <th>Descrição:</th>
+            <th>Número de cursos existentes:</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @schools.each do |school| %>
+              <tr>              
+                <td class="align-middle"><%= school.name %></td>
+                <td class="align-middle text-xs-center"><%= school.code %></td>
+                <td class="align-middle text-xs-center"><%= school.initials %></td>
+                <td class="align-middle"><%= school.description %></td>
+                <td class="align-middle text-xs-center"><%= school.courses.size %></td> 
 
-      <td><%= link_to 'Mostrar', school_path(school) %></td>
-     
-      <% if user_signed_in?%>      
-      <td><%= link_to 'Editar', edit_school_path(school) %></td>
-      <td><%= button_to 'Remover', school_path(school), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
-      <%end%>
-    </tr>
-  <% end %>
-
-</table>
-
- 
+                <td class="align-middle">
+                  <%= link_to 'Visualizar', school_path(school), class: "btn btn-outline-info btn-sm btn-block d-inline-block" %>
+               
+                  <% if user_signed_in?%>      
+                  <%= link_to 'Editar', edit_school_path(school), class: "btn btn-outline-success btn-sm btn-block" %>
+                  <%= button_to 'Remover', school_path(school), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' }, class: "btn btn-outline-danger btn-sm btn-block" %>
+                  <%end%>                  
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div> 

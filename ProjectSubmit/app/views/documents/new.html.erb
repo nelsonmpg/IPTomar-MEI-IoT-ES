@@ -36,9 +36,15 @@
     <%= f.text_field :local %>
   </p>
   <p>
-    <%= f.label :"Nº do Documento" %><br>
-    <%= f.text_field :project_id %>
+    <%= f.label :"Documento/Relatório" %><br>
+    <%= f.file_field :document %>
   </p>
+
+  <p>
+ <%= f.label :"Projeto a que pertence a Apresentação" %><br>
+ <%= f.select :project_id, Project.all.collect { |s| [s.title, s.id] } %>
+ </p>
+
 
   <p>
     <%= f.submit %>

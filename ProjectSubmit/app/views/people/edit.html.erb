@@ -25,11 +25,13 @@
     <%= f.text_field :email %>
   </p>
 
-  <p>
-    <%= f.label :"Foto" %><br>
-    <%= f.text_field :photo %>
-  </p>
- 
+ <%= f.label :"Foto" %><br>
+  <%= f.file_field :photo %>
+
+ <p>
+<%= f.label :"Titulo" %><br>
+<%= f.select( :person_type_id, PersonType.all.collect { |s| [s.designation, s.id] }, {}, {class: 'form-control'}) %>
+ </p>
   <p>
     <%= f.submit %>
   </p>

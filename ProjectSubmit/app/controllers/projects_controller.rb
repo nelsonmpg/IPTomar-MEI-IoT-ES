@@ -8,11 +8,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    #@projects = Project.all
+    #projects = Project.all
     if params[:tag]
-        @projects = Project.tagged_with(params[:tag])
+        @projects = Project.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
     else
-        @projects = Project.all
+        @projects = Project.all.paginate(:page => params[:page], :per_page => 10)
     end
   end
 
@@ -25,10 +25,15 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @project.build_presentation
+    @project.documents.new
+    3.times{@project.project_images.new} 
   end
 
   # GET /projects/1/edit
   def edit
+    @project.build_presentation
+    @project.documents.new
+    3.times{@project.project_images.new} 
   end
 
   # POST /projects
@@ -83,6 +88,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :user_id, :course_unit_id, :tag_list, presentation_attributes: [:id, :date , :room ])
+      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :user_id,:course_unit_id, :tag_list, documents_attributes: [:id, :name , :description, :date, :local, :document ], presentation_attributes: [:id, :date , :room, :slides ],project_images_attributes:[:id,:image])
     end
+    
 end

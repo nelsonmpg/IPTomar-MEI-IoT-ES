@@ -29,7 +29,8 @@ class PeopleController < ApplicationController
 
 	def create
     	@person = Person.new(person_params)
-
+		@person.photo
+		@person.save
  		if @person.save
   			redirect_to people_path
   		else
@@ -46,6 +47,6 @@ class PeopleController < ApplicationController
 
 	private
 	def person_params
-    	params.require(:person).permit(:name,:email,:photo)
+    	params.require(:person).permit(:name,:email,:photo,:person_type_id)
 	end
 end

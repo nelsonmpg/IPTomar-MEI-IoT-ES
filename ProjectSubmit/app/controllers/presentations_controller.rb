@@ -3,6 +3,7 @@ class PresentationsController < ApplicationController
 	
 	def index
     	@presentations = Presentation.all
+		
 	end
 
 	def show
@@ -30,8 +31,11 @@ class PresentationsController < ApplicationController
 
 	def create
 
-    	@presentation = Presentation.new(presentatione_params)
+    	@presentation = Presentation.new(presentation_params)
 
+		@presentation.slides = params[:presentation][:slides]
+        @presentation.save 
+    
  		if @presentation.save
   			redirect_to presentations_path
   		else
@@ -48,8 +52,10 @@ class PresentationsController < ApplicationController
 
 	private
 	def presentation_params
-    	params.require(:presentation).permit(:date,:room,:project_id)
+    	params.require(:presentation).permit(:date,:room,:project_id,:slides)
 	end
+
+	
 end
 
-end
+

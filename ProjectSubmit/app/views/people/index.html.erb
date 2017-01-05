@@ -11,7 +11,12 @@
     <tr>
       <td><%= person.name %></td>
       <td><%= person.email %></td>
-      <td><%= person.photo %></td>
+      <td><%= image_tag person.photo.url(:thumb) %></td>
+      <td><%= person.person_type.try(:designation)%>
+
+
+  
+
 
       <td><%= link_to 'Mostrar', person_path(person) %></td>
       <td><%= link_to 'Editar', edit_person_path(person) %></td>

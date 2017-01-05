@@ -1,0 +1,43 @@
+<section class="margin"> 
+	<div class="content">
+
+		<div class="switch col-xs-12">
+			<div class="col-xs-1">
+				<span  id="grid" class="tag tag-pill tag-success btn-block classicGrid" data-addClas="Grid" data-remoClas="Classic">Grid</span>
+			</div>
+			<div class="col-xs-1"> 
+				<span  id="classic" class="tag tag-pill tag-success btn-block classicGrid" data-addClas="Classic" data-remoClas="Grid">Classic</span>
+			</div>
+
+		</div>
+		<div class="projects articlesGrid">
+			<% @projects.each do |proj|%>
+	        	<article>
+					<div>
+						<a href="/projects/<%= proj.id %>" class="noline">
+							<img src="/img/1.jpg" alt="1.jpg">
+						</a>
+
+						<span class="category">
+							<%=proj.course_unit.name%>								
+						</span>
+
+						<a href="/projects/<%=proj.id%>" >
+							<h1><%=proj.title%></h1>
+						</a>
+						
+						<p class="post_content">
+							<%= proj.resume.first(80) %>
+						</p>
+						<span class="date">
+							<i class="fa fa-calendar"></i>
+							<%=proj.date.to_formatted_s(:long)%>
+						</span>
+					</div>
+				</article> 
+			<%end%>
+			<%= will_paginate @projects, class: "pagination" %>	
+		</div>
+		<%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags: @sb_tags} %>
+	</div>	
+</section>
