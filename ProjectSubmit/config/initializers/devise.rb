@@ -12,8 +12,11 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
+  #config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  
+  #email para o administrador
+  config.mailer_sender = 'pedromatos@outlook.pt'
+  
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -111,7 +114,7 @@ Devise.setup do |config|
   # config.pepper = 'ef9e4923ea87f88b61fd93c6c4754a26ee286dd7ebb165bb9df3406b073edefcfc9591d13dd93ffa1765911b0dd35332b8401e6534e9d0817f90e0ecee864bde'
 
   # Send a notification email when the user's password is changed
-  # config.send_password_change_notification = false
+  #config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -195,7 +198,7 @@ Devise.setup do |config|
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  # config.reset_password_keys = [:email]
+  config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
@@ -220,7 +223,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-   config.scoped_views = true
+   config.scoped_views = true 
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).

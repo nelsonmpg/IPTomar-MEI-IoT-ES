@@ -1,76 +1,102 @@
-<p id="notice"><%= notice %></p>
+<div class="content mt-1">
+  <div class="jumbotron px-1 py-1 rounded">
+    <div class="alert alert-success" role="alert">
+      <h1 class="text-xs-center">Projects</h1>
+    </div>
+    <p id="notice"><%= notice %></p>
 
-<h1>Projetos</h1>
+    <% if user_signed_in?%>
+      <%= link_to '<i class="fa fa-plus-circle" aria-hidden="true"></i> Projeto'.html_safe, new_project_path, class: "btn btn-outline-success" %> 
+    <%end%>
 
-<table style="background-color: white;">
-  
-      <th>Titulo do Projeto</th>
-        <th>Resumo do Projeto</th>
-        <th>Data do Projeto</th>
-        <th>Link GitHub</th>
-         <th>Grau</th>
-        <th>Url do Projeto</th>
-         <th>Data de Apresentação</th>
-         <th>Sala de Apresentação</th>
-        <th>Slides de Apresentação</th>
-        <th>Download da Apresentação</th>
-        <th>Destaque</th>
-        <th>Projeto Finalizado</th>
-        <th>tag</th>
-        <th>Utilizador</th>
-        <th>Cadeira</th>
-        <th>Imagem:</th>
 
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.resume %></td>
-        <td><%= project.date %></td>
-        <td><%= project.github %></td>
-        <td><%= project.grade %></td>
-        <td><%= project.project_url %></td>
-        <td><%= project.presentation.date %></td>
-        <td><%= project.presentation.room %></td>
-        <td><%= project.presentation.slides_file_name %></td>
-        <td><%= link_to 'Download', project.presentation.slides.url(:original, false) %> </td>
-        <td><%= project.featured %></td>
-        <td><%= project.finished %></td>
-        <td><%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
-        <td><%= project.user.email %></td>
-        <td><%= project.course_unit.name %></td> 
-       
-        <% project.documents do |document| %>
+    <div class="table-responsive card card-outline-secundary mt-1">
+      <div class="card-block">
+        <table class="table table-hover table-sm">
+          <thead class="thead-inverse">
+            <tr>
+              <th>Titulo do Projeto</th>
+            <!--  <th>Resumo do Projeto</th> -->
+              <th>Data do Projeto</th>
+             <!-- <th>Link GitHub</th>
+              <th>Grau</th>
+              <th>Url do Projeto</th> -->
+              <th>Data de Apresentação</th>
+              <th>Sala de Apresentação</th>
+            <!--   <th>Slides de Apresentação</th>
+              <th>Download da Apresentação</th>
+             <th>Destaque</th> -->
+              <th>Projeto Finalizado</th>
+            <!--   <th>Tag(s)</th>
+             <th>Utilizador</th> -->
+              <th>Cadeira</th>
+            <!--  <th>Imagem:</th> -->
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @projects.each do |project| %>
+              <tr>
+                <td class="align-middle"><%= project.title %></td>
+              <!--  <td><%= project.resume %></td> -->
+                <td class="align-middle"><%= project.date %></td>
+              <!--  <td><%#= project.github %></td>
+                <td><%#= project.grade %></td>
+                <td><%#= project.project_url %></td> -->
+                <td class="text-xs-center align-middle"><%= project.presentation.date %></td>
+                <td class="text-xs-center align-middle"><%= project.presentation.room %></td>
+               <!-- <td><%#= project.presentation.slides_file_name %></td>
+                <td><%#= link_to 'Download', project.presentation.slides.url(:original, false) %> </td> -->
+               <!-- <td><%#= project.featured %></td> -->           
+                <td class="text-xs-center align-middle">
+                  <label class="custom-control custom-checkbox align-middle">
+                    <input type=" checkbox" <%= 'checked' if project.finished %> class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>    
+                </td>
+              <!--  <td class="align-middle"><%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td class="align-middle">
+                <td><%#= project.user.email %></td> -->
+
+                <td class="align-middle"><%= project.course_unit.name %></td>   
+                
+<!--
+        <%# project.documents do |document| %>
         <th>Nome do Projeto</th>
-        <td><%= document.name %></td>
+        <td><%#= document.name %></td>
         <th>Descrição do Projeto</th>
-        <td><%= document.description %></td>
+        <td><%#= document.description %></td>
         <th>Data do Projeto</th>
-        <td><%= document.date %></td>
+        <td><%#= document.date %></td>
         <th>Local do Projeto</th>
-        <td><%= document.local %></td>
+        <td><%#= document.local %></td>
         <th>Nome do Ficheiro</th>
-        <td><%= document.document_file_name %></td>
+        <td><%#= document.document_file_name %></td>
         <th>Download do Ficheiro</th>
-        <td><%= link_to 'Download', document.document.url(:original, false) %> </td>
-        <% end %>
+        <td><%#= link_to 'Download', document.document.url(:original, false) %> </td>
+        <%# end %>
 
         
 
-        <% project.project_images do |projectimage| %>
-        <td><%= image_tag projectimage.image.url %></td>
-        <% end %>
+        <%# project.project_images do |projectimage| %>
+        <td><%#= image_tag projectimage.image.url %></td>
+        <%# end %>
+-->
 
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= button_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      
-    <% end %>
-  
-</table>
 
-<br>
-<% if user_signed_in?%>
-<%= link_to 'New Project', new_project_path %>
-<% end %>
-
+                <td class="align-middle">
+                  <%= link_to 'Visualizar', project, class: "btn btn-outline-info btn-sm btn-block d-inline-block" %>
+                  <% if user_signed_in? %>
+                    <%= link_to 'Editar', edit_project_path(project), class: "btn btn-outline-success btn-sm btn-block" %>
+                    <%= button_to 'Eliminar', project, method: :delete, data: { confirm: 'Tem a certeza de que quer eliminar este Projeto?' }, class: "btn btn-outline-danger btn-sm btn-block" %> 
+                  <%end%>             
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>   
+      </div>
+    <%= will_paginate @projects, class: "pagination" %> 
+    </div> 
+  </div>
+</div>

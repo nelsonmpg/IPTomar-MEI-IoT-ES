@@ -19,7 +19,7 @@ class PersonTypesController < ApplicationController
     	@persontype = PersonType.find(params[:id])
  
   		if @persontype.update(persontype_params)
-    		redirect_to persontypes_path
+    		redirect_to person_types_path
   		else
     		render 'edit'
   		end
@@ -29,7 +29,7 @@ class PersonTypesController < ApplicationController
     	@persontype = PersonType.new(persontype_params)
 
  		if @persontype.save
-  			redirect_to persontypes_path
+  			redirect_to person_types_path
   		else
       	render 'new'
 		end
@@ -39,11 +39,11 @@ class PersonTypesController < ApplicationController
     	@persontype = PersonType.find(params[:id])
     	@persontype.destroy
 
-    	redirect_to persontypes_path
+    	redirect_to person_types_path
 	end
 
 	private
 	def persontype_params
-    	params.require(:person_type).permit(:designation)
+    	params.require(:persontype).permit(:designation)
 	end
 end

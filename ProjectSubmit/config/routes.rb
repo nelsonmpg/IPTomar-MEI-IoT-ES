@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'home/index'
 
-  devise_for :users
+  #devise_for :users
   
   resources :documents
   resources :projects
@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   resources :course_types
   resources :project_images
   resources :people
-  resources :persontypes
+  resources :person_types
   resources :institutions
   resources :presentations
   resources :tags, except: :show
   get 'tags/:tag', to: 'projects#index'
   
-  #devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: { sessions: 'users/sessions' }
 
   root 'home#index'
 

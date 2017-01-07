@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170101155611) do
+ActiveRecord::Schema.define(version: 20170102161923) do
 
   create_table "course_types", force: :cascade do |t|
     t.text     "name"
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(version: 20170101155611) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "person_type_id"
+    t.index ["person_type_id"], name: "index_people_on_person_type_id"
   end
 
   create_table "people_projects", id: false, force: :cascade do |t|
