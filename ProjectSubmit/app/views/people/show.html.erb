@@ -11,11 +11,7 @@
 <%= image_tag @person.photo.url(:medium) %>
 <br>
 
-<p>
- <strong>Titulo:</strong>
-<%= person.person_type.try(:designation)%>
-    </p>
  
- <td><%= link_to 'Editar', edit_person_path(@person) %>
- <%= link_to 'Voltar', people_path %>  
+ <td><%= link_to 'Editar', edit_person_path(@person) , class: 'btn btn-primary'%>
+ <%= link_to 'Voltar', people_path , class: 'btn btn-success'%>  
  </td>
