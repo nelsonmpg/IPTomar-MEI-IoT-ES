@@ -20,7 +20,6 @@
     <label for="basic-url">
   <% end %>
     <%= image_tag @person.photo.url(:medium) %>
-    <!--<%= image_tag @person.photo_file_name %><br>-->
     <p><h4><%= f.label :"Nome", class: 'label label-default' %></h4></p>
     <%= f.text_field :name , class: 'form-control'%></p>
     <p><h4><%= f.label :"email", class: 'label label-default' %></h4></p>
