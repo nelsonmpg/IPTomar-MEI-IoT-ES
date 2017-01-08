@@ -12,7 +12,7 @@ class Person < ApplicationRecord
     		styles: { medium: "300x300>", thumb: "100x100>" }, 
     		default_url: "missing.png"
     validates_attachment_content_type :photo, 
-    		content_type: [/\Aimage\/.*\Z/ ,"image/jpg", "image/jpeg", "image/png", "image/gif"],
-    		size: { in: 0..500.kilobytes }
-     
+    		content_type: [/\Aimage\/.*\Z/ ,"image/jpg", "image/jpeg", "image/png", "image/gif"]
+
+    validates_attachment_size :photo, :less_than => 0.5.megabytes
 end
