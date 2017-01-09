@@ -104,35 +104,35 @@
 
             <!-- <p class="category">     
                 <span class="name">Slides da Apresentação:</span>
-                <%=  @project.presentation.slides_file_name %>
-               <td> <%= link_to 'Download', @project.presentation.slides.url(:original, false) %> </td>
+                <#%=  @project.presentation.slides_file_name %>
+               <td> <#%= link_to 'Download', @project.presentation.slides.url(:original, false) %> </td>
 
-                 <% @project.documents.each do |document| %>
+                 <#% @project.documents.each do |document| %>
                  <span class="name">Nome do Projeto:</span>
-                 <td><%= document.name %></td>
+                 <td><#%= document.name %></td>
                  <span class="name">Descrição do Projeto:</span>
-                 <td><%= document.description %></td>
+                 <td><#%= document.description %></td>
                  <span class="name">Data do Projeto:</span>
-                 <td><%= document.date %></td>
+                 <td><#%= document.date %></td>
                  <span class="name">Local do Projeto:</span>
-                 <td><%= document.local %></td>
+                 <td><#%= document.local %></td>
                  <span class="name">Nome do Ficheiro:</span>
-                 <td><%= document.document_file_name %></td>
-                 <td><%= link_to 'Download', document.document.url(:original, false)%></td>
-                 <% end %>
+                 <td><#%= document.document_file_name %></td>
+                 <td><#%= link_to 'Download', document.document.url(:original, false)%></td>
+                 <#% end %>
                  
-                <% @project.project_images.each do |projectimage| %>
+                <#% @project.project_images.each do |projectimage| %>
                 <span class="name">Imagem:</span>
-                <td><%= image_tag projectimage.image.url %></td>
-                <% end %> 
+                <td><#%= image_tag projectimage.image.url %></td>
+                <#% end %> 
 
             <p class="category">
               <span class="name">Featured:</span> 
-              <% if @project.featured == TRUE %>
+              <#% if @project.featured == TRUE %>
                 yes
-              <% else %>
+              <#% else %>
                 no
-              <% end %>
+              <#% end %>
               &bull; 
 
              <p>
@@ -141,11 +141,11 @@
               </p> 
 
                <span class="name">Finished:</span> 
-              <% if @project.finished == TRUE %>
+              <#% if @project.finished == TRUE %>
                 yes
-              <% else %>
+              <#% else %>
                 no
-              <% end %>
+              <#% end %>
             </p>  -->
 
       <div class="post_nav">
