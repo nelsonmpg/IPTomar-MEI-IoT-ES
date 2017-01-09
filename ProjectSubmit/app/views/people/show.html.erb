@@ -1,17 +1,20 @@
-<p>
-  <strong>Nome:</strong>
-  <%= @person.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @person.email %>
-</p>
-
-<%= image_tag @person.photo.url(:medium) %>
-<br>
-
- 
- <td><%= link_to 'Editar', edit_person_path(@person) , class: 'btn btn-primary'%>
- <%= link_to 'Voltar', people_path , class: 'btn btn-success'%>  
- </td>
+<div class="content mt-1">
+  	<div class="jumbotron px-1 py-1 rounded">
+    	<div class="alert alert-success" role="alert">
+      		<h1 class="text-xs-center">Visualizar Pessoas</h1>
+    	</div>
+    	<div id="notice"><%= notice %></div>
+		<table class="table table-hover table-sm">
+			<tr><td colspan="2" style="text-align:center"><%= image_tag @person.photo.url(:medium) %></td></tr>
+			<tr><td class="align-middle"><strong>Nome: </strong><%= @person.name %></td>
+				<td class="align-middle"><strong>Email: </strong><%= @person.email %></td></tr>
+			<br><br>
+			<tr>
+ 				<td colspan="2"><%= link_to 'Editar', edit_person_path(@person) , class: "btn btn-outline-info btn-sm 	btn-block d-inline-block"%></td>
+ 			</tr>
+ 			<tr>
+ 				<td colspan="2"><%= link_to 'Voltar', people_path , class: "btn btn-outline-success btn-sm btn-block d-inline-block"%></td>
+ 			</tr>
+ 		</table>
+ 	</div>
+</div>
