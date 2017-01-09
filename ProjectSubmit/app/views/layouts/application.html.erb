@@ -50,5 +50,12 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'relpad' %>
     <%= javascript_include_tag 'scripts', 'data-turbolinks-track': 'relpad' %>
+
+    <script type="text/javascript">$(document).on('ready page:load', function () {
+    $('#projects_tag_ids').chosen({
+      allow_single_deselect: true,
+      width: '100%'
+    })
+  });</script>
   </body>
 </html>
