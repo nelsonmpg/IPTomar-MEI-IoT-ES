@@ -15,7 +15,7 @@ Devise.setup do |config|
   #config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   
   #email para o administrador
-  config.mailer_sender = 'pedromatos@outlook.pt'
+  config.mailer_sender = 'mei.internetofthings@gmail.com'
   
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
