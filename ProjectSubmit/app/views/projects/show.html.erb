@@ -98,8 +98,25 @@
             <% elsif (@project.presentation.present?  and @project.presentation.slides.blank?) %>
             <li>Slides da apresentação não disponíveis.</li>
             <% end %>
+            </ul>
+
+            <h4>Projectos relacionados</h4>
+            <ul>
+            <% @related_projects.each do |rp| %>
+            <li><%= link_to rp.title, project_path(rp) %> (<%=rp.course_unit.name%> / <%=rp.course_unit.course.name%>
+              <div class="tags">
+              <% rp.tags.each do |rpt| %>
+                <% if @project.tags.ids.include? rpt.id %>
+                  <%=link_to rpt.name, { :action => :index, :controller => :projects, :tag => rpt.name }, {:style => 'background-color:lightGrey;border-radius: 5px 5px 5px 5px;'} %>
+                <% else %>
+                  <%=link_to rpt.name, { :action => :index, :controller => :projects, :tag => rpt.name }, {:style => 'border:1px solid black;border-radius: 1px 1px 1px 1px;overflow:hidden;'} %>
+                <% end %>
+              <% end %>
+              </div>
+            </li>
+            <% end %>
             </ul>   
-        </div>
+          </div>
       </article>
 
           

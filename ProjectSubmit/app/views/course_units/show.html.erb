@@ -5,7 +5,7 @@
         <p id="notice"><%= notice %></p>
 
         <h1><%= @course_unit.name %> (<%= @course_unit.initials %>)</h1>
-        <p><%= link_to @course_unit.course.name, course_path(@course_unit.course) %> (<%=@course_unit.course.course_type.name%>)</p>
+        <p><%= link_to @course_unit.course.name, course_path(@course_unit.course) %> (<%=@course_unit.course.course_type.name%>) - <%=@course_unit.year%>º ano / <%=@course_unit.semester%>º semestre</p>
         <p><%= link_to @course_unit.course.school.name, school_path(@course_unit.course.school) %></p>
         <h4>Descrição da Disciplina</h4>
         <%= @course_unit.description %>

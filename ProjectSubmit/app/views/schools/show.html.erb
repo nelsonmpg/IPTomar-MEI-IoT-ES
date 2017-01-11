@@ -16,7 +16,11 @@
 		<h4>Cursos da <%= @school.name %></h4>
 		<ul>
 			<% @school.courses.each do |course| %>
-<li><%= link_to course.name, course_path(course) %> (<%= course.projects.size %> projectos) </li>
+				<% if course.projects.empty? %>
+					<li><%= link_to course.name, course_path(course) %> (<%= course.projects.size %> projectos)</li>
+				<% else %>
+					<li><b><%= link_to course.name, course_path(course) %> (<%= course.projects.size %> projectos)</b></li>
+				<% end %>
 			<% end %>
 			</ul>
 		</article>

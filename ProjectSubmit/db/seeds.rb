@@ -162,16 +162,19 @@ CourseUnit.all.each do |cu|
   cu.save
 end
 
-@person1 = Person.create(name: 'Renato Panda', email: 'renato.panda@ipt.pt')
-@person2 = Person.create(name: 'Miguel Coelho', email: 'aluno18284@ipt.pt')
-@person3 = Person.create(name: 'Nelson Gomes', email: 'eideoersda@ipt.pt')
-@person4 = Person.create(name: 'Luís Oliveira', email: 'loliveira@ipt.pt')
-@person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt')
-@person6 = Person.create(name: 'Pedro Matos', email: 'pedromatos@outlook.pt')
-@person7 = Person.create(name: 'Pedro Nunes', email: 'pnunes@ze.pt')
-@person8 = Person.create(name: 'Jonas Pistolas', email: 'jonas@slb.pt')
-@person9 = Person.create(name: 'Nélson Semedo', email: 'nelson@outlook.pt')
-@person10 = Person.create(name: 'Gonçalo Guedes', email: 'guedes@outlook.pt')
+@pt1 = PersonType.create(designation: "Professor")
+@pt2 = PersonType.create(designation: "Aluno")
+
+@person1 = Person.create(name: 'Renato Panda', email: 'renato.panda@ipt.pt', person_type: @pt1)
+@person2 = Person.create(name: 'Miguel Coelho', email: 'aluno18284@ipt.pt', person_type: @pt2)
+@person3 = Person.create(name: 'Nelson Gomes', email: 'eideoersda@ipt.pt', person_type: @pt2)
+@person4 = Person.create(name: 'Luís Oliveira', email: 'loliveira@ipt.pt', person_type: @pt1)
+@person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt', person_type: @pt1)
+@person6 = Person.create(name: 'Pedro Matos', email: 'pedromatos@outlook.pt', person_type: @pt2)
+@person7 = Person.create(name: 'Pedro Nunes', email: 'pnunes@ze.pt', person_type: @pt2)
+@person8 = Person.create(name: 'Jonas Pistolas', email: 'jonas@slb.pt', person_type: @pt1)
+@person9 = Person.create(name: 'Nélson Semedo', email: 'nelson@outlook.pt', person_type: @pt2)
+@person10 = Person.create(name: 'Gonçalo Guedes', email: 'guedes@outlook.pt', person_type: @pt2)
 
 @students = [@person2, @person3, @person6, @person7, @person9, @person10]
 @professors = [@person1, @person4, @person5, @person8]

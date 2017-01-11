@@ -6,6 +6,8 @@
 
 				<h1><%= @course.name %> (<%= @course.initials %>)</h1>
 				<p><%= @course.course_type.name %> / <%= link_to @course.school.name, school_path(@course.school) %></p>
+				<h4>Descrição do Curso</h4>
+        		<%= @course.description %>
 			</article>
 		</div>	
 
@@ -14,7 +16,11 @@
 		<h4>Disciplinas do curso <%= @course.name %></h4>
 		<ul>
 			<% @course.course_units.each do |cu| %>
-<li><%= link_to cu.name, course_unit_path(cu) %> (<%= cu.projects.size %> projectos) </li>
+				<% if cu.projects.empty? %>
+					<li><%= link_to cu.name, course_unit_path(cu) %> (<%= cu.projects.size %> projectos)</li>
+				<% else %>
+					<li><b><%= link_to cu.name, course_unit_path(cu) %> (<%= cu.projects.size %> projectos)</b></li>
+				<% end %>
 			<% end %>
 			</ul>
 		</article>
