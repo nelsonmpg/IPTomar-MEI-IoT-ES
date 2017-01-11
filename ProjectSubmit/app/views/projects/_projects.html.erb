@@ -1,0 +1,39 @@
+<div class="switch col-xs-12">
+	<div class="col-xs-1">
+		<span  id="grid" class="tag tag-pill tag-success btn-block classicGrid" data-addClas="Grid" data-remoClas="Classic">Grid</span>
+	</div>
+	<div class="col-xs-1"> 
+		<span  id="classic" class="tag tag-pill tag-success btn-block classicGrid" data-addClas="Classic" data-remoClas="Grid">Classic</span>
+	</div>
+
+</div>
+<div class="projects articlesGrid">
+<% @projects_list.each do |proj|%>
+	<article>
+		<div>
+
+			<% if proj.project_images.empty? %>
+				<%= link_to image_tag("/img/placeholder2.png"), project_path(proj), :class => "noline" %>
+			<% else %>
+				<%= link_to image_tag(proj.project_images.first.image.url), project_path(proj), :class => "noline" %>
+			<% end %>
+
+			<span class="category"> <!-- devia-se colocar lá de alguma forma o nome completo do curso, iniciais são pouco claras -->
+				<%= proj.course_unit.name %> (<%= proj.course_unit.course.initials %>)						
+			</span>
+
+			<% # TODO: provavelmente o ideal é tirar o sublinhado de *todos* os links no CSS e usar só caso queiram em algum caso especial %>
+			<h1><%= link_to proj.title, project_path(proj), :class => "noline" %></h1>
+
+			<p class="post_content">
+				<%= truncate(proj.resume, length: 80) %>
+			</p>
+			<span class="date">
+				<i class="fa fa-calendar"></i>
+				<%=proj.date.to_formatted_s(:long)%>
+			</span>
+		</div>
+	</article> 
+	<%end%>
+	<%= will_paginate @projects_list, class: "pagination" %>	
+</div>

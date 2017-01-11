@@ -1,6 +1,8 @@
 class PeopleController < ApplicationController
 	#autenticação do user antes de entrar.....
-  before_action :authenticate_user!
+  require 'will_paginate/array'
+  before_filter :authenticate_user!, :except => [:index,:show]
+  
 	def index
     	@people = Person.all
 	end

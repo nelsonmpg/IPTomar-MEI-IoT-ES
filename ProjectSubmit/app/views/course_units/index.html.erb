@@ -3,23 +3,23 @@
  <%= link_to 'Adicionar Cadeira', new_course_unit_path %>
 <%end%>  
 <table>
-  <% @courseunits.each do |courseunit| %>
+  <% @course_units.each do |course_unit| %>
     <tr>
       <th>Nome:</th>
-      <td><%= courseunit.name %></td>
+      <td><%= course_unit.name %></td>
       <th>Ano:</th>
-      <td><%= courseunit.year %></td>
+      <td><%= course_unit.year %></td>
       <th>Semestre:</th>
-      <td><%= courseunit.semester %></td>
+      <td><%= course_unit.semester %></td>
       <th>Curso a que pertence: </th>
-      <td><%= courseunit.course.name%></td>
+      <td><%= course_unit.course.name%></td>
       
 
-      <td><%= link_to 'Mostrar', course_unit_path(courseunit) %></td>
+      <td><%= link_to 'Mostrar', course_unit_path(course_unit) %></td>
 
       <% if user_signed_in?%>
-      <td><%= link_to 'Editar', edit_course_unit_path(courseunit) %></td>
-      <td><%= button_to 'Remover', course_unit_path(courseunit), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
+      <td><%= link_to 'Editar', edit_course_unit_path(course_unit) %></td>
+      <td><%= button_to 'Remover', course_unit_path(course_unit), method: :delete, data: { confirm: 'Tem a certeza que deseja eliminar?' } %></td>
     <%end%>
     <%end%>
     </tr>

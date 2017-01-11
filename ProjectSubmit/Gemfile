@@ -39,6 +39,8 @@ gem 'bootstrap-select-rails'
 
 gem 'will_paginate-bootstrap'
 
+gem 'filesize'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
