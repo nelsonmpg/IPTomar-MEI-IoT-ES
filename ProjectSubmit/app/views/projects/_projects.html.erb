@@ -13,7 +13,7 @@
 		<div>
 
 			<% if proj.project_images.empty? %>
-				<%= link_to image_tag("/img/placeholder2.png"), project_path(proj), :class => "noline" %>
+				<%= link_to image_tag("/img/project.png"), project_path(proj), :class => "noline" %>
 			<% else %>
 				<%= link_to image_tag(proj.project_images.first.image.url), project_path(proj), :class => "noline" %>
 			<% end %>

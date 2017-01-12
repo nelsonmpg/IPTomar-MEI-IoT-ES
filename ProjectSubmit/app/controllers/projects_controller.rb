@@ -43,7 +43,8 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    
+    @project.user = current_user
+
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -89,7 +90,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :user_id,:course_unit_id, :tag_list, documents_attributes: [:id, :name , :description, :date, :local, :document ], presentation_attributes: [:id, :date , :room, :slides ],project_images_attributes:[:id,:image])
+      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :course_unit_id, :tag_list, documents_attributes: [:id, :name , :description, :date, :local, :document ], presentation_attributes: [:id, :date , :room, :slides ],project_images_attributes:[:id,:image])
     end
     
 end

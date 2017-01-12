@@ -166,17 +166,31 @@ end
 @pt2 = PersonType.create(designation: "Aluno")
 
 @person1 = Person.create(name: 'Renato Panda', email: 'renato.panda@ipt.pt', person_type: @pt1)
-@person2 = Person.create(name: 'Miguel Coelho', email: 'aluno18284@ipt.pt', person_type: @pt2)
-@person3 = Person.create(name: 'Nelson Gomes', email: 'eideoersda@ipt.pt', person_type: @pt2)
+
+@person2 = Person.create(name: 'Miguel Coelho', email: 'aluno18284@ipt.pt', person_type: @pt2, photo: File.new("public/img/person1.jpg"))
+@person3 = Person.create(name: 'Nelson Gomes', email: 'nelson@ipt.pt', person_type: @pt2, photo: File.new("public/img/person2.jpg"))
+@person6 = Person.create(name: 'Pedro Matos', email: 'pedromatos@outlook.pt', person_type: @pt2, photo: File.new("public/img/person3.jpg"))
+@person7 = Person.create(name: 'Pedro Nunes', email: 'pnunes@ze.pt', person_type: @pt2, photo: File.new("public/img/person4.jpg"))
+@person11 = Person.create(name: 'António Caria', email: 'caria@ze.pt', person_type: @pt2, photo: File.new("public/img/person5.jpg"))
+@person12 = Person.create(name: 'Pedro Dias', email: 'pedrodias@ze.pt', person_type: @pt2, photo: File.new("public/img/person6.jpg"))
+@person13 = Person.create(name: 'Vasco Marques', email: 'vasco@ze.pt', person_type: @pt2, photo: File.new("public/img/person7.jpg"))
+
+@person14 = Person.create(name: 'Ricardo Anacleto', email: 'rican@ze.pt', person_type: @pt2, photo: File.new("public/img/person8.jpg"))
+@person15 = Person.create(name: 'Pedro Ferreira', email: 'pf2000@ze.pt', person_type: @pt2, photo: File.new("public/img/person9.jpg"))
+@person16 = Person.create(name: 'André Farinha', email: 'afarinha@ze.pt', person_type: @pt2, photo: File.new("public/img/person10.jpg"))
+@person17 = Person.create(name: 'João Henriques', email: 'joao@ze.pt', person_type: @pt2, photo: File.new("public/img/person11.jpg"))
+@person18 = Person.create(name: 'Carlos Gil', email: 'carlosgil@ze.pt', person_type: @pt2, photo: File.new("public/img/person12.jpg"))
+@person19 = Person.create(name: 'Ricardo Lourenço', email: 'riclou@ze.pt', person_type: @pt2, photo: File.new("public/img/person13.jpg"))
+
 @person4 = Person.create(name: 'Luís Oliveira', email: 'loliveira@ipt.pt', person_type: @pt1)
 @person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt', person_type: @pt1)
-@person6 = Person.create(name: 'Pedro Matos', email: 'pedromatos@outlook.pt', person_type: @pt2)
-@person7 = Person.create(name: 'Pedro Nunes', email: 'pnunes@ze.pt', person_type: @pt2)
 @person8 = Person.create(name: 'Jonas Pistolas', email: 'jonas@slb.pt', person_type: @pt1)
 @person9 = Person.create(name: 'Nélson Semedo', email: 'nelson@outlook.pt', person_type: @pt2)
 @person10 = Person.create(name: 'Gonçalo Guedes', email: 'guedes@outlook.pt', person_type: @pt2)
 
-@students = [@person2, @person3, @person6, @person7, @person9, @person10]
+
+
+@students = [@person2, @person3, @person6, @person7, @person9, @person10, @person11, @person12, @person13, @person14, @person15, @person16, @person17, @person18, @person19]
 @professors = [@person1, @person4, @person5, @person8]
 @units_with_projects = [@discipline26, @discipline27, @discipline28, @discipline29, @discipline30]
 
@@ -185,7 +199,7 @@ project_descr = ['Aliquam consectetur risus scelerisque ultricies sollicitudin.'
 tags = ['ruby on rails', 'benfica', 'web design', 'gestão de projectos', 'cavalos', 'peixe-espada', 'skyroad serra da estrela', 'android', 'responsive', 'java', 'microsoft .net', 'marco paulo', 'streets of rage', 'manuel cajuda', 'reprovados', 'api', 'python', 'mvc']
 
 images = ["public/img/img1.png", "public/img/img2.png", "public/img/img3.jpg", "public/img/img4.png", "public/img/img5.jpg"]
-
+pics = []
 60.times do |x|
   @project1 = Project.create(
     title: project_names[x], 
@@ -199,7 +213,7 @@ images = ["public/img/img1.png", "public/img/img2.png", "public/img/img3.jpg", "
     user: @u1, 
     course_unit: @units_with_projects.sample )
 
-  @project1.people << @students.sample(rand(1..6))
+  @project1.people << @students.sample(rand(2..8))
   @project1.supervisors << @professors.sample(rand(1..2))
 
   # presentation

@@ -1,6 +1,6 @@
 <div class="card  card-outline-secundary">
   <div class="card-block">
-      <%= form_for :course do |f| %>
+      <%= form_for @course do |f| %>
       
         <% if @course.errors.any? %>
             <div id="error_explanation" class="alert alert-warning" role="alert">

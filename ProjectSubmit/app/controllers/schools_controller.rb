@@ -27,7 +27,7 @@ def update
     @school = School.find(params[:id])
 
   if @school.update(school_params)
-    redirect_to schools_path
+    redirect_to school_path @school
   else
     render 'edit'
   end

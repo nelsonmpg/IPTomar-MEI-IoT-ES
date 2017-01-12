@@ -7,6 +7,9 @@
         <h1 class="post_title">
           <%= @project.title %>
           <% if @project.featured %> <big>&#9733;</big> <% end %>
+          <% if user_signed_in?%>
+          <%= link_to 'Editar', edit_project_path(@project), class: 'btn btn-outline-success pull-right' %>
+        <% end %>
         </h1>
 
         <div class="row">
@@ -28,22 +31,14 @@
 
         <!-- Carrossel de imagens-->
         <!-- falta limitar o tamanho máximo a apresentar para as imagens -->
-        <% if @project.project_images.any? %>
           <%= render partial: "projects/images_carousel", locals: {project_images: @project.project_images} %>
-        <% else %>
-          <p style="background:lightGrey;border-radius: 50px 50px 50px 50px;overflow:hidden;">Não tem imagem, inseri aqui imagem genérica cinzenta mas não sei se faz sentido mostrar imagem alguma caso não haja. Pelo menos se for com o tamanho actual é ocupar imenso espaço para não mostrar nada.</p>
-          <div class="carousel-item">
-            <%= image_tag("/img/placeholder2.png") %>
-        </div>
-        <% end %>
-
-
+  
         <!-- Conteudo do projeto-->
         <div class="post_content">
         <%= @project.resume %>
         <p>Repositório: <%= link_to @project.github, @project.github %></p>
         <p>Site: <%= link_to @project.project_url, @project.project_url %></p>
-        <!-- <p>Nota: <%= @project.grade %></p> deixar de fora? -->
+        <p>Nota: <%= @project.grade %> deixar de fora?</p> 
         <p>Tags:
         <% @project.tags.each do |tag| %>
         <!-- isto é style  inline à pressão, tem que depois ir para css certo -->
@@ -94,7 +89,9 @@
             
             <% end %>
             <% if (@project.presentation.present?  and @project.presentation.slides.present?) %>
-            <li><%= link_to 'Slides da apresentação', @project.presentation.slides.url(:original, false)%> (<%= Filesize.from("#{@project.presentation.slides_file_size} B").pretty %>)</li>
+            <li><%= link_to 'Slides da apresentação', @project.presentation.slides.url(:original, false)%> (<%= Filesize.from("#{@project.presentation.slides_file_size} B").pretty %>)
+            <%=image_tag @project.presentation.slides.url(:thumbnail)%>
+            </li>
             <% elsif (@project.presentation.present?  and @project.presentation.slides.blank?) %>
             <li>Slides da apresentação não disponíveis.</li>
             <% end %>

@@ -5,9 +5,13 @@
         <p id="notice"><%= notice %></p>
 
         <h1><%= @person.name %></h1>
+        <%= image_tag @person.photo.url(:medium), :class => "rounded" %>
         <p><%= @person.person_type.try(:designation) %></p>
         <p>< <%= @person.email%> ></p>
-        <p><%= image_tag @person.photo.url(:medium) %></p>
+        <p>
+        </p>
+        <p>
+        </p>
         <% if @person.juried_presentations.any? %>
         <p>Foi juri em <%=@person.juried_presentations.size %> defesas de projectos.</p>
         <% end %>
