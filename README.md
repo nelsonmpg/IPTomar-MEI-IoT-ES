@@ -1,3 +1,4 @@
+[![Code Climate](https://codeclimate.com/github/nelsonmpg/IPTomar-MEI-IoT-ES/badges/gpa.svg)](https://codeclimate.com/github/nelsonmpg/IPTomar-MEI-IoT-ES)
 # **MEI-IoT**
 
 <p>Projeto desenvolvido na cadeira de Engenharia de Software </p>
