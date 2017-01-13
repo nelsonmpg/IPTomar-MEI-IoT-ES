@@ -1,25 +1,42 @@
-<h2>Change your password</h2>
+<div class="content mt-1" style="width: 50%">
+  <div class="jumbotron px-1 py-1 rounded">
+    <div class="alert alert-success" role="alert">
+      <h1 class="text-xs-center">
+        <%= link_to "Log in", new_session_path(resource_name) %> | Alterar password</h1>   
+    </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+    <div class="card  card-outline-secundary">
+      <div class="card-block">
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+          <%= f.hidden_field :reset_password_token %>
+
+          <div class="row  mt-1">
+           <fieldset class="form-group has-success col-lg-12">
+              <%= f.label :password, "NNova password" %><br />
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+              <% end %>
+              <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control' %>
+            </fieldset>
+          </div>
+          
+          <div class="row  mt-1">
+           <fieldset class="form-group has-success col-lg-12"> 
+              <%= f.label :password_confirmation, "Confirmar password" %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+            </fieldset>
+          </div>
+
+         
+          <div class="row mt-3">
+              <div class="form-group has-success col-lg-12">
+                    <%= f.submit "Alterar password", :class => 'btn btn-outline-success btn-block' %>
+              </div>
+          </div>      
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

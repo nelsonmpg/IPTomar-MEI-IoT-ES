@@ -5,10 +5,13 @@ Rails.application.routes.draw do
 
   #devise_for :users
   
+  #TODO: reorganizar rotas com
+  # - nested routes quando fizer sentido, implica mudar links nas views
+  # - excluír rotas desnecessárias (por exemplo, precisam do show para documents?)
   resources :documents
   resources :projects
   resources :schools
-  resources :courses 
+  resources :courses
   resources :course_units
   resources :course_types
   resources :project_images

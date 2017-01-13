@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   #before_action :authenticate_user!
   before_action only: [:index, :show, :new, :edit] do  
   	@sb_schools = School.all
-  	@sb_courses = Course.all
-  	@sb_tags = Tag.all
+  	@sb_courses = Course.order("RANDOM()").limit(10)
+  	@sb_tags = ActsAsTaggableOn::Tag.most_used(10)
   end
 end
