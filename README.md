@@ -1,12 +1,13 @@
 [![Code Climate](https://codeclimate.com/github/nelsonmpg/IPTomar-MEI-IoT-ES/badges/gpa.svg)](https://codeclimate.com/github/nelsonmpg/IPTomar-MEI-IoT-ES)
 
-![logo do ipt](http://portal2.ipt.pt/img/logo.png "Instituto Politécnico de Tomar")
-
 # **Repositório de Projectos do IPT**
 
 Projeto desenvolvido na disciplina de Engenharia de Software
 
 Mestrado em Engenharia Informática - Internet das Coisas - IPT
+
+![logo do ipt](http://portal2.ipt.pt/img/logo.png "Instituto Politécnico de Tomar")
+
 
 ## Vagrant: Como utilizar?
 
