@@ -28,7 +28,7 @@
 
             <fieldset class="form-group has-success col-xs-1">
                 <%=f.label :"Nota" %>
-                <%=f.select( :grade, options_for_select(1..20), {include_blank: true}, {class: 'form-control'}) %>
+                <%=f.select( :grade, options_for_select(1..20, :selected => f.object.grade), {include_blank: true}, {class: 'form-control'}) %>
             </fieldset>
 
             <fieldset class="form-group has-success col-xs-4">
@@ -38,7 +38,7 @@
 
             <fieldset class="form-group has-success col-xs-5">
                 <%=f.label :"Data do Projeto" %>
-                <%=f.date_field :date, class: 'form-control custom-select' %>
+                <%=f.date_select :date, :start_year => 2010, :end_year => Date.today.year + 1, include_blank: true, class: 'form-control custom-select' %>
             </fieldset>
 
             <fieldset class="form-group has-success col-xs-5">
@@ -53,11 +53,6 @@
 
             <div class="row col-xs-5">
                 <div class=" col-xs-1"></div>
-                <label class="custom-control custom-checkbox col-xs-2">
-                    <%=f.check_box :user_id, class: 'custom-control-input' %>
-                    <%=f.label :user_id, class: 'custom-control-description' %>
-                    <span class="custom-control-indicator"></span>
-                </label>
                 <label class="custom-control custom-checkbox col-xs-3">
                     <%=f.check_box :featured, class: 'custom-control-input' %>
                     <%=f.label :"Destacar", class: 'custom-control-description' %>
@@ -81,8 +76,14 @@
         <div class="row card card-outline-success">
           <%= f.fields_for :presentation do |ff| %>
             <fieldset class="form-group has-success col-xs-4">
+            <!-- se querem usar datepickers decentes vejam e testem:
+            https://github.com/Nerian/bootstrap-datepicker-rails
+            e 
+            https://github.com/TrevorS/bootstrap3-datetimepicker-rails
+            ou leiam mais. O que estava actualmente era só um campo de texto normal, o que vocês viam era uma feature do chrome mas nos outros browsers não aparece nada disso.
+            -->
                 <%= ff.label :"Data de Apresentação" %>
-                <%=ff.date_field :date, class: 'form-control',  value: "2017-01-01T00:00:00", type: "datetime-local" %>
+                <%=ff.datetime_select :date, :start_year => 2010, :end_year => Date.today.year + 1, class: 'form-control', include_blank: true, type: "datetime-local" %>
             </fieldset>
             <fieldset class="form-group has-success col-xs-2">
                 <%= ff.label :"Sala de Apresentação" %>
@@ -94,7 +95,7 @@
           </fieldset>
           <% end %>
         </div>
-
+ 
 <div class="field">
 <%= f.fields_for :documents, @project.documents do |document| %>
 <p>

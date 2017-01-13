@@ -1,36 +1,30 @@
- <p>
-  <strong>Nome:</strong>
-  <%= @courseunit.name %>
-</p>
+<section class="margin"> 
+  <div class="content">
+    <div class="content_container">
+      <article class="rounded">
+        <p id="notice"><%= notice %></p>
 
+        <h1><%= @course_unit.name %> (<%= @course_unit.initials %>)</h1>
+        <p><%= link_to @course_unit.course.name, course_path(@course_unit.course) %> (<%=@course_unit.course.course_type.name%>) - <%=@course_unit.year%>º ano / <%=@course_unit.semester%>º semestre</p>
+        <p><%= link_to @course_unit.course.school.name, school_path(@course_unit.course.school) %></p>
+        <h4>Descrição da Disciplina</h4>
+        <%= @course_unit.description %>
+      </article>
+    </div>  
 
-<p>
-  <strong>Código:</strong>
-  <%= @courseunit.code %>
-</p>
+    <div class="content_container">
+    <article class="rounded">
+    <h2>Projectos de <%= @course_unit.name %></h2>
+      <% if @course_unit.projects.empty? %>
+        <p>Não existem projectos desta disciplina</p>
+      <% end %>
+    </article>
+    </div>
+    
+        <% if @course_unit.projects.any? %>
+        <%= render 'projects/projects', collection: @projects_list = @course_unit.projects.paginate(:page => params[:page], :per_page => 8) %>
+        <% end %>
 
-<p>
-  <strong>Iniciais:</strong>
-  <%= @courseunit.initials %>
-</p>
-<p>
-  <strong>Descrição:</strong>
-  <%= @courseunit.description %>
-</p>
-
-<p>
-  <strong>Curso a que pertence:</strong>
-  <%= @courseunit.course.name %>
-</p>
-
-<strong>Projetos Associados:</strong>
-<% @courseunit.projects.each do |project| %>
-<br>
-<%= project.title %>
-<% end %>
-<br>
-
-  <% if user_signed_in?%>
- <td><%= link_to 'Editar', edit_course_unit_path(@courseunit) %></td>
- <%end%>
- <td><%= link_to 'Voltar', course_units_path %></td>
+    <%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags:  @sb_tags} %>
+  </div>  
+</section>

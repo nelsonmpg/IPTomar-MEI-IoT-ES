@@ -9,7 +9,7 @@ class Presentation < ApplicationRecord
     belongs_to :project, inverse_of: :presentation, dependent: :destroy
     
     has_and_belongs_to_many :juries, :class_name => "Person", :join_table => :juries_presentations
-    has_attached_file :slides, styles: {thumbnail: "60x60#"}
+    has_attached_file :slides
     validates_attachment :slides, content_type: { content_type: "application/pdf" }
 
 end

@@ -12,75 +12,238 @@ Document.destroy_all
 Course.destroy_all
 Person.destroy_all
 CourseUnit.destroy_all
+Document.destroy_all
+Presentation.destroy_all
+ProjectImage.destroy_all
+
 
 @u1 = User.create(email:'teste@teste.pt',password:'123456')
 @u2 = User.create(email:'admin@projectsubmit.pt',password:'123qwe')
 @u3 = User.create(email:'admin@admin.pt',password:'123456', admin:'t' )
+@u4 = User.create(email:'renato.panda@ipt.pt',password:'123456', admin:'t' )
 
 @i = Institution.create(name: 'Instituto Politécnico de Tomar', code: '1234', initials: 'IPT')
 
-@s1 = School.create(name:'Escola Superior de Tecnologia de Tomar',code:'1234',initials:'ESTT',description:'Tecnologia Tomar', institution:@i)
-@s2 = School.create(name:'Escola Superior de Gestão de Tomar',code:'4321',initials:'ESGT',description:'Gestao Tomar', institution:@i)
-@s3 = School.create(name:'Escola Superior de Tecnologia de Abrantes',code:'1111',initials:'ESGT',description:'Tecnologia Abrantes', institution:@i)
+@s1 = School.create(name:'Escola Superior de Tecnologia de Tomar',code:'1234',initials:'ESTT',description:'A Escola Superior de Tecnologia de Tomar é uma unidade orgânica de ensino superior inserida no Instituto Politécnico de Tomar. Posiciona-se em áreas fundamentais para o desenvolvimento da Região onde se insere, no âmbito da formação, transferência de tecnologia, inovação e desenvolvimento nas áreas das Tecnologias, Artes e Ciências. A oferta formativa abrange os cursos superiores não graduados, cursos de graduação, pós-graduados e formação ao longo da vida nas áreas das Engenharias, e  das Artes e Património. ', institution:@i)
+@s2 = School.create(name:'Escola Superior de Gestão de Tomar',code:'4321',initials:'ESGT',description:'A ESGT é uma instituição pública de ensino superior, que tem como missão formar profissionais de qualidade, nas áreas das Ciências Empresariais, Sociais e do Comportamento, com forte ligação ao mercado de trabalho, e promover o Empreendedorismo, a inovação e a transferência de conhecimento, num ambiente de uma cultura de trabalho e de rigor.', institution:@i)
+@s3 = School.create(name:'Escola Superior de Tecnologia de Abrantes',code:'1111',initials:'ESGT',description:'A ESTA é uma unidade orgânica do IPT orientada para a criação,transmissão e difusão da ciência, da tecnologia da cultura e da arte,numa perspectiva profissionalizante, através da articulação do estudo, do ensino e da investigação aplicada. Promove, assim, o desenvolvimento económico e social de forma sustentável, a justiça e igualdade sociais e a cidadania esclarecida e responsável, incentivando o desenvolvimento do pensamento crítico.', institution:@i)
 
-@ct1 = CourseType.create(name: 'Licenciatura', cycle: 1)
-@ct2 = CourseType.create(name: 'Mestrado', cycle: 2)
-@ct3 = CourseType.create(name: 'Doutoramento', cycle: 3)
+@ct2 = CourseType.create(name: 'Licenciatura', cycle: 1)
+@ct3 = CourseType.create(name: 'Mestrado', cycle: 2)
+@ct1 = CourseType.create(name: 'TeSP')
+@ct6 = CourseType.create(name: 'CET')
+@ct5 = CourseType.create(name: 'Pós-graduação')
+@ct4 = CourseType.create(name: 'Doutoramento')
 
-@r1 = Course.create(name:'Auditoria e Fiscalidade',code:'1234',initials:'TeSP',description:'TeSP',school:@s1, course_type: @ct1)
-@r2 = Course.create(name:'Engenheria Informatica',code:'12345',initials:'Licen',description:'Licenciatura',school:@s2, course_type: @ct1)
-@r3 = Course.create(name:'Engenheria Civil',code:'1243',initials:'Mest',description:'Mestrado',school:@s1, course_type: @ct2)
-@r4 = Course.create(name:'Design e Tecnologia das Artes Gráficas',code:'14434',initials:'Dout',description:'Doutoramento',school:@s3, course_type: @ct2)
-@r5 = Course.create(name:'Gestão e Administração de Serviços de Saúde',code:'13234',initials:'Pós',description:'Pós-Graduação',school:@s2, course_type: @ct3)
-@r6 = Course.create(name:'Arqueologia Pré-Histórica a Arte Rupestre',code:'13234',initials:'Pós',description:'Pós-Graduação',school:@s3, course_type: @ct3)
+@course1 = @s1.courses.create(name:'Administração de Bases de Dados', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course2 = @s1.courses.create(name:'Animação e Modelação 3D', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course3 = @s1.courses.create(name:'Arte e Técnica do Couro', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course4 = @s1.courses.create(name:'Automação Industrial', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course5 = @s1.courses.create(name:'Construção e Reabilitação', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course6 = @s1.courses.create(name:'Contabilidade e Fiscalidade', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course7 = @s1.courses.create(name:'Contabilidade e Gestão', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course8 = @s1.courses.create(name:'Desenho Tecnológico', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course9 = @s1.courses.create(name:'Desenho e Fabrico de Construções Mecânicas', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course10 = @s1.courses.create(name:'Design Multimédia', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course11 = @s1.courses.create(name:'Gestão Administrativa de Recursos Humanos', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course12 = @s1.courses.create(name:'Gestão Comercial e Vendas', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course13 = @s1.courses.create(name:'Instalações Elétricas e Manutenção Industrial', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course14 = @s1.courses.create(name:'Manutenção de Sistemas Mecatrónicos', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course15 = @s1.courses.create(name:'Produção Artística para a Conservação e Restauro', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course16 = @s1.courses.create(name:'Produção de Atividades para o Turismo Cultural', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course17 = @s1.courses.create(name:'Qualidade Alimentar', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course18 = @s1.courses.create(name:'Qualidade Ambiental', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course19 = @s1.courses.create(name:'Segurança e Proteção Civil', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course20 = @s1.courses.create(name:'Som e Imagem', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course21 = @s1.courses.create(name:'Tecnologia de Bioprocessos', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course22 = @s1.courses.create(name:'Tecnologia e Programação em Sistemas de Informação', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course23 = @s1.courses.create(name:'Tecnologias Tradicionais de Construção e Reabilitação', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course24 = @s1.courses.create(name:'Web e Dispositivos Móveis', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct1)
+@course25 = @s1.courses.create(name:'Administração Pública', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course26 = @s1.courses.create(name:'Artes Plásticas - Pintura e Intermédia', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course27 = @s1.courses.create(name:'Auditoria e Fiscalidade', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course28 = @s1.courses.create(name:'Comunicação Social', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course29 = @s1.courses.create(name:'Conservação e Restauro', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course30 = @s1.courses.create(name:'Construção e Reabilitação', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course31 = @s1.courses.create(name:'Contabilidade', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course32 = @s1.courses.create(name:'Design e Tecnologia das Artes Gráficas', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course33 = @s1.courses.create(name:'Engenharia Civil (pós-laboral)', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course34 = @s1.courses.create(name:'Engenharia Civil', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course35 = @s1.courses.create(name:'Engenharia Electrotécnica e de Computadores (pós-laboral)', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course36 = @s1.courses.create(name:'Engenharia Electrotécnica e de Computadores', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course37 = @s1.courses.create(name:'Engenharia Informática (pós-laboral)', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course38 = @s1.courses.create(name:'Engenharia Informática', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course39 = @s1.courses.create(name:'Engenharia Mecânica', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course40 = @s1.courses.create(name:'Engenharia Química e Bioquímica', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course41 = @s1.courses.create(name:'Engenharia do Ambiente e Biológica', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course42 = @s1.courses.create(name:'Fotografia', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course43 = @s1.courses.create(name:'Gestão Turística e Cultural', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course44 = @s1.courses.create(name:'Gestão de Empresas (pós-laboral)', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course45 = @s1.courses.create(name:'Gestão de Empresas', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course46 = @s1.courses.create(name:'Gestão de Recursos Humanos e Comportamento Organizacional', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course47 = @s1.courses.create(name:'Gestão do Território', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course48 = @s1.courses.create(name:'Gestão e Administração Bancária (Pós-Laboral)', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course49 = @s1.courses.create(name:'Gestão e Administração de Serviços de Saúde', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course50 = @s1.courses.create(name:'Tecnologias de Informação e Comunicação', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course51 = @s1.courses.create(name:'Video e Cinema Documental', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct2)
+@course52 = @s1.courses.create(name:'Analítica e Inteligência Organizacional', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course53 = @s1.courses.create(name:'Arqueologia Pré-Histórica a Arte Rupestre', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course54 = @s2.courses.create(name:'Auditoria e Análise Financeira', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course55 = @s2.courses.create(name:'Auditoria e Finanças', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course56 = @s2.courses.create(name:'Conservação e Restauro', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course57 = @s2.courses.create(name:'Desenvolvimento de Produtos de Turismo Cultural', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course58 = @s2.courses.create(name:'Design Editorial', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course59 = @s2.courses.create(name:'Engenharia Eletrotécnica - Especialização em Controlo e Eletrónica Industrial', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course60 = @s2.courses.create(name:'Engenharia Informática - Internet das Coisas', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course61 = @s2.courses.create(name:'Engenharia Mecânica - Projecto e Produção Mecânica', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course62 = @s2.courses.create(name:'Fotografia', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course63 = @s2.courses.create(name:'Gestão de Empresas Familiares e Empreendedorismo', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course64 = @s2.courses.create(name:'Gestão de Recursos de Saúde', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course65 = @s2.courses.create(name:'Informática na Saúde (pós-laboral)', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course66 = @s2.courses.create(name:'Inovação e Desenvolvimento Empreendedor', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course67 = @s2.courses.create(name:'Manutenção de Instalações Técnicas', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course68 = @s2.courses.create(name:'Museus, Património e Sociedade do Conhecimento', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course69 = @s2.courses.create(name:'Produção de Conteúdos Digitais', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course70 = @s2.courses.create(name:'Reabilitação Urbana', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course71 = @s2.courses.create(name:'Sistemas de Informação Geográfica, em Planeamento e Gestão do Território', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course72 = @s2.courses.create(name:'Tecnologia Quimica', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course73 = @s2.courses.create(name:'Técnicas de Arqueologia', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct3)
+@course74 = @s3.courses.create(name:'Executive Master em Gestão de Organizações Sem Fins Lucrativos', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course75 = @s3.courses.create(name:'Executive Master em Gestão para Empreendedores e Executivos', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course76 = @s3.courses.create(name:'Análise e Tratamento Computacional de Dados', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course77 = @s3.courses.create(name:'Arqueologia Subaquática', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course78 = @s3.courses.create(name:'Arqueologia, Gestão e Educação Patrimonial', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course79 = @s3.courses.create(name:'Business Intelligence', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course80 = @s3.courses.create(name:'Design Multimédia', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course81 = @s3.courses.create(name:'Gestão de Informação e do Conhecimento', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course82 = @s3.courses.create(name:'Jornalismo de Proximidade', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course83 = @s3.courses.create(name:'Marketing Territorial', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course84 = @s3.courses.create(name:'Produção Industrial', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course85 = @s3.courses.create(name:'Proteção Civil: A Gestão da Comunicação no Risco, nas Emergências e nas Crises', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+@course86 = @s3.courses.create(name:'Pós-graduação em Novas Tecnologias da Comunicação', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.', course_type:@ct5)
+
+Course.all.each do |c|
+  c.initials = c.name.scan(/[A-Z]/).join.upcase
+  c.save
+end
+
+@discipline1 = CourseUnit.create(name:'Álgebra', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:1)
+@discipline2 = CourseUnit.create(name:'Introdução à Programação', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:2)
+@discipline3 = CourseUnit.create(name:'Introdução à Tecnologia', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:1)
+@discipline4 = CourseUnit.create(name:'Sistemas Digitais', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:2)
+@discipline5 = CourseUnit.create(name:'Análise Matemática II', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:1)
+@discipline6 = CourseUnit.create(name:'Introdução à Electrónica Digital', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:2)
+@discipline7 = CourseUnit.create(name:'Lógica e Computação', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:1)
+@discipline8 = CourseUnit.create(name:'Programação Orientada a Objectos', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:2)
+@discipline9 = CourseUnit.create(name:'Tecnologias da Internet I', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:1)
+@discipline10 = CourseUnit.create(name:'Análise Matemática I', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:1,semester:2)
+@discipline11 = CourseUnit.create(name:'Arquitectura de Computadores I', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:1)
+@discipline12 = CourseUnit.create(name:'Bases de Dados I', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:2)
+@discipline13 = CourseUnit.create(name:'Estruturas de Dados e Algoritmos', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:1)
+@discipline14 = CourseUnit.create(name:'Introdução às Telecomunicações', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:2)
+@discipline15 = CourseUnit.create(name:'Probabilidades e Estatística', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:1)
+@discipline16 = CourseUnit.create(name:'Bases de Dados II', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:2)
+@discipline17 = CourseUnit.create(name:'Microprocessadores', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:1)
+@discipline18 = CourseUnit.create(name:'Redes de Dados I', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:2)
+@discipline19 = CourseUnit.create(name:'Sistemas Operativos', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:1)
+@discipline20 = CourseUnit.create(name:'Tecnologias da Internet II', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:2,semester:2)
+@discipline21 = CourseUnit.create(name:'Análise de Sistemas', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:1)
+@discipline22 = CourseUnit.create(name:'Arquitectura de Computadores II', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:2)
+@discipline23 = CourseUnit.create(name:'Gestão e Segurança de Redes Informáticas', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:1)
+@discipline24 = CourseUnit.create(name:'Redes de Dados II', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:2)
+@discipline25 = CourseUnit.create(name:'Sistemas Distribuídos', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:1)
+@discipline26 = CourseUnit.create(name:'Empreendedorismo', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:2)
+@discipline27 = CourseUnit.create(name:'Projecto de Redes', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:1)
+@discipline28 = CourseUnit.create(name:'Projecto de Sistemas de Informação', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:2)
+@discipline29 = CourseUnit.create(name:'Projecto Final', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:1)
+@discipline30 = CourseUnit.create(name:'Sistemas de Informação nas Organizações', code: rand(1000..2000), initials:'AAA', description:'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.',course:@course38, year:3,semester:2)
+
+CourseUnit.all.each do |cu|
+  cu.initials = cu.name.scan(/[A-Z]/).join.upcase
+  cu.save
+end
+
+@pt1 = PersonType.create(designation: "Professor")
+@pt2 = PersonType.create(designation: "Aluno")
+
+@person1 = Person.create(name: 'Renato Panda', email: 'renato.panda@ipt.pt', person_type: @pt1)
+
+@person2 = Person.create(name: 'Miguel Coelho', email: 'aluno18284@ipt.pt', person_type: @pt2, photo: File.new("public/img/person1.jpg"))
+@person3 = Person.create(name: 'Nelson Gomes', email: 'nelson@ipt.pt', person_type: @pt2, photo: File.new("public/img/person2.jpg"))
+@person6 = Person.create(name: 'Pedro Matos', email: 'pedromatos@outlook.pt', person_type: @pt2, photo: File.new("public/img/person3.jpg"))
+@person7 = Person.create(name: 'Pedro Nunes', email: 'pnunes@ze.pt', person_type: @pt2, photo: File.new("public/img/person4.jpg"))
+@person11 = Person.create(name: 'António Caria', email: 'caria@ze.pt', person_type: @pt2, photo: File.new("public/img/person5.jpg"))
+@person12 = Person.create(name: 'Pedro Dias', email: 'pedrodias@ze.pt', person_type: @pt2, photo: File.new("public/img/person6.jpg"))
+@person13 = Person.create(name: 'Vasco Marques', email: 'vasco@ze.pt', person_type: @pt2, photo: File.new("public/img/person7.jpg"))
+
+@person14 = Person.create(name: 'Ricardo Anacleto', email: 'rican@ze.pt', person_type: @pt2, photo: File.new("public/img/person8.jpg"))
+@person15 = Person.create(name: 'Pedro Ferreira', email: 'pf2000@ze.pt', person_type: @pt2, photo: File.new("public/img/person9.jpg"))
+@person16 = Person.create(name: 'André Farinha', email: 'afarinha@ze.pt', person_type: @pt2, photo: File.new("public/img/person10.jpg"))
+@person17 = Person.create(name: 'João Henriques', email: 'joao@ze.pt', person_type: @pt2, photo: File.new("public/img/person11.jpg"))
+@person18 = Person.create(name: 'Carlos Gil', email: 'carlosgil@ze.pt', person_type: @pt2, photo: File.new("public/img/person12.jpg"))
+@person19 = Person.create(name: 'Ricardo Lourenço', email: 'riclou@ze.pt', person_type: @pt2, photo: File.new("public/img/person13.jpg"))
+
+@person4 = Person.create(name: 'Luís Oliveira', email: 'loliveira@ipt.pt', person_type: @pt1)
+@person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt', person_type: @pt1)
+@person8 = Person.create(name: 'Jonas Pistolas', email: 'jonas@slb.pt', person_type: @pt1)
+@person9 = Person.create(name: 'Nélson Semedo', email: 'nelson@outlook.pt', person_type: @pt2)
+@person10 = Person.create(name: 'Gonçalo Guedes', email: 'guedes@outlook.pt', person_type: @pt2)
 
 
-@discipline1 = CourseUnit.create(name:'Álgebra',code:'1243',initials:'Mest',description:'Mestrado',course:@r2, year:"1",semester:"2")
-@discipline2 = CourseUnit.create(name:'Introdução à Programação',code:'1243',initials:'Mest',description:'Mestrado',course:@r1, year:"1",semester:"1")
-@discipline3 = CourseUnit.create(name:'Introdução à Tecnologia',code:'1243',initials:'Mest',description:'Mestrado',course:@r3, year:"1",semester:"1")
-@discipline4 = CourseUnit.create(name:'Sistemas Digitais',code:'1243',initials:'Mest',description:'Mestrado',course:@r4, year:"1",semester:"1")
-@discipline5 = CourseUnit.create(name:'Análise Matemática II',code:'1243',initials:'Mest',description:'Mestrado',course:@r2, year:"2",semester:"1")
-@discipline6 = CourseUnit.create(name:'Introdução à Electrónica Digital',code:'1243',initials:'Mest',description:'Mestrado',course:@r2, year:"2",semester:"2")
-@discipline7 = CourseUnit.create(name:'Lógica e Computação',code:'1243',initials:'Mest',description:'Mestrado',course:@r2, year:"2",semester:"1")
-@discipline8 = CourseUnit.create(name:'Programação Orientada a Objectos',code:'1243',initials:'Mest',description:'Mestrado',course:@r2, year:"2",semester:"2")
-@discipline9 = CourseUnit.create(name:'Tecnologias da Internet I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2, year:"2",semester:"1")
-@discipline10 = CourseUnit.create(name:'Análise Matemática I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2, year:"1",semester:"1")
-@discipline11 = CourseUnit.create(name:'Arquitectura de Computadores I',code:'1243',initials:'Mest',description:'Mestrado',course:@r1, year:"2",semester:"1")
-@discipline12 = CourseUnit.create(name:'Bases de Dados I',code:'1243',initials:'Mest',description:'Mestrado',course:@r2, year:"2",semester:"1")
-@discipline13 = CourseUnit.create(name:'Estruturas de Dados e Algoritmos',code:'1243',initials:'Mest',description:'Mestrado',course:@r3, year:"2",semester:"2")
-@discipline14 = CourseUnit.create(name:'Introdução às Telecomunicações',code:'1243',initials:'Mest',description:'Mestrado',course:@r1, year:"2",semester:"2")
 
+@students = [@person2, @person3, @person6, @person7, @person9, @person10, @person11, @person12, @person13, @person14, @person15, @person16, @person17, @person18, @person19]
+@professors = [@person1, @person4, @person5, @person8]
+@units_with_projects = [@discipline26, @discipline27, @discipline28, @discipline29, @discipline30]
 
-@person1 = Person.create(name: 'Renato Panda', email: 'renato.panda@ipt.pt')
-@person2 = Person.create(name: 'Miguel Coelho', email: 'aluno18284@ipt.pt')
-@person3 = Person.create(name: 'Nelson Gomes', email: 'eideoersda@ipt.pt')
-@person4 = Person.create(name: 'Luís Oliveira', email: 'loliveira@ipt.pt')
-@person5 = Person.create(name: 'Manuel Barros', email: 'mbarros@ipt.pt')
-@person6 = Person.create(name: 'Pedro Matos', email: 'pedromatos@outlook.pt')
+project_names = ['Chats Conditionate', 'Isomerizing Louma', 'Tipcat Preorder', 'Incipient Mumpishly', 'Xylorimbas Drosophilas', 'Disloyalties Modulates', 'Scoreboards Preselections', 'Tiptop Stummel', 'Also Subovate', 'Stimy Cathodically', 'Basher Jarping', 'Nonresident Scrofulously', 'Reembark Avoidance', 'Electrophysiologically Toothless', 'Salmagundi Excommunications', 'Elasticness Bandager', 'Carboxylases Faint', 'Redshirted Deflexional', 'Tarpon Hamartiology', 'Praetorships Buggering', 'Lurch Galivant', 'Deflowering Insincerities', 'Bibliothecae Blackjack', 'Prioritises Macromolecular', 'Moleskin Depuratives', 'Liquidating Set', 'Orchestraters Septentrional', 'Retimed Stelleridan', 'Accended Marooned', 'Alexine Dapperer', 'Nationalisms Anecdotist', 'Bichrome Confiseurs', 'Italicisation Drinkablenesses', 'Diplozoic Pellack', 'Disinvest Branders', 'Flashlamps Oligarchically', 'Eyeshadows Disentrail', 'Multitudes Bedticks', 'Counterarguments Bagpiping', 'Inundated Gutsers', 'Manoscopy Naifer', 'Cantharidic Misfires', 'Supplicatory Dicrotism', 'Iconolater Numerate', 'Librations Nichering', 'Fumarolic Manyfold', 'Merceries Pyranoside', 'Convexity Pinchbugs', 'Mollycoddles Gullying', 'Faineances Panpsychists', 'Howling Oeuvre', 'Weightlessness Underestimations', 'Microbiological Singing', 'Medics Funner', 'Finaliser Monohydric', 'Anopsia Sentimentalism', 'Voltaic Interpolates', 'Beadiest Chorusmasters', 'Hules Belleters', 'Suppressed Gillnets', 'Tsardom Iodoforms', 'Guslar Lithiums', 'Puns Vicarship', 'Tranquilize Supranationalisms', 'Roughened Simonise', 'Brashing Randomizations', 'Skyman Crossroad', 'Barters Unsteadies', 'Abandonment Distinctness', 'Hefted Soliloquists', 'Vexillologies Echinuses', 'Terpineols Stereotyper', 'Uncategorisable Lilts', 'Balletomania Falderaling', 'Caudillos Desertified', 'Baken Welch', 'Coemploy Hysteranthous', 'Ascertain Pleas', 'Centennially Rockfalls', 'Mumbliest Phial', 'Cinquecentos Feignednesses', 'Compradore Blit', 'Toluols Reaedifyed', 'Joggling Destructo', 'Nonvegetarian Submittings', 'Embassages Precognoscing', 'Subperiods Rebegin', 'Felching Shortarses', 'Avens Electroencephalographic', 'Dungier Epiphysis', 'Gynaecia Stickhandle', 'Agaric Articulatenesses', 'Mitched Micromanipulations', 'Tableaus Repatriated', 'Mucins Culicine', 'Prunted Outstation', 'Preplanning Prostituted', 'Conjurer Outrocking', 'Inclosures Whillywhaws', 'Crankcase Nonequilibria']
+project_descr = ['Aliquam consectetur risus scelerisque ultricies sollicitudin.', 'Maecenas eget est non est condimentum mollis.', 'Mauris eu tortor quis nibh laoreet lobortis in tempor mauris.', 'Proin sit amet lacus et mi maximus malesuada.', 'Nunc semper massa non cursus hendrerit.', 'In sit amet tellus id nunc aliquam egestas in a velit.', '', 'Curabitur in sapien molestie, imperdiet sapien ut, pellentesque velit.', 'Aliquam ut quam in ante pretium rhoncus.', 'Nulla blandit nunc in nulla tincidunt tincidunt.', 'Integer posuere arcu eget est vehicula dictum.', 'Sed sit amet urna sed magna bibendum varius sit amet vitae enim.', 'Donec laoreet magna sit amet augue posuere, at commodo lectus porta.', '', 'In pretium mi eu diam pulvinar, at viverra orci interdum.', 'Sed nec erat ac lorem porta pretium vitae ut magna.', 'Phasellus consectetur metus vitae facilisis semper.', 'Fusce vitae tellus id nibh tristique condimentum nec quis orci.', '', 'Nullam auctor mauris sed nibh placerat tempor.', 'Nunc molestie arcu nec risus hendrerit pretium.', 'Ut eget purus dapibus, commodo nulla nec, viverra lorem.', 'Donec lacinia mauris quis elit eleifend sodales.', 'In vel est vel arcu aliquam ullamcorper id feugiat orci.', 'Aliquam pretium velit a augue ornare facilisis.', '', 'Nullam nec lacus eu erat tincidunt consequat ac tempus tortor.', 'Pellentesque vel velit a massa gravida tempor.', 'Aenean nec orci sit amet augue varius commodo ut et sapien.', 'Morbi aliquet felis ac nibh sodales blandit.']
+tags = ['ruby on rails', 'benfica', 'web design', 'gestão de projectos', 'cavalos', 'peixe-espada', 'skyroad serra da estrela', 'android', 'responsive', 'java', 'microsoft .net', 'marco paulo', 'streets of rage', 'manuel cajuda', 'reprovados', 'api', 'python', 'mvc']
 
-@tag1 = Tag.create(name: 'Ruby')
-@tag2 = Tag.create(name: 'Rails')
-@tag3 = Tag.create(name: 'Informática')
-@tag4 = Tag.create(name: 'Bootstrap')
-
-10.times do |x|
+images = ["public/img/img1.png", "public/img/img2.png", "public/img/img3.jpg", "public/img/img4.png", "public/img/img5.jpg"]
+pics = []
+60.times do |x|
   @project1 = Project.create(
-    title: "Project Submit #{x+1}", 
-    resume: "Repositório de projectos desenvolvidos no IPT.", 
-    github: "https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES", 
-    grade: 7, 
-    project_url: "http://projects.ipt.pt", 
-    date: "30/01/2016", 
-    finished: false, 
-    featured: true, 
+    title: project_names[x], 
+    resume: project_descr.sample, 
+    github: "https://github.com/meiiotze/" + project_names[x].tableize.tr(" ", "_"), 
+    grade: rand(1..20), 
+    project_url: "http://" + project_names[x].tableize.tr(" ", "_") + ".ipt.pt", 
+    date: rand(1..28).to_s + '/' + rand(1..12).to_s + '/' + rand(2016..2017).to_s, 
+    finished: [true, false].sample, 
+    featured: [true, false].sample, 
     user: @u1, 
-    course_unit: @discipline1)
+    course_unit: @units_with_projects.sample )
 
-  @project1.people << [@person2, @person3]
-  @project1.supervisors << @person1
+  @project1.people << @students.sample(rand(2..8))
+  @project1.supervisors << @professors.sample(rand(1..2))
+
+  # presentation
+  has_presentation = rand(1..3)
+
+  if (has_presentation == 1) # tem apresentação marcada, sem slides
   @project1.create_presentation(
-    date: rand(1..31).to_s + '/01/2017 ' + rand(10..19).to_s + ':00:00', 
+    date: rand(1..28).to_s + '/' + rand(2..4).to_s + '/2017 ' + rand(10..19).to_s + ':00:00', 
     room: ['A','B','I','O'].sample + rand(100..299).to_s)
+  @project1.presentation.juries << @professors.sample(rand(2..4))
+elsif (has_presentation == 2) # tem apresentação já realizada
+  @project1.create_presentation(
+    date: rand(1..28).to_s + '/' + rand(1..12).to_s + '/2016 ' + rand(10..19).to_s + ':00:00', 
+    room: ['A','B','I','O'].sample + rand(100..299).to_s, slides: File.new("public/img/test.pdf"))
+  @project1.presentation.juries << @professors.sample(rand(2..4))
+else # não tem apresentação
+# nao faz nada
+end
 
-  @project1.presentation.juries << [@person4, @person5]
+  # images
+ images.sample(rand(0..images.size)).each do |i|
+    @project1.project_images.create(image: File.new(i))
+ end
+
+  # documents
+  rand(0..3).times do |i|
+    @project1.documents.create(document: File.new("public/img/test.pdf"))
+  end
+
+  @project1.tag_list.add(tags.sample(rand(2..7)))
+  @project1.save
 end
