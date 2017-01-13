@@ -24,6 +24,7 @@
                 <%= @project.date.to_formatted_s(:long) %>
               <% else %>
               <%= (data por definir) %>
+              <% end %>
             </div>
             <div class="col-xs-6 text-xs-right">
               <b><span><%= link_to @project.course_unit.name, course_unit_path(@project.course_unit) %></span></b>&bull;
@@ -97,7 +98,7 @@
             <%=image_tag @project.presentation.slides.url(:thumbnail)%>
             </li>
             <% elsif (@project.presentation.present?  and @project.presentation.slides.blank?) %>
-            <li>Slides da apresentação não disponíveis.</li>
+            <li>Slides da apresentação não disponíveis.</li>  
             <% end %>
             </ul>
 
