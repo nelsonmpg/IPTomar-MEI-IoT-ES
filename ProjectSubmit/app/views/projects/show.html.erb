@@ -16,10 +16,14 @@
           <div class="col-xs-12 meta"> 
             <div class="col-xs-6">
               <% if (@project.finished?) %>
-                Projecto terminado em <%= @project.date.to_formatted_s(:long) %>
+                Projecto terminado em 
               <% else %>
-                Projecto em curso desde <%= @project.date.to_formatted_s(:long) %>
+                Projecto em curso desde 
               <% end %>
+              <% if @project.date.present? %>
+                <%= @project.date.to_formatted_s(:long) %>
+              <% else %>
+              <%= (data por definir) %>
             </div>
             <div class="col-xs-6 text-xs-right">
               <b><span><%= link_to @project.course_unit.name, course_unit_path(@project.course_unit) %></span></b>&bull;
