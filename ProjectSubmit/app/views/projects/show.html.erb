@@ -95,7 +95,6 @@
             <% end %>
             <% if (@project.presentation.present?  and @project.presentation.slides.present?) %>
             <li><%= link_to 'Slides da apresentação', @project.presentation.slides.url(:original, false)%> (<%= Filesize.from("#{@project.presentation.slides_file_size} B").pretty %>)
-            <%=image_tag @project.presentation.slides.url(:thumbnail)%>
             </li>
             <% elsif (@project.presentation.present?  and @project.presentation.slides.blank?) %>
             <li>Slides da apresentação não disponíveis.</li>  
