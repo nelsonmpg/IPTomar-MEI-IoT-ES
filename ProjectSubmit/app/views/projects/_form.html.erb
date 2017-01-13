@@ -31,10 +31,31 @@
                 <%=f.select( :grade, options_for_select(1..20, :selected => f.object.grade), {include_blank: true}, {class: 'form-control'}) %>
             </fieldset>
 
+
+
+
+
             <fieldset class="form-group has-success col-xs-4">
-                <%=f.label :course_unit_id %>
-                <%=f.select :course_unit_id, CourseUnit.all.order(name: :asc).collect { |s| [s.name, s.id] }, {}, {class: 'form-control'} %>
+            <%= f.fields_for :courses, @project.course_unit do |course| %>
+                <%=course.label :course_id %><br />
+                <%=course.collection_select :course_id, Course.order(:name),:id, :name, include_blank: true  %>
             </fieldset>
+            <% end %>
+            
+            
+            <fieldset class="form-group has-success col-xs-4">
+                <%=f.label :course_unit_id %><br />
+                <%=f.grouped_collection_select :course_unit_id, Course.order(:name),:course_units, :name, :id, :name, include_blank: true %>
+            </fieldset>
+
+
+
+
+
+
+
+
+
 
             <fieldset class="form-group has-success col-xs-5">
                 <%=f.label :"Data do Projeto" %>
@@ -96,33 +117,16 @@
           <% end %>
         </div>
  
+
 <div class="field">
 <%= f.fields_for :documents, @project.documents do |document| %>
-<p>
- 
-    <%= document.label :"Nome do Documento" %><br>
-    <%= document.text_field :name %>
-  </p>
-
-  <p>
-    <%= document.label :"Descrição do Documento" %><br>
-    <%= document.text_field :description %>
-  </p>
-
- <p>
-    <%= document.label :"Data do Documento" %> AAAAMMDD ex: 20161202<br>
-    <%= document.text_field :date %>
-  </p>
-
-  <p>
-    <%= document.label :"Local do Documento" %><br>
-    <%= document.text_field :local %>
-  </p>
   <p>
     <%= document.label :"Documento/Relatório" %><br>
     <%= document.file_field :document %>
   </p>
 <% end %>
+
+
 </div>
 
 

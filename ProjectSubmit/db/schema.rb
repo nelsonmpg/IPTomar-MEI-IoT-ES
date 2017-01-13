@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102161923) do
+ActiveRecord::Schema.define(version: 20170113143324) do
 
   create_table "course_types", force: :cascade do |t|
     t.text     "name"
@@ -46,12 +46,8 @@ ActiveRecord::Schema.define(version: 20170102161923) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.text     "description"
-    t.date     "date"
-    t.text     "local"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.text     "name"
     t.integer  "project_id"
     t.string   "document_file_name"
     t.string   "document_content_type"

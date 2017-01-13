@@ -10,14 +10,6 @@
   <% @documents.each do |document| %>
 
     <tr>
-      <th>Nome do Documento </th>
-      <td><%= document.name %></td>
-      <th>Descrição do Documento </th>
-      <td><%= document.description %></td>
-      <th>Data do Documento </th>
-      <td><%= document.date %></td>
-      <th>Local do Documento </th>
-      <td><%= document.local %></td>
       <th>Documento/Relatório</th>
       <td><%=  document.document_file_name %></td>
       <td> <%= link_to 'Download', document.document.url(:original, false) %> </td>

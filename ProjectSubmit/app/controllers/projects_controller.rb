@@ -8,19 +8,19 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    #projects = Project.all
     if params[:tag]
         @projects = Project.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
     else
         @projects = Project.all.paginate(:page => params[:page], :per_page => 10)
     end
+
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
     @related_projects = Project.tagged_with(@project.tags, :any => true)
-  end
+end
 
   # GET /projects/new
   def new

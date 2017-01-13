@@ -54,7 +54,7 @@
                 <td><%#= project.user.email %></td> -->
 
                 <td class="align-middle"><%= project.course_unit.name %></td>   
-                
+                <td class="align-middle"><%= project.course_unit.course.name %></td> 
 <!--
         <%# project.documents do |document| %>
         <th>Nome do Projeto</th>
@@ -79,6 +79,8 @@
 -->
 
 
+
+
                 <td class="align-middle">
                   <%= link_to 'Visualizar', project, class: "btn btn-outline-info btn-sm btn-block d-inline-block" %>
                   <% if user_signed_in? %>
@@ -88,6 +90,16 @@
                 </td>
               </tr>
             <% end %>
+
+<!--<%= form_for :trip, url: {action: "show"}, html: {method: "get"} do |f| %>
+  <%= f.select :course_id, options_for_select(@courses.collect { |course|
+    [course.name.titleize, course.id] }, 1), {}, { id: 'courses_select' } %>
+  <%= f.select :course_unit_id, options_for_select(@course_units.collect { |courseunit|
+    [courseunit.name.titleize, courseunit.id] }, 0), {}, { id: 'course_units_select' } %>
+  <%= f.submit "Go!" %>
+<% end %>-->
+
+
           </tbody>
         </table>   
       </div>

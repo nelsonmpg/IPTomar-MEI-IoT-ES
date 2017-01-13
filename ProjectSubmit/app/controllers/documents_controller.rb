@@ -49,7 +49,7 @@ end
 
 private
 def document_params
-    params.require(:document).permit(:name,:description,:date,:local,:project_id,:document)
+    params.require(:document).permit(:project_id,:document)
 end
 
 end
