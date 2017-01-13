@@ -72,6 +72,24 @@ $(document).ready(function() {
     }else{
         $('.switch').show();
     }
+
+
+    var course_units = $('#project_course_unit_id').html();
+    console.log(course_units);
+    $('#project_courses_course_id').change(function() {
+        var course, options;
+        course = $('#project_courses_course_id :selected').text();
+        console.log(course);
+        options = $(course_units).filter("optgroup[label='" + course + "']").html();
+        console.log(options);
+        if (options) {
+            return $('#project_course_unit_id').html(options);
+        } else {
+            return $('#project_course_unit_id').empty();
+        }/**/
+    });
+
+
 });
 
 $(window).scroll(function() {
