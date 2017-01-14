@@ -72,8 +72,11 @@
             <%else%>
             <h4>Detalhes da apresentação</h4>
             <span class="pr-0 name corVerde">Data:</span>
+                    <% if @project.presentation.date.present? %>
                     <%= @project.presentation.date.to_formatted_s(:long) %>
-
+                    <% else %>
+                    por definir.
+                    <% end %>
                     <span class="pr-0 pl-2 name corVerde">Sala:</span>
                     <%= @project.presentation.room%>
 

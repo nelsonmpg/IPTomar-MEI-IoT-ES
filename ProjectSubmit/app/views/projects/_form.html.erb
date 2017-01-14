@@ -33,25 +33,19 @@
 
 
 
-
-
-            <fieldset class="form-group has-success col-xs-4">
+  
+<div class="field">
             <%= f.fields_for :courses, @project.course_unit do |course| %>
                 <%=course.label :course_id %><br />
                 <%=course.collection_select :course_id, Course.order(:name),:id, :name, include_blank: true  %>
-            </fieldset>
+            
             <% end %>
-            
-            
-            <fieldset class="form-group has-success col-xs-4">
-                <%=f.label :course_unit_id %><br />
-                <%=f.grouped_collection_select :course_unit_id, Course.order(:name),:course_units, :name, :id, :name, include_blank: true %>
-            </fieldset>
+  </div>
 
-
-
-
-
+  <div class="field">
+    <%= f.label :course_unit_id, "Course Unit" %><br />
+    <%= f.grouped_collection_select :course_unit_id, Course.order(:name), :course_units, :name, :id, :name, include_blank: true %>
+  </div>
 
 
 

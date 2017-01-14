@@ -18,3 +18,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require 2-imagelightbox
+//= require_tree .
