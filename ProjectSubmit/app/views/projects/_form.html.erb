@@ -30,26 +30,7 @@
                 <%=f.label :"Nota" %>
                 <%=f.select( :grade, options_for_select(1..20, :selected => f.object.grade), {include_blank: true}, {class: 'form-control'}) %>
             </fieldset>
-
-
-
   
-<div class="field">
-            <%= f.fields_for :courses, @project.course_unit do |course| %>
-                <%=course.label :course_id %><br />
-                <%=course.collection_select :course_id, Course.order(:name),:id, :name, include_blank: true  %>
-            
-            <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :course_unit_id, "Course Unit" %><br />
-    <%= f.grouped_collection_select :course_unit_id, Course.order(:name), :course_units, :name, :id, :name, include_blank: true %>
-  </div>
-
-
-
-
 
             <fieldset class="form-group has-success col-xs-5">
                 <%=f.label :"Data do Projeto" %>
@@ -66,6 +47,9 @@
                 <%=f.text_field :project_url, class: 'form-control' %>
             </fieldset>
 
+
+
+
             <div class="row col-xs-5">
                 <div class=" col-xs-1"></div>
                 <label class="custom-control custom-checkbox col-xs-3">
@@ -81,6 +65,22 @@
                 </label>
 
             </div>
+
+            <fieldset class="form-group has-success col-xs-12">
+            <%= f.fields_for :courses, @project.course_unit do |course| %>
+                <%=course.label :course_id, "Curso" %>
+                <%=course.collection_select :course_id, Course.order(:name),:id, :name, include_blank: true  %>
+            <% end %>
+            </fieldset>
+
+
+            <fieldset class="form-group has-success col-xs-7">
+                <%= f.label :course_unit_id, "Unidade Curricular" %>
+                <%= f.grouped_collection_select :course_unit_id, Course.order(:name), :course_units, :name, :id, :name, include_blank: true %>
+            </fieldset>
+
+             
+
         </div>
         <div class="row">
           <fieldset class="form-group has-success col-xs-12">
