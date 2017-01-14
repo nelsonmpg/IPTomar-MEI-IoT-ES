@@ -6,7 +6,7 @@ class Presentation < ApplicationRecord
                             #length: { in: 2..6 , :message => "O campo código da cadeira tem de ter entre 2 a 6 digitos." }
    
 
-    belongs_to :project, inverse_of: :presentation, dependent: :destroy
+    belongs_to :project, inverse_of: :presentation
     
     has_and_belongs_to_many :juries, :class_name => "Person", :join_table => :juries_presentations
     has_attached_file :slides

@@ -16,7 +16,7 @@
       <div class=" col-xs-12">
         <div class="row">
             <fieldset class="form-group has-success col-xs-12">
-                <%=f.label :"Titulo do Projeto" %>
+                <%=f.label :"Titulo do Projeto" %> <%= @project.id %>
                 <%=f.text_field :title, class: 'form-control' %>
             </fieldset>
         </div>
@@ -85,7 +85,7 @@
         <div class="row">
           <fieldset class="form-group has-success col-xs-12">
               <%=f.label :tag_list, 'Tags (separar por vírgulas)' %>
-              <%=f.text_field :tag_list, class: 'form-control' %>
+              <%=f.text_field :tag_list, :value => @project.tag_list.to_s, class: 'form-control' %>
           </fieldset>
         </div>
         <div class="row card card-outline-success">
