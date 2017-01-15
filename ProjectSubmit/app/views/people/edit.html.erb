@@ -1,41 +1,41 @@
-<h1>Editar Pessoas</h1>
- 
-<%= form_for :person, url: person_path(@person), method: :patch do |f| %>
- 
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@person.errors.count, "error") %> não foi guardado
-      </h2>
-      <ul>
-        <% @person.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class="content mt-1">
+  <div class="jumbotron px-1 py-1 rounded">
+    <div class="alert alert-success" role="alert">
+      <h1 class="text-xs-center">Editar Pessoas</h1>
     </div>
-  <% end %>
- 
-   <p>
-    <%= f.label :"Nome" %><br>
-    <%= f.text_field :name %>
-  </p>
- 
- <p>
-    <%= f.label :"email" %><br>
-    <%= f.text_field :email %>
-  </p>
-
- <%= f.label :"Foto" %><br>
-  <%= f.file_field :photo %>
-
- <p>
-<%= f.label :"Titulo" %><br>
-<%= f.select( :person_type_id, PersonType.all.collect { |s| [s.designation, s.id] }, {}, {class: 'form-control'}) %>
- </p>
-  <p>
-    <%= f.submit %>
-  </p>
+    <div id="notice"><%= notice %></div>
+    <table class="table table-hover table-sm">
+      <tr><td>
+        <%= form_for :person, url: person_path(@person), method: :patch do |f| %>
+        <% if @person.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@person.errors.count, "error") %> não foi guardado
+        </h2>
+        <ul>
+          <% @person.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+      <label for="basic-url">
+    <% end %>
+    <%= image_tag @person.photo.url(:medium) %></td></tr>
+    <tr><td><h4><%= f.label :"Nome", class: 'label label-default' %></h4>
+    <%= f.text_field :name , class: 'form-control'%></td></tr>
+    <tr><td><h4><%= f.label :"email", class: 'label label-default' %></h4>
+    <%= f.text_field :email , class: 'form-control'%></td></tr>
+    <tr><td><h4><%= f.label :"Foto", class: 'label label-default'%></h4>
+    <%= f.file_field :photo , class: 'form-control'%></label><br></td></tr>
+    <tr><td><h4><%= f.label :"Titulo", class: 'label label-default'%></h4>
+    <%= f.select( :person_type_id, PersonType.all.collect { |s| [s.designation, s.id] }, {}, {class: 'form-control'}) %>
+    </td></tr>
+    <tr><td>
+    <%= f.submit 'Atualizar Dados', class: "btn btn-outline-info btn-sm btn-block d-inline-block" %></td></tr>
+    <tr><td>
+    <%= link_to 'Voltar', people_path , class: "btn btn-outline-success btn-sm btn-block d-inline-block"%></td></tr>
+    </table>
  
 <% end %>
- 
-<%= link_to 'Voltar', people_path %>
+ </div>
+</div>
