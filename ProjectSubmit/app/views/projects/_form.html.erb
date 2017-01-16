@@ -72,7 +72,7 @@
               <!--<#%=f.label :tag_list, 'Tags (separar por vírgulas)' %>-->
               <!--<#%=f.text_field :tag_list, class: 'form-control' %>-->
               <%= f.label :tag_list, "Tags" %>
-              <%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {multiple: true} %>
+              <%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true} %>
           </fieldset>
         </div>
         <div class="row card card-outline-success">
