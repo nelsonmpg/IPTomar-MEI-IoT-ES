@@ -44,17 +44,12 @@
               <!--  <td><%#= project.github %></td>
                 <td><%#= project.grade %></td>
                 <td><%#= project.project_url %></td> -->
-                <td class="text-xs-center align-middle"><%= project.presentation.date %></td>
-                <td class="text-xs-center align-middle"><%= project.presentation.room %></td>
+                <td class="text-xs-center align-middle"><%= project.presentation.try(:date) %></td>
+                <td class="text-xs-center align-middle"><%= project.presentation.try(:room) %></td>
                <!-- <td><%#= project.presentation.slides_file_name %></td>
                 <td><%#= link_to 'Download', project.presentation.slides.url(:original, false) %> </td> -->
                <!-- <td><%#= project.featured %></td> -->           
-                <td class="text-xs-center align-middle">
-                  <label class="custom-control custom-checkbox align-middle">
-                    <input type=" checkbox" <%= 'checked' if project.finished %> class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>    
-                </td>
+                <td class="text-xs-center align-middle"><%= project.finished %></td>
               <!--  <td class="align-middle"><%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td class="align-middle">
                 <td><%#= project.user.email %></td> -->
 

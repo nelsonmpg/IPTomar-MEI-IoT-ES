@@ -17,7 +17,7 @@ class Document < ApplicationRecord
     #já estava
     belongs_to :project, inverse_of: :documents, dependent: :destroy
 
-    has_attached_file :document, styles: {thumbnail: "60x60#"}
+    has_attached_file :document
     validates_attachment :document, content_type: { content_type: "application/pdf" }
     #accepts_nested_attributes_for :project
     

@@ -1,25 +1,25 @@
 class CourseUnitsController < ApplicationController
 	before_filter :authenticate_user!, :except => [:index,:show]
 	def index
-    	@courseunits = CourseUnit.all
+    	@course_units = CourseUnit.all
 	end
 
 	def show
-    	@courseunit = CourseUnit.find(params[:id])
+    	@course_unit = CourseUnit.find(params[:id])
 	end
 
 	def edit
-    	@courseunit = CourseUnit.find(params[:id])
+    	@course_unit = CourseUnit.find(params[:id])
 	end
 
 	def new
-   		@courseunit = CourseUnit.new
+   		@course_unit = CourseUnit.new
 	end
 
 	def update
-    	@courseunit = CourseUnit.find(params[:id])
+    	@course_unit = CourseUnit.find(params[:id])
  
-  		if @courseunit.update(courseunit_params)
+  		if @course_units.update(course_unit_params)
     		redirect_to course_units_path
   		else
     		render 'edit'
@@ -27,9 +27,9 @@ class CourseUnitsController < ApplicationController
 	end
 
 	def create
-    	@courseunit = CourseUnit.new(courseunit_params)
+    	@course_unit = CourseUnit.new(course_unit_params)
 
- 		if @courseunit.save
+ 		if @course_unit.save
   			redirect_to course_units_path
   		else
       	render 'new'
@@ -37,14 +37,14 @@ class CourseUnitsController < ApplicationController
 	end
 
 	def destroy
-    	@courseunit = CourseUnit.find(params[:id])
-    	@courseunit.destroy
+    	@course_unit = CourseUnit.find(params[:id])
+    	@course_unit.destroy
 
     	redirect_to course_units_path
 	end
 
 	private
-	def courseunit_params
-    	params.require(:courseunit).permit(:name,:description,:code,:initials,:course_id)
+	def course_unit_params
+    	params.require(:course_unit).permit(:name,:description,:code,:initials,:course_id)
 	end
 end

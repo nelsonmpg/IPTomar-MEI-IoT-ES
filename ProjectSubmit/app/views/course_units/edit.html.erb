@@ -1,14 +1,14 @@
 <h1>Editar Cadeira</h1>
  
-<%= form_for :course_unit, url: course_unit_path(@courseunit), method: :patch do |f| %>
+<%= form_for :course_unit, url: course_unit_path(@course_unit), method: :patch do |f| %>
  
-  <% if @courseunit.errors.any? %>
+  <% if @course_unit.errors.any? %>
     <div id="error_explanation">
       <h2><h2>Existe erros no formulário
        <%# <%= pluralize(@subject.errors.count, "error") %>
       </h2>
       <ul>
-        <% @courseunit.errors.each do |attr,msg| %>
+        <% @course_unit.errors.each do |attr,msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

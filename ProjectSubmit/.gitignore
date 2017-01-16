@@ -22,3 +22,6 @@
 
 # Ignore vagrant folder
 .vagrant
+
+# Ignore paperclip uploaded files
+/public/system/*
