@@ -1,24 +1,40 @@
 <section class="margin"> 
+  <div class="content">
+    <div class="content_container">
+      <article class="rounded">
+        <p id="notice"><%= notice %></p>
 
-<div class="content mt-1">
-    <div class="jumbotron px-1 py-1 rounded">
-        <div class="alert alert-success" role="alert">
-            <h1 class="text-xs-center">Visualizar Pessoas</h1>
-        </div>
-        <div id="notice"><%= notice %></div>
-        <table class="table table-hover table-sm">
-            <tr><td colspan="2" style="text-align:center"><%= image_tag @person.photo.url(:medium) %></td></tr>
-            <tr><td class="align-middle"><strong>Nome: </strong><%= @person.name %></td>
-                <td class="align-middle"><strong>Email: </strong><%= @person.email %></td></tr>
-            <br><br>
-            <tr>
-                <td colspan="2"><%= link_to 'Editar', edit_person_path(@person) , class: "btn btn-outline-info btn-sm   btn-block d-inline-block"%></td>
-            </tr>
-            <tr>
-                <td colspan="2"><%= link_to 'Voltar', people_path , class: "btn btn-outline-success btn-sm btn-block d-inline-block"%></td>
-            </tr>
-        </table>
+        <h1><%= @person.name %></h1>
+        <%= image_tag @person.photo.url(:medium), :class => "rounded" %>
+        <p><%= @person.person_type.try(:designation) %></p>
+        <p>< <%= @person.email%> ></p>
+        <p>
+        </p>
+        <p>
+        </p>
+        <% if @person.juried_presentations.any? %>
+        <p>Foi juri em <%=@person.juried_presentations.size %> defesas de projectos.</p>
+        <% end %>
+      </article>
+    </div>  
+
+    <% #isto era uma magia negra para juntar projectos + orientações, este pedaço devia ir para um método no controller
+    projects_all = (@person.projects + @person.supervised_projects).sort_by(&:date)
+    %>
+
+    <div class="content_container">
+    <article class="rounded">
+    <h2>Projectos associados a <%= @person.name %></h2>
+      <% if projects_all.empty? %>
+        <p>Esta pessoa não participou em nenhum projecto.</p>
+      <% end %>
+    </article>
     </div>
-</div>  
-</section>
+    
+    <% if projects_all.any? %>
+    <%= render 'projects/projects', collection: @projects_list = projects_all.paginate(:page => params[:page], :per_page => 8) %>
+    <% end %>
 
+    <%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags:  @sb_tags} %>
+  </div>  
+</section>
