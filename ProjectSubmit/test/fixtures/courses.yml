@@ -1,7 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  description: MyText
+# test/fixtures/courses.yml
+es:
+  name: Engenharia de Software
+  code: 1234
+  initials: ES
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut aliquet purus. Quisque maximus sodales odio semper tristique. Nunc ullamcorper ante dictum magna cursus luctus. Cras scelerisque velit ac metus.
 
-two:
-  description: MyText
+gsri:
+  name: Gestão e Segurança de Redes Informáticas
+  code: 5123
+  initials: GSRI
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non luctus tellus. Quisque tortor dui, cursus vitae orci ac, luctus mattis dolor. Etiam nec vestibulum lacus, non malesuada lectus. Vivamus.
+
