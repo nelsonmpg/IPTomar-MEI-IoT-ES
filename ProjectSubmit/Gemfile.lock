@@ -49,7 +49,7 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
     bootstrap-select-rails (1.6.3)
-    builder (3.2.2)
+    builder (3.2.3)
     byebug (9.0.6)
     climate_control (0.1.0)
     cocaine (0.5.8)
