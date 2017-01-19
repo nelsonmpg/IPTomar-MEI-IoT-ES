@@ -27,14 +27,14 @@ end
     @project = Project.new
     @project.build_presentation
     @project.documents.build
-    3.times{@project.project_images.build} 
+    @project.project_images.build
   end
 
   # GET /projects/1/edit
   def edit
     @project.build_presentation
     @project.documents.build
-    3.times{@project.project_images.build} 
+    @project.project_images.build
   end
 
   # POST /projects

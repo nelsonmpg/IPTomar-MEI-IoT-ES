@@ -55,31 +55,6 @@
 
                 <td class="align-middle"><%= project.course_unit.name %></td>   
                 <td class="align-middle"><%= project.course_unit.course.name %></td> 
-<!--
-        <%# project.documents do |document| %>
-        <th>Nome do Projeto</th>
-        <td><%#= document.name %></td>
-        <th>Descrição do Projeto</th>
-        <td><%#= document.description %></td>
-        <th>Data do Projeto</th>
-        <td><%#= document.date %></td>
-        <th>Local do Projeto</th>
-        <td><%#= document.local %></td>
-        <th>Nome do Ficheiro</th>
-        <td><%#= document.document_file_name %></td>
-        <th>Download do Ficheiro</th>
-        <td><%#= link_to 'Download', document.document.url(:original, false) %> </td>
-        <%# end %>
-
-        
-
-        <%# project.project_images do |projectimage| %>
-        <td><%#= image_tag projectimage.image.url %></td>
-        <%# end %>
--->
-
-
-
 
                 <td class="align-middle">
                   <%= link_to 'Visualizar', project, class: "btn btn-outline-info btn-sm btn-block d-inline-block" %>
@@ -90,15 +65,6 @@
                 </td>
               </tr>
             <% end %>
-
-<!--<%= form_for :trip, url: {action: "show"}, html: {method: "get"} do |f| %>
-  <%= f.select :course_id, options_for_select(@courses.collect { |course|
-    [course.name.titleize, course.id] }, 1), {}, { id: 'courses_select' } %>
-  <%= f.select :course_unit_id, options_for_select(@course_units.collect { |courseunit|
-    [courseunit.name.titleize, courseunit.id] }, 0), {}, { id: 'course_units_select' } %>
-  <%= f.submit "Go!" %>
-<% end %>-->
-
 
           </tbody>
         </table>   
