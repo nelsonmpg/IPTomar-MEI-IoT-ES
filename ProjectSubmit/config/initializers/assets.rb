@@ -12,7 +12,7 @@ Rails.application.config.assets.precompile += %w( classic.css )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile += %w( 1-jquery-2.1.1.min.js )
-Rails.application.config.assets.precompile += %w( 2-imagelightbox.js )
-Rails.application.config.assets.precompile += %w( scripts.js )
-Rails.application.config.assets.precompile += %w( global.min.js )
+#Rails.application.config.assets.precompile += %w( 1-jquery-2.1.1.min.js )
+#Rails.application.config.assets.precompile += %w( 2-imagelightbox.js )
+#Rails.application.config.assets.precompile += %w( scripts.js )
+#Rails.application.config.assets.precompile += %w( global.min.js )

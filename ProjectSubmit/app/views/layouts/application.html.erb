@@ -14,7 +14,14 @@
 
   </head>
 
-  <body class="index">
+   <body class="index">
+
+   <header class="head">
+      <%= render partial: "layouts/header" %>
+      <%= render partial: "layouts/nav" %>
+    </header>
+
+
     <% if !flash.empty? %>
       <% flash.each do |key,  value| %>    
           <div class="card col-xs-4 alert alert-success alert-dismissible fade in pos-popup-info has-success bg-success text-white" role="alert">
@@ -37,18 +44,12 @@
           </div>
       <% end %>
     <% end %>
-
-  	<header class="head">
-  		<%= render partial: "layouts/header" %>
-  		<%= render partial: "layouts/nav" %>
-  	</header>
   
     <!-- Container--> 
      <%= yield %>
 
   	<%= render partial: "layouts/footer" %>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'relpad' %>
-    <%= javascript_include_tag 'scripts', 'data-turbolinks-track': 'relpad' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
