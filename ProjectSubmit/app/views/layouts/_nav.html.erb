@@ -4,15 +4,14 @@
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" href="#">IPT</a>
-
+      <%= link_to "IPT", root_path, class:"navbar-brand" %>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="/">Início</a>
+            <%= link_to "Início", root_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/">Sobre</a>
+						<%= link_to "Sobre", root_path, class:"nav-link" %>
 					</li>
 				
 
@@ -21,11 +20,11 @@
 				<li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adicionar</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Nova Escola</a>
-              <a class="dropdown-item" href="#">Novo Curso</a>
-              <a class="dropdown-item" href="#">Nova Disciplina</a>
-              <a class="dropdown-item" href="#">Novo Projecto</a>
-              <a class="dropdown-item" href="#">Nova Pessoa</a>
+              <%= link_to "Nova Escola", new_school_path, class: "dropdown-item" %>
+              <%= link_to "Novo Curso", new_course_path, class: "dropdown-item" %>
+              <%= link_to "Nova Disciplina", new_course_unit_path, class: "dropdown-item" %>
+              <%= link_to "Novo Projecto", new_project_path, class: "dropdown-item" %>
+              <%= link_to "Nova Pessoa", new_person_path, class: "dropdown-item" %>
             </div>
           </li>
 
@@ -45,14 +44,27 @@
               <i class="fa fa-user" aria-hidden="true"></i> 
 						<%= current_user.email.split('@')[0] %>	
 				  </a>
-              <a class="dropdown-item" href="#"><i class='fa fa-sign-out' aria-hidden='true'></i> Sair</a>
-              <% else %>
-              <a class="dropdown-item" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Entrar</a>
+
+              <%= link_to destroy_user_session_path, class: "dropdown-item" do %>
+                <i class='fa fa-sign-out' aria-hidden='true'></i> Sair
               <% end %>
-              <% if current_user.admin? %>
-              <!-- admin -->
-              <hr>
-              <a class="dropdown-item" href="/admin"><i class="fa fa-cogs" aria-hidden="true"></i> Administração</a>
+
+              <% else %>
+
+                <%= link_to new_user_session_path, class: "dropdown-item" do %>
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>Entrar
+                <% end %>
+
+              <% end %>
+
+              <% if user_signed_in? && current_user.admin? %>
+                <!-- admin -->
+                <hr>
+
+                <%= link_to rails_admin_path, class: "dropdown-item" do %>
+                  <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i> Administração
+                <% end %>
+
               <% end %>
             </div>
           </li>

@@ -18,10 +18,13 @@
 
 
 //= require jquery3
+//= require jquery.turbolinks
 //= require jquery_ujs
 // require jquery-ui //incluir isto e semelhante no application.scss se for necessário
 //= require tether
 //= require bootstrap-sprockets
 //= require bootstrap-select
-//= require turbolinks
 //= require_tree .
+//= stub scripts
+
+//= require turbolinks
