@@ -93,15 +93,16 @@
             https://github.com/TrevorS/bootstrap3-datetimepicker-rails
             ou leiam mais. O que estava actualmente era só um campo de texto normal, o que vocês viam era uma feature do chrome mas nos outros browsers não aparece nada disso.
             -->
-                <%= ff.label :"Data de Apresentação" %>
+
+                <%= ff.label :date, "Data de Apresentação" %>
                 <%=ff.datetime_select :date, :start_year => 2010, :end_year => Date.today.year + 1, class: 'form-control', include_blank: true, type: "datetime-local" %>
             </fieldset>
             <fieldset class="form-group has-success col-xs-2">
-                <%= ff.label :"Sala de Apresentação" %>
+                <%= ff.label :room, "Sala de Apresentação" %>
                 <%= ff.text_field :room, class: 'form-control' %>
             </fieldset>
           <fieldset class="form-group has-success col-xs-6">
-            <%= ff.label :"Slides da Apresentação" %><br>
+            <%= ff.label :slides, "Slides da Apresentação" %><br>
             <%= ff.file_field :slides, class: "form-control form-control-file" %>
           </fieldset>
           <% end %>
@@ -110,9 +111,9 @@
 
 <h4>Documentos:</h4>
 <div class="field">
-<%= f.fields_for :documents, @project.documents do |document| %>
+<%= f.fields_for :documents do |document| %>
   <p>
-    <%= document.label :"Documento/Relatório" %><br>
+    <%= document.label :document, "Documento/Relatório" %><br>
     <%= document.file_field :document %>
   </p>
 <% end %>
@@ -122,7 +123,7 @@
 <hr>
 <h4>Imagens:</h4>
 <div class="field">
-    <%= f.fields_for :project_images, @project.project_images do |projectimage| %>
+    <%= f.fields_for :project_images do |projectimage| %>
     <%= render 'project_image_fields', f: projectimage %>
 <% end %>
 

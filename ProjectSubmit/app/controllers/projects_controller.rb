@@ -27,14 +27,16 @@ end
     @project = Project.new
     @project.build_presentation
     @project.documents.build
-    @project.project_images.build
+    #@project.project_images.build
   end
 
   # GET /projects/1/edit
   def edit
-    @project.build_presentation
-    @project.documents.build
-    @project.project_images.build
+    if @project.presentation.nil?
+      @project.build_presentation
+    end
+    #@project.documents.build
+    #@project.project_images.build
   end
 
   # POST /projects
@@ -90,7 +92,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :course_unit_id, :tag_list, documents_attributes: [:id, :document ], presentation_attributes: [:id, :date , :room, :slides ],project_images_attributes:[:id,:image])
+      params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :course_unit_id, :tag_list, documents_attributes: [:id, :document, :_destroy ], presentation_attributes: [:id, :date , :room, :slides, :_destroy ],project_images_attributes:[:id,:image, :_destroy])
     end
     
 end
