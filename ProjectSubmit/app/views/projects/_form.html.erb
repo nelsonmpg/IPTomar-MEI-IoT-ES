@@ -16,7 +16,7 @@
       <div class=" col-xs-12">
         <div class="row">
             <fieldset class="form-group has-success col-xs-12">
-                <%=f.label :"Titulo do Projeto" %> <%= @project.id %>
+                <%=f.label :"Titulo do Projeto" %>
                 <%=f.text_field :title, class: 'form-control' %>
             </fieldset>
         </div>
@@ -108,6 +108,7 @@
         </div>
  
 
+<h4>Documentos:</h4>
 <div class="field">
 <%= f.fields_for :documents, @project.documents do |document| %>
   <p>
@@ -118,22 +119,20 @@
 
 
 </div>
-
-
+<hr>
+<h4>Imagens:</h4>
 <div class="field">
     <%= f.fields_for :project_images, @project.project_images do |projectimage| %>
-
-
     <%= render 'project_image_fields', f: projectimage %>
 <% end %>
 
 <%#<%= image_tag @project.project_images.image_file_name(:medium), :class => "rounded" %>
 
 <div class="links">
-        <%= link_to_add_association 'Adicionar Imagem', f, :project_images %>
+        <%= link_to_add_association 'Adicionar Imagem', f, :project_images, class:"btn btn-info btn-lg" %>
       </div>
 
-
+<hr>
 </div>
 
 
