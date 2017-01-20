@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>ProjectSubmit</title>
     <%= csrf_meta_tags %>
-
- <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' %>
-
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	  <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' %>
     <%= stylesheet_link_tag "main", 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "classic", 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "grid", 'data-turbolinks-track': 'reload' %>
-
+    <!--RSS Feeds -->
+  <link rel="alternate" type="application/rss+xml" title="ProjectSubmit RSS Feed" href="http://localhost:3000/rss/feed?format=rss">
   </head>
 
   <body class="index">
