@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'project_posts_social/index'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'home/index'
 
