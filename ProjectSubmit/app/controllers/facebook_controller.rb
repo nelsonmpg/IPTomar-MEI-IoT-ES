@@ -1,7 +1,7 @@
 class FacebookController < ApplicationController
 	def initialize
 	    #specify access_token here
-	    @access_token = 'X'
+	    @access_token = '255467704872754|c5__ZrYgXiZ_gwvyunx4k7-RE5g'
 	    #Picking the graph api object from kaola gem
 	    @graph = Koala::Facebook::API.new(@access_token)
   	end
