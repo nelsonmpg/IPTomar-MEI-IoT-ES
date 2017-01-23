@@ -1,0 +1,9 @@
+<div class="nested-fields">
+<% if f.object.id.nil? %>
+  <%= f.label :slides, "Escolha um fichero: " %>
+  <%= f.file_field :slides %>
+<%else%>
+     <%= f.object.slides_file_name %>
+     <%end%>
+  <%= link_to_remove_association "Remover", f, class: "btn btn-danger btn-lg", data: {confirm: 'Tens a certeza, Miguel?'} %>
+</div>

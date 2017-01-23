@@ -102,39 +102,38 @@
                 <%= ff.text_field :room, class: 'form-control' %>
             </fieldset>
           <fieldset class="form-group has-success col-xs-6">
-            <%= ff.label :slides, "Slides da Apresentação" %><br>
-            <%= ff.file_field :slides, class: "form-control form-control-file" %>
+            <%#><%= ff.fields_for :presentation, "Slides da Apresentação" %><br>
+            <%= render 'presentation_fields', f: ff %>
+            <div class="links">
+            <%= link_to_add_association 'Adicionar Apresentação', f, :presentation, class:"btn btn-info btn-lg" %>
+            </div>
           </fieldset>
           <% end %>
         </div>
  
-
+<hr>
 <h4>Documentos:</h4>
-<div class="field">
-<%= f.fields_for :documents do |document| %>
-  <p>
-    <%= document.label :document, "Documento/Relatório" %><br>
-    <%= document.file_field :document %>
-  </p>
-<% end %>
+    <div class="field">
+        <%= f.fields_for :documents do |document| %>
+        <%= render 'document_fields', f: document %> 
+        <% end %>
+        <div class="links">
+        <%= link_to_add_association 'Adicionar Ficheiro', f, :documents, class:"btn btn-info btn-lg" %>
+      </div>
+    </div>
 
-
-</div>
 <hr>
 <h4>Imagens:</h4>
-<div class="field">
-    <%= f.fields_for :project_images do |projectimage| %>
-    <%= render 'project_image_fields', f: projectimage %>
-<% end %>
-
+    <div class="field">
+        <%= f.fields_for :project_images do |projectimage| %>
+        <%= render 'project_image_fields', f: projectimage %>
+        <% end %>
 <%#<%= image_tag @project.project_images.image_file_name(:medium), :class => "rounded" %>
-
-<div class="links">
+        <div class="links">
         <%= link_to_add_association 'Adicionar Imagem', f, :project_images, class:"btn btn-info btn-lg" %>
-      </div>
-
+        </div>
 <hr>
-</div>
+    </div>
 
 
         <div class="row">
