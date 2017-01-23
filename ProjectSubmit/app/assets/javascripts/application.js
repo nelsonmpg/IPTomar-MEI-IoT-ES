@@ -16,7 +16,9 @@
 //= require bootstrap-select
 //= require global.min
 //= require jquery_ujs
-//= require turbolinks
 //= require 2-imagelightbox
 //= require cocoon
+//= require jquery-ui/autocomplete
 //= require_tree .
+
+// require turbolinks

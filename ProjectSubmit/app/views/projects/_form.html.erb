@@ -3,7 +3,7 @@
     <%=form_for @project do |f| %>
       <% if project.errors.any? %>
           <div id="error_explanation" class="alert alert-warning" role="alert">
-              <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+              <h2> Existem erros no formulário:</h2>
               <ul>
                   <% project.errors.full_messages.each do |message| %>
                       <li>

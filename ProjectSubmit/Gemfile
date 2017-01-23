@@ -1,5 +1,7 @@
 #o gemfile com https://... dá erro, por isso ficou agora http://
 source 'http://rubygems.org'
+#Gem para o search
+gem 'jquery-ui-rails'
 #gem Cocoon
 gem 'cocoon'
 gem 'kaminari', '~> 0.17.0'

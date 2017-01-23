@@ -8,6 +8,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+
+  #@projects = Project.search(params[:title])
+   
     if params[:tag]
         @projects = Project.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
     else
@@ -15,6 +18,7 @@ class ProjectsController < ApplicationController
     end
 
   end
+
 
   # GET /projects/1
   # GET /projects/1.json
@@ -26,7 +30,7 @@ end
   def new
     @project = Project.new
     @project.build_presentation
-    @project.documents.build
+    #@project.documents.build
     #@project.project_images.build
   end
 
@@ -44,6 +48,7 @@ end
 
 
   def create
+  
     @project = Project.new(project_params)
     @project.user = current_user
 
