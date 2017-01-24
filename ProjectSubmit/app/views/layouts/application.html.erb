@@ -13,13 +13,14 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => 'true' %>
   </head>
 
-   <body class="index">
-
-      
+   <body>
+   
    <header class="head">
       <%= render partial: "layouts/header" %>
       <%= render partial: "layouts/nav" %>
     </header>
+
+
 
     <% if !flash.empty? %>
       <% flash.each do |key,  value| %>    
@@ -49,10 +50,13 @@
 							
      <%= yield %>
 
+
   	<%= render partial: "layouts/footer" %>
 
     
     <%= javascript_include_tag 'scripts' %>
     <% #= javascript_include_tag params[:controller] %>
+
+
   </body>
 </html>

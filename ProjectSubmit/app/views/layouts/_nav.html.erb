@@ -1,78 +1,79 @@
 <section class="main_menu">
-	<div>
-		<nav class="navbar navbar-toggleable-md navbar-light bg-fade">
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-      <%= link_to "IPT", root_path, class:"navbar-brand" %>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-            <%= link_to "Início", root_path, class:"nav-link" %>
-					</li>
-					<li class="nav-item">
-						<%= link_to "Sobre", root_path, class:"nav-link" %>
-					</li>
-				
 
-				<% if user_signed_in? %>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-fade">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <%= link_to "IPT", root_path, class:"navbar-brand" %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Início", root_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sobre", root_path, class:"nav-link" %>
+        </li>
 
-				<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adicionar</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <%= link_to "Nova Escola", new_school_path, class: "dropdown-item" %>
-              <%= link_to "Novo Curso", new_course_path, class: "dropdown-item" %>
-              <%= link_to "Nova Disciplina", new_course_unit_path, class: "dropdown-item" %>
-              <%= link_to "Novo Projecto", new_project_path, class: "dropdown-item" %>
-              <%= link_to "Nova Pessoa", new_person_path, class: "dropdown-item" %>
-            </div>
-          </li>
 
-			<% end %>
+        <% if user_signed_in? %>
 
-</ul>
-<form id="custom-search-form" class="form-inline my-2 my-md-0 navbar-form form-search form-horizontal pull-left">
-			<div class="input-group"><input type="text" class="search-query mr-3" placeholder="&#xF002;"></div>
-        </form>
-
-        <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></a>
-            <div class="dropdown-menu" aria-labelledby="dropdown02">
+          <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adicionar</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <%= link_to "Nova Escola", new_school_path, class: "dropdown-item" %>
+            <%= link_to "Novo Curso", new_course_path, class: "dropdown-item" %>
+            <%= link_to "Nova Disciplina", new_course_unit_path, class: "dropdown-item" %>
+            <%= link_to "Novo Projecto", new_project_path, class: "dropdown-item" %>
+            <%= link_to "Nova Pessoa", new_person_path, class: "dropdown-item" %>
+          </div>
+        </li>
+
+        <% end %>
+
+      </ul>
+
+      <form id="custom-search-form" class="form-inline my-2 my-md-0 navbar-form form-search form-horizontal">
+        <div class="input-group"><input type="text" class="search-query mr-3" placeholder="&#xF002;"></div>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></a>
+          <div class="dropdown-menu" aria-labelledby="dropdown02">
             <% if user_signed_in? %>
-              <a class="dropdown-item" href="#">
+            <a class="dropdown-item" href="#">
               <i class="fa fa-user" aria-hidden="true"></i> 
-						<%= current_user.email.split('@')[0] %>	
-				  </a>
+              <%= current_user.email.split('@')[0] %>	
+            </a>
 
-              <%= link_to destroy_user_session_path, class: "dropdown-item" do %>
-                <i class='fa fa-sign-out' aria-hidden='true'></i> Sair
-              <% end %>
+            <%= link_to destroy_user_session_path, class: "dropdown-item" do %>
+            <i class='fa fa-sign-out' aria-hidden='true'></i> Sair
+            <% end %>
 
-              <% else %>
+            <% else %>
 
-                <%= link_to new_user_session_path, class: "dropdown-item" do %>
-                  <i class="fa fa-sign-in" aria-hidden="true"></i>Entrar
-                <% end %>
+            <%= link_to new_user_session_path, class: "dropdown-item" do %>
+            <i class="fa fa-sign-in" aria-hidden="true"></i>Entrar
+            <% end %>
 
-              <% end %>
+            <% end %>
 
-              <% if user_signed_in? && current_user.admin? %>
-                <!-- admin -->
-                <hr>
+            <% if user_signed_in? && current_user.admin? %>
+            <!-- admin -->
+            <hr>
 
-                <%= link_to rails_admin_path, class: "dropdown-item" do %>
-                  <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i> Administração
-                <% end %>
+            <%= link_to rails_admin_path, class: "dropdown-item" do %>
+            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i> Administração
+            <% end %>
 
-              <% end %>
-            </div>
-          </li>
-          <a class="nav-link" href="https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES" class="tumblr"><i class="fa fa-github"></i></a>
-          <a class="nav-link" href="https://www.facebook.com/PaginaMaravilhosa" class="facebook"><i class="fa fa-facebook"></i></a>
-          </ul>
+            <% end %>
+          </div>
+        </li>
+        </ul>
+        <a class="nav-link tumblr" href="https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES"><i class="fa fa-github"></i></a>
+        <a class="nav-link facebook" href="https://www.facebook.com/PaginaMaravilhosa"><i class="fa fa-facebook"></i></a>
+      
+    </div>
+  </nav>
 
-			</div>
-		</nav>
-	</div>
 </section>
