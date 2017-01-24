@@ -38,22 +38,24 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></a>
+          <a class="nav-link dropdown-toggle" href="" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= icon('user') %>
+          </a>
           <div class="dropdown-menu" aria-labelledby="dropdown02">
             <% if user_signed_in? %>
             <a class="dropdown-item" href="#">
-              <i class="fa fa-user" aria-hidden="true"></i> 
+              <%= icon('user') %>
               <%= current_user.email.split('@')[0] %>	
             </a>
 
             <%= link_to destroy_user_session_path, class: "dropdown-item" do %>
-            <i class='fa fa-sign-out' aria-hidden='true'></i> Sair
+            <%= icon('sign-out') %> Sair
             <% end %>
 
             <% else %>
 
             <%= link_to new_user_session_path, class: "dropdown-item" do %>
-            <i class="fa fa-sign-in" aria-hidden="true"></i>Entrar
+            <%= icon('sign-in') %>Entrar
             <% end %>
 
             <% end %>
@@ -63,15 +65,15 @@
             <hr>
 
             <%= link_to rails_admin_path, class: "dropdown-item" do %>
-            <i class=\"fa fa-cogs\" aria-hidden=\"true\"></i> Administração
+            <%= icon('cogs') %> Administração
             <% end %>
 
             <% end %>
           </div>
         </li>
         </ul>
-        <a class="nav-link tumblr" href="https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES"><i class="fa fa-github"></i></a>
-        <a class="nav-link facebook" href="https://www.facebook.com/PaginaMaravilhosa"><i class="fa fa-facebook"></i></a>
+        <a class="nav-link tumblr" href="https://github.com/nelsonmpg/IPTomar-MEI-IoT-ES"><%= icon('github') %></a>
+        <a class="nav-link facebook" href="https://www.facebook.com/PaginaMaravilhosa"><%= icon('user') %></a>
       
     </div>
   </nav>
