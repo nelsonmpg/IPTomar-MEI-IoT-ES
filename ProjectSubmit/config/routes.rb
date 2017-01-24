@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   # - nested routes quando fizer sentido, implica mudar links nas views
   # - excluír rotas desnecessárias (por exemplo, precisam do show para documents?)
   resources :documents
-  resources :projects
+  resources :projects do
+    get :autocomplete_tag_name, :on => :collection 
+  end
   resources :schools
   resources :courses
   resources :course_units

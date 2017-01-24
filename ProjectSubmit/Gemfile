@@ -65,5 +65,9 @@ end
 # Use Acts as Taggable On. Rather than tying functionality to a specific keyword (namely tags)
 gem 'acts-as-taggable-on', '~> 4.0'
 
+# Autocomplete Tags
+gem 'rails4-autocomplete'
+
+
 # Social Posts Facebook and Twitter
 gem "koala", "~> 2.2"
