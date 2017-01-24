@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
-
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag' # <- New
   # GET /projects
   # GET /projects.json
   def index
