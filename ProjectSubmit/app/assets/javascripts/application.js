@@ -13,17 +13,19 @@
 // out:
 // require 1-jquery-2.1.1.min
 // require imagelightbox
-// require global.min
+// require global.min // verificar se isto não é necessário...
 // scripts // carregado automaticamente por estar na pasta .
 
 
 //= require jquery3
 //= require jquery.turbolinks
 //= require jquery_ujs
-// require jquery-ui //incluir isto e semelhante no application.scss se for necessário
+//= require cocoon
+//= require jquery-ui/autocomplete
 //= require tether
 //= require bootstrap-sprockets
 //= require bootstrap-select
+
 //= require_tree .
 //= stub scripts
 

@@ -10,6 +10,6 @@ class Presentation < ApplicationRecord
     
     has_and_belongs_to_many :juries, :class_name => "Person", :join_table => :juries_presentations
     has_attached_file :slides
-    validates_attachment :slides, content_type: { content_type: "application/pdf" }
+    validates_attachment :slides, content_type: { content_type: "application/pdf" }, size: { :in => 0..10.megabytes }
 
 end

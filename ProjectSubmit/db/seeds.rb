@@ -235,7 +235,7 @@ else # não tem apresentação
 end
 
   # images
- images.sample(rand(0..images.size)).each do |i|
+ images.sample(rand(0...images.size)).each do |i|
     @project1.project_images.create(image: File.new(i))
  end
 
