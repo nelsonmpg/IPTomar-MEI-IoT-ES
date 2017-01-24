@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
 
 	acts_as_taggable
+    acts_as_taggable_on :tags
     
     belongs_to :course_unit
     belongs_to :user
