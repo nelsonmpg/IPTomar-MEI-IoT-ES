@@ -41,7 +41,7 @@
 	clear:both;
 	}
 .articlesClassic{
-	width:75%;
+	/*width:75%;*/
 	}
 @media screen and (max-width: 1330px){
 	.articlesClassic{

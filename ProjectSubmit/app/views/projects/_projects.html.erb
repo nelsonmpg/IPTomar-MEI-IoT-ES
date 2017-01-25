@@ -1,21 +1,21 @@
-<div class="switch col-xs-12">
-	<div class="col-xs-1">
+<div class="col switch">
+	<div class="col-1">
 		<span  id="grid" class="tag tag-pill tag-success btn-block classicGrid" data-addClas="Grid" data-remoClas="Classic">Grid</span>
 	</div>
-	<div class="col-xs-1"> 
+	<div class="col-1"> 
 		<span  id="classic" class="tag tag-pill tag-success btn-block classicGrid" data-addClas="Classic" data-remoClas="Grid">Classic</span>
 	</div>
 </div>
 
 <div class="projects articlesGrid">
-<% @projects_list.each do |proj|%>
+	<% @projects_list.each do |proj|%>
 	<article>
 		<div>
 
 			<% if proj.project_images.empty? %>
-				<%= link_to image_tag("/img/project.png"), project_path(proj), :class => "noline" %>
+			<%= link_to image_tag("/img/project.png"), project_path(proj), :class => "noline" %>
 			<% else %>
-				<%= link_to image_tag(proj.project_images.first.image.url), project_path(proj), :class => "noline" %>
+			<%= link_to image_tag(proj.project_images.first.image.url), project_path(proj), :class => "noline" %>
 			<% end %>
 
 			<span class="category"> <!-- devia-se colocar lá de alguma forma o nome completo do curso, iniciais são pouco claras -->
@@ -35,5 +35,9 @@
 		</div>
 	</article> 
 	<%end%>
-	<%= will_paginate @projects_list, class: "pagination" %>	
+	<div class="row">
+		<div class="col">
+			<%= will_paginate @projects_list, class: "pagination" %>
+		</div>
+	</div>	
 </div>

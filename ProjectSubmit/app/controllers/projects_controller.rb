@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  layout :select_layout
+
   #autenticação do user antes de entrar.....
   before_filter :authenticate_user!, :except => [:index,:show]
 
@@ -98,6 +100,17 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:title, :resume, :github, :grade, :project_url, :date, :presentation, :featured, :finished, :course_unit_id, :tag_list, documents_attributes: [:id, :document, :_destroy ], presentation_attributes: [:id, :date , :room, :slides, :_destroy ],project_images_attributes:[:id,:image, :_destroy])
+    end
+
+    private
+
+    def select_layout
+      case action_name
+      when "new", "edit"
+        "app_nosidebar"
+      else
+        "application"
+      end
     end
     
 end

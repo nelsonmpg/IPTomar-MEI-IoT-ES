@@ -52,7 +52,7 @@
 	justify-content:flex-start;
 	-webkit-align-items:stretch;
 	-ms-flex-align:stretch;
-	align-items:stretch;width:75%;
+	align-items:stretch; /*width:75%;*/
 	}
 @media screen and (max-width: 1330px){
 	.articlesGrid{

@@ -1,4 +1,5 @@
 class Users::UnlocksController < Devise::UnlocksController
+  layout "app_nosidebar"
   # GET /resource/unlock/new
   # def new
   #   super

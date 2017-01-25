@@ -22,7 +22,7 @@
         <h3 class="title text-xs-center">Tags mais frequentes</h3>
         <ul class="category_list">
             <% tags.each do |tag|%>
-                <li><%= link_to tag.name, { :action => :index, :controller => :projects, :tag => tag.name }, :class => "noline" %></li>
+                <li><%= link_to tag.name, { :action => "index", :controller => "/projects", :tag => tag.name }, :class => "noline" %></li>
             <%end%>
         </ul>
     </div>

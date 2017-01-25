@@ -1,4 +1,5 @@
 class Users::PasswordsController < Devise::PasswordsController
+  layout "app_nosidebar"
  #do site gem devise - password. o melhor desempenho
  prepend_before_action :require_no_authentication
   # Render the #edit only if coming from a reset password email link

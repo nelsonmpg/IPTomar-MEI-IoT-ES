@@ -1,5 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
+  layout "app_nosidebar"
 
   after_action :welcome_message, only: :create
   after_action :godbye_message, only: :destroy

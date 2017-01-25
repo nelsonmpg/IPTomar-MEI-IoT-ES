@@ -1,15 +1,15 @@
 <section class="main_menu">
 
-  <nav class="navbar navbar-toggleable-md navbar-light bg-fade">
+  <nav id="menu" class="navbar navbar-toggleable-md navbar-light bg-fade">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= link_to "IPT", root_path, class:"navbar-brand" %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <%= link_to root_path, class:"navbar-brand" do %>
+       <%= image_tag "ipt_logo.svg", size: "35", class:"d-inline-block align-top" %> Projects
+    <% end %>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <%= link_to "Início", root_path, class:"nav-link" %>
-        </li>
         <li class="nav-item">
           <%= link_to "Sobre", root_path, class:"nav-link" %>
         </li>
