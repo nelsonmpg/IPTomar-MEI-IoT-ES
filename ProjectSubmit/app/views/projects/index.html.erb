@@ -37,8 +37,11 @@
             	
           </thead>
 
+
           <tbody>
+          
             <% @projects.each do |project| %>
+            
               <tr>
                 <td class="align-middle"><%= project.title %></td>
               <!--  <td><%= project.resume %></td> -->
@@ -71,7 +74,14 @@
           </tbody>
         </table>   
       </div>
-    <%= will_paginate @projects, class: "pagination" %> 
+<%# **************************SE ESTA LINHA ESTIVER DESCOMENTADA, A PESQUISA NÃO FUNCIONA*******************************
+
+  <%#  <%= will_paginate @projects, class: "pagination" %> 
+
+<%# ********************************************************************************************************************  
     </div> 
+
+
+
   </div>
 </div>

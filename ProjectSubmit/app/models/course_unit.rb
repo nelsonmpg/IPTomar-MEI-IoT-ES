@@ -11,4 +11,8 @@ class CourseUnit < ApplicationRecord
    
     belongs_to :course
     has_many :projects, dependent: :destroy
+
+    def self.pesquisa(pesquisa)
+  where("name LIKE ? ", "%#{pesquisa}%") 
+end
 end

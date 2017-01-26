@@ -9,13 +9,14 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
 
-  #@projects = Project.search(params[:title])
-   
-    if params[:tag]
-        @projects = Project.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
-    else
-        @projects = Project.all.paginate(:page => params[:page], :per_page => 10)
-    end
+
+  if params[:title_search]
+    @projects = Project.search(params[:title_search]).order("title desc")
+  elsif params[:tag]
+    @projects = Project.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
+  else
+    @projects = Project.all.paginate(:page => params[:page], :per_page => 10)
+  end
 
   end
 

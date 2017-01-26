@@ -1,7 +1,14 @@
 class CourseUnitsController < ApplicationController
 	before_filter :authenticate_user!, :except => [:index,:show]
 	def index
-    	@course_units = CourseUnit.all
+    	
+
+		@course_units = CourseUnit.all
+  if params[:pesquisa]
+    @course_units = CourseUnit.pesquisa(params[:pesquisa]).order("name desc")
+  else
+    @course_units = CourseUnit.all.order("name desc")
+  end
 	end
 
 	def show
