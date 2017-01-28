@@ -1,11 +1,11 @@
 class Project < ApplicationRecord
 
-validates :title, presence: { message: "O campo titulo não pode ser vazio." }, 
-                            length: { minimum: 4 , :message => "O campo titulo tem de ter no minimo 4 caracteres." }
-validates :date, presence: { message: "O campo data não pode ser vazio." }
+    validates :title, presence: { message: "O campo titulo não pode ser vazio." }, 
+    length: { minimum: 4 , :message => "O campo titulo tem de ter no minimo 4 caracteres." }
+    validates :date, presence: { message: "O campo data não pode ser vazio." }
 
 
-	acts_as_taggable
+    acts_as_taggable
 
 
     belongs_to :course_unit
@@ -18,12 +18,12 @@ validates :date, presence: { message: "O campo data não pode ser vazio." }
     accepts_nested_attributes_for :presentation, allow_destroy: true, reject_if: proc { |att| att['date'].blank? && att['room'].blank? && att['slides'].blank? }
     accepts_nested_attributes_for :documents, allow_destroy: true, reject_if: proc { |att| att['document'].blank? }
     accepts_nested_attributes_for :project_images, allow_destroy: true, reject_if: proc { |att| att['image'].blank? }
-  
 
 
-    def self.search(title_search)
-  where("title LIKE ? ", "%#{title_search}%") 
-end
+
+    def self.search_by_title(title)
+        where("title LIKE ? ", "%#{title}%") 
+    end
 
 
 end
