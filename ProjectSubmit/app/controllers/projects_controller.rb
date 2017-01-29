@@ -10,13 +10,14 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
 def index
 
 
-  if params[:title]
-    @projects = Project.search_by_title(params[:title]).order("title desc").paginate(:page => params[:page], :per_page => 10)
-  elsif params[:tag]
-    @projects = Project.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
-  else
-    @projects = Project.all.paginate(:page => params[:page], :per_page => 10)
-  end
+ 
+
+  if params[:tag]
+        @projects = Project.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
+    else
+        @projects = Project.all.paginate(:page => params[:page], :per_page => 10)
+    end
+
 
 end
 

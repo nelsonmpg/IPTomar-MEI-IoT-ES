@@ -29,12 +29,7 @@
 				<% end %>
 				<!-- barra de pesquisa -->
 					<li class="nav-item">
-						<!--<form id="custom-search-form" class="navbar-form form-search form-horizontal pull-left">
-							<div class="input-group">
-								<input type="text" class="search-query mr-3" placeholder="&#xF002;">  Botao original
-							</div>
-						</form>-->
-						<%= form_tag(projects_path, :method => "get", id: "custom-search-form", class: "navbar-form form-search form-horizontal pull-left") do %>
+						<%= form_tag(home_index_path, :method => "get", id: "custom-search-form", class: "navbar-form form-search form-horizontal pull-left") do %>
 						<div class="input-group">
      					 <%= text_field_tag :title, params[:title],  class: "search-query mr-3" , placeholder: "&#xF002; Pesquisar por título".html_safe %>
 						 <!-- <%= submit_tag "Search", :name => nil %> Descomentar caso seja preciso um Botão para a pesquisa--> 
