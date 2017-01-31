@@ -1,43 +1,71 @@
-<h1>Adicionar Pessoas</h1>
+<div class="col-md-6">
+  <div class="content mt-1">
+    <div class="jumbotron px-1 py-1 rounded">
+      <div class="alert alert-success" role="alert">
+        <h1 class="text-center">Adicionar Pessoas</h1>
+      </div>
 
-<%= form_for :person, url: people_path do |f| %>
- 
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@person.errors.count, "error") %> não foi guardado
-      </h2>
-      <ul>
-        <% @person.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+      <div class="card  card-outline-secundary">
+        <div class="card-block">
+          <%= form_for :person, url: people_path do |f| %>
+  
+          <% if @person.errors.any? %>
+            <div id="error_explanation">
+              <h2>
+                <%= pluralize(@person.errors.count, "error") %> não foi guardado
+              </h2>
+              <ul>
+                <% @person.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          
+          <div class=" col-md-12">
+              <div class="row">
+                  <fieldset class="form-group has-success col-md-12">
+                      <%=f.label :"Nome" %>
+                      <%=f.text_field :name, class: 'form-control' %>
+                  </fieldset>
+              </div>
+
+              <div class="row">
+                  <fieldset class="form-group has-success col-md-12">
+                      <%=f.label :"Email" %>
+                      <%=f.text_field :email, class: 'form-control' %>
+                  </fieldset>
+              </div>
+
+              <div class="row">
+                  <fieldset class="form-group has-success col-md-12">
+                      <%=f.label :"Foto" %>
+                      <%=f.text_field :photo, class: 'form-control' %>
+                  </fieldset>
+              </div>
+
+              <div class="row">
+                  <fieldset class="form-group has-success col-md-12">
+                      <%=f.label :"Título" %>
+                      <%= f.select( :person_type_id, PersonType.all.collect { |s| [s.designation, s.id] }, {}, {class: 'form-control'}) %>
+                  </fieldset>
+              </div>
+
+              <div class="row mt-1">
+                <div class="col-md-12">
+                  <% if user_signed_in?%>     
+                      <%= button_tag type: 'submit', class: "btn btn-outline-success float-right" do %>
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
+                      <%end%>
+                  <%end%>
+
+                  <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, people_path, class: "btn btn-outline-info float-left" %>
+                </div>    
+              </div>      
+          </div>
         <% end %>
-      </ul>
+        </div>
+      </div>
     </div>
-  <% end %>
- 
-  <p>
-    <%= f.label :"Nome" %><br>
-    <%= f.text_field :name %>
-  </p>
- 
- <p>
-    <%= f.label :"email" %><br>
-    <%= f.text_field :email %>
-  </p>
-<p>
-  <%= f.label :"Foto" %><br>
-  <%= f.file_field :photo%>
-   </p>
- <p>
-<%= f.label :"Titulo" %><br>
-<%= f.select( :person_type_id, PersonType.all.collect { |s| [s.designation, s.id] }, {}, {class: 'form-control'}) %>
- </p>
-
-  <p>
-
-    <%= f.submit %>
-  </p>
- 
-<% end %>
- 
-<%= link_to 'Voltar', people_path %>
+  </div>
+</div>

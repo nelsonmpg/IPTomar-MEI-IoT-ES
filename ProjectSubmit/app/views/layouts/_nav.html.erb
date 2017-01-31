@@ -8,7 +8,8 @@
     <%= link_to root_path, class:"navbar-brand" do %>
        <%= image_tag "ipt_logo.svg", size: "35", class:"d-inline-block align-top" %> Projects
     <% end %>
-     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+     <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <%= link_to "Sobre", root_path, class:"nav-link" %>
@@ -27,14 +28,15 @@
             <%= link_to "Nova Pessoa", new_person_path, class: "dropdown-item" %>
           </div>
         </li>
-
         <% end %>
-
+        <li class="nav-item">
+          <form id="custom-search-form" class="form-inline navbar-form form-search form-horizontal">
+            <div class="input-group"><input type="text" class="search-query mr-3 mt-2" placeholder="&#xF002;"></div>
+          </form>
+        </li>
       </ul>
 
-      <form id="custom-search-form" class="form-inline my-2 my-md-0 navbar-form form-search form-horizontal">
-        <div class="input-group"><input type="text" class="search-query mr-3" placeholder="&#xF002;"></div>
-      </form>
+      
 
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">

@@ -1,45 +1,81 @@
-<h1>Adicionar Cadeira</h1>
+<div class="col-md-6">
+  <div class="content mt-1">
+    <div class="jumbotron px-1 py-1 rounded">
+      <div class="alert alert-success" role="alert">
+        <h1 class="text-center">Nova Disciplina</h1>
+      </div>
 
-<%= form_for :course_unit, url: course_units_path do |f| %>
- 
-  <% if @course_unit.errors.any? %>
-    <div id="error_explanation">
-      <h2>Existe erros no formulário</h2>
-      <ul>
-        <% @course_unit.errors.each do |attr,msg| %>
-          <li><%= msg %></li>
+      <div class="card card-outline-secundary">
+        <div class="card-block">
+
+          <%= form_for :course_unit, url: course_units_path do |f| %>
+
+          <% if @course_unit.errors.any? %>
+            <div id="error_explanation">
+              <h2>Existe erros no formulário</h2>
+              <ul>
+                <% @course_unit.errors.each do |attr,msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
+          <div class=" col-md-12">
+            <div class="row">
+              <fieldset class="form-group has-success col-md-12">
+                <%= f.label :"Nome da Disciplina" %>
+                <%= f.text_field :name, class: 'form-control'%>
+              </fieldset>
+            </div>
+
+            <div class="row">
+              <fieldset class="form-group has-success col-md-6">
+                <%= f.label :"Código da Disciplina" %>
+                <%= f.text_field :code, class: 'form-control'%>
+              </fieldset>
+
+              <fieldset class="form-group has-success col-md-6">
+                <%= f.label :"Iniciais da Disciplina" %>
+                <%= f.text_field :initials, class: 'form-control'%>
+              </fieldset>       
+            </div>
+
+            <div class="row">
+              <fieldset class="form-group has-success col-md-12">
+                <%= f.label :"Curso a que pertence a Disciplina" %>
+                <%= f.select :course_id, Course.all.collect { |s| [s.name, s.id] }, {}, {class: 'form-control'} %>
+              </fieldset>
+            </div>
+
+            <div class="row">
+              <fieldset class="form-group has-success col-md-12">
+                <%= f.label :"Descrição da Disciplina" %>
+                <%= f.text_field :description, class: 'form-control' %>
+              </fieldset>
+            </div>
+          
+            <div class="row mt-1">
+              <div class="col-md-12">  
+                <% if user_signed_in?%>   
+                  <%= button_tag type: 'submit', class: "btn btn-outline-success float-right" do %>
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar Disciplina
+                  <% end %>
+                
+                <% end %>
+                <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar'.html_safe, course_units_path, class: "btn btn-outline-info float-left" %> 
+              </div>    
+            </div>  
+        </div>
+
         <% end %>
-      </ul>
-       </div>
-  <% end %>
- 
-  <p>
-    <%= f.label :"Nome da Cadeira" %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :"Código da Cadeira" %><br>
-    <%= f.text_field :code %>
-  </p>
-  <p>
-    <%= f.label :"Iniciais da Cadeira" %><br>
-    <%= f.text_field :initials %>
-  </p>
-  <p>
-    <%= f.label :"Descrição da Cadeira" %><br>
-    <%= f.text_field :description %>
-  </p>
- 
- 
-  <p>
- <%= f.label :"Curso a que pertence a cadeira" %><br>
- <%= f.select :course_id, Course.all.collect { |s| [s.name, s.id] } %>
- </p>
 
-  <p>
-    <%= f.submit  "Salvar Cadeira"%>
-  </p>
- 
-<% end %>
- 
-<%= link_to 'Voltar', course_units_path %>
+        </div>
+      </div>
+    
+
+      
+    </div>
+  </div>
+</div>

@@ -1,43 +1,50 @@
-<div class="col switch">
-	<div class="col-1">
-		<span  id="grid" class="tag tag-pill tag-success btn-block classicGrid" data-addClas="Grid" data-remoClas="Classic">Grid</span>
+<div class="row justify-content-between">
+	<div class="col-md-6 switch">
+		<div class="row">
+			<div class="col">
+				<span id="grid" class="badge badge-success classicGrid" data-addClas="Grid" data-remoClas="Classic">Grid</span>
+				<span id="classic" class="badge badge-success classicGrid" data-addClas="Classic" data-remoClas="Grid">Classic</span>
+			</div>
+		</div>
 	</div>
-	<div class="col-1"> 
-		<span  id="classic" class="tag tag-pill tag-success btn-block classicGrid" data-addClas="Classic" data-remoClas="Grid">Classic</span>
+	<div class="col-md-6 mb-3">
+		<button class="badge badge-success classicGrid float-right">Melhores Projectos</button>
 	</div>
 </div>
 
 <div class="projects articlesGrid">
 	<% @projects_list.each do |proj|%>
 	<article>
-		<div>
-
 			<% if proj.project_images.empty? %>
 			<%= link_to image_tag("/img/project.png"), project_path(proj), :class => "noline" %>
 			<% else %>
 			<%= link_to image_tag(proj.project_images.first.image.url), project_path(proj), :class => "noline" %>
 			<% end %>
 
-			<span class="category"> <!-- devia-se colocar lá de alguma forma o nome completo do curso, iniciais são pouco claras -->
-				<%= proj.course_unit.name %> (<%= proj.course_unit.course.initials %>)						
-			</span>
+			<div class="p-1">
+				<span class="category"> <!-- devia-se colocar lá de alguma forma o nome completo do curso, iniciais são pouco claras -->
+					<h6><%= proj.course_unit.course.name %></h6>
+					<!--<h7><%= proj.course_unit.name %></h7>	-->			
+				</span>
 
-			<% # TODO: provavelmente o ideal é tirar o sublinhado de *todos* os links no CSS e usar só caso queiram em algum caso especial %>
-			<h1><%= link_to proj.title, project_path(proj), :class => "noline" %></h1>
+				<% # TODO: provavelmente o ideal é tirar o sublinhado de *todos* os links no CSS e usar só caso queiram em algum caso especial %>
 
-			<p class="post_content">
-				<%= truncate(proj.resume, length: 80) %>
-			</p>
-			<span class="date">
-				<i class="fa fa-calendar"></i>
-				<%=proj.date.to_formatted_s(:long)%>
-			</span>
-		</div>
+				<h3><%= link_to proj.title, project_path(proj), :class => "noline" %></h3>
+
+				<p class="post_content">
+					<%= truncate(proj.resume, length: 80) %>
+				</p>
+
+				<span class="date centrar fim">
+					<i class="fa fa-calendar pr-1"></i>
+					<%=proj.date.to_formatted_s(:long)%>
+				</span>
+			</div>
 	</article> 
 	<%end%>
-	<div class="row">
-		<div class="col">
-			<%= will_paginate @projects_list, class: "pagination" %>
+	<div class="projects articlesGrid row">
+		<div class="col-md-12">
+			<%= will_paginate @projects_list, class: "pagination centrar" %>
 		</div>
 	</div>	
 </div>

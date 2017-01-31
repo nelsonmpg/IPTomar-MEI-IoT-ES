@@ -1,4 +1,4 @@
-<section class="margin mt-3">
+<section class="margin">
   <div class="content">
     <div class="content_container">
       <article class="rounded">
@@ -12,9 +12,8 @@
         <% end %>
         </h1>
 
-        <div class="row">
-          <div class="col-xs-12 meta"> 
-            <div class="col-xs-6">
+        <div class="row justify-content-between mb-2">
+            <div class="col-xs-6 pl-3">
               <% if (@project.finished?) %>
                 Projecto terminado em 
               <% else %>
@@ -26,101 +25,121 @@
               (data por definir)
               <% end %>
             </div>
-            <div class="col-xs-6 text-xs-right">
-              <b><span><%= link_to @project.course_unit.name, course_unit_path(@project.course_unit) %></span></b>&bull;
-              <span><%= link_to @project.course_unit.course.name, course_path(@project.course_unit.course) %></span>&bull;
-              <span><%= link_to @project.course_unit.course.school.initials, school_path(@project.course_unit.course.school) %></span>
+            <div class="col-xs-6 pr-3">
+              <b><span><%= link_to @project.course_unit.name, course_unit_path(@project.course_unit), :class => "noline"  %></span></b>&bull;
+              <span><%= link_to @project.course_unit.course.name, course_path(@project.course_unit.course), :class => "noline"  %></span>&bull;
+              <span><%= link_to @project.course_unit.course.school.initials, school_path(@project.course_unit.course.school) , :class => "noline" %></span>
             </div>
-          </div>
         </div>
 
         <!-- Carrossel de imagens-->
         <!-- falta limitar o tamanho máximo a apresentar para as imagens -->
-          <%= render partial: "projects/images_carousel", locals: {project_images: @project.project_images} %>
-  
+          
+          <%= render partial: "projects/images_carousel", locals: {project_images: @project.project_images}%>
+          
         <!-- Conteudo do projeto-->
-        <div class="post_content">
-        <%= @project.resume %>
-        <p>Repositório: <%= link_to @project.github, @project.github %></p>
-        <p>Site: <%= link_to @project.project_url, @project.project_url %></p>
-        <p>Nota: <%= @project.grade %> deixar de fora?</p> 
-        <p>Tags:
-        <% @project.tags.each do |tag| %>
-        <!-- isto é style  inline à pressão, tem que depois ir para css certo -->
-          <span style="background:lightGrey;border-radius: 5px 5px 5px 5px;overflow:hidden;"><%=link_to tag.name, { :action => :index, :controller => :projects, :tag => tag.name }%></span>
-          <% end %>
-        </p>
-        <h5>Elementos do projecto:</h5>
-        <ul>
-        <% @project.people.each do |p| %>
-          <li><%= link_to p.name, person_path(p) %> (<%=p.email%>)</li>
-        <% end %>
-        </ul>
+          </br>
+          <%= @project.resume %>
+          <hr>
+          <p class="mt-2">Repositório: <%= link_to @project.github, @project.github %></p>
+          <p>Site: <%= link_to @project.project_url, @project.project_url %></p>
+          <p>Nota: <%= @project.grade %> deixar de fora?</p> 
+          <p>Tags:
+            <% @project.tags.each do |tag| %>
+              <!-- isto é style  inline à pressão, tem que depois ir para css certo -->
+                <%=link_to tag.name, { :action => :index, :controller => :projects, :tag => tag.name }, {:class => 'badge badge-success noline text-uppercase'} %>
+            <% end %>
+          </p>
 
-        <h5>Orientadores:</h5>
-        <ul>
-        <% @project.supervisors.each do |p| %>
-          <li><%= link_to p.name, person_path(p) %> (<%=p.email%>)</li>
-        <% end %>
-        </ul>
-        </div>
- 
-        <!-- Categorias/Apresentacao/Tags -->
-        <div>
+          <hr>
+
+          <h5>Elementos do projecto:</h5>
+          <div class="row">
+              <% @project.people.each do |p| %>
+                <div class="col-md-3 text-center py-1">
+                  <%= link_to image_tag(p.photo, class: "rounded-circle imgCover imgDetailsProj"), person_path(p) %></br>
+                  <%= link_to p.name, person_path(p), class: "noline" %> <!-- (<%=p.email%>)--></br>
+                </div>
+              <% end %>      
+          </div>
+
+          <h5>Orientadores:</h5>
+          <div class="row">
+              <% @project.supervisors.each do |p| %>
+                <div class="col-md-3 text-center py-1">
+                  <%= link_to image_tag(p.photo, class: "rounded-circle imgCover imgDetailsProj"), person_path(p) %></br>
+                  <%= link_to p.name, person_path(p), class: "noline" %> <!--(<%=p.email%>)--></br>
+                </div>
+              <% end %>      
+          </div>
+
+
+          <hr>
+          <!-- Categorias/Apresentacao/Tags -->
+          <div>
             <% if @project.presentation.nil? %>
-            <h4>Sem apresentação definida.</h4>
+              <h4>Sem apresentação definida.</h4>
             <%else%>
-            <h4>Detalhes da apresentação</h4>
-            <span class="pr-0 name corVerde">Data:</span>
-                    <% if @project.presentation.date.present? %>
-                    <%= @project.presentation.date.to_formatted_s(:long) %>
-                    <% else %>
-                    por definir.
-                    <% end %>
-                    <span class="pr-0 pl-2 name corVerde">Sala:</span>
-                    <%= @project.presentation.room%>
+              <h4>Detalhes da apresentação</h4>
 
-                    <h5>Júri:</h5>
-                    <ul>
-                    <% @project.presentation.juries.each do |juri| %>
-                    <li><%= link_to juri.name, person_path(juri) %> (<%=juri.email%>)</li>
-                    <% end %>
-                    </ul>
-                    </p>
+              <span class="pr-0 name corVerde">Data:</span>
 
+              <% if @project.presentation.date.present? %>
+                <%= @project.presentation.date.to_formatted_s(:long) %>
+              <% else %>
+                por definir.
+              <% end %>
+
+              <span class="pr-0 pl-2 name corVerde">Sala:</span>
+
+              <%= @project.presentation.room%>
+
+              <h5>Júri:</h5>
+
+              <ul>
+                <% @project.presentation.juries.each do |juri| %>
+                  <li><%= link_to juri.name, person_path(juri) %> (<%=juri.email%>)</li>
+                <% end %>
+              </ul>   
             <%end%>
+
+            <hr>
 
             <h4>Documentos</h4>
             <ul>
-            <% @project.documents.each do |doc| %>
-            <li><%= link_to doc.document_file_name, doc.document.url %> (<%= Filesize.from("#{doc.document_file_size} B").pretty %>)</li>
-            
-            <% end %>
-            <% if (@project.presentation.present?  and @project.presentation.slides.present?) %>
-            <li><%= link_to 'Slides da apresentação', @project.presentation.slides.url(:original, false)%> (<%= Filesize.from("#{@project.presentation.slides_file_size} B").pretty %>)
-            </li>
-            <% elsif (@project.presentation.present?  and @project.presentation.slides.blank?) %>
-            <li>Slides da apresentação não disponíveis.</li>  
-            <% end %>
+              <% @project.documents.each do |doc| %>
+                <li><%= link_to doc.document_file_name, doc.document.url %> (<%= Filesize.from("#{doc.document_file_size} B").pretty %>)</li>
+              <% end %>
+
+              <% if (@project.presentation.present?  and @project.presentation.slides.present?) %>
+                <li><%= link_to 'Slides da apresentação', @project.presentation.slides.url(:original, false)%> (<%= Filesize.from("#{@project.presentation.slides_file_size} B").pretty %>)
+                </li>
+              <% elsif (@project.presentation.present?  and @project.presentation.slides.blank?) %>
+                <li>Slides da apresentação não disponíveis.</li>  
+              <% end %>
             </ul>
+
+            <hr>
 
             <h4>Projectos relacionados</h4>
             <ul>
-            <% @related_projects.each do |rp| %>
-            <li><%= link_to rp.title, project_path(rp) %> (<%=rp.course_unit.name%> / <%=rp.course_unit.course.name%>
-              <div class="tags">
-              <% rp.tags.each do |rpt| %>
-                <% if @project.tags.ids.include? rpt.id %>
-                  <%=link_to rpt.name, { :action => :index, :controller => :projects, :tag => rpt.name }, {:style => 'background-color:lightGrey;border-radius: 5px 5px 5px 5px;'} %>
-                <% else %>
-                  <%=link_to rpt.name, { :action => :index, :controller => :projects, :tag => rpt.name }, {:style => 'border:1px solid black;border-radius: 1px 1px 1px 1px;overflow:hidden;'} %>
-                <% end %>
+              <% @related_projects.each do |rp| %>
+              <li>
+                <%= link_to rp.title, project_path(rp), class:"noline" %> (<%=rp.course_unit.name%>) / <%=rp.course_unit.course.name%>
+                <div class="tags">
+                  <% rp.tags.each do |rpt| %>
+                    <% if @project.tags.ids.include? rpt.id %>
+                      <%=link_to rpt.name, { :action => :index, :controller => :projects, :tag => rpt.name }, {:class => 'badge badge-default noline'} %>
+                    <% else %>
+                      <%=link_to rpt.name, { :action => :index, :controller => :projects, :tag => rpt.name }, {:class => 'badge badge-success noline'} %>
+                    <% end %>              
+                  <% end %>
+                  </br></br>
+                </div>
+              </li>
               <% end %>
-              </div>
-            </li>
-            <% end %>
             </ul>   
-          </div>
+        </div>
       </article>
 
           

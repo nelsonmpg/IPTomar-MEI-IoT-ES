@@ -13,9 +13,12 @@
 	}
 .articlesClassic article{
 	position:relative;
+	
 	}
 .articlesClassic article img,.articlesClassic article>iframe{
 	width:30%; /* Esta assim: width:30%;  ---> Por alguma razão estava lixar o tamnho da imagem*/
+	max-height:300px;
+	object-fit: cover;
 	}
 @media screen and (max-width: 775px){
 	.articlesClassic article img,.articlesClassic article>iframe{

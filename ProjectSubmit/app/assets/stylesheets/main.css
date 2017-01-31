@@ -223,7 +223,7 @@ body {
     line-height: 1.5;
     background-color: #FDFDFD;
     background-image: url(/img/ipt.jpg);
-    background-size: 100% 100%;
+    background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -259,6 +259,12 @@ h5 {
 h6 {
     font-size: 0.75em;
 }
+h7 {
+    font-size: 0.65em;
+}
+h8 {
+    font-size: 0.55em;
+}
 
 
 
@@ -266,7 +272,7 @@ h6 {
 /* botões para mudar entre grid e list */
 .switch {
     width: 100%;
-    font-size: 0.8em;
+   /* font-size: 0.8em;*/
     margin-bottom: 10px;
 }
 @media screen and (max-width: 530px) {
@@ -568,7 +574,30 @@ img {
 	padding-bottom: 3em;
 }
 
+.centrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.fim{
+    width:100%;
+    position:absolute;
+    bottom:0;
+}
+
+.imgCover{
+    object-fit: cover;
+}
+
+.imgDetailsProj{
+    width: 150px;
+    height: 150px;
+}
+
+.myCarousel{
+    height: 500px;
+}
 
 
 /** Fim das minhas alterações especificias **/

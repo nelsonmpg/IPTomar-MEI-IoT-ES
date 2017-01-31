@@ -4,7 +4,7 @@
         <ul class="category_list">
             <!-- <a href="/schools">Escolas</a> -->
             <% schools.each do |school|%>
-                <li><%= link_to school.name, school %></li>
+                <li><%= link_to school.name, school, :class => "noline" %></li>
             <%end%>
         </ul>
     </div>
@@ -13,7 +13,7 @@
         <h3 class="title">Cursos (10 random)</h3>
         <ul class="category_list">
             <% courses.each do |course|%>
-                <li><%= link_to course.name, course %></li>
+                <li><%= link_to course.name, course, :class => "noline" %></li>
             <%end%>
         </ul>
     </div>
