@@ -32,14 +32,14 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12">
-                    <label class="custom-control custom-checkbox col-md-3">
+                <div class="col-md-12 text-center">
+                    <label class="custom-control custom-checkbox mr-5">
                         <%=f.check_box :featured, class: 'custom-control-input' %>
                         <%=f.label :"Destacar", class: 'custom-control-description' %>
                         <span class="custom-control-indicator"></span>
                     </label>
 
-                    <label class="custom-control custom-checkbox col-md-5">
+                    <label class="custom-control custom-checkbox ml-5">
                         <%=f.check_box :finished, class: 'custom-control-input' %>
                         <%=f.label :"Projecto acabado", class: 'custom-control-description' %>
                         <span class="custom-control-indicator"></span>
@@ -49,9 +49,9 @@
             
 
             <div class="row">
-                <fieldset class="form-group has-success col-md-5">
+                <fieldset class="form-group has-success col-md-6">
                     <%=f.label :"Data do Projeto" %></br>
-                    <%=f.date_select :date, :start_year => 2010, :end_year => Date.today.year + 1, include_blank: true, class: 'form-control custom-select' %>
+                    <%=f.date_select :date, {:start_year => 2010, :end_year => Date.today.year + 1, include_blank: true}, {class: 'form-control custom-select widthAuto'} %>
                 </fieldset> 
                 
                 <fieldset class="form-group has-success col-md-2">
@@ -61,36 +61,34 @@
             </div>
 
             <div class="row">
-                    <fieldset class="form-group has-success col-md-5">
+                <fieldset class="form-group has-success col-md-12">
                     <%=f.label :"Link GitHub" %>
                     <%=f.text_field :github, class: 'form-control' %>
                 </fieldset>
-
-                <fieldset class="form-group has-success col-md-5">
+            </div>
+                
+            <div class="row">
+                <fieldset class="form-group has-success col-md-12">
                     <%=f.label :"Url do Projeto" %>
                     <%=f.text_field :project_url, class: 'form-control' %>
                 </fieldset>
             </div>
-                
             
                 
             <div class="row">
-                    <fieldset class="form-group has-success col-md-12">
+                <fieldset class="form-group has-success col-md-6">
                     <%= f.fields_for :courses, @project.course_unit do |course| %>
                         <%=course.label :course_id, "Curso" %></br>
-                        <%=course.collection_select :course_id, Course.order(:name),:id, :name, include_blank: true%>
+                        <%=course.collection_select :course_id, Course.order(:name),:id, :name, {prompt: "Seleccione uma opção"}, {class: "form-control"} %>
                     <% end %>
                 </fieldset>
-            </div>
-                
 
-            <div class="row">
-                    <fieldset class="form-group has-success col-md-7">
+                <fieldset class="form-group has-success col-md-6">
                     <%= f.label :course_unit_id, "Unidade Curricular" %></br>
-                    <%= f.grouped_collection_select :course_unit_id, Course.order(:name), :course_units, :name, :id, :name, include_blank: true %>
+                    <%= f.grouped_collection_select :course_unit_id, Course.order(:name), :course_units, :name, :id, :name, {prompt: "Seleccione uma opção"}, {class: "form-control "} %>
                 </fieldset>
             </div>
-                
+
 
             
             <div class="row">
@@ -112,10 +110,10 @@
                 <div class="row">
                     <fieldset class="form-group has-success col-md-7">
                         <%= ff.label :date, "Data de Apresentação" %></br>
-                        <%=ff.datetime_select :date, :start_year => 2010, :end_year => Date.today.year + 1, class: 'form-control', include_blank: true, type: "datetime-local" %>
+                        <%=ff.datetime_select :date, {:start_year => 2010, :end_year => Date.today.year + 1, include_blank: true, type: "datetime-local"}, {class: 'form-control widthAuto d-inline'} %>
                     </fieldset>
 
-                    <fieldset class="form-group has-success col-md-4">
+                    <fieldset class="form-group has-success col-md-5">
                         <%= ff.label :room, "Sala de Apresentação" %>
                         <%= ff.text_field :room, class: 'form-control' %>
                     </fieldset>

@@ -23,7 +23,7 @@
 
 			<div class="p-1">
 				<span class="category"> <!-- devia-se colocar lá de alguma forma o nome completo do curso, iniciais são pouco claras -->
-					<h6><%= proj.course_unit.course.name %></h6>
+					<h5 class="py-1"><%= proj.course_unit.course.name %></h5>
 					<!--<h7><%= proj.course_unit.name %></h7>	-->			
 				</span>
 
@@ -35,7 +35,7 @@
 					<%= truncate(proj.resume, length: 80) %>
 				</p>
 
-				<span class="date centrar fim">
+				<span class="date text-center fim">
 					<i class="fa fa-calendar pr-1"></i>
 					<%=proj.date.to_formatted_s(:long)%>
 				</span>

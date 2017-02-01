@@ -239,7 +239,6 @@ h6 {
     font-weight: 500;
     text-transform: none;
     line-height: 1;
-    padding: 10px 0px;
 }
 h1 {
     font-size: 2.1em;
@@ -293,7 +292,7 @@ h8 {
 
 /* articles = projectos (lista) */
 .index article span {
-    padding: 10px;
+    /* padding: 10px;*/ /* Aumenta muito o padding nas caixas dos projetos */
 }
 article {
     box-sizing: border-box;
@@ -311,7 +310,7 @@ article {
 .index article h1,
 .index article p,
 .index article span {
-    padding: 10px;
+    /* padding: 10px; */ /* Aumenta muito o padding nas caixas dos projetos */
 }
 article img {
     -webkit-transition: 0.3s all ease;
@@ -597,6 +596,10 @@ img {
 
 .myCarousel{
     height: 500px;
+}
+
+.widthAuto{
+    width: auto;
 }
 
 
