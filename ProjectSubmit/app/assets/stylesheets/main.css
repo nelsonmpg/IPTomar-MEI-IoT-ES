@@ -613,13 +613,12 @@ img {
     }
 }
 
-/* isto só funciona se for scss (é código dinâmico sass) */
-@include media-breakpoint-down(sm) { 
-	.container{
-        width:auto;
-    }
- }
 
  .articlesGrid {
  	width: 100%;
  }
+
+.css1 { font-size: 0.6em; }
+.css2 { font-size: 0.8em; }
+.css3 { font-size: 1.0em; }
+.css4 { font-size: 1.2em; }

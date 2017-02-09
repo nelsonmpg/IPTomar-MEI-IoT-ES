@@ -124,8 +124,8 @@
                     <fieldset class="form-group col-md-12">
                         <%#><%= ff.fields_for :presentation, "Slides da Apresentação" %>
                         <%= render 'presentation_fields', f: ff %>
-                        <div class="links mt-2">
-                            <%= link_to_add_association 'Adicionar Apresentação', f, :presentation, class:"btn btn-info btn-sm" %>
+                        <div id="add-slides" class="links mt-2">
+                            <%= link_to_add_association 'Adicionar Apresentação', f, :presentation, :force_non_association_create => true, class:"btn btn-info btn-sm" %>
                         </div>
                     </fieldset>
                 </div>

@@ -1,0 +1,12 @@
+<section class="margin"> 
+	<div class="content">
+		<div class="row">
+			<div class="col widget">
+			<h3>Projectos destacados!</h3>
+			</div>
+		</div>
+
+		<%= render 'projects/projects', collection: @projects_list = @projects.paginate(:page => params[:page]) %>
+
+	</div>	
+</section>

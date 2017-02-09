@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   #TODO: reorganizar rotas com
   # - nested routes quando fizer sentido, implica mudar links nas views
   # - excluír rotas desnecessárias (por exemplo, precisam do show para documents?)
+  get 'projects/featured', to: 'home#featured', as: 'show_featured_projects'
   resources :documents
   resources :projects
   resources :schools
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   resources :institutions
   resources :presentations
   resources :tags, except: :show
-  get 'tags/:tag', to: 'projects#index'
+  get 'tags/:tag', to: 'home#index', as: 'show_tag'
   
 
   devise_for :users, controllers: { sessions: 'users/sessions' }

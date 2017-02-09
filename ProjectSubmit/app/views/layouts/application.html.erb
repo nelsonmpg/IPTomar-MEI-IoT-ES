@@ -27,7 +27,7 @@
         <!-- sidebar com 3/12 do container -->
         <% if @sb_schools.present? %>
         <div class="col-3 hidden-md-down">
-            <%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags:  @sb_tags} %>
+            <%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags:  @sb_tags, tags_cloud: @tags_cloud} %>
         </div>
         <% end %>
         

@@ -10,20 +10,19 @@
     </div>
 
     <div class="widget rounded">
-        <h3 class="title">Cursos (10 random)</h3>
-        <ul class="category_list">
-            <% courses.each do |course|%>
-                <li><%= link_to course.name, course, :class => "noline" %></li>
-            <%end%>
-        </ul>
-    </div>
-
-    <div class="widget rounded">
         <h3 class="title text-xs-center">Tags mais frequentes</h3>
         <ul class="category_list">
             <% tags.each do |tag|%>
-                <li><%= link_to tag.name, { :action => "index", :controller => "/projects", :tag => tag.name }, :class => "noline" %></li>
+                <li><%= link_to tag.name, show_tag_path(:tag => tag.name), :class => "noline" %> (<%=tag.taggings_count%>)</li>
             <%end%>
         </ul>
+
+    </div>
+
+    <div class="widget rounded">
+        <h3 class="title text-xs-center">Tag Cloud de Projectos</h3>
+        <% tag_cloud(tags_cloud, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+        <%= link_to tag.name, show_tag_path(:tag => tag.name), :class => css_class %>
+        <% end %>
     </div>
 </div>

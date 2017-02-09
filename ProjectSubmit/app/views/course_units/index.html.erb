@@ -2,6 +2,11 @@
  <% if user_signed_in?%>
  <%= link_to 'Adicionar Cadeira', new_course_unit_path %>
 <%end%>  
+
+<%= form_tag(course_units_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :pesquisa, params[:pesquisa], placeholder: "Search Recipes" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
 <table>
   <% @course_units.each do |course_unit| %>
     <tr>
