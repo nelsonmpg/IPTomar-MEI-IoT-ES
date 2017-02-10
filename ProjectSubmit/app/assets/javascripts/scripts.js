@@ -87,6 +87,31 @@ $(window).scroll(function() {
     }
 });
 
+// slides presentation - esconder button quando existe 1
+
+$(function() {
+  // limits the number of categories
+  $('#presentation-slides').on('cocoon:after-insert', function() {
+    check_to_hide_or_show_add_link();
+  });
+
+  $('#presentation-slides').on('cocoon:after-remove', function() {
+    check_to_hide_or_show_add_link();
+  });
+
+  check_to_hide_or_show_add_link();
+
+  function check_to_hide_or_show_add_link() {
+    if ($('#presentation-slides .nested-fields:visible').length >= 1) {
+      $('#add-slides a').hide();
+    } else {
+      $('#add-slides a').show();
+    }
+  }
+});
+
+
+
 // lightbox stuff
 // $( function(){
 //     var activityIndicatorOn = function() {

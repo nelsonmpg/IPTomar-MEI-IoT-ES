@@ -13,11 +13,11 @@
 
 		<div class="content_container">
 		<article class="rounded">
-		<h4>Disciplinas do curso <%= @course.name %></h4>
+		<h4>Disciplinas do curso <%= @course.name %> <%= button_tag "Ver todas", :onclick => "javascript:$( 'li.no-projects' ).toggle()", class: "btn btn-success btn-sm" %></h4>
 		<ul>
 			<% @course.course_units.each do |cu| %>
 				<% if cu.projects.empty? %>
-					<li><%= link_to cu.name, course_unit_path(cu) %> (<%= cu.projects.size %> projectos)</li>
+					<li class="no-projects" style="display: none"><%= link_to cu.name, course_unit_path(cu) %> (<%= cu.projects.size %> projectos)</li>
 				<% else %>
 					<li><b><%= link_to cu.name, course_unit_path(cu) %> (<%= cu.projects.size %> projectos)</b></li>
 				<% end %>
@@ -39,6 +39,5 @@
 				<%= render 'projects/projects', collection: @projects_list = @course.projects.paginate(:page => params[:page], :per_page => 8) %>
 				<% end %>
 
-		<%= render partial: "shared/sidebar", locals: {schools: @sb_schools, courses: @sb_courses, tags:  @sb_tags} %>
 	</div>  
 </section>

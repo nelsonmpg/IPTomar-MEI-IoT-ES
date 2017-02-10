@@ -26,8 +26,8 @@
               <% end %>
             </div>
             <div class="col-xs-6 pr-3">
-              <b><span><%= link_to @project.course_unit.name, course_unit_path(@project.course_unit), :class => "noline"  %></span></b>&bull;
-              <span><%= link_to @project.course_unit.course.name, course_path(@project.course_unit.course), :class => "noline"  %></span>&bull;
+              <b><span><%= link_to @project.course_unit.name, course_unit_path(@project.course_unit), :class => "noline" %></span></b> &bull; 
+              <span><%= link_to @project.course_unit.course.name, course_path(@project.course_unit.course), :class => "noline" %></span> &bull; 
               <span><%= link_to @project.course_unit.course.school.initials, school_path(@project.course_unit.course.school) , :class => "noline" %></span>
             </div>
         </div>
@@ -129,9 +129,9 @@
                 <div class="tags">
                   <% rp.tags.each do |rpt| %>
                     <% if @project.tags.ids.include? rpt.id %>
-                      <%=link_to rpt.name, { :action => :index, :controller => :projects, :tag => rpt.name }, {:class => 'badge badge-default noline'} %>
-                    <% else %>
                       <%=link_to rpt.name, { :action => :index, :controller => :projects, :tag => rpt.name }, {:class => 'badge badge-success noline'} %>
+                    <% else %>
+                      <%=link_to rpt.name, { :action => :index, :controller => :projects, :tag => rpt.name }, {:class => 'badge badge-default noline'} %>
                     <% end %>              
                   <% end %>
                   </br></br>
